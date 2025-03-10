@@ -13,8 +13,8 @@
                 :data="{{ $adminUser->toJson() }}"
                 :activation="!!'{{ $activation }}'"
                 inline-template>
-            
-                <form class="form-horizontal form-edit" method="post" @submit.prevent="onSubmit" :action="action">
+
+                <form class="form-horizontal form-edit" method="post" enctype="multipart/form-data" @submit.prevent="onSubmit" :action="action">
 
                     <div class="card-header">
                         <i class="fa fa-pencil"></i> {{ trans('admin.admin-user.actions.edit', ['name' => $adminUser->first_name]) }}

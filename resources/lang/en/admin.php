@@ -30,5 +30,23 @@ return [
         ],
     ],
 
+    'brand' => [
+        'title' => 'Brands',
+
+        'actions' => [
+            'index' => 'Brands',
+            'create' => 'New Brand',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'slug' => 'Slug',
+            'name' => 'Name',
+            'icon' => 'Icon',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
