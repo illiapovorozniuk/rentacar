@@ -6,7 +6,6 @@
 
     <div class="container-xl">
         <div class="card">
-
             <brand-form
                 :action="'{{ $brand->resource_url }}'"
                 :data="{{ $brand->toJson() }}"

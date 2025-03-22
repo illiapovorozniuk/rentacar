@@ -28,8 +28,6 @@ class StoreBrand extends FormRequest
         return [
             'slug' => ['required', Rule::unique('brands', 'slug'), 'string'],
             'name' => ['required', 'string'],
-            'gallery' => ['required', 'array'],
-
         ];
     }
 

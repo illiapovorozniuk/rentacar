@@ -18,6 +18,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class BrandsController extends Controller
@@ -33,7 +34,7 @@ class BrandsController extends Controller
     {
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Brand::class)->processRequestAndGet(
-            // pass the request with params
+        // pass the request with params
             $request,
 
             // set columns to query
@@ -58,8 +59,8 @@ class BrandsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function create()
     {
@@ -78,7 +79,11 @@ class BrandsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-        $sanitized['icon'] = $sanitized['gallery'][0]['path'];
+
+        if ($request->hasFile('icon')) {
+            $file = $request->file('icon');
+            $sanitized['icon'] = saveOrUpdateImage($file, 'images/brands', $sanitized['slug']);
+        }
         // Store the Brand
         $brand = Brand::create($sanitized);
 
@@ -93,8 +98,8 @@ class BrandsController extends Controller
      * Display the specified resource.
      *
      * @param Brand $brand
-     * @throws AuthorizationException
      * @return void
+     * @throws AuthorizationException
      */
     public function show(Brand $brand)
     {
@@ -107,8 +112,8 @@ class BrandsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Brand $brand
-     * @throws AuthorizationException
      * @return Factory|View
+     * @throws AuthorizationException
      */
     public function edit(Brand $brand)
     {
@@ -131,6 +136,10 @@ class BrandsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        if ($request->hasFile('icon')) {
+            $file = $request->file('icon');
+            $sanitized['icon'] = saveOrUpdateImage($file, 'images/brands', $sanitized['slug'], 'update', $brand->icon);
+        }
 
         // Update changed values Brand
         $brand->update($sanitized);
@@ -150,11 +159,12 @@ class BrandsController extends Controller
      *
      * @param DestroyBrand $request
      * @param Brand $brand
-     * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     * @throws Exception
      */
     public function destroy(DestroyBrand $request, Brand $brand)
     {
+        deleteImage($brand->icon);
         $brand->delete();
 
         if ($request->ajax()) {
@@ -168,10 +178,10 @@ class BrandsController extends Controller
      * Remove the specified resources from storage.
      *
      * @param BulkDestroyBrand $request
-     * @throws Exception
      * @return Response|bool
+     * @throws Exception
      */
-    public function bulkDestroy(BulkDestroyBrand $request) : Response
+    public function bulkDestroy(BulkDestroyBrand $request): Response
     {
         DB::transaction(static function () use ($request) {
             collect($request->data['ids'])
