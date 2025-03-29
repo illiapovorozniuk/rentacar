@@ -58,3 +58,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('body-types')->name('body-types/')->group(static function() {
+            Route::get('/',                                             'BodyTypesController@index')->name('index');
+            Route::get('/create',                                       'BodyTypesController@create')->name('create');
+            Route::post('/',                                            'BodyTypesController@store')->name('store');
+            Route::get('/{bodyType}/edit',                              'BodyTypesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'BodyTypesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{bodyType}',                                  'BodyTypesController@update')->name('update');
+            Route::delete('/{bodyType}',                                'BodyTypesController@destroy')->name('destroy');
+        });
+    });
+});
