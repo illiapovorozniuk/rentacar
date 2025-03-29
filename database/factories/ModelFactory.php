@@ -41,3 +41,14 @@ $factory->define(App\Models\BodyType::class, static function (Faker\Generator $f
         
     ];
 });
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Type::class, static function (Faker\Generator $faker) {
+    return [
+        'slug' => $faker->unique()->slug,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        'name' => ['en' => $faker->firstName],
+        
+    ];
+});

@@ -66,5 +66,22 @@ return [
         ],
     ],
 
+    'type' => [
+        'title' => 'Types',
+
+        'actions' => [
+            'index' => 'Types',
+            'create' => 'New Type',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'slug' => 'Slug',
+            'name' => 'Name',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
