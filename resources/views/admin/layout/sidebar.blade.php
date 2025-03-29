@@ -1,10 +1,13 @@
 <div class="sidebar">
     <nav class="sidebar-nav">
-        <ul class="nav">
+        <ul class="nav" style="background: #000">
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.content') }}</li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/brands') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.brand.title') }}</a></li>
-           <li class="nav-item"><a class="nav-link" href="{{ url('admin/body-types') }}"><i class="nav-icon icon-compass"></i> {{ trans('admin.body-type.title') }}</a></li>
-           <li class="nav-item"><a class="nav-link" href="{{ url('admin/types') }}"><i class="nav-icon icon-diamond"></i> {{ trans('admin.type.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/brands') }}">
+                    <img src="{{ asset('images/admin/sidebar/brands.svg') }}" alt="brands" />{{ trans('admin.brand.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/body-types') }}">
+                   <img src="{{ asset('images/admin/sidebar/body-types.svg') }}" alt="body-types" />{{ trans('admin.body-type.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/types') }}">
+                   <img src="{{ asset('images/admin/sidebar/types.svg') }}" alt="types" />{{ trans('admin.type.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
