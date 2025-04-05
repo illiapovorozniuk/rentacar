@@ -5,3 +5,4 @@ import './brand';
 import './body-type';
 import './type';
 import './fuel';
+import './car-model';

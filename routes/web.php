@@ -103,3 +103,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('car-models')->name('car-models/')->group(static function() {
+            Route::get('/',                                             'CarModelsController@index')->name('index');
+            Route::get('/create',                                       'CarModelsController@create')->name('create');
+            Route::post('/',                                            'CarModelsController@store')->name('store');
+            Route::get('/{carModel}/edit',                              'CarModelsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CarModelsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{carModel}',                                  'CarModelsController@update')->name('update');
+            Route::delete('/{carModel}',                                'CarModelsController@destroy')->name('destroy');
+        });
+    });
+});

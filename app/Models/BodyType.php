@@ -12,21 +12,21 @@ use HasTranslations;
         'slug',
         'name',
         'icon',
-    
+
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
-    
+
     ];
     // these attributes are translatable
     public $translatable = [
         'name',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
 
     /* ************************ ACCESSOR ************************* */
@@ -34,5 +34,10 @@ use HasTranslations;
     public function getResourceUrlAttribute()
     {
         return url('/admin/body-types/'.$this->getKey());
+    }
+
+    public function carModel()
+    {
+        return $this->hasMany(CarModel::class);
     }
 }

@@ -63,3 +63,15 @@ $factory->define(App\Models\Fuel::class, static function (Faker\Generator $faker
         
     ];
 });
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\CarModel::class, static function (Faker\Generator $faker) {
+    return [
+        'slug' => $faker->unique()->slug,
+        'brand_id' => $faker->randomNumber(5),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        'name' => ['en' => $faker->firstName],
+        
+    ];
+});

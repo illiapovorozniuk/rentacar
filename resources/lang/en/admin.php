@@ -100,5 +100,23 @@ return [
         ],
     ],
 
+    'car-model' => [
+        'title' => 'Car Models',
+
+        'actions' => [
+            'index' => 'Car Models',
+            'create' => 'New Car Model',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'slug' => 'Slug',
+            'name' => 'Name',
+            'brand_id' => 'Brand',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

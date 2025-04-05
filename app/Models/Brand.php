@@ -38,7 +38,10 @@ class Brand extends Model implements HasMedia
     {
         return url('/admin/brands/' . $this->getKey());
     }
-
+    public function carModel()
+    {
+        return $this->hasMany(CarModel::class);
+    }
     /* ************************ MEDIA ************************* */
     public function registerMediaCollections(): void
     {
