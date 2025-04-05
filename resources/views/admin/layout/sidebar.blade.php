@@ -8,6 +8,7 @@
                    <img src="{{ asset('images/admin/sidebar/body-types.svg') }}" alt="body-types" />{{ trans('admin.body-type.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/types') }}">
                    <img src="{{ asset('images/admin/sidebar/types.svg') }}" alt="types" />{{ trans('admin.type.title') }}</a></li>
+           <li class="nav-item"><a class="nav-link" href="{{ url('admin/fuels') }}"><img height="25" width="50" src="{{ asset('images/admin/sidebar/fuels.svg') }}" alt="types" /> {{ trans('admin.fuel.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

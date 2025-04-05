@@ -83,5 +83,22 @@ return [
         ],
     ],
 
+    'fuel' => [
+        'title' => 'Fuels',
+
+        'actions' => [
+            'index' => 'Fuels',
+            'create' => 'New Fuel',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'slug' => 'Slug',
+            'name' => 'Name',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
