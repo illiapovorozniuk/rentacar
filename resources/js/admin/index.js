@@ -6,3 +6,4 @@ import './body-type';
 import './type';
 import './fuel';
 import './car-model';
+import './cars-color';

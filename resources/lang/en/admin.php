@@ -118,5 +118,23 @@ return [
         ],
     ],
 
+    'cars-color' => [
+        'title' => 'Cars Colors',
+
+        'actions' => [
+            'index' => 'Cars Colors',
+            'create' => 'New Cars Color',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'slug' => 'Slug',
+            'name' => 'Name',
+            'color_code' => 'Color code',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
