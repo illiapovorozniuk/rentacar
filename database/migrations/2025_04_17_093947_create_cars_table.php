@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cars', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->unsignedInteger('car_model_id');
             $table->foreign('car_model_id')->references('id')->on('car_models')->onDelete('cascade');
             $table->string('availability_label')->default('now');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->unsignedInteger('min_day_reservation')->default(1);
             $table->unsignedInteger('free_delivery')->default(0);
             $table->string('registration_number');
-            $table->unsignedBigInteger('color_id');
+            $table->unsignedInteger('color_id');
             $table->foreign('color_id')->references('id')->on('cars_colors')->onDelete('cascade');
             $table->unsignedInteger('fuel_id');
             $table->foreign('fuel_id')->references('id')->on('fuels')->onDelete('cascade');

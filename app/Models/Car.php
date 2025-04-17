@@ -31,18 +31,24 @@ class Car extends Model
         'attribute_engine',
         'attribute_baggage',
         'status',
-    
+
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
 
+    public function carModel() {
+        return $this->belongsTo(CarModel::class);
+    }
+    public function carsColor() {
+        return $this->belongsTo(CarsColor::class);
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()

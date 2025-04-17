@@ -12,23 +12,27 @@ use HasTranslations;
         'slug',
         'name',
         'color_code',
-    
+
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
-    
+
     ];
     // these attributes are translatable
     public $translatable = [
         'name',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
 
+    public function car()
+    {
+        return $this->hasMany(Car::class);
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()

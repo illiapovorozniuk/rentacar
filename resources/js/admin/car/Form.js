@@ -2,10 +2,14 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('car-form', {
     mixins: [AppForm],
+    props: [
+        'car_models',
+        'cars_colors',
+    ],
     data: function() {
         return {
             form: {
-                car_model_id:  '' ,
+                car_model:  '' ,
                 availability_label:  '' ,
                 price_1:  '' ,
                 price_7:  '' ,
@@ -17,7 +21,7 @@ Vue.component('car-form', {
                 min_day_reservation:  '' ,
                 free_delivery:  '' ,
                 registration_number:  '' ,
-                color_id:  '' ,
+                cars_color:  '' ,
                 fuel_id:  '' ,
                 attribute_year:  '' ,
                 attribute_seats:  '' ,
@@ -29,7 +33,7 @@ Vue.component('car-form', {
                 attribute_engine:  '' ,
                 attribute_baggage:  '' ,
                 status:  false ,
-                
+
             }
         }
     }

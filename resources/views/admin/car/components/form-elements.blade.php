@@ -1,8 +1,22 @@
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('car_model_id'), 'has-success': fields.car_model_id && fields.car_model_id.valid }">
-    <label for="car_model_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.car_model_id') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.car_model_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('car_model_id'), 'form-control-success': fields.car_model_id && fields.car_model_id.valid}" id="car_model_id" name="car_model_id" placeholder="{{ trans('admin.car.columns.car_model_id') }}">
-        <div v-if="errors.has('car_model_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('car_model_id') }}</div>
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('car_model_id'), 'has-success': this.fields.car_model_id && this.fields.car_model_id.valid }">
+    <label for="car_model_id"
+           class="col-md-2">{{ trans('admin.forms.car_model_name') }}</label>
+    <div class="col-md-9 col-xl-8">
+
+        <multiselect
+            v-model="form.car_model"
+            :options="car_models"
+            :multiple="false"
+            track-by="id"
+            label="name"
+            tag-placeholder="{{ __('Select car_model') }}"
+            placeholder="{{ __('car_model') }}">
+        </multiselect>
+
+        <div v-if="errors.has('car_model_id')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('car_model_id') }}
+        </div>
     </div>
 </div>
 
@@ -94,11 +108,25 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('color_id'), 'has-success': fields.color_id && fields.color_id.valid }">
-    <label for="color_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.color_id') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.color_id" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('color_id'), 'form-control-success': fields.color_id && fields.color_id.valid}" id="color_id" name="color_id" placeholder="{{ trans('admin.car.columns.color_id') }}">
-        <div v-if="errors.has('color_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('color_id') }}</div>
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('color_id'), 'has-success': this.fields.color_id && this.fields.color_id.valid }">
+    <label for="color_id"
+           class="col-md-2">{{ trans('admin.forms.cars_color_name') }}</label>
+    <div class="col-md-9 col-xl-8">
+
+        <multiselect
+            v-model="form.cars_color"
+            :options="cars_colors"
+            :multiple="false"
+            track-by="id"
+            label="slug"
+            tag-placeholder="{{ __('Select cars_color') }}"
+            placeholder="{{ __('cars_color') }}">
+        </multiselect>
+
+        <div v-if="errors.has('color_id')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('color_id') }}
+        </div>
     </div>
 </div>
 

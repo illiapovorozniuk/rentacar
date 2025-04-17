@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\Car\IndexCar;
 use App\Http\Requests\Admin\Car\StoreCar;
 use App\Http\Requests\Admin\Car\UpdateCar;
 use App\Models\Car;
+use App\Models\CarModel;
+use App\Models\CarsColor;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -64,8 +66,10 @@ class CarsController extends Controller
     public function create()
     {
         $this->authorize('admin.car.create');
-
-        return view('admin.car.create');
+        return view('admin.car.create',[
+            'car_models' => CarModel::all(),
+            'cars_colors' => CarsColor::all(),
+        ]);
     }
 
     /**
@@ -78,7 +82,8 @@ class CarsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $sanitized['car_model_id'] = $request->getCarModelId();
+        $sanitized['color_id'] = $request->getCarsColorId();
         // Store the Car
         $car = Car::create($sanitized);
 
@@ -114,9 +119,13 @@ class CarsController extends Controller
     {
         $this->authorize('admin.car.edit', $car);
 
+        $car->load('carModel');
+        $car->load('carsColor');
 
         return view('admin.car.edit', [
             'car' => $car,
+            'car_models' => CarModel::all(),
+            'cars_colors' => CarsColor::all(),
         ]);
     }
 
@@ -131,6 +140,8 @@ class CarsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['car_model_id'] = $request->getCarModelId();
+        $sanitized['color_id'] = $request->getCarsColorId();
 
         // Update changed values Car
         $car->update($sanitized);
