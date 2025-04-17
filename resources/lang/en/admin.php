@@ -136,43 +136,5 @@ return [
         ],
     ],
 
-    'car' => [
-        'title' => 'Cars',
-
-        'actions' => [
-            'index' => 'Cars',
-            'create' => 'New Car',
-            'edit' => 'Edit :name',
-        ],
-
-        'columns' => [
-            'id' => 'ID',
-            'car_model_id' => 'Car model',
-            'availability_label' => 'Availability label',
-            'price_1' => 'Price 1',
-            'price_7' => 'Price 7',
-            'price_30' => 'Price 30',
-            'price_31_more' => 'Price 31 more',
-            'deposit' => 'Deposit',
-            'km_included_per_day' => 'Km included per day',
-            'overlimit_charge_per_km' => 'Overlimit charge per km',
-            'min_day_reservation' => 'Min day reservation',
-            'free_delivery' => 'Free delivery',
-            'registration_number' => 'Registration number',
-            'color_id' => 'Color',
-            'attribute_year' => 'Attribute year',
-            'attribute_seats' => 'Attribute seats',
-            'attribute_1_to_100' => 'Attribute 1 to 100',
-            'attribute_max_speed' => 'Attribute max speed',
-            'attribute_horsepower' => 'Attribute horsepower',
-            'attribute_transmission' => 'Attribute transmission',
-            'attribute_doors' => 'Attribute doors',
-            'attribute_engine' => 'Attribute engine',
-            'attribute_baggage' => 'Attribute baggage',
-            'status' => 'Status',
-            
-        ],
-    ],
-
     // Do not delete me :) I'm used for auto-generation
 ];
