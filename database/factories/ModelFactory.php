@@ -87,3 +87,36 @@ $factory->define(App\Models\CarsColor::class, static function (Faker\Generator $
         
     ];
 });
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Car::class, static function (Faker\Generator $faker) {
+    return [
+        'car_model_id' => $faker->randomNumber(5),
+        'availability_label' => $faker->sentence,
+        'price_1' => $faker->randomFloat,
+        'price_7' => $faker->randomFloat,
+        'price_30' => $faker->randomFloat,
+        'price_31_more' => $faker->randomFloat,
+        'deposit' => $faker->randomNumber(5),
+        'km_included_per_day' => $faker->randomNumber(5),
+        'overlimit_charge_per_km' => $faker->randomFloat,
+        'min_day_reservation' => $faker->randomNumber(5),
+        'free_delivery' => $faker->randomNumber(5),
+        'registration_number' => $faker->sentence,
+        'color_id' => $faker->sentence,
+        'fuel_id' => $faker->randomNumber(5),
+        'attribute_year' => $faker->randomNumber(5),
+        'attribute_seats' => $faker->randomNumber(5),
+        'attribute_1_to_100' => $faker->randomFloat,
+        'attribute_max_speed' => $faker->randomNumber(5),
+        'attribute_horsepower' => $faker->randomNumber(5),
+        'attribute_transmission' => $faker->sentence,
+        'attribute_doors' => $faker->randomNumber(5),
+        'attribute_engine' => $faker->sentence,
+        'attribute_baggage' => $faker->randomNumber(5),
+        'status' => $faker->boolean(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
