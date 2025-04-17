@@ -5,6 +5,7 @@ Vue.component('car-form', {
     props: [
         'car_models',
         'cars_colors',
+        'fuels',
     ],
     data: function() {
         return {
@@ -22,7 +23,7 @@ Vue.component('car-form', {
                 free_delivery:  '' ,
                 registration_number:  '' ,
                 cars_color:  '' ,
-                fuel_id:  '' ,
+                fuel:  '' ,
                 attribute_year:  '' ,
                 attribute_seats:  '' ,
                 attribute_1_to_100:  '' ,

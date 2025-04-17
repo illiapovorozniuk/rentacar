@@ -39,7 +39,7 @@ class UpdateCar extends FormRequest
             'free_delivery' => ['sometimes', 'integer'],
             'registration_number' => ['sometimes', 'string'],
             'cars_color' => ['sometimes'],
-            'fuel_id' => ['sometimes', 'integer'],
+            'fuel' => ['sometimes'],
             'attribute_year' => ['sometimes', 'integer'],
             'attribute_seats' => ['nullable', 'integer'],
             'attribute_1_to_100' => ['nullable', 'numeric'],
@@ -60,9 +60,17 @@ class UpdateCar extends FormRequest
         }
         return null;
     }
+
     public function getCarsColorId(){
         if ($this->has('cars_color')){
             return $this->get('cars_color')['id'];
+        }
+        return null;
+    }
+
+    public function getFuelId(){
+        if ($this->has('fuel')){
+            return $this->get('fuel')['id'];
         }
         return null;
     }

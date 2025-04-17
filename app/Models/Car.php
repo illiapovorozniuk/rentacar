@@ -49,6 +49,9 @@ class Car extends Model
     public function carsColor() {
         return $this->belongsTo(CarsColor::class);
     }
+    public function fuel() {
+        return $this->belongsTo(Fuel::class);
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()

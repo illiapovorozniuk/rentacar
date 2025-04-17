@@ -12,6 +12,7 @@
             :action="'{{ url('admin/cars') }}'"
             :car_models="{{$car_models->toJson()}}"
             :cars_colors="{{$cars_colors->toJson()}}"
+            :fuels="{{$fuels->toJson()}}"
             v-cloak
             inline-template>
 

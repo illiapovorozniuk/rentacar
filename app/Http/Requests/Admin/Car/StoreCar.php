@@ -39,7 +39,7 @@ class StoreCar extends FormRequest
             'free_delivery' => ['required', 'integer'],
             'registration_number' => ['required', 'string'],
             'cars_color' => ['required'],
-            'fuel_id' => ['required', 'integer'],
+            'fuel' => ['required'],
             'attribute_year' => ['required', 'integer'],
             'attribute_seats' => ['nullable', 'integer'],
             'attribute_1_to_100' => ['nullable', 'numeric'],
@@ -63,6 +63,13 @@ class StoreCar extends FormRequest
     public function getCarsColorId(){
         if ($this->has('cars_color')){
             return $this->get('cars_color')['id'];
+        }
+        return null;
+    }
+
+    public function getFuelId(){
+        if ($this->has('fuel')){
+            return $this->get('fuel')['id'];
         }
         return null;
     }

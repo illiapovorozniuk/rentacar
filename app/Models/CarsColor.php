@@ -29,7 +29,7 @@ use HasTranslations;
 
     protected $appends = ['resource_url'];
 
-    public function car()
+    public function cars()
     {
         return $this->hasMany(Car::class);
     }

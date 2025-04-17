@@ -130,11 +130,25 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('fuel_id'), 'has-success': fields.fuel_id && fields.fuel_id.valid }">
-    <label for="fuel_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.fuel_id') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.fuel_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('fuel_id'), 'form-control-success': fields.fuel_id && fields.fuel_id.valid}" id="fuel_id" name="fuel_id" placeholder="{{ trans('admin.car.columns.fuel_id') }}">
-        <div v-if="errors.has('fuel_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('fuel_id') }}</div>
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('fuel_id'), 'has-success': this.fields.fuel_id && this.fields.fuel_id.valid }">
+    <label for="fuel_id"
+           class="col-md-2">{{ trans('admin.forms.fuel_name') }}</label>
+    <div class="col-md-9 col-xl-8">
+
+        <multiselect
+            v-model="form.fuel"
+            :options="fuels"
+            :multiple="false"
+            track-by="id"
+            label="slug"
+            tag-placeholder="{{ __('Select fuels') }}"
+            placeholder="{{ __('fuel') }}">
+        </multiselect>
+
+        <div v-if="errors.has('fuel_id')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('fuel_id') }}
+        </div>
     </div>
 </div>
 

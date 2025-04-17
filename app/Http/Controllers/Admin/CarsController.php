@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\Car\UpdateCar;
 use App\Models\Car;
 use App\Models\CarModel;
 use App\Models\CarsColor;
+use App\Models\Fuel;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -69,6 +70,7 @@ class CarsController extends Controller
         return view('admin.car.create',[
             'car_models' => CarModel::all(),
             'cars_colors' => CarsColor::all(),
+            'fuels' => Fuel::all(),
         ]);
     }
 
@@ -84,6 +86,7 @@ class CarsController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['car_model_id'] = $request->getCarModelId();
         $sanitized['color_id'] = $request->getCarsColorId();
+        $sanitized['fuel_id'] = $request->getFuelId();
         // Store the Car
         $car = Car::create($sanitized);
 
@@ -121,11 +124,13 @@ class CarsController extends Controller
 
         $car->load('carModel');
         $car->load('carsColor');
+        $car->load('fuel');
 
         return view('admin.car.edit', [
             'car' => $car,
             'car_models' => CarModel::all(),
             'cars_colors' => CarsColor::all(),
+            'fuels' => Fuel::all(),
         ]);
     }
 
@@ -142,6 +147,7 @@ class CarsController extends Controller
         $sanitized = $request->getSanitized();
         $sanitized['car_model_id'] = $request->getCarModelId();
         $sanitized['color_id'] = $request->getCarsColorId();
+        $sanitized['fuel_id'] = $request->getFuelId();
 
         // Update changed values Car
         $car->update($sanitized);
