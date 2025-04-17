@@ -31,7 +31,10 @@ use HasTranslations;
     ];
 
     protected $appends = ['resource_url'];
-
+    public function car()
+    {
+        return $this->hasMany(Car::class);
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()

@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
-                                            
+
                                             <option value="10">10</option>
                                             <option value="25">25</option>
                                             <option value="100">100</option>
@@ -53,26 +53,8 @@
                                         <th is='sortable' :column="'car_model_id'">{{ trans('admin.car.columns.car_model_id') }}</th>
                                         <th is='sortable' :column="'availability_label'">{{ trans('admin.car.columns.availability_label') }}</th>
                                         <th is='sortable' :column="'price_1'">{{ trans('admin.car.columns.price_1') }}</th>
-                                        <th is='sortable' :column="'price_7'">{{ trans('admin.car.columns.price_7') }}</th>
-                                        <th is='sortable' :column="'price_30'">{{ trans('admin.car.columns.price_30') }}</th>
-                                        <th is='sortable' :column="'price_31_more'">{{ trans('admin.car.columns.price_31_more') }}</th>
-                                        <th is='sortable' :column="'deposit'">{{ trans('admin.car.columns.deposit') }}</th>
-                                        <th is='sortable' :column="'km_included_per_day'">{{ trans('admin.car.columns.km_included_per_day') }}</th>
-                                        <th is='sortable' :column="'overlimit_charge_per_km'">{{ trans('admin.car.columns.overlimit_charge_per_km') }}</th>
-                                        <th is='sortable' :column="'min_day_reservation'">{{ trans('admin.car.columns.min_day_reservation') }}</th>
-                                        <th is='sortable' :column="'free_delivery'">{{ trans('admin.car.columns.free_delivery') }}</th>
                                         <th is='sortable' :column="'registration_number'">{{ trans('admin.car.columns.registration_number') }}</th>
-                                        <th is='sortable' :column="'color_id'">{{ trans('admin.car.columns.color_id') }}</th>
-                                        <th is='sortable' :column="'fuel_id'">{{ trans('admin.car.columns.fuel_id') }}</th>
                                         <th is='sortable' :column="'attribute_year'">{{ trans('admin.car.columns.attribute_year') }}</th>
-                                        <th is='sortable' :column="'attribute_seats'">{{ trans('admin.car.columns.attribute_seats') }}</th>
-                                        <th is='sortable' :column="'attribute_1_to_100'">{{ trans('admin.car.columns.attribute_1_to_100') }}</th>
-                                        <th is='sortable' :column="'attribute_max_speed'">{{ trans('admin.car.columns.attribute_max_speed') }}</th>
-                                        <th is='sortable' :column="'attribute_horsepower'">{{ trans('admin.car.columns.attribute_horsepower') }}</th>
-                                        <th is='sortable' :column="'attribute_transmission'">{{ trans('admin.car.columns.attribute_transmission') }}</th>
-                                        <th is='sortable' :column="'attribute_doors'">{{ trans('admin.car.columns.attribute_doors') }}</th>
-                                        <th is='sortable' :column="'attribute_engine'">{{ trans('admin.car.columns.attribute_engine') }}</th>
-                                        <th is='sortable' :column="'attribute_baggage'">{{ trans('admin.car.columns.attribute_baggage') }}</th>
                                         <th is='sortable' :column="'status'">{{ trans('admin.car.columns.status') }}</th>
 
                                         <th></th>
@@ -101,28 +83,10 @@
                                         <td>@{{ item.car_model_id }}</td>
                                         <td>@{{ item.availability_label }}</td>
                                         <td>@{{ item.price_1 }}</td>
-                                        <td>@{{ item.price_7 }}</td>
-                                        <td>@{{ item.price_30 }}</td>
-                                        <td>@{{ item.price_31_more }}</td>
-                                        <td>@{{ item.deposit }}</td>
-                                        <td>@{{ item.km_included_per_day }}</td>
-                                        <td>@{{ item.overlimit_charge_per_km }}</td>
-                                        <td>@{{ item.min_day_reservation }}</td>
-                                        <td>@{{ item.free_delivery }}</td>
                                         <td>@{{ item.registration_number }}</td>
-                                        <td>@{{ item.color_id }}</td>
-                                        <td>@{{ item.fuel_id }}</td>
                                         <td>@{{ item.attribute_year }}</td>
-                                        <td>@{{ item.attribute_seats }}</td>
-                                        <td>@{{ item.attribute_1_to_100 }}</td>
-                                        <td>@{{ item.attribute_max_speed }}</td>
-                                        <td>@{{ item.attribute_horsepower }}</td>
-                                        <td>@{{ item.attribute_transmission }}</td>
-                                        <td>@{{ item.attribute_doors }}</td>
-                                        <td>@{{ item.attribute_engine }}</td>
-                                        <td>@{{ item.attribute_baggage }}</td>
                                         <td>@{{ item.status }}</td>
-                                        
+
                                         <td>
                                             <div class="row no-gutters">
                                                 <div class="col-auto">

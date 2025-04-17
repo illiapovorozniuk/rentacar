@@ -26,7 +26,7 @@ class UpdateCar extends FormRequest
     public function rules(): array
     {
         return [
-            'car_model_id' => ['sometimes', 'integer'],
+            'car_model' => ['sometimes'],
             'availability_label' => ['sometimes', 'string'],
             'price_1' => ['sometimes', 'numeric'],
             'price_7' => ['sometimes', 'numeric'],
@@ -50,10 +50,16 @@ class UpdateCar extends FormRequest
             'attribute_engine' => ['nullable', 'string'],
             'attribute_baggage' => ['nullable', 'integer'],
             'status' => ['sometimes', 'boolean'],
-            
+
         ];
     }
 
+    public function getCarModelId(){
+        if ($this->has('car_model')){
+            return $this->get('car_model')['id'];
+        }
+        return null;
+    }
     /**
      * Modify input data
      *

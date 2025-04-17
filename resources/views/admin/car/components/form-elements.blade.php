@@ -1,8 +1,22 @@
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('car_model_id'), 'has-success': fields.car_model_id && fields.car_model_id.valid }">
-    <label for="car_model_id" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.car_model_id') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.car_model_id" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('car_model_id'), 'form-control-success': fields.car_model_id && fields.car_model_id.valid}" id="car_model_id" name="car_model_id" placeholder="{{ trans('admin.car.columns.car_model_id') }}">
-        <div v-if="errors.has('car_model_id')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('car_model_id') }}</div>
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('car_model_id'), 'has-success': this.fields.car_model_id && this.fields.car_model_id.valid }">
+    <label for="car_model_id"
+           class="col-md-2">{{ trans('admin.forms.car_model_name') }}</label>
+    <div class="col-md-9 col-xl-8">
+
+        <multiselect
+            v-model="form.car_model"
+            :options="car_models"
+            :multiple="false"
+            track-by="id"
+            label="name"
+            tag-placeholder="{{ __('Select car_model') }}"
+            placeholder="{{ __('car_model') }}">
+        </multiselect>
+
+        <div v-if="errors.has('car_model_id')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('car_model_id') }}
+        </div>
     </div>
 </div>
 

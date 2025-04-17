@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Car\IndexCar;
 use App\Http\Requests\Admin\Car\StoreCar;
 use App\Http\Requests\Admin\Car\UpdateCar;
 use App\Models\Car;
+use App\Models\CarModel;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -65,7 +66,9 @@ class CarsController extends Controller
     {
         $this->authorize('admin.car.create');
 
-        return view('admin.car.create');
+        return view('admin.car.create',[
+            'car_models' => CarModel::all(),
+        ]);
     }
 
     /**
@@ -78,7 +81,7 @@ class CarsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $sanitized['car_model_id'] = $request->getCarModelId();
         // Store the Car
         $car = Car::create($sanitized);
 
@@ -114,9 +117,11 @@ class CarsController extends Controller
     {
         $this->authorize('admin.car.edit', $car);
 
+        $car->load('carModel');
 
         return view('admin.car.edit', [
             'car' => $car,
+            'car_models' => CarModel::all(),
         ]);
     }
 
@@ -131,7 +136,7 @@ class CarsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $sanitized['car_model_id'] = $request->getCarModelId();
         // Update changed values Car
         $car->update($sanitized);
 
