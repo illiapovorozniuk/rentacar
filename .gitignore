@@ -19,3 +19,4 @@ yarn-error.log
 /.vscode
 /storage/uploads/
 /public/media/
+public/js/admin.js

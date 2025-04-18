@@ -31,7 +31,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('price_1'), 'has-success': fields.price_1 && fields.price_1.valid }">
     <label for="price_1" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.price_1') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.price_1" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('price_1'), 'form-control-success': fields.price_1 && fields.price_1.valid}" id="price_1" name="price_1" placeholder="{{ trans('admin.car.columns.price_1') }}">
+        <input type="number" v-model="form.price_1" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('price_1'), 'form-control-success': fields.price_1 && fields.price_1.valid}" id="price_1" name="price_1" placeholder="{{ trans('admin.car.columns.price_1') }}">
         <div v-if="errors.has('price_1')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('price_1') }}</div>
     </div>
 </div>
@@ -39,7 +39,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('price_7'), 'has-success': fields.price_7 && fields.price_7.valid }">
     <label for="price_7" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.price_7') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.price_7" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('price_7'), 'form-control-success': fields.price_7 && fields.price_7.valid}" id="price_7" name="price_7" placeholder="{{ trans('admin.car.columns.price_7') }}">
+        <input type="number" v-model="form.price_7" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('price_7'), 'form-control-success': fields.price_7 && fields.price_7.valid}" id="price_7" name="price_7" placeholder="{{ trans('admin.car.columns.price_7') }}">
         <div v-if="errors.has('price_7')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('price_7') }}</div>
     </div>
 </div>
@@ -47,7 +47,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('price_30'), 'has-success': fields.price_30 && fields.price_30.valid }">
     <label for="price_30" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.price_30') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.price_30" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('price_30'), 'form-control-success': fields.price_30 && fields.price_30.valid}" id="price_30" name="price_30" placeholder="{{ trans('admin.car.columns.price_30') }}">
+        <input type="number" v-model="form.price_30" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('price_30'), 'form-control-success': fields.price_30 && fields.price_30.valid}" id="price_30" name="price_30" placeholder="{{ trans('admin.car.columns.price_30') }}">
         <div v-if="errors.has('price_30')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('price_30') }}</div>
     </div>
 </div>
@@ -55,7 +55,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('price_31_more'), 'has-success': fields.price_31_more && fields.price_31_more.valid }">
     <label for="price_31_more" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.price_31_more') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.price_31_more" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('price_31_more'), 'form-control-success': fields.price_31_more && fields.price_31_more.valid}" id="price_31_more" name="price_31_more" placeholder="{{ trans('admin.car.columns.price_31_more') }}">
+        <input type="number" v-model="form.price_31_more" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('price_31_more'), 'form-control-success': fields.price_31_more && fields.price_31_more.valid}" id="price_31_more" name="price_31_more" placeholder="{{ trans('admin.car.columns.price_31_more') }}">
         <div v-if="errors.has('price_31_more')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('price_31_more') }}</div>
     </div>
 </div>
@@ -63,7 +63,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('deposit'), 'has-success': fields.deposit && fields.deposit.valid }">
     <label for="deposit" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.deposit') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.deposit" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('deposit'), 'form-control-success': fields.deposit && fields.deposit.valid}" id="deposit" name="deposit" placeholder="{{ trans('admin.car.columns.deposit') }}">
+        <input type="number" v-model="form.deposit" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('deposit'), 'form-control-success': fields.deposit && fields.deposit.valid}" id="deposit" name="deposit" placeholder="{{ trans('admin.car.columns.deposit') }}">
         <div v-if="errors.has('deposit')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('deposit') }}</div>
     </div>
 </div>
@@ -71,7 +71,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('km_included_per_day'), 'has-success': fields.km_included_per_day && fields.km_included_per_day.valid }">
     <label for="km_included_per_day" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.km_included_per_day') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.km_included_per_day" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('km_included_per_day'), 'form-control-success': fields.km_included_per_day && fields.km_included_per_day.valid}" id="km_included_per_day" name="km_included_per_day" placeholder="{{ trans('admin.car.columns.km_included_per_day') }}">
+        <input type="number" v-model="form.km_included_per_day" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('km_included_per_day'), 'form-control-success': fields.km_included_per_day && fields.km_included_per_day.valid}" id="km_included_per_day" name="km_included_per_day" placeholder="{{ trans('admin.car.columns.km_included_per_day') }}">
         <div v-if="errors.has('km_included_per_day')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('km_included_per_day') }}</div>
     </div>
 </div>
@@ -79,7 +79,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('overlimit_charge_per_km'), 'has-success': fields.overlimit_charge_per_km && fields.overlimit_charge_per_km.valid }">
     <label for="overlimit_charge_per_km" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.overlimit_charge_per_km') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.overlimit_charge_per_km" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('overlimit_charge_per_km'), 'form-control-success': fields.overlimit_charge_per_km && fields.overlimit_charge_per_km.valid}" id="overlimit_charge_per_km" name="overlimit_charge_per_km" placeholder="{{ trans('admin.car.columns.overlimit_charge_per_km') }}">
+        <input type="number" v-model="form.overlimit_charge_per_km" v-validate="'required|decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('overlimit_charge_per_km'), 'form-control-success': fields.overlimit_charge_per_km && fields.overlimit_charge_per_km.valid}" id="overlimit_charge_per_km" name="overlimit_charge_per_km" placeholder="{{ trans('admin.car.columns.overlimit_charge_per_km') }}">
         <div v-if="errors.has('overlimit_charge_per_km')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('overlimit_charge_per_km') }}</div>
     </div>
 </div>
@@ -87,7 +87,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('min_day_reservation'), 'has-success': fields.min_day_reservation && fields.min_day_reservation.valid }">
     <label for="min_day_reservation" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.min_day_reservation') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.min_day_reservation" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('min_day_reservation'), 'form-control-success': fields.min_day_reservation && fields.min_day_reservation.valid}" id="min_day_reservation" name="min_day_reservation" placeholder="{{ trans('admin.car.columns.min_day_reservation') }}">
+        <input type="number" v-model="form.min_day_reservation" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('min_day_reservation'), 'form-control-success': fields.min_day_reservation && fields.min_day_reservation.valid}" id="min_day_reservation" name="min_day_reservation" placeholder="{{ trans('admin.car.columns.min_day_reservation') }}">
         <div v-if="errors.has('min_day_reservation')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('min_day_reservation') }}</div>
     </div>
 </div>
@@ -95,7 +95,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('free_delivery'), 'has-success': fields.free_delivery && fields.free_delivery.valid }">
     <label for="free_delivery" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.free_delivery') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.free_delivery" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('free_delivery'), 'form-control-success': fields.free_delivery && fields.free_delivery.valid}" id="free_delivery" name="free_delivery" placeholder="{{ trans('admin.car.columns.free_delivery') }}">
+        <input type="number" v-model="form.free_delivery" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('free_delivery'), 'form-control-success': fields.free_delivery && fields.free_delivery.valid}" id="free_delivery" name="free_delivery" placeholder="{{ trans('admin.car.columns.free_delivery') }}">
         <div v-if="errors.has('free_delivery')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('free_delivery') }}</div>
     </div>
 </div>
