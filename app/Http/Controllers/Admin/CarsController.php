@@ -146,7 +146,7 @@ class CarsController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['car_model_id'] = $request->getCarModelId();
-        $sanitized['color_id'] = $request->getCarsColorId();
+//        $sanitized['color_id'] = $request->getCarsColorId();
         $sanitized['fuel_id'] = $request->getFuelId();
 
         // Update changed values Car
