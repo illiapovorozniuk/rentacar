@@ -20,3 +20,4 @@ yarn-error.log
 /storage/uploads/
 /public/media/
 public/js/admin.js
+/storage/media-library/temp/

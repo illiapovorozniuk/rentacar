@@ -234,5 +234,17 @@
         <div v-if="errors.has('status')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('status') }}</div>
     </div>
 </div>
+@if($mode === 'edit' )
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => $car->getMediaCollection('cars'),
+    'media' => $car->getThumbs200ForCollection('cars'),
+    'label' => 'Cars'
+    ])
+@else
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\Car::class)->getMediaCollection('cars'),
+    'label' => 'Cars'
+    ])
+@endif
 
 

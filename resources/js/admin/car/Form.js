@@ -35,6 +35,10 @@ Vue.component('car-form', {
                 attribute_baggage:  '' ,
                 status:  false ,
 
+            },
+            mediaCollections: ['cars'],
+            mediaWysiwygConfig: {
+                semantic: false
             }
         }
     }

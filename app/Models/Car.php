@@ -2,10 +2,39 @@
 
 namespace App\Models;
 
+use App\Traits\SiteBlogTrait;
+use Brackets\Media\HasMedia\AutoProcessMediaTrait;
+use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
+use Brackets\Media\HasMedia\HasMediaThumbsTrait;
+use Brackets\Media\HasMedia\ProcessMediaTrait;
+use Brackets\Translatable\Traits\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Car extends Model
+class Car extends Model implements HasMedia
 {
+    use ProcessMediaTrait;
+    use AutoProcessMediaTrait;
+    use HasMediaCollectionsTrait;
+    use HasMediaThumbsTrait;
+    use HasTranslations;
+
+    public function registerMediaCollections(): void {
+        $this->addMediaCollection('cars')
+            ->maxNumberOfFiles(10)
+            ->maxFilesize(15*1024*1024);
+    }
+
+    public function registerMediaConversions(Media $media = null): void {
+        $this->autoRegisterThumb200();
+        $this->addMediaConversion('minifiedWebp')
+            ->performOnCollections('cars')
+            ->format(Manipulations::FORMAT_WEBP)
+            ->optimize()
+            ->quality(70);
+    }
     protected $fillable = [
         'car_model_id',
         'availability_label',

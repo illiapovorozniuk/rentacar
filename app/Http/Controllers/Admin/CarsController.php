@@ -45,7 +45,16 @@ class CarsController extends Controller
             // set columns to searchIn
             ['id', 'availability_label', 'registration_number', 'attribute_transmission', 'attribute_engine']
         );
-
+        foreach ($data as $item) {
+            $item->load('carModel');
+            //add img
+            $cover = $item->getMedia('cars');
+            if(isset($cover[0])) {
+                $path_parts = pathinfo($cover[0]->getUrl('minifiedWebp'));
+                $item['cover'] = $path_parts;
+                $item['dirnameCover'] = $path_parts['dirname'] . '/' . $path_parts['basename'];
+            }
+        }
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [
@@ -71,6 +80,7 @@ class CarsController extends Controller
             'car_models' => CarModel::all(),
             'cars_colors' => CarsColor::all(),
             'fuels' => Fuel::all(),
+            'mode' => 'create'
         ]);
     }
 
@@ -125,12 +135,12 @@ class CarsController extends Controller
         $car->load('carModel');
         $car->load('carsColor');
         $car->load('fuel');
-
         return view('admin.car.edit', [
             'car' => $car,
             'car_models' => CarModel::all(),
             'cars_colors' => CarsColor::all(),
             'fuels' => Fuel::all(),
+            'mode' => 'edit'
         ]);
     }
 

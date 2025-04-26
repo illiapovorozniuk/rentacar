@@ -51,6 +51,7 @@
 
                                         <th is='sortable' :column="'id'">{{ trans('admin.car.columns.id') }}</th>
                                         <th is='sortable' :column="'car_model_id'">{{ trans('admin.car.columns.car_model_id') }}</th>
+                                        <th>{{ trans('admin.car.columns.photo') }}</th>
                                         <th is='sortable' :column="'availability_label'">{{ trans('admin.car.columns.availability_label') }}</th>
                                         <th is='sortable' :column="'price_1'">{{ trans('admin.car.columns.price_1') }}</th>
                                         <th is='sortable' :column="'registration_number'">{{ trans('admin.car.columns.registration_number') }}</th>
@@ -81,13 +82,15 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.car_model_id }}</td>
+                                        <td class="d-flex" style="place-content: flex-start;place-items: center"><img :src="item.dirnameCover" alt="" style="max-height: 100px; max-width: 160px; border-radius: 5px;" loading="lazy">@{{ item.path }}</td>
+
                                         <td>@{{ item.availability_label }}</td>
                                         <td>@{{ item.price_1 }}</td>
                                         <td>@{{ item.registration_number }}</td>
                                         <td>@{{ item.attribute_year }}</td>
                                         <td>@{{ item.status }}</td>
 
-                                        <td>
+                                        <td style="display: table-cell">
                                             <div class="row no-gutters">
                                                 <div class="col-auto">
                                                     <a class="btn btn-sm btn-spinner btn-info" :href="item.resource_url + '/edit'" title="{{ trans('brackets/admin-ui::admin.btn.edit') }}" role="button"><i class="fa fa-edit"></i></a>
