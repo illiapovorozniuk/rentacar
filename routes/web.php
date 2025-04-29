@@ -148,3 +148,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('currencies')->name('currencies/')->group(static function() {
+            Route::get('/',                                             'CurrenciesController@index')->name('index');
+            Route::get('/create',                                       'CurrenciesController@create')->name('create');
+            Route::post('/',                                            'CurrenciesController@store')->name('store');
+            Route::get('/{currency}/edit',                              'CurrenciesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CurrenciesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{currency}',                                  'CurrenciesController@update')->name('update');
+            Route::delete('/{currency}',                                'CurrenciesController@destroy')->name('destroy');
+        });
+    });
+});

@@ -175,5 +175,23 @@ return [
         ],
     ],
 
+    'currency' => [
+        'title' => 'Currencies',
+
+        'actions' => [
+            'index' => 'Currencies',
+            'create' => 'New Currency',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'slug' => 'Slug',
+            'sign' => 'Sign',
+            'exchange_rate' => 'Exchange rate',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

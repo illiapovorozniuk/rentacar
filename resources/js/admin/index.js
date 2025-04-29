@@ -8,3 +8,4 @@ import './fuel';
 import './car-model';
 import './cars-color';
 import './car';
+import './currency';

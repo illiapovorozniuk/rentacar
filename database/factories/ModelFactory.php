@@ -120,3 +120,15 @@ $factory->define(App\Models\Car::class, static function (Faker\Generator $faker)
         
     ];
 });
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Currency::class, static function (Faker\Generator $faker) {
+    return [
+        'slug' => $faker->unique()->slug,
+        'sign' => $faker->sentence,
+        'exchange_rate' => $faker->randomFloat,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
