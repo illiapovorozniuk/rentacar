@@ -3,7 +3,6 @@
 @section('title', trans('admin.car.actions.index'))
 
 @section('body')
-
     <car-listing
         :data="{{ $data->toJson() }}"
         :url="'{{ url('admin/cars') }}'"
@@ -51,7 +50,8 @@
 
                                         <th is='sortable' :column="'id'">{{ trans('admin.car.columns.id') }}</th>
                                         <th is='sortable' :column="'car_model_id'">{{ trans('admin.car.columns.car_model_id') }}</th>
-                                        <th>{{ trans('admin.car.columns.photo') }}</th>
+                                        <th>Brand</th>
+                                        <th>Photo</th>
                                         <th is='sortable' :column="'availability_label'">{{ trans('admin.car.columns.availability_label') }}</th>
                                         <th is='sortable' :column="'price_1'">{{ trans('admin.car.columns.price_1') }}</th>
                                         <th is='sortable' :column="'registration_number'">{{ trans('admin.car.columns.registration_number') }}</th>
@@ -81,8 +81,9 @@
                                         </td>
 
                                     <td>@{{ item.id }}</td>
-                                        <td>@{{ item.car_model_id }}</td>
-                                        <td class="d-flex" style="place-content: flex-start;place-items: center"><img :src="item.dirnameCover" alt="" style="max-height: 100px; max-width: 160px; border-radius: 5px;" loading="lazy">@{{ item.path }}</td>
+                                        <td>@{{ item.car_model_slug }}</td>
+                                        <td class="text-center"><img :src="'{{ url('uploads') }}/images/brands/' + item.brand_slug+'.svg'" alt="Icon" style="max-height: 50px;"><p>@{{ item.brand_slug }}</p></td>
+                                        <td class="d-flex" style="place-content: flex-start;place-items: center"><img :src="item.main_photo" alt="" style="max-height: 100px; max-width: 160px; border-radius: 5px;" loading="lazy">@{{ item.path }}</td>
 
                                         <td>@{{ item.availability_label }}</td>
                                         <td>@{{ item.price_1 }}</td>

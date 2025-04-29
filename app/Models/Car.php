@@ -21,20 +21,7 @@ class Car extends Model implements HasMedia
     use HasMediaThumbsTrait;
     use HasTranslations;
 
-    public function registerMediaCollections(): void {
-        $this->addMediaCollection('cars')
-            ->maxNumberOfFiles(10)
-            ->maxFilesize(15*1024*1024);
-    }
 
-    public function registerMediaConversions(Media $media = null): void {
-        $this->autoRegisterThumb200();
-        $this->addMediaConversion('minifiedWebp')
-            ->performOnCollections('cars')
-            ->format(Manipulations::FORMAT_WEBP)
-            ->optimize()
-            ->quality(70);
-    }
     protected $fillable = [
         'car_model_id',
         'availability_label',
@@ -81,10 +68,101 @@ class Car extends Model implements HasMedia
     public function fuel() {
         return $this->belongsTo(Fuel::class);
     }
+
+    public function carInfo()
+    {
+
+        $media_photos = $this->getMedia('cars');
+        $main_photo = null;
+        $photos = [];
+        if(isset($media_photos[0])) {
+            $path_parts = pathinfo($media_photos[0]->getUrl('minifiedWebp'));
+            $main_photo = $path_parts['dirname'] . '/' . $path_parts['basename'];
+            foreach ($media_photos as $photo) {
+                $path_parts = pathinfo($media_photos[0]->getUrl('minifiedWebp'));
+                $photos[] = $path_parts['dirname'] . '/' . $path_parts['basename'];
+            }
+        }
+        $car = self::query()
+            ->join('car_models', 'cars.car_model_id', '=', 'car_models.id')
+            ->join('brands', 'car_models.brand_id', '=', 'brands.id')
+            ->join('cars_colors', 'cars.color_id', '=', 'cars_colors.id')
+            ->join('fuels', 'cars.fuel_id', '=', 'fuels.id')
+            ->select(
+                'cars.*',
+                'car_models.name as car_model_name',
+                'brands.slug as brand_slug',
+                'cars_colors.slug as color_slug',
+                'cars_colors.name as color_name',
+                'cars_colors.color_code as color',
+                'fuels.name as fuel_name'
+            )
+            ->where('cars.id', $this->id)
+            ->first();
+        $car['main_photo'] = $main_photo;
+        $car['photos'] = $photos;
+        return $car;
+    }
+    public static function carsInfo(array $cars)
+    {
+        $carIds = array_column($cars['data'], 'id');
+//        dd($carIds);
+
+        $carsData = self::query()
+            ->join('car_models', 'cars.car_model_id', '=', 'car_models.id')
+            ->join('brands', 'car_models.brand_id', '=', 'brands.id')
+            ->join('cars_colors', 'cars.color_id', '=', 'cars_colors.id')
+            ->join('fuels', 'cars.fuel_id', '=', 'fuels.id')
+            ->select(
+                'cars.*',
+                'car_models.name as car_model_name',
+                'car_models.slug as car_model_slug',
+                'brands.slug as brand_slug',
+                'cars_colors.slug as color_slug',
+                'cars_colors.name as color_name',
+                'cars_colors.color_code as color',
+                'fuels.name as fuel_name'
+            )
+            ->whereIn('cars.id', $carIds)
+            ->get();
+
+        foreach ($carsData as $car) {
+            $media_photos = $car->getMedia('cars');
+            $main_photo = null;
+            $photos = [];
+            if (isset($media_photos[0])) {
+                $path_parts = pathinfo($media_photos[0]->getUrl('minifiedWebp'));
+                $main_photo = $path_parts['dirname'] . '/' . $path_parts['basename'];
+                foreach ($media_photos as $photo) {
+                    $path_parts = pathinfo($photo->getUrl('minifiedWebp'));
+                    $photos[] = $path_parts['dirname'] . '/' . $path_parts['basename'];
+                }
+            }
+            $car['main_photo'] = $main_photo;
+            $car['photos'] = $photos;
+        }
+        return $carsData;
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
         return url('/admin/cars/'.$this->getKey());
+    }
+    /* ************************ Media ************************* */
+    public function registerMediaCollections(): void {
+        $this->addMediaCollection('cars')
+            ->maxNumberOfFiles(10)
+            ->maxFilesize(15*1024*1024);
+    }
+
+
+    public function registerMediaConversions(Media $media = null): void {
+        $this->autoRegisterThumb200();
+        $this->addMediaConversion('minifiedWebp')
+            ->performOnCollections('cars')
+            ->format(Manipulations::FORMAT_WEBP)
+            ->optimize()
+            ->quality(70);
     }
 }

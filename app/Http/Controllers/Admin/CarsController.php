@@ -22,6 +22,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CarsController extends Controller
 {
@@ -45,16 +46,22 @@ class CarsController extends Controller
             // set columns to searchIn
             ['id', 'availability_label', 'registration_number', 'attribute_transmission', 'attribute_engine']
         );
-        foreach ($data as $item) {
-            $item->load('carModel');
-            //add img
-            $cover = $item->getMedia('cars');
-            if(isset($cover[0])) {
-                $path_parts = pathinfo($cover[0]->getUrl('minifiedWebp'));
-                $item['cover'] = $path_parts;
-                $item['dirnameCover'] = $path_parts['dirname'] . '/' . $path_parts['basename'];
-            }
-        }
+
+        $new_data = Car::carsInfo($data->toArray());
+
+        // Сортуємо нові дані відповідно до порядку id у старих даних
+        $old_order = array_column($data->items(), 'id');
+        $new_data = $new_data->sortBy(function ($item) use ($old_order) {
+            return array_search($item->id, $old_order);
+        })->values(); // Перевпорядковуємо ключі
+
+        $data = new LengthAwarePaginator(
+            $new_data,
+            $data->total(),
+            $data->perPage(),
+            $data->currentPage(),
+            ['path' => $data->path()]
+        );
         if ($request->ajax()) {
             if ($request->has('bulk')) {
                 return [

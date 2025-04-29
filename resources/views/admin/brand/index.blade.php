@@ -79,7 +79,7 @@
                                         <td>@{{ item.name }}</td>
 
                                         <td>
-                                            <img :src="'{{ url('storage') }}/' + item.icon" alt="Icon" style="max-height: 50px;">
+                                            <img :src="'{{ url('uploads') }}/' + item.icon" alt="Icon" style="max-height: 50px;">
                                         </td>
 
                                         <td>

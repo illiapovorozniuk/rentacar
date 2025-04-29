@@ -18,7 +18,7 @@
     <label for="icon" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Icon</label>
     <div :class="isFormLocalized ? 'col-md-4 d-flex' : 'col-md-9 col-xl-8 d-flex align-items-center'">
         @if(isset($brand))
-            <img src="{{asset( 'storage/'.$brand->icon)}}" alt="" width="50px" height="50px" class="mr-2">
+            <img src="{{asset( 'uploads/'.$brand->icon)}}" alt="" width="50px" height="50px" class="mr-2">
         @endif
         <input type="file" v-validate="'required'" class="form-control" :class="{'form-control-danger': errors.has('icon'), 'form-control-success': fields.icon && fields.icon.valid}" id="icon" name="icon" accept=".svg" @change="onFileChange">
         <div v-if="errors.has('icon')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('icon') }}</div>
