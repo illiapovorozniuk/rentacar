@@ -82,7 +82,7 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.car_model_slug }}</td>
-                                        <td class="text-center"><img :src="'{{ url('uploads') }}/images/brands/' + item.brand_slug+'.svg'" alt="Icon" style="max-height: 50px;"><p>@{{ item.brand_slug }}</p></td>
+                                        <td class="text-center"><img :src="'{{ url('uploads') }}/images/brands/' + item.brand_slug+'.webp'" alt="Icon" style="max-height: 50px;"><p>@{{ item.brand_slug }}</p></td>
                                         <td class="d-flex" style="place-content: flex-start;place-items: center"><img :src="item.main_photo" alt="" style="max-height: 100px; max-width: 160px; border-radius: 5px;" loading="lazy">@{{ item.path }}</td>
 
                                         <td>@{{ item.availability_label }}</td>
