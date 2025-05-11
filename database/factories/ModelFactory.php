@@ -132,3 +132,20 @@ $factory->define(App\Models\Currency::class, static function (Faker\Generator $f
         
     ];
 });
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Page::class, static function (Faker\Generator $faker) {
+    return [
+        'link' => $faker->sentence,
+        'type' => $faker->sentence,
+        'enabled' => $faker->boolean(),
+        'faq' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        'title' => ['en' => $faker->sentence],
+        'h1' => ['en' => $faker->sentence],
+        'description' => ['en' => $faker->sentence],
+        'content' => ['en' => $faker->sentence],
+        
+    ];
+});
