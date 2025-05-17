@@ -41,10 +41,10 @@ class CarsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'car_model_id', 'availability_label', 'price_1', 'price_7', 'price_30', 'price_31_more', 'deposit', 'km_included_per_day', 'overlimit_charge_per_km', 'min_day_reservation', 'free_delivery', 'registration_number', 'color_id', 'fuel_id', 'attribute_year', 'attribute_seats', 'attribute_1_to_100', 'attribute_max_speed', 'attribute_horsepower', 'attribute_transmission', 'attribute_doors', 'attribute_engine', 'attribute_baggage', 'status'],
+            ['id', 'car_model_id', 'car_slug','availability_label', 'price_1', 'price_7', 'price_30', 'price_31_more', 'deposit', 'km_included_per_day', 'overlimit_charge_per_km', 'min_day_reservation', 'free_delivery', 'registration_number', 'color_id', 'fuel_id', 'attribute_year', 'attribute_seats', 'attribute_1_to_100', 'attribute_max_speed', 'attribute_horsepower', 'attribute_transmission', 'attribute_doors', 'attribute_engine', 'attribute_baggage', 'status'],
 
             // set columns to searchIn
-            ['id', 'availability_label', 'registration_number', 'attribute_transmission', 'attribute_engine']
+            ['id', 'availability_label', 'car_slug', 'registration_number', 'attribute_transmission', 'attribute_engine']
         );
 
         $new_data = Car::carsInfo($data->toArray());
@@ -101,6 +101,8 @@ class CarsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['car_brand_id'] = $request['car_model']['brand_id'];
+        $sanitized['car_body_type_id'] = $request['car_model']['body_type_id'];
         $sanitized['car_model_id'] = $request->getCarModelId();
         $sanitized['color_id'] = $request->getCarsColorId();
         $sanitized['fuel_id'] = $request->getFuelId();
@@ -163,6 +165,9 @@ class CarsController extends Controller
         // Sanitize input
         $sanitized = $request->getSanitized();
         $sanitized['car_model_id'] = $request->getCarModelId();
+        $sanitized['car_brand_id'] = $request['car_model']['brand_id'];
+        $sanitized['car_body_type_id'] = $request['car_model']['body_type_id'];
+        $sanitized['car_slug'] = $request['car_model']['slug'];
 //        $sanitized['color_id'] = $request->getCarsColorId();
         $sanitized['fuel_id'] = $request->getFuelId();
 

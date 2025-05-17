@@ -33,7 +33,7 @@ class SiteController extends Controller
         $content = $home_page->content;
         $description = $home_page->description;
         $cover = $home_page->getMedia('cover');
-
-        return view('front.index', compact('home_page','h1', 'title', 'content', 'description', 'cover'));
+        $brands = Brand::all();
+        return view('front.index', compact('home_page','h1', 'title', 'content', 'description', 'cover', 'brands'));
     }
 }

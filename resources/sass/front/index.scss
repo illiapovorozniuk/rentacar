@@ -4,21 +4,144 @@
 .banner {
     background-size: cover;
     object-fit: cover;
-    background-position: 50%;
+    background-position: center;
     background-repeat: no-repeat;
 
     .banner_content {
-        padding-top: 380px;
-        padding-bottom: 380px;
+        padding-top: 180px;
+        padding-bottom: 180px;
         color: #FFF;
-        max-width: 500px;
+        //max-width: 500px !important;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
 
         @include max-width();
+        .brands_layout {
+            overflow: hidden;
+            width: 100%;
 
-        h1 {
-            padding-bottom: 60px;
-            @media only screen and (max-width: $mobile-max-width) {
-                padding-bottom: 0;
+            @media (max-width: $mobile-max-width) {
+                position: absolute;
+                bottom: -100px;
+                max-width: calc(100% + 15px);
+                width: calc(100% + 15px);
+            }
+
+            .brands_content {
+                margin-top: 90px !important;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                overflow-x: scroll;
+                scrollbar-width: none;
+                border-radius: 15px;
+                cursor: grab;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                @media (min-width: $desktop-min-width) {
+                    a {
+                        min-width: 155px;
+
+                        .brand_info {
+                            margin-right: 20px;
+                        }
+                    }
+                }
+                @media (max-width: $mobile-max-width) {
+                    gap: 5px;
+                    margin-top: 0 !important;
+                    border-radius: 0;
+                    border-top-left-radius: 15px !important;
+                    border-bottom-left-radius: 15px !important;
+                }
+
+                &:has(> :nth-child(5)) {
+                    justify-content: start;
+
+                }
+
+                @media (max-width: $mobile-max-width) {
+                    justify-content: start;
+                }
+
+                a {
+                    &:active {
+                        cursor: grab;
+                    }
+
+                    display: flex;
+                    border: none;
+                    flex: 1;
+                    max-width: 250px;
+                    justify-content: space-between;
+                    background-color: #FFFFFFCC;
+                    border-radius: 15px;
+                    max-height: 40px;
+                    padding: 15px;
+                    transition: ease-in-out 0.3s;
+                    @media (max-width: $mobile-max-width) {
+                        background-color: $neutral100;
+                    }
+
+                    &:hover {
+                        background-color: #FFF;
+                    }
+
+                    .brand_info {
+                        display: flex;
+                        align-items: start;
+                        flex-direction: column;
+
+                        .brand_name {
+                            white-space: nowrap;
+                            font-size: 14px;
+                            font-weight: 500;
+                            color: black;
+                        }
+
+                        .brand_count {
+                            white-space: nowrap;
+                            color: $neutral500;
+                            font-weight: 400;
+                            font-size: 12px;
+                        }
+
+                    }
+
+                    .brand_image {
+                        img {
+                            height: 40px;
+                            width: 40px;
+                        }
+                    }
+
+                    @media (max-width: $mobile-max-width) {
+                        & {
+                            min-width: 100px;
+                            padding: 10px;
+                            border-radius: 10px;
+                            max-height: 90px;
+                            flex-direction: column;
+
+                            .brand_image {
+                                display: flex;
+                                justify-content: end;
+
+                                img {
+                                    height: 30px;
+                                    width: 30px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+
             }
         }
     }

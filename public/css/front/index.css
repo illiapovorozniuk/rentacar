@@ -120,14 +120,17 @@ main + .additional_content::before {
   background-size: cover;
   -o-object-fit: cover;
      object-fit: cover;
-  background-position: 50%;
+  background-position: center;
   background-repeat: no-repeat;
 }
 .banner .banner_content {
-  padding-top: 380px;
-  padding-bottom: 380px;
+  padding-top: 180px;
+  padding-bottom: 180px;
   color: #FFF;
-  max-width: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
   width: 100%;
 }
 @media only screen and (min-width: 1191px) {
@@ -148,11 +151,114 @@ main + .additional_content::before {
     margin: 0 20px;
   }
 }
-.banner .banner_content h1 {
-  padding-bottom: 60px;
+.banner .banner_content .brands_layout {
+  overflow: hidden;
+  width: 100%;
 }
-@media only screen and (max-width: 768px) {
-  .banner .banner_content h1 {
-    padding-bottom: 0;
+@media (max-width: 768px) {
+  .banner .banner_content .brands_layout {
+    position: absolute;
+    bottom: -100px;
+    max-width: calc(100% + 15px);
+    width: calc(100% + 15px);
+  }
+}
+.banner .banner_content .brands_layout .brands_content {
+  margin-top: 90px !important;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  border-radius: 15px;
+  cursor: grab;
+}
+.banner .banner_content .brands_layout .brands_content::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 769px) {
+  .banner .banner_content .brands_layout .brands_content a {
+    min-width: 155px;
+  }
+  .banner .banner_content .brands_layout .brands_content a .brand_info {
+    margin-right: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .banner .banner_content .brands_layout .brands_content {
+    gap: 5px;
+    margin-top: 0 !important;
+    border-radius: 0;
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+  }
+}
+.banner .banner_content .brands_layout .brands_content:has(> :nth-child(5)) {
+  justify-content: start;
+}
+@media (max-width: 768px) {
+  .banner .banner_content .brands_layout .brands_content {
+    justify-content: start;
+  }
+}
+.banner .banner_content .brands_layout .brands_content a {
+  display: flex;
+  border: none;
+  flex: 1;
+  max-width: 250px;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  max-height: 40px;
+  padding: 15px;
+  transition: ease-in-out 0.3s;
+}
+.banner .banner_content .brands_layout .brands_content a:active {
+  cursor: grab;
+}
+@media (max-width: 768px) {
+  .banner .banner_content .brands_layout .brands_content a {
+    background-color: #F7F7F7;
+  }
+}
+.banner .banner_content .brands_layout .brands_content a:hover {
+  background-color: #FFF;
+}
+.banner .banner_content .brands_layout .brands_content a .brand_info {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+}
+.banner .banner_content .brands_layout .brands_content a .brand_info .brand_name {
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+}
+.banner .banner_content .brands_layout .brands_content a .brand_info .brand_count {
+  white-space: nowrap;
+  color: #595959;
+  font-weight: 400;
+  font-size: 12px;
+}
+.banner .banner_content .brands_layout .brands_content a .brand_image img {
+  height: 40px;
+  width: 40px;
+}
+@media (max-width: 768px) {
+  .banner .banner_content .brands_layout .brands_content a {
+    min-width: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    max-height: 90px;
+    flex-direction: column;
+  }
+  .banner .banner_content .brands_layout .brands_content a .brand_image {
+    display: flex;
+    justify-content: end;
+  }
+  .banner .banner_content .brands_layout .brands_content a .brand_image img {
+    height: 30px;
+    width: 30px;
   }
 }

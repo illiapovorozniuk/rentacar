@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Brand;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ class ConfigMiddlware
     public function handle(Request $request, Closure $next): Response
     {
 
-        $brands = [];
+        $brands = Brand::all();
         Config::set('site.brands', $brands);
 
         return $next($request);
