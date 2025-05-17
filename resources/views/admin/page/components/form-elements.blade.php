@@ -68,7 +68,10 @@
             <div class="form-group row align-items-center" :class="{'has-danger': errors.has('content_{{ $locale }}'), 'has-success': fields.content_{{ $locale }} && fields.content_{{ $locale }}.valid }">
                 <label for="content_{{ $locale }}" class="col-md-2 col-form-label text-md-right">{{ trans('admin.page.columns.content') }}</label>
                 <div class="col-md-9" :class="{'col-xl-8': !isFormLocalized }">
-                    <input type="text" v-model="form.content.{{ $locale }}" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('content_{{ $locale }}'), 'form-control-success': fields.content_{{ $locale }} && fields.content_{{ $locale }}.valid }" id="content_{{ $locale }}" name="content_{{ $locale }}" placeholder="{{ trans('admin.page.columns.content') }}">
+                    <div>
+                        <wysiwyg v-model="form.content.{{ $locale }}" v-validate="''" id="content_{{ $locale }}" name="content_{{ $locale }}" :config="mediaWysiwygConfig"></wysiwyg>
+                    </div>
+{{--                    <input type="text" v-model="form.content.{{ $locale }}" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('content_{{ $locale }}'), 'form-control-success': fields.content_{{ $locale }} && fields.content_{{ $locale }}.valid }" id="content_{{ $locale }}" name="content_{{ $locale }}" placeholder="{{ trans('admin.page.columns.content') }}">--}}
                     <div v-if="errors.has('content_{{ $locale }}')" class="form-control-feedback form-text" v-cloak>{{'{{'}} errors.first('content_{{ $locale }}') }}</div>
                 </div>
             </div>
@@ -117,5 +120,16 @@
         <div v-if="errors.has('faq')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('faq') }}</div>
     </div>
 </div>
-
+@if($mode === 'edit' )
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => $page->getMediaCollection('cover'),
+    'media' => $page->getThumbs200ForCollection('cover'),
+    'label' => 'Cover'
+    ])
+@else
+    @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\Car::class)->getMediaCollection('cover'),
+    'label' => 'Cover'
+    ])
+@endif
 

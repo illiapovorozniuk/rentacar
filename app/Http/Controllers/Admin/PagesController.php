@@ -65,7 +65,9 @@ class PagesController extends Controller
     {
         $this->authorize('admin.page.create');
 
-        return view('admin.page.create');
+        return view('admin.page.create',[
+            'mode' => 'create'
+        ]);
     }
 
     /**
@@ -117,6 +119,7 @@ class PagesController extends Controller
 
         return view('admin.page.edit', [
             'page' => $page,
+            'mode'=> 'edit'
         ]);
     }
 

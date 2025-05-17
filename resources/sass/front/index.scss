@@ -1,0 +1,25 @@
+@use "variables-mixins" as *;
+@import "defaults";
+
+.banner {
+    background-size: cover;
+    object-fit: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+
+    .banner_content {
+        padding-top: 380px;
+        padding-bottom: 380px;
+        color: #FFF;
+        max-width: 500px;
+
+        @include max-width();
+
+        h1 {
+            padding-bottom: 60px;
+            @media only screen and (max-width: $mobile-max-width) {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

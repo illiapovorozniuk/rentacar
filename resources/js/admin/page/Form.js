@@ -13,7 +13,11 @@ Vue.component('page-form', {
                 content:  this.getLocalizedFormDefaults() ,
                 enabled:  false ,
                 faq:  '' ,
-                
+
+            },
+            mediaCollections: ['cover'],
+            mediaWysiwygConfig: {
+                semantic: false
             }
         }
     }

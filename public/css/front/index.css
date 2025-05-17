@@ -1,0 +1,158 @@
+* {
+  font-family: "Inter", sans-serif;
+  margin-block: 0;
+  padding-inline: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  background-color: #FFF;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 45px;
+  text-transform: none;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+    line-height: 35px;
+    text-transform: none;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+}
+
+h2 {
+  font-size: 30px;
+  line-height: 35px;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: none;
+    letter-spacing: -0.005em;
+    font-weight: 700;
+  }
+}
+
+a {
+  all: unset;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+span.accent {
+  color: #919191;
+}
+
+main {
+  flex: 1;
+  overflow-x: hidden;
+}
+
+@media only screen and (min-width: 769px) {
+  .desktop-disable {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .mobile-disable {
+    display: none;
+  }
+}
+
+.additional_content {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+@media only screen and (max-width: 768px) {
+  .additional_content {
+    gap: 60px;
+  }
+}
+main + .additional_content {
+  margin-top: 60px;
+}
+@media only screen and (max-width: 768px) {
+  main + .additional_content {
+    margin-top: 30px;
+  }
+}
+main + .additional_content::before {
+  display: none;
+}
+.additional_content > *:nth-of-type(2) {
+  margin-top: -240px;
+}
+@media (max-width: 768px) {
+  .additional_content > *:nth-of-type(2) {
+    margin-top: -60px;
+  }
+}
+
+.banner {
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.banner .banner_content {
+  padding-top: 380px;
+  padding-bottom: 380px;
+  color: #FFF;
+  max-width: 500px;
+  width: 100%;
+}
+@media only screen and (min-width: 1191px) {
+  .banner .banner_content {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1190px) {
+  .banner .banner_content {
+    max-width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .banner .banner_content {
+    max-width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+}
+.banner .banner_content h1 {
+  padding-bottom: 60px;
+}
+@media only screen and (max-width: 768px) {
+  .banner .banner_content h1 {
+    padding-bottom: 0;
+  }
+}

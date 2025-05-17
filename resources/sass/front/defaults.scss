@@ -1,0 +1,99 @@
+@import "variables-mixins";
+
+* {
+    font-family: 'Inter', sans-serif;
+    margin-block: 0;
+    padding-inline: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    background-color: #FFF;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    @include headline-h1;
+    @media (max-width: $mobile-max-width) {
+        @include headline-h2;
+    }
+}
+
+h2 {
+    @include headline-h2;
+    @media (max-width: $mobile-max-width) {
+        @include headline-h3;
+    }
+
+}
+
+a {
+    all: unset;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+span.accent {
+    color: $neutral400;
+}
+
+main {
+    flex: 1;
+    overflow-x: hidden;
+}
+
+.desktop-disable {
+    @media only screen and (min-width: $desktop-min-width) {
+        display: none;
+    }
+}
+
+.mobile-disable {
+    @media only screen and (max-width: $mobile-max-width) {
+        display: none;
+    }
+}
+
+.additional_content {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    @media only screen and (max-width: $mobile-max-width) {
+        gap: 60px;
+    }
+
+    main + & {
+        margin-top: 60px;
+        @media only screen and (max-width: $mobile-max-width) {
+            margin-top: 30px;
+        }
+
+        &::before {
+            display: none;
+        }
+    }
+
+    > *:nth-of-type(2) {
+        margin-top: -240px;
+        @media (max-width: $mobile-max-width) {
+            margin-top: -60px;
+
+        }
+    }
+
+}

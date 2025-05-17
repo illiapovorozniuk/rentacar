@@ -1,0 +1,126 @@
+//colors
+
+$color-theme: var(--main-color);
+$color-theme-additional: var(--additional-color);
+
+$neutral800: #181818;
+$neutral700: #242424;
+$neutral600: #3D3D3D;
+$neutral500: #595959;
+$neutral400: #919191;
+$neutral300: #C9C9C9;
+$neutral200: #E6E6E6;
+$neutral100: #F7F7F7;
+
+// Typography
+@mixin typography($font-size, $line-height,$font-weight, $letter-spacing: normal, $text-transform: none) {
+    font-size: #{$font-size}px;
+    line-height: #{$line-height}px;
+    text-transform: $text-transform;
+    letter-spacing: #{$letter-spacing}em;
+    font-weight: $font-weight;
+}
+
+@mixin headline-h1 {
+    @include typography(40, 45, 800, -0.03);
+}
+
+@mixin headline-h2 {
+    @include typography(30, 35, 800, -0.02);
+}
+
+@mixin headline-h3 {
+    @include typography(22, 30, 700, -0.005);
+}
+
+@mixin headline-h4 {
+    @include typography(18, 25, 700, 0);
+}
+
+@mixin headline-h5 {
+    @include typography(16, 25, 600, 0);
+}
+
+@mixin headline-h6 {
+    @include typography(14, 20, 600, 0);
+}
+
+@mixin subtitle-1 {
+    @include typography(20, 30, 400, 0);
+}
+
+@mixin subtitle-2 {
+    @include typography(18, 30, 400, 0);
+}
+
+@mixin body-1 {
+    @include typography(16, 25, 400, 0);
+}
+
+@mixin body-2 {
+    @include typography(14, 20, 400, 0);
+}
+
+@mixin small-1 {
+    @include typography(13, 20, 400, 0);
+}
+
+@mixin small-2 {
+    @include typography(12, 20, 400, 0);
+}
+
+@mixin caption-large {
+    @include typography(14, 20, 800, 0.03);
+    text-transform: uppercase;
+}
+
+@mixin caption-medium {
+    @include typography(13, 20, 800, 0.03);
+    text-transform: uppercase;
+}
+
+@mixin caption-small {
+    @include typography(12, 20, 800, 0.03);
+    text-transform: uppercase;
+}
+
+@mixin caption-x-small {
+    @include typography(11, 20, 700, 0.02);
+    text-transform: uppercase;
+}
+
+@mixin caption-x-small {
+    @include typography(10, 20, 700, 0.1);
+    text-transform: uppercase;
+}
+
+// sizes, margins, paddings
+$desktop-min-width: 769px;
+$mobile-max-width: 768px;
+$max-desktop-width: 1110px;
+$desktop-left-right-margin: 40px;
+$mobile-left-right-margin: 20px;
+
+$desktop-min-fixed-width: $max-desktop-width + $desktop-left-right-margin * 2 +1px;
+@mixin max-width {
+    width: 100%;
+    @media only screen and (min-width: $desktop-min-fixed-width) {
+        max-width: $max-desktop-width;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: 1190px) {
+        max-width: calc(100% - $desktop-left-right-margin * 2);
+        margin: 0 $desktop-left-right-margin;
+    }
+
+    @media only screen and (max-width: $mobile-max-width) {
+        max-width: calc(100% - $mobile-left-right-margin * 2);
+        margin: 0 $mobile-left-right-margin;
+    }
+}
+
+// transitions
+@mixin transition-default{
+    transition: all 0.1s ease-in-out;
+}
+

@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
-                                            
+
                                             <option value="10">10</option>
                                             <option value="25">25</option>
                                             <option value="100">100</option>
@@ -55,7 +55,6 @@
                                         <th is='sortable' :column="'type'">{{ trans('admin.page.columns.type') }}</th>
                                         <th is='sortable' :column="'h1'">{{ trans('admin.page.columns.h1') }}</th>
                                         <th is='sortable' :column="'description'">{{ trans('admin.page.columns.description') }}</th>
-                                        <th is='sortable' :column="'content'">{{ trans('admin.page.columns.content') }}</th>
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.page.columns.enabled') }}</th>
 
                                         <th></th>
@@ -86,7 +85,6 @@
                                         <td>@{{ item.type }}</td>
                                         <td>@{{ item.h1 }}</td>
                                         <td>@{{ item.description }}</td>
-                                        <td>@{{ item.content }}</td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
                                                 <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">
@@ -94,7 +92,7 @@
                                             </label>
                                         </td>
 
-                                        
+
                                         <td>
                                             <div class="row no-gutters">
                                                 <div class="col-auto">

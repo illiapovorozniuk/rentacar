@@ -1,11 +1,11 @@
 {
     "private": true,
     "scripts": {
-        "dev": "vite",
-        "build": "vite build",
-        "craftable-dev": "mix",
-        "craftable-watch": "mix watch",
-        "craftable-prod": "mix --production"
+        "vite-dev": "vite",
+        "vite-build": "vite build",
+        "dev": "mix",
+        "watch": "mix watch",
+        "prod": "mix --production"
     },
     "devDependencies": {
         "axios": "^1.6.4",

@@ -19,3 +19,8 @@ mix
 if (mix.inProduction()) {
   mix.version();
 }
+
+let sassFrontPath = "resources/sass/front/";
+let cssOutputPath = "public/css/front/";
+mix
+    .sass(`${sassFrontPath}index.scss`, `${cssOutputPath}index.css`);
