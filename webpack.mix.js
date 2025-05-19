@@ -23,4 +23,5 @@ if (mix.inProduction()) {
 let sassFrontPath = "resources/sass/front/";
 let cssOutputPath = "public/css/front/";
 mix
+    .js(`resources/js/front.js`, `public/js/front.js`)
     .sass(`${sassFrontPath}index.scss`, `${cssOutputPath}index.css`);

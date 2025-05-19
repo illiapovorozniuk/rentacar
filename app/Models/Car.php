@@ -109,7 +109,11 @@ class Car extends Model implements HasMedia
     }
     public static function carsInfo(array $cars)
     {
-        $carIds = array_column($cars['data'], 'id');
+        if(isset($cars['data'])) {
+            $carIds = array_column($cars['data'], 'id');
+        }else{
+            $carIds = array_column($cars, 'id');
+        }
 
         $carsData = self::query()
             ->join('car_models', 'cars.car_model_id', '=', 'car_models.id')

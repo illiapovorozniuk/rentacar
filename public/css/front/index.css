@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   font-family: "Inter", sans-serif;
   margin-block: 0;
@@ -60,6 +61,12 @@ a {
   cursor: pointer;
 }
 
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 button {
   all: unset;
   cursor: pointer;
@@ -113,6 +120,240 @@ main + .additional_content::before {
 @media (max-width: 768px) {
   .additional_content > *:nth-of-type(2) {
     margin-top: -60px;
+  }
+}
+
+.card_light {
+  transition: all 0.1s ease;
+}
+@media (max-width: 768px) {
+  .card_light {
+    width: 155px !important;
+  }
+}
+@media (min-width: 769px) {
+  .card_light:hover {
+    background: #F7F7F7;
+    box-shadow: 0px 0px 0px 10px #F7F7F7;
+    border-radius: 15px;
+  }
+}
+.card_light a {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card_light a .img_container {
+  width: 100%;
+  border-radius: 15px;
+  aspect-ratio: 1.5;
+  height: auto;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .card_light a .img_container {
+    aspect-ratio: 155/105;
+  }
+}
+.card_light a .img_container img {
+  min-width: 100% !important;
+  min-height: 100% !important;
+  height: 100% !important;
+  width: auto !important;
+}
+.card_light a .name {
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 25px;
+  text-transform: none;
+  letter-spacing: 0em;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .card_light a .name {
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: none;
+    letter-spacing: 0em;
+    font-weight: 600;
+  }
+}
+.card_light .parameters {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #4FAE57;
+  margin-top: 5px;
+  height: 20px;
+}
+.card_light .parameters li {
+  overflow: hidden;
+  flex-shrink: 1;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: none;
+  letter-spacing: 0em;
+  font-weight: 400;
+  color: #242424;
+  display: inline-block;
+  font-family: "Inter";
+}
+.card_light .parameters li.no-dep {
+  color: #4FAE57;
+}
+.card_light .parameters li:not(:last-child)::after {
+  content: "·"; /* Додайте ваш контент тут */
+  display: inline-block;
+}
+
+.long_horisontal_card_list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .long_horisontal_card_list {
+    gap: 20px;
+  }
+}
+.long_horisontal_card_list .list_content_layout {
+  width: 100%;
+  scrollbar-width: none;
+}
+@media only screen and (min-width: 1191px) {
+  .long_horisontal_card_list .list_content_layout {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1190px) {
+  .long_horisontal_card_list .list_content_layout {
+    max-width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .long_horisontal_card_list .list_content_layout {
+    max-width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .long_horisontal_card_list .list_content_layout {
+    overflow-x: auto;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+}
+.long_horisontal_card_list .list_content_layout .list_content {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 255px));
+}
+@media only screen and (max-width: 769px) {
+  .long_horisontal_card_list .list_content_layout .list_content {
+    grid-template-columns: repeat(2, minmax(0, 50%));
+  }
+}
+@media only screen and (max-width: 768px) {
+  .long_horisontal_card_list .list_content_layout .list_content {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-inline-start: 20px !important;
+    margin-inline-end: 20px !important;
+    padding-inline-end: 20px !important;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card_list_default {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media only screen and (max-width: 768px) {
+  .card_list_default {
+    gap: 20px;
+  }
+}
+.card_list_default .list_content_layout {
+  width: 100%;
+  scrollbar-width: none;
+}
+@media only screen and (min-width: 1191px) {
+  .card_list_default .list_content_layout {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1190px) {
+  .card_list_default .list_content_layout {
+    max-width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card_list_default .list_content_layout {
+    max-width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card_list_default .list_content_layout {
+    overflow-x: auto;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+}
+.card_list_default .list_content_layout .list_content {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, minmax(0, 255px));
+}
+@media only screen and (max-width: 769px) {
+  .card_list_default .list_content_layout .list_content {
+    grid-template-columns: repeat(2, minmax(0, 50%));
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card_list_default .list_content_layout .list_content {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-inline-start: 20px !important;
+    margin-inline-end: 20px !important;
+    padding-inline-end: 20px !important;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.single_vertical_card_list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+@media only screen and (min-width: 1191px) {
+  .single_vertical_card_list {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1190px) {
+  .single_vertical_card_list {
+    max-width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .single_vertical_card_list {
+    max-width: calc(100% - 40px);
+    margin: 0 20px;
   }
 }
 
@@ -260,5 +501,27 @@ main + .additional_content::before {
   .banner .banner_content .brands_layout .brands_content a .brand_image img {
     height: 30px;
     width: 30px;
+  }
+}
+
+.cards_content {
+  width: 100%;
+}
+@media only screen and (min-width: 1191px) {
+  .cards_content {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1190px) {
+  .cards_content {
+    max-width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cards_content {
+    max-width: calc(100% - 40px);
+    margin: 0 20px;
   }
 }

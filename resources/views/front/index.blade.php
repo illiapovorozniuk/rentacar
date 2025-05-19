@@ -1,5 +1,6 @@
 @extends('front.template')
 <?php
+$currency = 'uah';
 ?>
 @section('title')
     {{ $title }}
@@ -18,6 +19,7 @@
                 <div class="home_description">
                     {!! $description !!}
                 </div>
+                {{-- Brand slider --}}
                 <div class="brands_layout">
                     <div class="brands_content">
                         @foreach($brands as $brand)
@@ -38,9 +40,23 @@
                         @endforeach
                     </div>
                 </div>
+                {{-- End Brand slider --}}
             </div>
         </div>
         <div class="main_content">
+            <div class="cars_home_content">
+
+                <div class="card_list_default">
+                    <div class="list_content_layout">
+                        <div class="list_content">
+
+                            @foreach($cars as $car_index =>$car)
+                                @include('front.template-parts.card-light', ['car_link' => '$car_link', 'car' => $car, $currency, 'card' => 1, 'car_index'=>$car_index])
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div>{!! $content !!}</div>
         </div>
     </main>

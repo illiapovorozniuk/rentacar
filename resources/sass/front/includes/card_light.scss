@@ -1,0 +1,82 @@
+@import "variables-mixins";
+
+.card_light {
+    @media  (max-width: $mobile-max-width) {
+        width: 155px !important;
+    }
+    transition: all 0.1s ease;;
+    @media  (min-width: $desktop-min-width) {
+
+        &:hover {
+            background: $neutral100;
+            box-shadow: 0px 0px 0px 10px $neutral100;
+            border-radius: 15px;
+
+        }
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .img_container {
+
+            width: 100%;
+            border-radius: 15px;
+            aspect-ratio: 1.5;
+            height: auto;
+            overflow: hidden;
+            @media  (max-width: $mobile-max-width) {
+                aspect-ratio: 155/105;
+            }
+
+            img {
+                min-width: 100% !important;
+                min-height: 100% !important;
+                height: 100% !important;
+                width: auto !important;
+            }
+        }
+
+        .name {
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            @include title-m();
+            @media  (max-width: $mobile-max-width) {
+                @include title-s();
+            }
+        }
+    }
+
+    .parameters {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: $success_green;
+        margin-top: 5px;
+        height: 20px;
+
+        li {
+            overflow: hidden;
+            flex-shrink: 1;
+            white-space: nowrap;
+            @include small-1();
+            color: $neutral700;
+            display: inline-block;
+            font-family: "Inter";
+
+            &.no-dep {
+                color: $success_green;
+            }
+
+            &:not(:last-child)::after {
+                content: '·'; /* Додайте ваш контент тут */
+                display: inline-block;
+            }
+        }
+
+    }
+}

@@ -104,6 +104,7 @@ class CarsController extends Controller
         $sanitized['car_brand_id'] = $request['car_model']['brand_id'];
         $sanitized['car_body_type_id'] = $request['car_model']['body_type_id'];
         $sanitized['car_model_id'] = $request->getCarModelId();
+        $sanitized['car_slug'] = $request['car_model']['slug'];
         $sanitized['color_id'] = $request->getCarsColorId();
         $sanitized['fuel_id'] = $request->getFuelId();
         // Store the Car

@@ -12,6 +12,23 @@ $neutral300: #C9C9C9;
 $neutral200: #E6E6E6;
 $neutral100: #F7F7F7;
 
+
+$success_dark: #1E5D25;
+$success_green: #4FAE57;
+$success_light: #E8F5EA;
+
+$info_dark: #0D4A9E;
+$info_blue: #2499EF;
+$info_light: #E3F2FC;
+
+$warning_dark: #CC6C29;
+$warning_yellow: #FABE42;
+$warning_light: #FFFDE8;
+
+$danger_dark: #B61A20;
+$danger_red: #F2413B;
+$danger_light: #FFEBEE;
+
 // Typography
 @mixin typography($font-size, $line-height,$font-weight, $letter-spacing: normal, $text-transform: none) {
     font-size: #{$font-size}px;
@@ -21,27 +38,27 @@ $neutral100: #F7F7F7;
     font-weight: $font-weight;
 }
 
-@mixin headline-h1 {
+@mixin headline-l {
     @include typography(40, 45, 800, -0.03);
 }
 
-@mixin headline-h2 {
+@mixin headline-m {
     @include typography(30, 35, 800, -0.02);
 }
 
-@mixin headline-h3 {
+@mixin headline-s {
     @include typography(22, 30, 700, -0.005);
 }
 
-@mixin headline-h4 {
+@mixin title-l {
     @include typography(18, 25, 700, 0);
 }
 
-@mixin headline-h5 {
+@mixin title-m {
     @include typography(16, 25, 600, 0);
 }
 
-@mixin headline-h6 {
+@mixin title-s {
     @include typography(14, 20, 600, 0);
 }
 

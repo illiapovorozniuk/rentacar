@@ -1,5 +1,7 @@
-@use "variables-mixins" as *;
-@import "defaults";
+@use "includes/variables-mixins" as *;
+@import "includes/defaults";
+@import "includes/card_light";
+@import "includes/lists";
 
 .banner {
     background-size: cover;
@@ -145,4 +147,8 @@
             }
         }
     }
+}
+
+.cards_content{
+    @include max-width
 }

@@ -1,0 +1,86 @@
+@import "variables-mixins";
+
+.long_horisontal_card_list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media only screen and (max-width: $mobile-max-width) {
+        gap: 20px;
+    }
+
+    .list_content_layout {
+
+        @include max-width();
+        scrollbar-width: none;
+        @media only screen and (max-width: $mobile-max-width) {
+            overflow-x: auto;
+
+            max-width: 100% !important;
+            margin: 0 !important;
+        }
+
+        .list_content {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(4, minmax(0, 255px));
+            @media only screen and (max-width: $desktop-min-width) {
+                grid-template-columns: repeat(2, minmax(0, calc(50%)));
+            }
+            @media only screen and (max-width: $mobile-max-width) {
+                width: fit-content;
+                margin-inline-start: $mobile-left-right-margin !important;
+                margin-inline-end: $mobile-left-right-margin !important;
+                padding-inline-end: $mobile-left-right-margin !important;
+                gap: 10px;
+                grid-template-columns: repeat(4, 1fr);
+
+            }
+        }
+    }
+}
+.card_list_default {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media only screen and (max-width: $mobile-max-width) {
+        gap: 20px;
+    }
+
+    .list_content_layout {
+
+        @include max-width();
+        scrollbar-width: none;
+        @media only screen and (max-width: $mobile-max-width) {
+            overflow-x: auto;
+
+            max-width: 100% !important;
+            margin: 0 !important;
+        }
+
+        .list_content {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(4, minmax(0, 255px));
+            @media only screen and (max-width: $desktop-min-width) {
+                grid-template-columns: repeat(2, minmax(0, calc(50%)));
+            }
+            @media only screen and (max-width: $mobile-max-width) {
+                width: fit-content;
+                margin-inline-start: $mobile-left-right-margin !important;
+                margin-inline-end: $mobile-left-right-margin !important;
+                padding-inline-end: $mobile-left-right-margin !important;
+                gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+        }
+    }
+}
+
+.single_vertical_card_list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include max-width();
+}
+

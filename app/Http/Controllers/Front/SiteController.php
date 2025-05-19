@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Brand;
+use App\Models\Car;
 use App\Models\Page;
 use App\Enums\PageType;
 use Illuminate\Http\Request;
@@ -34,6 +35,9 @@ class SiteController extends Controller
         $description = $home_page->description;
         $cover = $home_page->getMedia('cover');
         $brands = Brand::all();
-        return view('front.index', compact('home_page','h1', 'title', 'content', 'description', 'cover', 'brands'));
+
+        $cars = Car::all();
+        $cars = Car::carsInfo($cars->toArray());
+        return view('front.index', compact('home_page','h1', 'title', 'content', 'description', 'cover', 'brands', 'cars'));
     }
 }

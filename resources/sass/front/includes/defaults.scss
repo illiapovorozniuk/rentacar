@@ -23,16 +23,16 @@ body {
 }
 
 h1 {
-    @include headline-h1;
+    @include headline-l;
     @media (max-width: $mobile-max-width) {
-        @include headline-h2;
+        @include headline-m;
     }
 }
 
 h2 {
-    @include headline-h2;
+    @include headline-m;
     @media (max-width: $mobile-max-width) {
-        @include headline-h3;
+        @include headline-s;
     }
 
 }
@@ -41,6 +41,12 @@ a {
     all: unset;
     text-decoration: none;
     cursor: pointer;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 button {
@@ -95,5 +101,9 @@ main {
 
         }
     }
+
+}
+
+.list_content{
 
 }
