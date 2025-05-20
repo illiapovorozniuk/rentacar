@@ -1,0 +1,122 @@
+@use "variables-mixins" as *;
+
+.faq_block {
+    @include max-width();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+
+    .faq_head {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+
+        .faq_title {
+            width: 100%;
+            text-align: start;
+            @include headline-m;
+
+            @media (max-width: $mobile-max-width) {
+                @include headline-s;
+            }
+        }
+
+        .faq_description {
+            @include body-1();
+            width: 100%;
+        }
+    }
+
+    .faqs {
+        width: 100%;
+    }
+
+    .faq {
+        display: flex;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        gap: 10px;
+        padding: 10px 15px 10px 15px;
+
+        @media only screen and (max-width: $mobile-max-width) {
+            padding: 10px 15px 15px 15px;
+            gap: 5px;
+        }
+
+        &.active {
+            padding: 10px 15px 15px 15px;
+            background: $neutral100;
+            transition: all 0.3s ease;
+
+            .faq_arrow {
+                transform: rotate(-90deg);
+                transition: all 0.3s ease;
+            }
+
+            .faq_content {
+
+                .answer {
+                    transition: all 0.3s ease;
+                    margin: 10px 0 0 0;
+                    max-height: 100%;
+                    @media only screen and (max-width: $mobile-max-width) {
+                        margin: 15px 0 0 0;
+                    }
+                }
+            }
+        }
+
+        .faq_arrow {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 60px;
+
+            path {
+                fill: $color-theme;
+            }
+
+        }
+
+        .faq_content {
+            flex: 1;
+            border-radius: 10px;
+
+            .question {
+                cursor: pointer;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+
+                @media (max-width: $mobile-max-width) {
+                    min-height: unset;
+                }
+
+                h3 {
+                    @include title-l;
+
+                    @media (max-width: $mobile-max-width) {
+                        @include title-s;
+                    }
+                }
+            }
+
+            .answer {
+                display: flex;
+                gap: 25px;
+                flex-direction: column;
+                margin: 0 0 0 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                @include body-1;
+                @media (max-width: $mobile-max-width) {
+                    @include body-2;
+                }
+            }
+        }
+    }
+}

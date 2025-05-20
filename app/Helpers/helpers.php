@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 
 function saveOrUpdateImage($file, string $directoryPath, string $fileName, string $action = 'store', string $oldFile = ''): string
@@ -56,4 +58,25 @@ function tr($data)
 {
     $locale = config('app.locale');
     return (json_decode($data))->$locale;
+}
+
+function baseUrl($site = null)
+{
+    $default_lng = Config::get('app.fallback_locale');
+    $current_lng = App::getLocale();
+    if ($site == null) {
+        $url = '/';
+        if ($default_lng != $current_lng) {
+            $url = '/' . $current_lng;
+        }
+    } else {
+        $domain = $site->domain;
+        $url = 'https://' . $domain;
+        if ($default_lng != $current_lng) {
+            $url .= '/' . $current_lng;
+        }
+
+    }
+
+    return url($url);
 }

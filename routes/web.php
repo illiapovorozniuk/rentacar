@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+
 Route::namespace('App\Http\Controllers\Front')->group(function () {
     Route::get('/', 'SiteController@index')->name('home');
+    Route::get('/brands', 'SiteController@brands')->name('brands');
 });
 
 

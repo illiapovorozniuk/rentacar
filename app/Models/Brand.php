@@ -21,6 +21,7 @@ class Brand extends Model implements HasMedia
         'slug',
         'name',
         'icon',
+        'cars_count',
     ];
 
 
@@ -32,6 +33,10 @@ class Brand extends Model implements HasMedia
 
     protected $appends = ['resource_url'];
 
+    public function cars()
+    {
+        return $this->hasMany(Car::class, 'car_brand_id');
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()

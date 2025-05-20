@@ -80,7 +80,8 @@ class PagesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $sanitized["faq"] = json_encode($request->input('faq'));
+        $sanitized["faq"] = str_replace('<br>', '', $sanitized["faq"]);
         // Store the Page
         $page = Page::create($sanitized);
 
@@ -115,8 +116,7 @@ class PagesController extends Controller
     public function edit(Page $page)
     {
         $this->authorize('admin.page.edit', $page);
-
-
+        $page->faq = json_decode($page->faq);
         return view('admin.page.edit', [
             'page' => $page,
             'mode'=> 'edit'
@@ -134,7 +134,8 @@ class PagesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+        $sanitized["faq"] = json_encode($request->input('faq'));
+        $sanitized["faq"] = str_replace('<br>', '', $sanitized["faq"]);
         // Update changed values Page
         $page->update($sanitized);
 

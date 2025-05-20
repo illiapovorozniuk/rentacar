@@ -111,14 +111,51 @@
     </div>
 </div>
 
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('faq'), 'has-success': fields.faq && fields.faq.valid }">
-    <label for="faq" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.page.columns.faq') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <div>
-            <textarea class="form-control" v-model="form.faq" v-validate="''" id="faq" name="faq"></textarea>
+<div class="row">
+    @if( $mode == 'edit' )
+        <div class="col-12">
+                    <span data-field="faq" data-type="seo" data-entity="page" data-id="{{$page->id}}"
+                          class="btn btn-primary trans-popup">Translate FAQ</span>
         </div>
-        <div v-if="errors.has('faq')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('faq') }}</div>
-    </div>
+    @endif
+    @foreach($locales as $locale)
+
+        <div class="col-md" v-show="shouldShowLangGroup('{{ $locale }}')" v-cloak>
+            <div v-for="(item, index) in form.faq" :key="index" class="form-group row align-items-center clone-row">
+                <!-- Existing code for each item -->
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center" style="margin-top:27px;">
+                            <span class="btn btn-danger btn-xs pull-right btn-del-select py-0" @click="removeField(index)">Remove</span>
+                        </div>
+                        <div class="col-12  pt-2">
+                            <div class="row">
+                                <label class="col-md-2 col-form-label text-md-right">Question</label>
+                                <div class="col-md-9" :class="{'col-xl-8': !isFormLocalized }">
+                                    <div>
+                                        <input type="text" class="form-control" v-model="item.question.{{ $locale }}" :name="'faq[' + index + '][question_{{ $locale }}]'">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 pt-2">
+                            <div class="row">
+                                <label class="col-md-2 col-form-label text-md-right">Answer</label>
+                                <div class="col-md-9" :class="{'col-xl-8': !isFormLocalized }">
+                                    <div>
+                                        <wysiwyg v-model="item.answer.{{ $locale }}" :config="mediaWysiwygConfig" :name="'faq[' + index + '][answer_{{ $locale }}]'"></wysiwyg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center pt-2" style="margin-left: 5px;">
+                <span class="btn btn-secondary btn-xs add-select py-0" @click="addField">Add FAQ</span>
+            </div>
+        </div>
+    @endforeach
 </div>
 @if($mode === 'edit' )
     @include('brackets/admin-ui::admin.includes.media-uploader', [
@@ -128,7 +165,7 @@
     ])
 @else
     @include('brackets/admin-ui::admin.includes.media-uploader', [
-    'mediaCollection' => app(App\Models\Car::class)->getMediaCollection('cover'),
+    'mediaCollection' => app(App\Models\Page::class)->getMediaCollection('cover'),
     'label' => 'Cover'
     ])
 @endif

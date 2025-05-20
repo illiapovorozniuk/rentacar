@@ -28,8 +28,8 @@ class StorePage extends TranslatableFormRequest
             'link' => ['required', Rule::unique('pages', 'link'), 'string'],
             'type' => ['required', 'string'],
             'enabled' => ['required', 'boolean'],
-            'faq' => ['nullable', 'string'],
-            
+            'faq' => ['nullable'],
+
         ];
     }
 
@@ -44,7 +44,7 @@ class StorePage extends TranslatableFormRequest
             'h1' => ['nullable', 'string'],
             'description' => ['required', 'string'],
             'content' => ['nullable', 'string'],
-            
+
         ];
     }
 

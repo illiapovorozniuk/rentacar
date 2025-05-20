@@ -1,0 +1,123 @@
+@use "includes/variables-mixins" as *;
+@import "includes/defaults";
+@import "includes/header";
+
+h1 {
+    @include max-width;
+    margin-bottom: 40px !important;
+    @media only screen and (max-width: $mobile-max-width) {
+        margin-bottom: 15px !important;
+    }
+}
+
+main {
+    flex: 1;
+}
+
+
+
+.carPage_content {
+    position: relative;
+    @media only screen and (max-width: $mobile-max-width) {
+        padding-top: 60px;
+    }
+}
+.brand{
+    margin-bottom: 50px;
+
+}
+.brands_content {
+    @include max-width();
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    gap: 10px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    border-radius: 15px;
+    cursor: grab;
+    margin-bottom: 0 !important;
+
+
+    @media only screen and (max-width: 1000px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (max-width: 375px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    a {
+        &:active {
+            cursor: grab;
+        }
+
+        background-color: $neutral100;
+
+        display: flex;
+        border: none;
+        flex: 1;
+        justify-content: space-between;
+
+        transition: ease-in-out 0.3s;
+
+        &:hover {
+            background-color: $neutral200;
+        }
+
+        .brand_info {
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+
+            .brand_name {
+                @include title-l;
+                color: black;
+            }
+
+            .brand_count {
+                white-space: nowrap;
+                @include body-1;
+                color: $neutral500;
+            }
+
+        }
+
+        .brand_image {
+            img {
+                height: 40px;
+                width: 40px;
+            }
+        }
+
+        //@media only screen and (max-width: 768px) {
+        //    & {
+        padding: 15px;
+        border-radius: 15px;
+
+        flex-direction: column;
+        min-height: 90px;
+
+        .brand_image {
+            display: flex;
+            justify-content: end;
+
+            img {
+                height: 45px;
+                width: 45px;
+            }
+        }
+
+        //    }
+        //}
+    }
+
+
+}
+
+
+footer{
+    margin-top: 85px !important;
+}

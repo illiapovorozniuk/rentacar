@@ -34,4 +34,9 @@ $(document).ready(function () {
             autoplaySpeed: 6000,
         });
     }
+
+    // FAQ
+    $('.faq_block .question').click(function () {
+        $(this).closest('.faq').toggleClass('active');
+    });
 });

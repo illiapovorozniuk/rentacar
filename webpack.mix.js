@@ -24,4 +24,5 @@ let sassFrontPath = "resources/sass/front/";
 let cssOutputPath = "public/css/front/";
 mix
     .js(`resources/js/front.js`, `public/js/front.js`)
-    .sass(`${sassFrontPath}index.scss`, `${cssOutputPath}index.css`);
+    .sass(`${sassFrontPath}index.scss`, `${cssOutputPath}index.css`)
+    .sass(`${sassFrontPath}plp_without_cars.scss`, `${cssOutputPath}plp_without_cars.css`);

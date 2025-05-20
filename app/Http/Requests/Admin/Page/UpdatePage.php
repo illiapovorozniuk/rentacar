@@ -28,8 +28,8 @@ class UpdatePage extends TranslatableFormRequest
             'link' => ['sometimes', Rule::unique('pages', 'link')->ignore($this->page->getKey(), $this->page->getKeyName()), 'string'],
             'type' => ['sometimes', 'string'],
             'enabled' => ['sometimes', 'boolean'],
-            'faq' => ['nullable', 'string'],
-            
+            'faq' => ['nullable'],
+
 
         ];
     }
@@ -45,7 +45,7 @@ class UpdatePage extends TranslatableFormRequest
             'h1' => ['nullable', 'string'],
             'description' => ['sometimes', 'string'],
             'content' => ['nullable', 'string'],
-            
+
         ];
     }
 

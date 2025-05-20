@@ -1,6 +1,7 @@
 @extends('front.template')
 <?php
 $currency = 'uah';
+$current_locale = app()->getLocale();
 ?>
 @section('title')
     {{ $title }}
@@ -57,7 +58,10 @@ $currency = 'uah';
                     </div>
                 </div>
             </div>
-            <div>{!! $content !!}</div>
+            <div class="text_content">{!! $content !!}</div>
+            @if($faqs > 0)
+                @include('front.template-parts.faq', ['faqs' => $faqs])
+            @endif
         </div>
     </main>
 @endsection
