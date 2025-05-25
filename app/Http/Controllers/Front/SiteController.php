@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Models\BodyType;
 use App\Models\Brand;
 use App\Models\Car;
 use App\Models\Page;
@@ -49,6 +50,9 @@ class SiteController extends Controller
 
     public function brands(){
         $page = Page::where('type', PageType::BRANDS->value)->first();
+        if($page == null){
+            abort(404);
+        }
         $title = $page->title;
         $h1 = $page->h1;
         $content = $page->content;
@@ -62,5 +66,24 @@ class SiteController extends Controller
         }
 
         return view('front.brands', compact('page','h1', 'title', 'content', 'description', 'cover', 'brands'));
+    }
+    public function bodyTypes(){
+        $page = Page::where('type', PageType::BODIES->value)->first();
+        if($page == null){
+            abort(404);
+        }
+        $title = $page->title;
+        $h1 = $page->h1;
+        $content = $page->content;
+        $description = $page->description;
+        $cover = $page->getMedia('cover');
+        $bodies = BodyType::all();
+        if($page->faq != null){
+            $faqs =  json_decode($page->faq);
+        }else{
+            $faqs = [];
+        }
+
+        return view('front.bodies', compact('page','h1', 'title', 'content', 'description', 'cover', 'bodies'));
     }
 }

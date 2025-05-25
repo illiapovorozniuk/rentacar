@@ -1,5 +1,6 @@
 @use "includes/variables-mixins" as *;
 @import "includes/defaults";
+@import "includes/header";
 @import "includes/card_light";
 @import "includes/lists";
 @import "includes/faq";
@@ -26,10 +27,10 @@
             width: 100%;
 
             @media (max-width: $mobile-max-width) {
-                position: absolute;
-                bottom: -100px;
-                max-width: calc(100% + 15px);
-                width: calc(100% + 15px);
+                //position: absolute;
+                //bottom: -100px;
+                max-width: calc(100% + $mobile-left-right-margin);
+                width: calc(100% + $mobile-left-right-margin);
             }
 
             .brands_content {

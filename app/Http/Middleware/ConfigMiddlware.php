@@ -19,6 +19,7 @@ class ConfigMiddlware
     {
 
         $brands = Brand::all();
+
         Config::set('site.brands', $brands);
 
         return $next($request);

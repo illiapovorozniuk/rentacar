@@ -13,6 +13,9 @@ header {
         position: absolute;
         z-index: 7;
         width: 100%;
+        @media (min-width: $desktop-min-width) {
+        background: transparent;
+        }
     }
 
     .header_content-logo {

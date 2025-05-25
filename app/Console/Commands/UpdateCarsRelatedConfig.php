@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Models\BodyType;
 use App\Models\Brand;
+use http\Message\Body;
 use Illuminate\Console\Command;
 
 class UpdateCarsRelatedConfig extends Command
@@ -26,10 +28,17 @@ class UpdateCarsRelatedConfig extends Command
      */
     public function handle()
     {
+        // Update the cars_count for each brand
         $brands = Brand::withCount(['cars as real_cars_count'])->get();
         foreach ($brands as $brand) {
             $brand->cars_count = $brand->real_cars_count;
             $brand->save();
+        }
+
+        $bodies = BodyType::withCount(['cars as real_cars_count'])->get();
+        foreach ($bodies as $body) {
+            $body->cars_count = $body->real_cars_count;
+            $body->save();
         }
     }
 }

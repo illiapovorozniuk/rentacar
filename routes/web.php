@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::namespace('App\Http\Controllers\Front')->group(function () {
     Route::get('/', 'SiteController@index')->name('home');
     Route::get('/brands', 'SiteController@brands')->name('brands');
+    Route::get('/body-types', 'SiteController@bodyTypes')->name('body-types');
 });
 
 

@@ -15,7 +15,7 @@ $current_locale = app()->getLocale();
 
 ?>
 
-<header @if(isset($homePage))class="home"@endif>
+<header @if(isset($home_page))class="home"@endif>
     <div class="header_content">
         <div class="burger">
             <div class="open active">

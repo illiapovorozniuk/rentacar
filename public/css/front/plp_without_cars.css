@@ -158,6 +158,11 @@ header.home {
   z-index: 7;
   width: 100%;
 }
+@media (min-width: 769px) {
+  header.home {
+    background: transparent;
+  }
+}
 header .header_content-logo {
   height: 30px;
 }
