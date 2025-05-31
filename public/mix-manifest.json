@@ -2,7 +2,8 @@
     "/js/admin.js": "/js/admin.js",
     "/js/front.js": "/js/front.js",
     "/css/admin.css": "/css/admin.css",
-    "/css/front/plp_without_cars.css": "/css/front/plp_without_cars.css",
+    "/css/front/plp.css": "/css/front/plp.css",
     "/css/front/car.css": "/css/front/car.css",
-    "/css/front/index.css": "/css/front/index.css"
+    "/css/front/index.css": "/css/front/index.css",
+    "/css/front/plp_without_cars.css": "/css/front/plp_without_cars.css"
 }

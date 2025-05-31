@@ -94,3 +94,7 @@ function getBodyTypeImgPath($bodyTypeSlug): string
 {
     return "/images/site/body-types/".$bodyTypeSlug.".svg";
 }
+function getBrandImgPath($brandSlug): string
+{
+    return  url('uploads') .'/images/brands/'.$brandSlug.'.webp';
+}

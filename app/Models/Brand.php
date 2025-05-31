@@ -47,6 +47,11 @@ class Brand extends Model implements HasMedia
     {
         return $this->hasMany(CarModel::class);
     }
+
+    public static function getBrandBySlug($slug)
+    {
+        return Brand::query()->where('slug', $slug)->first();
+    }
     /* ************************ MEDIA ************************* */
     public function registerMediaCollections(): void
     {

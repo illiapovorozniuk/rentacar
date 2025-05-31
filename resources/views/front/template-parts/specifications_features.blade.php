@@ -3,7 +3,7 @@
 @endphp
 <div class="specifications_content">
     <h2 class="specifications_title">
-        {{trans('trans_renty.car.specifications')}}</h2>
+        {{trans('trans_rentacar.car.specifications')}}</h2>
     <div class="specifications_content_info">
         @if($data->attribute_year )
             <div class="specifications_content_info_item">
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.year') }}</p>
+                    <p>{{ trans('trans_rentacar.car.year') }}</p>
                     <p>
                         {{$data->attribute_year }}</p>
                 </div>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.color') }}</p>
+                    <p>{{ trans('trans_rentacar.car.color') }}</p>
                     <div style="display: flex; gap: 5px;">
                         <p>{{json_decode($data->color_name)->$locale}}</p>
                         <div style="background: {{$data->color}}; width: 21px; height: 21px; border-radius: 50%"></div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="specifications_content_info_text">
                     <p>{{ trans('front.seats') }}</p>
-                    <p><?php echo ' '; ?> {{$data->attribute_seats}} {{ trans('trans_renty.car.seats') }}</p>
+                    <p><?php echo ' '; ?> {{$data->attribute_seats}} {{ trans('trans_rentacar.car.seats') }}</p>
                 </div>
 
             </div>
@@ -94,9 +94,9 @@
                 </div>
 
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.mileage') }}</p>
+                    <p>{{ trans('trans_rentacar.car.mileage') }}</p>
                     <p>
-                        {{$data->km_included_per_day}} {{ trans('trans_renty.car.km') }}</p>
+                        {{$data->km_included_per_day}} {{ trans('trans_rentacar.car.km') }}</p>
                 </div>
             </div>
         @endif
@@ -133,12 +133,12 @@
                 </div>
 
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.transmission') }}</p>
+                    <p>{{ trans('trans_rentacar.car.transmission') }}</p>
                     <p>
                         @if ($data->attribute_transmission == 'automatic')
-                            {{ trans('trans_renty.car.transmission_automatic') }}
+                            {{ trans('trans_rentacar.car.transmission_automatic') }}
                         @elseif($data->attribute_transmission == 'manual')
-                            {{ trans('trans_renty.car.transmission_manual') }}
+                            {{ trans('trans_rentacar.car.transmission_manual') }}
                         @endif
                     </p>
                 </div>
@@ -155,7 +155,7 @@
                 </div>
 
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.type_of_energy') }}</p>
+                    <p>{{ trans('trans_rentacar.car.type_of_energy') }}</p>
                     <p>
                         {{ $data->fuel_name }}
                     </p>
@@ -172,7 +172,7 @@
                     </svg>
                 </div>
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.engine') }}</p>
+                    <p>{{ trans('trans_rentacar.car.engine') }}</p>
                     <p>
                             <?php echo ' '; ?> {{$data->attribute_engine}}
                     </p>
@@ -194,7 +194,7 @@
                 </div>
 
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.horse_power') }}</p>
+                    <p>{{ trans('trans_rentacar.car.horse_power') }}</p>
                     <p>
                         {{$data->attribute_horsepower}}</p>
                 </div>
@@ -241,7 +241,7 @@
                 </div>
 
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.max_speed') }}</p>
+                    <p>{{ trans('trans_rentacar.car.max_speed') }}</p>
                     <p>
                         {{$data->attribute_max_speed }}</p>
                 </div>
@@ -271,7 +271,7 @@
 {{--                </div>--}}
 
 {{--                <div class="specifications_content_info_text">--}}
-{{--                    <p>{{ trans('trans_renty.car.body_type') }}</p>--}}
+{{--                    <p>{{ trans('trans_rentacar.car.body_type') }}</p>--}}
 {{--                        <?php $isBodyLink = false; ?>--}}
 {{--                    @foreach ($site->siteMenus as $menu)--}}
 {{--                        @if($menu->link == Config::get("services.bodies_link"))--}}
@@ -306,7 +306,7 @@
                     </svg>
                 </div>
                 <div class="specifications_content_info_text">
-                    <p>{{ trans('trans_renty.car.0_100_kmh') }}</p>
+                    <p>{{ trans('trans_rentacar.car.0_100_kmh') }}</p>
                     <p>
                         {{$data->attribute_1_to_100}}</p>
                 </div>

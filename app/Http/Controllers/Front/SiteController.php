@@ -106,6 +106,36 @@ class SiteController extends Controller
         $touched_cars = Car::carsInfo($touched_cars);
         $data = $car;
 
-        return view('front.car', compact('data', 'h1', 'car_title', 'photos','touched_cars'));
+        return view('front.car', compact('data', 'h1', 'car_title', 'photos', 'touched_cars'));
+    }
+
+    public function brand($slug)
+    {
+        $brand = Brand::getBrandBySlug($slug);
+        if ($brand == null) {
+            abort(404);
+        }
+        $data = Car::getCarsByBrandId($brand->id);
+        $data = Car::carsInfo($data->toArray());
+        $brand_page = Page::where('type', PageType::BRAND->value)->first();
+        if ($brand_page == null) {
+            abort(404);
+        }
+        $touched_cars = Car::all()->where('status', 1)->where('car_brand_id', '!=', $brand->id)->take(4)->toArray();
+        $touched_cars = Car::carsInfo($touched_cars);
+        $h1 = str_replace('{slug}',$brand->name,$brand_page->h1);
+        $title = str_replace('{slug}',$brand->name,$brand_page->title);
+        $content = str_replace('{slug}',$brand->name,$brand_page->content);
+        $description = $brand_page->description;
+        $curret_locale = app()->getLocale();
+        $faq_slug_replacement = $brand->name;
+        if ($brand_page->faq != null) {
+            $faqs = json_decode($brand_page->faq);
+        } else {
+            $faqs = [];
+        }
+
+        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'brand', 'faqs', 'touched_cars', 'faq_slug_replacement'));
+
     }
 }

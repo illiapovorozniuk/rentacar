@@ -1,0 +1,81 @@
+@use "includes/variables-mixins" as *;
+@import "includes/defaults";
+@import "includes/header";
+//@import "includes/footer";
+@import "includes/lists";
+@import "includes/card_light";
+@import "includes/faq";
+
+//@import "includes/text_container";
+//@import "includes/faqs";
+//@import "includes/review";
+//@import "includes/interlinks";
+//@import "includes/location";
+//@import "includes/breadcrumbs";
+//@import "includes/prices";
+@import "includes/specifications_features";
+@import "includes/card_full";
+//@import "includes/modals";
+//@import "includes/callback";
+//@import "includes/pagination";
+//@import "includes/search";
+//@import "includes/filter";
+//@import "includes/popular_brands";
+
+
+header {
+    z-index: 4;
+}
+
+h1.title {
+    @include max-width();
+    @include headline-l;
+    margin-top: 10px !important;
+    @media only screen and (max-width: $mobile-max-width) {
+        @include headline-m;
+    }
+}
+
+main {
+    padding-top: 30px;
+}
+
+.navigation {
+    @media only screen and (min-width: $desktop-min-width) {
+        margin-top: 30px !important;
+    }
+    margin-top: 70px !important;
+}
+
+.interlinks {
+    padding-top: 30px;
+    margin-bottom: 30px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        margin-top: -30px !important;
+        width: $max-desktop-width;
+        left: calc((100vw - $max-desktop-width) / 2);
+        height: 1px !important;
+        background-color: $neutral100;
+        display: flex;
+
+        @media only screen and (max-width: $desktop-min-fixed-width) {
+            width: calc(100vw - $desktop-left-right-margin * 2);;
+            left: $desktop-left-right-margin;
+        }
+        @media only screen and (max-width: $mobile-max-width) {
+            width: 100vw;
+            left: 0;
+            height: 5px !important;
+            margin-top: -30px !important;
+        }
+
+
+    }
+}
+
+.container_with_separators {
+    margin-top: 0;
+}

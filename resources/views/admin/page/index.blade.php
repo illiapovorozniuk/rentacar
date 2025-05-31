@@ -54,7 +54,6 @@
                                         <th is='sortable' :column="'link'">{{ trans('admin.page.columns.link') }}</th>
                                         <th is='sortable' :column="'type'">{{ trans('admin.page.columns.type') }}</th>
                                         <th is='sortable' :column="'h1'">{{ trans('admin.page.columns.h1') }}</th>
-                                        <th is='sortable' :column="'description'">{{ trans('admin.page.columns.description') }}</th>
                                         <th is='sortable' :column="'enabled'">{{ trans('admin.page.columns.enabled') }}</th>
 
                                         <th></th>
@@ -84,7 +83,6 @@
                                         <td>@{{ item.link }}</td>
                                         <td>@{{ item.type }}</td>
                                         <td>@{{ item.h1 }}</td>
-                                        <td>@{{ item.description }}</td>
                                         <td>
                                             <label class="switch switch-3d switch-success">
                                                 <input type="checkbox" class="switch-input" v-model="collection[index].enabled" @change="toggleSwitch(item.resource_url, 'enabled', collection[index])">

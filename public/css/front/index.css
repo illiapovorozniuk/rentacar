@@ -332,12 +332,13 @@ header .header_content .pages .brand_item .brand_items.real_brands .brand_items_
   }
 }
 header .header_content .pages .brand_item .brand_items.real_brands .brand_items_tag a span.cars_count {
+  color: #595959;
+  margin-inline-start: auto;
   font-size: 16px;
   line-height: 25px;
   text-transform: none;
   letter-spacing: 0em;
   font-weight: 400;
-  color: #F7F7F7;
 }
 header .header_content .pages .brand_item .brand_items .brand_items_tag {
   padding: 5px;

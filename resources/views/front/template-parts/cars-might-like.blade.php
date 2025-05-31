@@ -1,6 +1,6 @@
 <div class="long_horisontal_card_list">
     <div class="list_header">
-{{--        <h3 class="title">{{trans('trans_renty.car.cars_you_might_like')}}</h3>--}}
+{{--        <h3 class="title">{{trans('trans_rentacar.car.cars_you_might_like')}}</h3>--}}
     </div>
     <div class="list_content_layout">
         <div class="list_content">

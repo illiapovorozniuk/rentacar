@@ -1,0 +1,537 @@
+@import 'variables-mixins';
+
+.fullCard {
+    display: flex;
+
+    .cards_item_row {
+        .cards_item_img {
+            width: unset !important;
+        }
+    }
+}
+
+
+.cards_content {
+    display: grid;
+    //@include max-width;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    @media only screen and (max-width: 1040px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    margin-bottom: 45px !important;
+
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 30px !important;
+
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 30px;
+    }
+    row-gap: 45px;
+    column-gap: 30px;
+}
+
+.no-dep {
+    color: $success_green;
+
+    svg {
+        margin-bottom: -3px;
+        fill: $success_green;
+    }
+}
+
+.dep {
+    //@include small1;
+    color: $neutral500;
+
+    svg {
+        margin-bottom: -3px;
+        fill: $neutral500;
+    }
+}
+
+.cards_item {
+    display: flex;
+    width: 100%;
+    border-radius: 15px;
+    align-items: stretch;
+    overflow: hidden;
+
+
+    &:hover {
+        transition: all 0.1s ease;
+        box-shadow: 0px 0px 0px 15px #00000008;
+        background: #00000008;
+    }
+
+    @media only screen and (max-width: $mobile-max-width) {
+        flex-direction: column;
+        gap: 10px;
+        &:hover {
+            box-shadow: 0px 0px 0px 10px #00000008;
+        }
+    }
+
+
+    .cards_item_img {
+        position: relative;
+        width: 350px;
+        min-width: 350px;
+        min-height: 250px;
+        height: 100%;
+        overflow: hidden;
+        @media only screen and (max-width: $mobile-max-width) {
+            width: 100%;
+            min-width: unset;
+            aspect-ratio: 320/210;
+            height: auto;
+            min-height: unset;
+        }
+
+
+        .availability {
+            background-color: rgba(0, 0, 0, 0.5);;
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            color: white;
+            padding: 0px 8px 0 22px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 20px;
+            z-index: 1;
+            height: 20px;
+
+            .sign {
+                border-radius: 20px;
+                height: 14px;
+                width: 14px;
+                align-items: center;
+                display: inline-flex;
+                justify-content: center;
+                position: absolute;
+                top: 3px;
+                left: 3.5px;
+            }
+
+            .availabe_now {
+                background-color: $success_green;
+            }
+
+            .availabe_tomorrow {
+                background-color: $warning_yellow;
+            }
+
+            .availabe_today {
+                background-color: $info_blue;
+            }
+
+            .availabe_soon {
+                background-color: $danger_red;
+            }
+        }
+
+        .main_img {
+            display: flex;
+            width: 100%;
+            object-fit: cover;
+            @media only screen and (min-width: $desktop-min-width) {
+                min-width: 350px;
+            }
+        }
+    }
+
+    .cards_item_info {
+        flex: 1;
+        padding: 15px;
+        padding-inline-start: 20px;
+        @media only screen and (max-width: $mobile-max-width) {
+            padding: 0;
+            padding-inline-start: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        * {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .info_header {
+            display: flex;
+            gap: 15px;
+            padding-bottom: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+
+            > img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+            }
+
+            .info_description {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+
+                .car_title {
+                    @include title-l;
+                }
+
+                .item_header_parameters {
+                    font-family: "Inter";
+                    @include body-1();
+                    color: $neutral800;
+                }
+            }
+
+            .item_review {
+                .mark {
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                    gap: 5px;
+                    @include title-l;
+                }
+
+                .count_reviews {
+                    @include body-1;
+                }
+            }
+
+            @media only screen and (max-width: $mobile-max-width) {
+                flex-direction: column;
+                align-items: start;
+                padding-bottom: 0;
+                gap: 10px;
+                > img {
+                    display: none;
+                }
+                .info_description {
+                    max-width: 100%;
+
+                    .car_title {
+                        @include title-m;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+
+                    .item_header_parameters {
+                        @include body-2();
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                    }
+                }
+                .item_review {
+                    display: flex;
+                    gap: 5px;
+                    align-items: center;
+
+                    .mark {
+                        display: flex;
+                        align-items: center;
+                        justify-content: end;
+                        gap: 5px;
+                        @include title-m;
+                    }
+
+                    .count_reviews {
+                        @include body-2;
+                    }
+                }
+            }
+        }
+
+        .rent_parameters {
+            padding: 10px 10px 20px 10px;
+            padding-inline-end: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(225px, 225px));
+            flex-wrap: wrap;
+            gap: 5px 15px;
+
+            * {
+                font-family: 'Inter';
+            }
+
+            > div {
+                width: 225px;
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                [title]::after {
+                    content: attr(title);
+                    text-transform: capitalize;
+                }
+                p {
+                    @include body-1;
+                    color: $neutral800;
+                    &:first-letter {
+                        text-transform: uppercase;
+                    }
+                }
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            @media only screen and (max-width: $mobile-max-width) {
+                padding: 0;
+                grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+                gap: 5px;
+                > div {
+                    width: 100%;
+
+                    &.deposit {
+                        p::first-letter {
+
+                            text-transform: uppercase;
+                        }
+                    }
+
+                    p {
+                        @include body-2;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        .item_bottom {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            padding-inline-start: 10px;
+            border-top: 1px solid $neutral100;
+            flex-wrap: wrap;
+
+            .car_price_block {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+
+                p:nth-of-type(1) {
+                    @include headline-s;
+                }
+
+                p:nth-of-type(2) {
+                    @include title-m;
+
+                }
+            }
+
+            .reserve_buttons {
+                display: flex;
+                gap: 10px;
+
+
+                button, span {
+                    @include button-Large;
+                    @include title-l;
+                    @include button-effects();
+                    border-radius: 60px;
+                    padding: 12.5px 20px;
+                }
+
+                .fixed_form {
+                    background: #000;
+                    color: white;
+                    transition: all 0.1s ease;
+                    height: 20px;
+                    align-items: center;
+
+                }
+
+                button {
+                    padding-inline-start: 15px;
+                    padding-inline-end: 25px;
+                    background: $success_green;
+                    color: white;
+                    transition: all 0.1s ease;
+                    height: 45px;
+
+                    svg {
+                        path {
+                            fill: white;
+                        }
+                    }
+
+                }
+            }
+
+            @media only screen and (max-width: $mobile-max-width) {
+                padding-top: 10px;
+                padding-inline-start: 0;
+                flex-direction: column;
+                gap: 10px;
+                .reserve_buttons {
+
+
+                    button, span {
+                        flex: 1;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.slick-carousel {
+    margin-bottom: 0px !important;
+}
+
+.cards_item_img {
+    min-height: 50px;
+}
+
+.slider-content {
+    width: 100%;
+}
+
+.slick-list {
+    border-radius: 15px;
+}
+
+.slider-content {
+    //max-width: calc(100vw - 30px);
+
+    position: relative;
+    padding: 0px !important;
+
+    .slick-arrow {
+        display: none !important;
+    }
+}
+
+.slick-dots {
+    display: flex;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 5px;
+    background-color: #00000040;
+    width: max-content;
+    position: absolute;
+    gap: 4px;
+    padding: 5px;
+    border-radius: 50px;
+
+    li {
+        background-color: rgb(255, 255, 255, 0.5);
+        width: 6px;
+        height: 6px;
+        border-radius: 10px;
+        display: inline-block;
+
+        opacity: 1;
+        font-size: 0;
+
+        &.slick-active {
+            background-color: #FFF;
+        }
+
+        button {
+            width: 6px !important;
+            height: 6px !important;
+        }
+    }
+
+    button {
+        display: none;
+
+        &::before {
+            content: "";
+            background-color: white;
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+    }
+}
+
+.slick-dots li button {
+    width: 10px;
+    height: 10px;
+}
+
+
+.slick-dotted.slick-slider {
+    margin-bottom: 0px !important;
+}
+
+#sliderCard {
+    img {
+        height: 100px !important;
+    }
+}
+
+.cards_item.inactive {
+    .reserve_buttons {
+        display: none;
+    }
+
+    .cards_item_img.slider {
+        overflow: hidden;
+
+        img {
+            filter: grayscale(100%);
+        }
+
+    }
+
+    .card_detailes {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        height: 40px;
+    }
+}
+
+.card_detailes {
+    display: none;
+    font-size: 14px;
+}
+
+.Slick_item, .cards_item_img {
+    @media only screen and (max-width: $mobile-max-width) {
+
+        height: calc((100vw - $mobile-left-right-margin * 2) * (210 / 320)) !important;
+    }
+
+    img {
+        //height: calc((100vw - $mobile-left-right-margin) * (210 / 320)) !important;
+        width: 350px !important;
+        height: auto !important;
+        //max-height: 100% !important;
+        aspect-ratio: 350 / 250;
+        //min-height: auto !important;
+        @media only screen and (max-width: $mobile-max-width) {
+            //height: calc((100vw - $mobile-left-right-margin * 2 ) * (210 / 320)) !important;
+            width: auto !important;
+            height: 100% !important;
+            aspect-ratio: 320 / 210;
+        }
+    }
+}
+
+
+.slick-slide {
+    display: block !important;
+}
+

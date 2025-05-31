@@ -20,6 +20,7 @@ Route::namespace('App\Http\Controllers\Front')->group(function () {
     Route::get('/', 'SiteController@index')->name('home');
     Route::get('/'.RouteEnum::BRANDS->value, 'SiteController@brands')->name('brands');
     Route::get('/'.RouteEnum::BODIES->value, 'SiteController@bodyTypes')->name('body-types');
+    Route::get('/'.RouteEnum::BRANDS->value.'/{slug}', 'SiteController@brand')->name('brand');
     Route::get('/'.RouteEnum::CAR->value.'/{id}', 'SiteController@car')->name('car');
 });
 

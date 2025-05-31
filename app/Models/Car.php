@@ -145,6 +145,7 @@ class Car extends Model implements HasMedia
             ->whereIn('cars.id', $carIds)
             ->get();
 
+        $currentLocale = app()->getLocale();
         foreach ($carsData as $car) {
             $media_photos = $car->getMedia('cars');
             $main_photo = null;
@@ -159,8 +160,13 @@ class Car extends Model implements HasMedia
             }
             $car['main_photo'] = $main_photo;
             $car['photos'] = $photos;
+            $car['color_name'] = json_decode($car['color_name'])->$currentLocale;
         }
         return $carsData;
+    }
+
+    public static function getCarsByBrandId(int $brandId){
+       return self::query()->where('car_brand_id', $brandId)->get();
     }
 
     /* ************************ ACCESSOR ************************* */

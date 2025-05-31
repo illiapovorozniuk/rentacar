@@ -55,12 +55,12 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                         <span class="dot">·</span>
                                         <div class="car_config">
                                             @if ($data->attribute_transmission == 'automatic')
-                                                {{ trans('trans_renty.car.transmission_automatic') }},
+                                                {{ trans('trans_rentacar.car.transmission_automatic') }},
                                             @elseif($data->attribute_transmission == 'manual')
-                                                {{ trans('trans_renty.car.transmission_manual') }},
+                                                {{ trans('trans_rentacar.car.transmission_manual') }},
                                             @endif
                                             @if($data->attribute_seats)
-                                                {{$data->attribute_seats.' '. strtolower(trans('trans_renty.car.seats'))}}
+                                                {{$data->attribute_seats.' '. strtolower(trans('trans_rentacar.car.seats'))}}
                                                 ,
                                             @endif
                                             {{ $data->attribute_sm_bag."/".$data->attribute_lg_bag.' '. strtolower(trans('front.luggage')) }}
@@ -83,7 +83,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                             $second =  formatNumberString($data->price_1);
                             $first = $data->price_7 * 7;
                             $last = $data->price_30 * 30;
-//                            $currentName = trans('trans_renty.car.per_day');
+//                            $currentName = trans('trans_rentacar.car.per_day');
 //                            $currentPrice = $daylyFunc;
 //
 //                            $phpData = $site->cars_config;
@@ -91,7 +91,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
 //                            $phpData = json_decode($site->cars_config, true);
 //                            $priceRangeName = $phpData['price_range'][0]['name'];
 //                            if ($priceRangeName == 'price_7_13') {
-//                                $currentName = trans('trans_renty.car.weekly');
+//                                $currentName = trans('trans_rentacar.car.weekly');
 //                                $currentPrice = $weeklyFunc;
 //
 //                            }
@@ -120,24 +120,24 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                     @if($i == 1)
                                         <div class="left">
                                             <img class="car-add" href="{{$data->main_photo}}" data-fancybox="gallery"
-                                                 data-caption="{{$car_title.', '.strtolower(trans('trans_renty.car.photo')).' #'.$i }}"
+                                                 data-caption="{{$car_title.', '.strtolower(trans('trans_rentacar.car.photo')).' #'.$i }}"
                                                  src="{{$data->main_photo}}"
                                                  alt="{{" $car_title Photo $i"}}">
                                             <a data-fancybox-trigger="gallery"
-                                               data-caption="{{$car_title.', '.strtolower(trans('trans_renty.car.photo')).' #'.$i }}"
-                                               class="more-photos">{{count($photos??[]).' '.trans('trans_renty.new.car.photos')}}</a>
+                                               data-caption="{{$car_title.', '.strtolower(trans('trans_rentacar.car.photo')).' #'.$i }}"
+                                               class="more-photos">{{count($photos??[]).' '.trans('trans_rentacar.new.car.photos')}}</a>
                                         </div>
                                         <div class="right">
                                             @elseif($i < 4 )
 
                                                 <img href="{{$photo}}" data-fancybox="gallery"
-                                                     data-caption="{{$car_title.', '.strtolower(trans('trans_renty.car.photo')).' #'.$i }}"
+                                                     data-caption="{{$car_title.', '.strtolower(trans('trans_rentacar.car.photo')).' #'.$i }}"
                                                      class="car-add" src="{{$photo}}"
                                                      alt="{{"$car_title Photo $i"}}" loading="lazy">
                                             @else
 
                                                 <img style="display: none" href="{{$photo}}" data-fancybox="gallery"
-                                                     data-caption="{{$car_title.', '.strtolower(trans('trans_renty.car.photo')).' #'.$i }}"
+                                                     data-caption="{{$car_title.', '.strtolower(trans('trans_rentacar.car.photo')).' #'.$i }}"
                                                      class="car-add" src="{{str_replace('/l/','/m/',$photo)}}"
                                                      alt="{{"$car_title Photo $i"}}" loading="lazy">
                                             @endif
@@ -145,7 +145,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                             @endforeach
 
                                             <a data-fancybox-trigger="gallery" class="more-photos">
-                                                {{ count($photos ?? []) . ' ' . trans('trans_renty.new.car.photos') }}
+                                                {{ count($photos ?? []) . ' ' . trans('trans_rentacar.new.car.photos') }}
                                             </a>
 
                                         </div>
@@ -157,7 +157,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                 <div class="car_price_block">
                                     @if($data->min_day_reservation < 7)
                                         <p id="price">{{$second}}</p>
-                                        <p class="date_range">{{trans('trans_renty.car.per_day')}}</p>
+                                        <p class="date_range">{{trans('trans_rentacar.car.per_day')}}</p>
                                     @elseif($data->min_day_reservation < 30)
                                         <p id="price">{{$first}}</p>
                                         <p class="date_range">{{trans('front.site.per_week')}}</p>
@@ -176,7 +176,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                         {!!'<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M15.8334 3.83332H14.1667V2.99999C14.1667 2.77898 14.079 2.56701 13.9227 2.41073C13.7664 2.25445 13.5544 2.16666 13.3334 2.16666C13.1124 2.16666 12.9004 2.25445 12.7442 2.41073C12.5879 2.56701 12.5001 2.77898 12.5001 2.99999V3.83332H7.50008V2.99999C7.50008 2.77898 7.41228 2.56701 7.256 2.41073C7.09972 2.25445 6.88776 2.16666 6.66675 2.16666C6.44573 2.16666 6.23377 2.25445 6.07749 2.41073C5.92121 2.56701 5.83342 2.77898 5.83342 2.99999V3.83332H4.16675C3.50371 3.83332 2.86782 4.09672 2.39898 4.56556C1.93014 5.0344 1.66675 5.67028 1.66675 6.33332V16.3333C1.66675 16.9964 1.93014 17.6322 2.39898 18.1011C2.86782 18.5699 3.50371 18.8333 4.16675 18.8333H15.8334C16.4965 18.8333 17.1323 18.5699 17.6012 18.1011C18.07 17.6322 18.3334 16.9964 18.3334 16.3333V6.33332C18.3334 5.67028 18.07 5.0344 17.6012 4.56556C17.1323 4.09672 16.4965 3.83332 15.8334 3.83332ZM16.6667 16.3333C16.6667 16.5543 16.579 16.7663 16.4227 16.9226C16.2664 17.0789 16.0544 17.1667 15.8334 17.1667H4.16675C3.94573 17.1667 3.73377 17.0789 3.57749 16.9226C3.42121 16.7663 3.33341 16.5543 3.33341 16.3333V10.5H16.6667V16.3333ZM16.6667 8.83332H3.33341V6.33332C3.33341 6.11231 3.42121 5.90035 3.57749 5.74407C3.73377 5.58779 3.94573 5.49999 4.16675 5.49999H5.83342V6.33332C5.83342 6.55434 5.92121 6.7663 6.07749 6.92258C6.23377 7.07886 6.44573 7.16666 6.66675 7.16666C6.88776 7.16666 7.09972 7.07886 7.256 6.92258C7.41228 6.7663 7.50008 6.55434 7.50008 6.33332V5.49999H12.5001V6.33332C12.5001 6.55434 12.5879 6.7663 12.7442 6.92258C12.9004 7.07886 13.1124 7.16666 13.3334 7.16666C13.5544 7.16666 13.7664 7.07886 13.9227 6.92258C14.079 6.7663 14.1667 6.55434 14.1667 6.33332V5.49999H15.8334C16.0544 5.49999 16.2664 5.58779 16.4227 5.74407C16.579 5.90035 16.6667 6.11231 16.6667 6.33332V8.83332Z" fill="'.$colorAvailabilityLabel['background'].'"/>
                                             </svg>'!!}
-                                        <p> {{ trans('trans_renty.car.available_' . ($data->status==1?$data->availability_label:'soon') ) }}</p>
+                                        <p> {{ trans('trans_rentacar.car.available_' . ($data->status==1?$data->availability_label:'soon') ) }}</p>
                                     </div>
 
 {{--                                    @if($data->no_deposit_needed != 1)--}}
@@ -191,7 +191,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
 {{--                                                        fill="#4FAE57"/>--}}
 {{--                                                </svg>--}}
 
-{{--                                                <p>{{ trans('trans_renty.car.no_deposit_label') }}</p>--}}
+{{--                                                <p>{{ trans('trans_rentacar.car.no_deposit_label') }}</p>--}}
 {{--                                            </div>--}}
 {{--                                        @else--}}
 {{--                                            <div class="deposit">--}}
@@ -202,7 +202,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
 {{--                                                        fill="#919191"/>--}}
 {{--                                                </svg>--}}
 
-{{--                                                <p> {{ trans('trans_renty.car.deposit') }}--}}
+{{--                                                <p> {{ trans('trans_rentacar.car.deposit') }}--}}
 {{--                                                    : {{ $currency->sign }} {{ formatNumberString(round($data->deposit / $main_currency->exchange_rate *--}}
 {{--                                                                    $currency->exchange_rate)) }}--}}
 {{--                                                </p>--}}
@@ -216,7 +216,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
 {{--                                                    d="M13.3583 1.54166C13.2614 1.46334 13.1483 1.40772 13.0272 1.37888C12.906 1.35004 12.78 1.34871 12.6583 1.37499C11.7678 1.56161 10.8485 1.56399 9.95712 1.38198C9.06569 1.19997 8.22096 0.837421 7.47492 0.316659C7.33543 0.219886 7.1697 0.16803 6.99992 0.16803C6.83015 0.16803 6.66442 0.219886 6.52492 0.316659C5.77889 0.837421 4.93415 1.19997 4.04273 1.38198C3.15131 1.56399 2.23206 1.56161 1.34159 1.37499C1.21987 1.34871 1.09381 1.35004 0.972674 1.37888C0.851537 1.40772 0.738403 1.46334 0.64159 1.54166C0.544906 1.62009 0.467024 1.71919 0.413667 1.83167C0.36031 1.94415 0.332833 2.06716 0.333257 2.19166V8.39999C0.332516 9.59478 0.617234 10.7725 1.1637 11.835C1.71017 12.8975 2.50257 13.814 3.47492 14.5083L6.51659 16.675C6.65773 16.7755 6.82667 16.8295 6.99992 16.8295C7.17318 16.8295 7.34212 16.7755 7.48326 16.675L10.5249 14.5083C11.4973 13.814 12.2897 12.8975 12.8361 11.835C13.3826 10.7725 13.6673 9.59478 13.6666 8.39999V2.19166C13.667 2.06716 13.6395 1.94415 13.5862 1.83167C13.5328 1.71919 13.4549 1.62009 13.3583 1.54166ZM11.9999 8.39999C12.0006 9.32896 11.7793 10.2446 11.3546 11.0708C10.9299 11.897 10.3141 12.6099 9.55826 13.15L6.99992 14.975L4.44159 13.15C3.68579 12.6099 3.06991 11.897 2.64521 11.0708C2.22052 10.2446 1.99928 9.32896 1.99992 8.39999V3.14999C3.74695 3.29952 5.49662 2.89418 6.99992 1.99166C8.50322 2.89418 10.2529 3.29952 11.9999 3.14999V8.39999ZM8.28326 6.49166L6.04159 8.74166L5.29992 7.99166C5.143 7.83474 4.93017 7.74658 4.70826 7.74658C4.48634 7.74658 4.27351 7.83474 4.11659 7.99166C3.95967 8.14858 3.87151 8.36141 3.87151 8.58333C3.87151 8.80524 3.95967 9.01807 4.11659 9.17499L5.44992 10.5083C5.52739 10.5864 5.61956 10.6484 5.72111 10.6907C5.82266 10.733 5.93158 10.7548 6.04159 10.7548C6.1516 10.7548 6.26052 10.733 6.36207 10.6907C6.46362 10.6484 6.55579 10.5864 6.63326 10.5083L9.49992 7.66666C9.65684 7.50974 9.745 7.29691 9.745 7.07499C9.745 6.85307 9.65684 6.64025 9.49992 6.48333C9.343 6.32641 9.13018 6.23825 8.90826 6.23825C8.68634 6.23825 8.47351 6.32641 8.31659 6.48333L8.28326 6.49166Z"--}}
 {{--                                                    fill="#4FAE57"/>--}}
 {{--                                            </svg>--}}
-{{--                                            <p>{{ trans('trans_renty.car.no_deposit_label') }}</p>--}}
+{{--                                            <p>{{ trans('trans_rentacar.car.no_deposit_label') }}</p>--}}
 {{--                                        </div>--}}
 {{--                                    @endif--}}
                                     @if(isset($data->min_day_reservation) && $data->min_day_reservation !== null && $data->min_day_reservation > 1)
@@ -228,7 +228,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                     fill="#FABE42"/>
                                             </svg>
 
-                                            <p>{{ trans_choice('trans_renty.car.min_day_reservation', $data->min_day_reservation, ['days' => $data->min_day_reservation]) }}</p>
+                                            <p>{{ trans_choice('trans_rentacar.car.min_day_reservation', $data->min_day_reservation, ['days' => $data->min_day_reservation]) }}</p>
                                         </div>
                                     @endif
 
@@ -240,7 +240,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                     <button
                                         class="info_right_button fixed_form reserve @if($data->status != 1) inactive @endif"
                                         data-id="{!! $data->id !!}" data-title="{{'Rent '.$car_title }}">
-                                        {{trans('trans_renty.car.rent_now')}}</button>
+                                        {{trans('trans_rentacar.car.rent_now')}}</button>
 
                                 </div>
 
@@ -283,37 +283,37 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                 d="M15.5917 6.00834C15.5142 5.93023 15.4221 5.86824 15.3205 5.82593C15.219 5.78362 15.11 5.76184 15 5.76184C14.89 5.76184 14.7811 5.78362 14.6796 5.82593C14.578 5.86824 14.4858 5.93023 14.4084 6.00834L8.20004 12.225L5.59171 9.60834C5.51127 9.53064 5.41632 9.46955 5.31227 9.42854C5.20823 9.38754 5.09713 9.36743 4.98531 9.36936C4.87349 9.3713 4.76315 9.39524 4.66058 9.43982C4.55802 9.48439 4.46524 9.54874 4.38754 9.62917C4.30984 9.70961 4.24875 9.80456 4.20774 9.9086C4.16674 10.0127 4.14663 10.1238 4.14856 10.2356C4.1505 10.3474 4.17444 10.4577 4.21902 10.5603C4.2636 10.6629 4.32794 10.7556 4.40837 10.8333L7.60837 14.0333C7.68584 14.1114 7.77801 14.1734 7.87956 14.2157C7.98111 14.2581 8.09003 14.2798 8.20004 14.2798C8.31005 14.2798 8.41897 14.2581 8.52052 14.2157C8.62207 14.1734 8.71424 14.1114 8.79171 14.0333L15.5917 7.23334C15.6763 7.1553 15.7438 7.06059 15.79 6.95518C15.8361 6.84976 15.86 6.73592 15.86 6.62084C15.86 6.50575 15.8361 6.39192 15.79 6.2865C15.7438 6.18108 15.6763 6.08637 15.5917 6.00834Z"
                                                 fill="#919191"/>
                                         </svg>
-                                        <p>{{trans('trans_renty.car.vat_tax_included')}}</p>
+                                        <p>{{trans('trans_rentacar.car.vat_tax_included')}}</p>
                                     </div>
                                 </div>
 
                                 @if($data->status != 1)
-                                    <p class="inactive-info">{{trans('trans_renty.car.owner_has_changed_status')}}</p>
+                                    <p class="inactive-info">{{trans('trans_rentacar.car.owner_has_changed_status')}}</p>
                                 @endif
                             </div>
 
 
                             <div class="rental_terms">
-                                <div class="rental_terms_title">{{trans('trans_renty.car.rental_terms')}}</div>
+                                <div class="rental_terms_title">{{trans('trans_rentacar.car.rental_terms')}}</div>
                                 <div class="terms_content">
                                     <div class="term">
-                                        <div class="term_title">{{trans('trans_renty.car.rental_pricing')}}</div>
+                                        <div class="term_title">{{trans('trans_rentacar.car.rental_pricing')}}</div>
 
                                         <div class="term_items">
                                             @if(isset($data->min_day_reservation) && $data->min_day_reservation !== null && $data->min_day_reservation < 30)
                                                 <div class="item">
-                                                    <p class="name">{{trans('trans_renty.car.daily')}}</p>
+                                                    <p class="name">{{trans('trans_rentacar.car.daily')}}</p>
                                                     <div></div>
                                                     <p class="value">{{$second}}</p>
                                                 </div>
                                                 <div class="item">
-                                                    <p class="name">{{trans('trans_renty.car.weekly')}}</p>
+                                                    <p class="name">{{trans('trans_rentacar.car.weekly')}}</p>
                                                     <div></div>
                                                     <p class="value">{{$first}}</p>
                                                 </div>
                                             @endif
                                             <div class="item">
-                                                <p class="name">{{trans('trans_renty.car.monthly')}}</p>
+                                                <p class="name">{{trans('trans_rentacar.car.monthly')}}</p>
                                                 <div></div>
                                                 <p class="value">{{$last}}</p>
                                             </div>
@@ -324,19 +324,19 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
 
                                         <div class="term_items">
                                             <div class="item">
-                                                <p class="name">{{trans('trans_renty.car.daily')}}</p>
+                                                <p class="name">{{trans('trans_rentacar.car.daily')}}</p>
                                                 <div></div>
-                                                <p class="value">250 {{trans('trans_renty.car.km')}}</p>
+                                                <p class="value">250 {{trans('trans_rentacar.car.km')}}</p>
                                             </div>
                                             <div class="item">
-                                                <p class="name">{{trans('trans_renty.car.weekly')}}</p>
+                                                <p class="name">{{trans('trans_rentacar.car.weekly')}}</p>
                                                 <div></div>
-                                                <p class="value">1,400 {{trans('trans_renty.car.km')}}</p>
+                                                <p class="value">1,400 {{trans('trans_rentacar.car.km')}}</p>
                                             </div>
                                             <div class="item">
-                                                <p class="name">{{trans('trans_renty.car.monthly')}}</p>
+                                                <p class="name">{{trans('trans_rentacar.car.monthly')}}</p>
                                                 <div></div>
-                                                <p class="value">3,500 {{trans('trans_renty.car.km')}}</p>
+                                                <p class="value">3,500 {{trans('trans_rentacar.car.km')}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -354,7 +354,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                         <div class="car_price_block">
                                             @if($data->min_day_reservation < 7)
                                                 <p id="price">{{$second}}</p>
-                                                <p class="date_range">{{trans('trans_renty.car.per_day')}}</p>
+                                                <p class="date_range">{{trans('trans_rentacar.car.per_day')}}</p>
                                             @elseif($data->min_day_reservation < 30)
                                                 <p id="price">{{$first}}</p>
                                                 <p class="date_range">{{trans('front.site.per_week')}}</p>
@@ -372,7 +372,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                 {!!'<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M15.8334 3.83332H14.1667V2.99999C14.1667 2.77898 14.079 2.56701 13.9227 2.41073C13.7664 2.25445 13.5544 2.16666 13.3334 2.16666C13.1124 2.16666 12.9004 2.25445 12.7442 2.41073C12.5879 2.56701 12.5001 2.77898 12.5001 2.99999V3.83332H7.50008V2.99999C7.50008 2.77898 7.41228 2.56701 7.256 2.41073C7.09972 2.25445 6.88776 2.16666 6.66675 2.16666C6.44573 2.16666 6.23377 2.25445 6.07749 2.41073C5.92121 2.56701 5.83342 2.77898 5.83342 2.99999V3.83332H4.16675C3.50371 3.83332 2.86782 4.09672 2.39898 4.56556C1.93014 5.0344 1.66675 5.67028 1.66675 6.33332V16.3333C1.66675 16.9964 1.93014 17.6322 2.39898 18.1011C2.86782 18.5699 3.50371 18.8333 4.16675 18.8333H15.8334C16.4965 18.8333 17.1323 18.5699 17.6012 18.1011C18.07 17.6322 18.3334 16.9964 18.3334 16.3333V6.33332C18.3334 5.67028 18.07 5.0344 17.6012 4.56556C17.1323 4.09672 16.4965 3.83332 15.8334 3.83332ZM16.6667 16.3333C16.6667 16.5543 16.579 16.7663 16.4227 16.9226C16.2664 17.0789 16.0544 17.1667 15.8334 17.1667H4.16675C3.94573 17.1667 3.73377 17.0789 3.57749 16.9226C3.42121 16.7663 3.33341 16.5543 3.33341 16.3333V10.5H16.6667V16.3333ZM16.6667 8.83332H3.33341V6.33332C3.33341 6.11231 3.42121 5.90035 3.57749 5.74407C3.73377 5.58779 3.94573 5.49999 4.16675 5.49999H5.83342V6.33332C5.83342 6.55434 5.92121 6.7663 6.07749 6.92258C6.23377 7.07886 6.44573 7.16666 6.66675 7.16666C6.88776 7.16666 7.09972 7.07886 7.256 6.92258C7.41228 6.7663 7.50008 6.55434 7.50008 6.33332V5.49999H12.5001V6.33332C12.5001 6.55434 12.5879 6.7663 12.7442 6.92258C12.9004 7.07886 13.1124 7.16666 13.3334 7.16666C13.5544 7.16666 13.7664 7.07886 13.9227 6.92258C14.079 6.7663 14.1667 6.55434 14.1667 6.33332V5.49999H15.8334C16.0544 5.49999 16.2664 5.58779 16.4227 5.74407C16.579 5.90035 16.6667 6.11231 16.6667 6.33332V8.83332Z" fill="'.$colorAvailabilityLabel['background'].'"/>
                                                     </svg>'!!}
-                                                <p> {{ trans('trans_renty.car.available_' . ($data->status==1?$data->availability_label:'soon')) }}</p>
+                                                <p> {{ trans('trans_rentacar.car.available_' . ($data->status==1?$data->availability_label:'soon')) }}</p>
                                             </div>
                                                 @if($data->deposit != 0)
 
@@ -387,7 +387,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
 {{--                                                                    fill="#4FAE57"/>--}}
 {{--                                                            </svg>--}}
 
-{{--                                                            <p>{{ trans('trans_renty.car.no_deposit_label') }}</p>--}}
+{{--                                                            <p>{{ trans('trans_rentacar.car.no_deposit_label') }}</p>--}}
 {{--                                                        </div>--}}
 {{--                                                    @else--}}
                                                         <div class="deposit">
@@ -398,7 +398,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                                     fill="#919191"/>
                                                             </svg>
 
-                                                            <p> {{ trans('trans_renty.car.deposit') }}
+                                                            <p> {{ trans('trans_rentacar.car.deposit') }}
                                                                 : {{$data->deposit}}
                                                             </p>
                                                         </div>
@@ -411,7 +411,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                                 d="M13.3583 1.54166C13.2614 1.46334 13.1483 1.40772 13.0272 1.37888C12.906 1.35004 12.78 1.34871 12.6583 1.37499C11.7678 1.56161 10.8485 1.56399 9.95712 1.38198C9.06569 1.19997 8.22096 0.837421 7.47492 0.316659C7.33543 0.219886 7.1697 0.16803 6.99992 0.16803C6.83015 0.16803 6.66442 0.219886 6.52492 0.316659C5.77889 0.837421 4.93415 1.19997 4.04273 1.38198C3.15131 1.56399 2.23206 1.56161 1.34159 1.37499C1.21987 1.34871 1.09381 1.35004 0.972674 1.37888C0.851537 1.40772 0.738403 1.46334 0.64159 1.54166C0.544906 1.62009 0.467024 1.71919 0.413667 1.83167C0.36031 1.94415 0.332833 2.06716 0.333257 2.19166V8.39999C0.332516 9.59478 0.617234 10.7725 1.1637 11.835C1.71017 12.8975 2.50257 13.814 3.47492 14.5083L6.51659 16.675C6.65773 16.7755 6.82667 16.8295 6.99992 16.8295C7.17318 16.8295 7.34212 16.7755 7.48326 16.675L10.5249 14.5083C11.4973 13.814 12.2897 12.8975 12.8361 11.835C13.3826 10.7725 13.6673 9.59478 13.6666 8.39999V2.19166C13.667 2.06716 13.6395 1.94415 13.5862 1.83167C13.5328 1.71919 13.4549 1.62009 13.3583 1.54166ZM11.9999 8.39999C12.0006 9.32896 11.7793 10.2446 11.3546 11.0708C10.9299 11.897 10.3141 12.6099 9.55826 13.15L6.99992 14.975L4.44159 13.15C3.68579 12.6099 3.06991 11.897 2.64521 11.0708C2.22052 10.2446 1.99928 9.32896 1.99992 8.39999V3.14999C3.74695 3.29952 5.49662 2.89418 6.99992 1.99166C8.50322 2.89418 10.2529 3.29952 11.9999 3.14999V8.39999ZM8.28326 6.49166L6.04159 8.74166L5.29992 7.99166C5.143 7.83474 4.93017 7.74658 4.70826 7.74658C4.48634 7.74658 4.27351 7.83474 4.11659 7.99166C3.95967 8.14858 3.87151 8.36141 3.87151 8.58333C3.87151 8.80524 3.95967 9.01807 4.11659 9.17499L5.44992 10.5083C5.52739 10.5864 5.61956 10.6484 5.72111 10.6907C5.82266 10.733 5.93158 10.7548 6.04159 10.7548C6.1516 10.7548 6.26052 10.733 6.36207 10.6907C6.46362 10.6484 6.55579 10.5864 6.63326 10.5083L9.49992 7.66666C9.65684 7.50974 9.745 7.29691 9.745 7.07499C9.745 6.85307 9.65684 6.64025 9.49992 6.48333C9.343 6.32641 9.13018 6.23825 8.90826 6.23825C8.68634 6.23825 8.47351 6.32641 8.31659 6.48333L8.28326 6.49166Z"
                                                                 fill="#4FAE57"/>
                                                         </svg>
-                                                        <p>{{ trans('trans_renty.car.no_deposit_label') }}</p>
+                                                        <p>{{ trans('trans_rentacar.car.no_deposit_label') }}</p>
                                                     </div>
                                                 @endif
                                                 @if(isset($data->min_day_reservation) && $data->min_day_reservation !== null && $data->min_day_reservation > 1)
@@ -423,7 +423,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                                 fill="#FABE42"/>
                                                         </svg>
 
-                                                        <p>{{ trans_choice('trans_renty.car.min_day_reservation', $data->min_day_reservation, ['days' => $data->min_day_reservation]) }}</p>
+                                                        <p>{{ trans_choice('trans_rentacar.car.min_day_reservation', $data->min_day_reservation, ['days' => $data->min_day_reservation]) }}</p>
                                                     </div>
                                                 @endif
 
@@ -438,7 +438,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                 <button
                                                     class="info_right_button fixed_form reserve @if($data->status != 1) inactive @endif"
                                                     data-id="{!! $data->id !!}" data-title="{{'Rent '.$car_title }}">
-                                                    {{trans('trans_renty.car.rent_now')}}</button>
+                                                    {{trans('trans_rentacar.car.rent_now')}}</button>
 
 
                                             </div>
@@ -482,12 +482,12 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                         d="M15.5917 6.00834C15.5142 5.93023 15.4221 5.86824 15.3205 5.82593C15.219 5.78362 15.11 5.76184 15 5.76184C14.89 5.76184 14.7811 5.78362 14.6796 5.82593C14.578 5.86824 14.4858 5.93023 14.4084 6.00834L8.20004 12.225L5.59171 9.60834C5.51127 9.53064 5.41632 9.46955 5.31227 9.42854C5.20823 9.38754 5.09713 9.36743 4.98531 9.36936C4.87349 9.3713 4.76315 9.39524 4.66058 9.43982C4.55802 9.48439 4.46524 9.54874 4.38754 9.62917C4.30984 9.70961 4.24875 9.80456 4.20774 9.9086C4.16674 10.0127 4.14663 10.1238 4.14856 10.2356C4.1505 10.3474 4.17444 10.4577 4.21902 10.5603C4.2636 10.6629 4.32794 10.7556 4.40837 10.8333L7.60837 14.0333C7.68584 14.1114 7.77801 14.1734 7.87956 14.2157C7.98111 14.2581 8.09003 14.2798 8.20004 14.2798C8.31005 14.2798 8.41897 14.2581 8.52052 14.2157C8.62207 14.1734 8.71424 14.1114 8.79171 14.0333L15.5917 7.23334C15.6763 7.1553 15.7438 7.06059 15.79 6.95518C15.8361 6.84976 15.86 6.73592 15.86 6.62084C15.86 6.50575 15.8361 6.39192 15.79 6.2865C15.7438 6.18108 15.6763 6.08637 15.5917 6.00834Z"
                                                         fill="#919191"/>
                                                 </svg>
-                                                <p>{{trans('trans_renty.car.vat_tax_included')}}</p>
+                                                <p>{{trans('trans_rentacar.car.vat_tax_included')}}</p>
                                             </div>
                                         </div>
 
                                         @if($data->status != 1)
-                                            <p class="inactive-info">{{trans('trans_renty.car.owner_has_changed_status')}}</p>
+                                            <p class="inactive-info">{{trans('trans_rentacar.car.owner_has_changed_status')}}</p>
                                         @endif
                                     </div>
                                 </div>
@@ -497,7 +497,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
 
             @if($data->latitude != NULL && $data->longitude != NULL)
                 <div class="location">
-                    <h2 class="location_main_title">{{$h1}} {{trans('trans_renty.car.near_me')}}</h2>
+                    <h2 class="location_main_title">{{$h1}} {{trans('trans_rentacar.car.near_me')}}</h2>
                     <iframe
                         src="https://maps.google.com/maps?q={{$data->latitude}},{{$data->longitude}}&z=16&output=embed"
                         width="100%" height="" style="border:0;" allowfullscreen="" loading="lazy"

@@ -154,8 +154,9 @@ header {
                                 }
 
                                 span.cars_count {
+                                    color: $neutral500;
+                                    margin-inline-start: auto;
                                     @include body-1;
-                                    color: $neutral100;
                                 }
                             }
                         }

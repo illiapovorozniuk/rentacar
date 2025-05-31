@@ -10,7 +10,7 @@ $single_link = '';
         <div class="img_container">
             <img src="{{$car->main_photo}}" alt="{{$car->slug}}" class="main_img" @if($car_index??1!=0)loading="lazy"@endif/>
         </div>
-        <p class="name">{{$car->car_title.' ('.tr($car->color_name).'), '.$car->attribute_year }}</p>
+        <p class="name">{{$car->car_title.' ('.$car->color_name.'), '.$car->attribute_year }}</p>
     </a>
     <ul class="parameters">
         <li>
@@ -21,7 +21,7 @@ $single_link = '';
 {{--            @endif--}}
         </li>
         @if($car->deposit == 0)
-            <li class="no-dep">{{ucfirst(trans('trans_renty.car.no_deposit_label'))}}</li>
+            <li class="no-dep">{{ucfirst(trans('trans_rentacar.car.no_deposit_label'))}}</li>
         @endif
     </ul>
 </div>
