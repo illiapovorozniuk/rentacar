@@ -1,13 +1,16 @@
 @import "variables-mixins";
 
 .long_horisontal_card_list {
+
     display: flex;
     flex-direction: column;
     gap: 30px;
     @media only screen and (max-width: $mobile-max-width) {
         gap: 20px;
     }
-
+    .list_header{
+        @include max-width();
+    }
     .list_content_layout {
 
         @include max-width();

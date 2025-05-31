@@ -6,7 +6,7 @@ $single_link = '';
 ?>
 
 <div class="card_light">
-    <a href="{{ 'baseUrl()' }}/{{$car_link}}/{{$single_link}}">
+    <a href="{{$car_link}}">
         <div class="img_container">
             <img src="{{$car->main_photo}}" alt="{{$car->slug}}" class="main_img" @if($car_index??1!=0)loading="lazy"@endif/>
         </div>

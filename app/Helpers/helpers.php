@@ -80,3 +80,17 @@ function baseUrl($site = null)
 
     return url($url);
 }
+
+function formatNumberString($string)
+{
+    $pattern = '/(\d{4,})/';
+    $formattedString = preg_replace_callback($pattern, function ($matches) {
+        return number_format($matches[0]);
+    }, $string);
+    return $formattedString;
+}
+
+function getBodyTypeImgPath($bodyTypeSlug): string
+{
+    return "/images/site/body-types/".$bodyTypeSlug.".svg";
+}

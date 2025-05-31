@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\BodyType;
 use App\Models\Brand;
 use Closure;
 use Illuminate\Http\Request;
@@ -19,8 +20,10 @@ class ConfigMiddlware
     {
 
         $brands = Brand::all();
+        $bodies = BodyType::all();
 
         Config::set('site.brands', $brands);
+        Config::set('site.bodies', $bodies);
 
         return $next($request);
     }

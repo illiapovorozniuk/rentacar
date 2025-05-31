@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CarConfig;
 use App\Traits\SiteBlogTrait;
 use Brackets\Media\HasMedia\AutoProcessMediaTrait;
 use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
@@ -63,13 +64,18 @@ class Car extends Model implements HasMedia
 
     protected $appends = ['resource_url'];
 
-    public function carModel() {
+    public function carModel()
+    {
         return $this->belongsTo(CarModel::class);
     }
-    public function carsColor() {
+
+    public function carsColor()
+    {
         return $this->belongsTo(CarsColor::class);
     }
-    public function fuel() {
+
+    public function fuel()
+    {
         return $this->belongsTo(Fuel::class);
     }
 
@@ -79,11 +85,11 @@ class Car extends Model implements HasMedia
         $media_photos = $this->getMedia('cars');
         $main_photo = null;
         $photos = [];
-        if(isset($media_photos[0])) {
+        if (isset($media_photos[0])) {
             $path_parts = pathinfo($media_photos[0]->getUrl('minifiedWebp'));
             $main_photo = $path_parts['dirname'] . '/' . $path_parts['basename'];
             foreach ($media_photos as $photo) {
-                $path_parts = pathinfo($media_photos[0]->getUrl('minifiedWebp'));
+                $path_parts = pathinfo($photo->getUrl('minifiedWebp'));
                 $photos[] = $path_parts['dirname'] . '/' . $path_parts['basename'];
             }
         }
@@ -105,13 +111,19 @@ class Car extends Model implements HasMedia
             ->first();
         $car['main_photo'] = $main_photo;
         $car['photos'] = $photos;
+        $car['price_1'] = (int)$car['price_1'];
+        $car['price_7'] = (int)($car['price_7'] ? $car['price_7'] : $car['price_1'] * CarConfig::PRICE7_MULTIPLIER->toFloat());
+        $car['price_30'] = (int)($car['price_30'] ? $car['price_30'] : $car['price_1'] * CarConfig::PRICE30_MULTIPLIER->toFloat());
+        $car['price_31_more'] = (int)($car['price_31_more'] ? $car['price_31_more'] : $car['price_1'] * CarConfig::PRICE31MORE_MULTIPLIER->toFloat());
+        $car['fuel_name'] = json_decode($car['fuel_name'])->en;
         return $car;
     }
+
     public static function carsInfo(array $cars)
     {
-        if(isset($cars['data'])) {
+        if (isset($cars['data'])) {
             $carIds = array_column($cars['data'], 'id');
-        }else{
+        } else {
             $carIds = array_column($cars, 'id');
         }
 
@@ -150,21 +162,25 @@ class Car extends Model implements HasMedia
         }
         return $carsData;
     }
+
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/cars/'.$this->getKey());
+        return url('/admin/cars/' . $this->getKey());
     }
+
     /* ************************ Media ************************* */
-    public function registerMediaCollections(): void {
+    public function registerMediaCollections(): void
+    {
         $this->addMediaCollection('cars')
             ->maxNumberOfFiles(10)
-            ->maxFilesize(15*1024*1024);
+            ->maxFilesize(15 * 1024 * 1024);
     }
 
 
-    public function registerMediaConversions(Media $media = null): void {
+    public function registerMediaConversions(Media $media = null): void
+    {
         $this->autoRegisterThumb200();
         $this->addMediaConversion('minifiedWebp')
             ->performOnCollections('cars')

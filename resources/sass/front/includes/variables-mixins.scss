@@ -2,6 +2,7 @@
 
 $color-theme: var(--main-color);
 $color-theme-additional: var(--additional-color);
+$default-gradient: linear-gradient(135deg, var(--main-color) 0%, var(--additional-color) 100%);
 
 $neutral800: #181818;
 $neutral700: #242424;
@@ -141,4 +142,113 @@ $desktop-min-fixed-width: $max-desktop-width + $desktop-left-right-margin * 2 +1
 @mixin transition-default{
     transition: all 0.1s ease-in-out;
 }
+// buttons
+@mixin button-default() {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    cursor: pointer;
+    svg {
+        path {
+            fill: var(--main-color);
+        }
+    }
+}
 
+@mixin button-xLarge() {
+    @include button-default();
+    @include title-l();
+    padding: 10px 30px;
+    gap: 10px;
+}
+
+@mixin button-Large() {
+    @include button-default();
+    @include title-l();
+    padding: 10px 20px;
+    gap: 10px;
+}
+
+@mixin button-Medium() {
+    @include button-default();
+    @include title-m();
+    padding: 10px 20px;
+    gap: 5px;
+}
+
+@mixin button-Small() {
+    @include button-default();
+    @include title-m();
+    padding: 8px 16px;
+    gap: 5px;
+}
+
+@mixin button-outline {
+    outline-offset: -2px;
+    outline: 2px solid $neutral100;
+}
+
+@mixin button-padding-xLarge {
+    padding: 15px;
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
+}
+
+@mixin button-padding-xLarge-ghost {
+    padding: 10px;
+}
+
+@mixin button-padding-Large {
+    padding: 12.5px;
+    padding-inline-start: 12.5px;
+    padding-inline-end: 12.5px;
+
+}
+
+@mixin button-padding-Large-ghost {
+    padding: 10px;
+}
+
+@mixin button-padding-Medium {
+    padding: 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+}
+
+@mixin button-padding-Medium-ghost {
+    padding: 10px 5px;
+}
+
+@mixin button-padding-Small {
+    padding: 7.5px;
+    padding-inline-start: 7.5px;
+    padding-inline-end: 7.5px;
+}
+
+@mixin button-padding-Small-ghost {
+    padding: 8px 5px;
+}
+
+@mixin button-effects() {
+    transition: all 0.2s ease;
+    &:hover, &:active, &.active {
+        transition: all 0.2s ease;
+        outline: none;
+        color: white;
+
+        svg {
+            path {
+                fill: white;
+            }
+        }
+    }
+
+    &:active,&.active {
+        background: var(--main-color) !important;
+    }
+
+
+    &:hover {
+        background: var(--additional-color);
+    }
+}

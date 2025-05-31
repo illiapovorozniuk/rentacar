@@ -155,7 +155,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_year'), 'has-success': fields.attribute_year && fields.attribute_year.valid }">
     <label for="attribute_year" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.attribute_year') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.attribute_year" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_year'), 'form-control-success': fields.attribute_year && fields.attribute_year.valid}" id="attribute_year" name="attribute_year" placeholder="{{ trans('admin.car.columns.attribute_year') }}">
+        <input type="number" v-model="form.attribute_year" v-validate="'required|integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_year'), 'form-control-success': fields.attribute_year && fields.attribute_year.valid}" id="attribute_year" name="attribute_year" placeholder="{{ trans('admin.car.columns.attribute_year') }}">
         <div v-if="errors.has('attribute_year')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_year') }}</div>
     </div>
 </div>
@@ -171,7 +171,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_1_to_100'), 'has-success': fields.attribute_1_to_100 && fields.attribute_1_to_100.valid }">
     <label for="attribute_1_to_100" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.attribute_1_to_100') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.attribute_1_to_100" v-validate="'decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_1_to_100'), 'form-control-success': fields.attribute_1_to_100 && fields.attribute_1_to_100.valid}" id="attribute_1_to_100" name="attribute_1_to_100" placeholder="{{ trans('admin.car.columns.attribute_1_to_100') }}">
+        <input type="number" v-model="form.attribute_1_to_100" v-validate="'decimal'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_1_to_100'), 'form-control-success': fields.attribute_1_to_100 && fields.attribute_1_to_100.valid}" id="attribute_1_to_100" name="attribute_1_to_100" placeholder="{{ trans('admin.car.columns.attribute_1_to_100') }}">
         <div v-if="errors.has('attribute_1_to_100')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_1_to_100') }}</div>
     </div>
 </div>
@@ -179,7 +179,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_max_speed'), 'has-success': fields.attribute_max_speed && fields.attribute_max_speed.valid }">
     <label for="attribute_max_speed" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.attribute_max_speed') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.attribute_max_speed" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_max_speed'), 'form-control-success': fields.attribute_max_speed && fields.attribute_max_speed.valid}" id="attribute_max_speed" name="attribute_max_speed" placeholder="{{ trans('admin.car.columns.attribute_max_speed') }}">
+        <input type="number" v-model="form.attribute_max_speed" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_max_speed'), 'form-control-success': fields.attribute_max_speed && fields.attribute_max_speed.valid}" id="attribute_max_speed" name="attribute_max_speed" placeholder="{{ trans('admin.car.columns.attribute_max_speed') }}">
         <div v-if="errors.has('attribute_max_speed')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_max_speed') }}</div>
     </div>
 </div>
@@ -187,7 +187,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_horsepower'), 'has-success': fields.attribute_horsepower && fields.attribute_horsepower.valid }">
     <label for="attribute_horsepower" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.attribute_horsepower') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.attribute_horsepower" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_horsepower'), 'form-control-success': fields.attribute_horsepower && fields.attribute_horsepower.valid}" id="attribute_horsepower" name="attribute_horsepower" placeholder="{{ trans('admin.car.columns.attribute_horsepower') }}">
+        <input type="number" v-model="form.attribute_horsepower" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_horsepower'), 'form-control-success': fields.attribute_horsepower && fields.attribute_horsepower.valid}" id="attribute_horsepower" name="attribute_horsepower" placeholder="{{ trans('admin.car.columns.attribute_horsepower') }}">
         <div v-if="errors.has('attribute_horsepower')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_horsepower') }}</div>
     </div>
 </div>
@@ -203,7 +203,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_doors'), 'has-success': fields.attribute_doors && fields.attribute_doors.valid }">
     <label for="attribute_doors" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.attribute_doors') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.attribute_doors" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_doors'), 'form-control-success': fields.attribute_doors && fields.attribute_doors.valid}" id="attribute_doors" name="attribute_doors" placeholder="{{ trans('admin.car.columns.attribute_doors') }}">
+        <input type="number" v-model="form.attribute_doors" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_doors'), 'form-control-success': fields.attribute_doors && fields.attribute_doors.valid}" id="attribute_doors" name="attribute_doors" placeholder="{{ trans('admin.car.columns.attribute_doors') }}">
         <div v-if="errors.has('attribute_doors')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_doors') }}</div>
     </div>
 </div>
@@ -219,7 +219,7 @@
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_baggage'), 'has-success': fields.attribute_baggage && fields.attribute_baggage.valid }">
     <label for="attribute_baggage" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.attribute_baggage') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.attribute_baggage" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_baggage'), 'form-control-success': fields.attribute_baggage && fields.attribute_baggage.valid}" id="attribute_baggage" name="attribute_baggage" placeholder="{{ trans('admin.car.columns.attribute_baggage') }}">
+        <input type="number" v-model="form.attribute_baggage" v-validate="'integer'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_baggage'), 'form-control-success': fields.attribute_baggage && fields.attribute_baggage.valid}" id="attribute_baggage" name="attribute_baggage" placeholder="{{ trans('admin.car.columns.attribute_baggage') }}">
         <div v-if="errors.has('attribute_baggage')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_baggage') }}</div>
     </div>
 </div>

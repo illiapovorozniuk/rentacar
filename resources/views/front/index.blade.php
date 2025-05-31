@@ -2,6 +2,8 @@
 <?php
 $currency = 'uah';
 $current_locale = app()->getLocale();
+$bodies = Config::get('site.bodies');
+
 ?>
 @section('title')
     {{ $title }}
@@ -34,6 +36,7 @@ $current_locale = app()->getLocale();
                                         <span class="brand_count">{{$brand['cars_count'].' '.trans('front.site.cars')}}</span>
                                     </div>
                                     <div class="brand_image">
+
                                         <img src="{{ url('uploads') }}/images/brands/{{$brand['slug']}}.webp" loading="lazy">
                                     </div>
                                 </a>
@@ -42,6 +45,23 @@ $current_locale = app()->getLocale();
                     </div>
                 </div>
                 {{-- End Brand slider --}}
+                <div class="types_layout_overflow">
+                    <div class="types_layout">
+                        <div class="types_content">
+                            <?php $value = 1; ?>
+                            @foreach($bodies as $body)
+                                @if($value <= 6)
+
+                                            <a href="/{{$body['link']}}">
+                                                <p>{{ $body['name']}}</p>
+                                                <img src="{{getBodyTypeImgPath($body['slug'])}}" alt="{{$body['name']}}">
+                                            </a>
+                                        <?php $value = $value + 1; ?>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="main_content">
@@ -52,7 +72,10 @@ $current_locale = app()->getLocale();
                         <div class="list_content">
 
                             @foreach($cars as $car_index =>$car)
-                                @include('front.template-parts.card-light', ['car_link' => '$car_link', 'car' => $car, $currency, 'card' => 1, 'car_index'=>$car_index])
+                                    <?php
+                                    $car_link = \App\Enums\Route::CAR->value.'/'.$car->id;
+                                    ?>
+                                @include('front.template-parts.card-light', ['car_link' => $car_link, 'car' => $car, $currency, 'card' => 1, 'car_index'=>$car_index])
                             @endforeach
                         </div>
                     </div>

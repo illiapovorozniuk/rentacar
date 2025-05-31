@@ -36,21 +36,22 @@ class SiteController extends Controller
         $description = $home_page->description;
         $cover = $home_page->getMedia('cover');
         $brands = Brand::all();
-        if($home_page->faq != null){
-            $faqs =  json_decode($home_page->faq);
-        }else{
+        if ($home_page->faq != null) {
+            $faqs = json_decode($home_page->faq);
+        } else {
             $faqs = [];
         }
 
         $cars = Car::all();
         $cars = Car::carsInfo($cars->toArray());
 
-        return view('front.index', compact('home_page','h1', 'title', 'content', 'description', 'cover', 'brands', 'cars','faqs'));
+        return view('front.index', compact('home_page', 'h1', 'title', 'content', 'description', 'cover', 'brands', 'cars', 'faqs'));
     }
 
-    public function brands(){
+    public function brands()
+    {
         $page = Page::where('type', PageType::BRANDS->value)->first();
-        if($page == null){
+        if ($page == null) {
             abort(404);
         }
         $title = $page->title;
@@ -59,17 +60,19 @@ class SiteController extends Controller
         $description = $page->description;
         $cover = $page->getMedia('cover');
         $brands = Brand::all();
-        if($page->faq != null){
-            $faqs =  json_decode($page->faq);
-        }else{
+        if ($page->faq != null) {
+            $faqs = json_decode($page->faq);
+        } else {
             $faqs = [];
         }
 
-        return view('front.brands', compact('page','h1', 'title', 'content', 'description', 'cover', 'brands'));
+        return view('front.brands', compact('page', 'h1', 'title', 'content', 'description', 'cover', 'brands'));
     }
-    public function bodyTypes(){
+
+    public function bodyTypes()
+    {
         $page = Page::where('type', PageType::BODIES->value)->first();
-        if($page == null){
+        if ($page == null) {
             abort(404);
         }
         $title = $page->title;
@@ -78,12 +81,31 @@ class SiteController extends Controller
         $description = $page->description;
         $cover = $page->getMedia('cover');
         $bodies = BodyType::all();
-        if($page->faq != null){
-            $faqs =  json_decode($page->faq);
-        }else{
+        if ($page->faq != null) {
+            $faqs = json_decode($page->faq);
+        } else {
             $faqs = [];
         }
 
-        return view('front.bodies', compact('page','h1', 'title', 'content', 'description', 'cover', 'bodies'));
+        return view('front.bodies', compact('page', 'h1', 'title', 'content', 'description', 'cover', 'bodies'));
+    }
+
+    public function car($id)
+    {
+        if (!is_numeric($id)) {
+            abort(404);
+        }
+        $car = Car::query()->where('id', $id)->where('status', 1)->firstOrFail();
+        $car = $car->carInfo();
+
+        $locale = app()->getLocale();
+        $h1 = ucwords($car->brand_slug) . ' ' . (json_decode($car->car_model_name)->$locale ?? '') . ' ' . $car->attribute_year . ' ' . (json_decode($car->color_name)->$locale ?? '');
+        $car_title = ucwords($car->brand_slug) . ' ' . (json_decode($car->car_model_name)->$locale ?? '') . ' ' . $car->attribute_year;
+        $photos = $car->photos;
+        $touched_cars = Car::all()->where('status', 1)->where('id', '!=', $car->id)->take(4)->toArray();
+        $touched_cars = Car::carsInfo($touched_cars);
+        $data = $car;
+
+        return view('front.car', compact('data', 'h1', 'car_title', 'photos','touched_cars'));
     }
 }

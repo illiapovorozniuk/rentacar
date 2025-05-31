@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Enums\Route as RouteEnum;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::namespace('App\Http\Controllers\Front')->group(function () {
     Route::get('/', 'SiteController@index')->name('home');
-    Route::get('/brands', 'SiteController@brands')->name('brands');
-    Route::get('/body-types', 'SiteController@bodyTypes')->name('body-types');
+    Route::get('/'.RouteEnum::BRANDS->value, 'SiteController@brands')->name('brands');
+    Route::get('/'.RouteEnum::BODIES->value, 'SiteController@bodyTypes')->name('body-types');
+    Route::get('/'.RouteEnum::CAR->value.'/{id}', 'SiteController@car')->name('car');
 });
 
 

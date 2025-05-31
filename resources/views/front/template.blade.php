@@ -11,6 +11,7 @@
             --additional-color: #e5613a;
         }
     </style>
+    @yield('fancybox-styles')
 </head>
 <body>
 @include('front.template-parts.header')
@@ -19,6 +20,8 @@
 @yield('footer')
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+@yield('fancybox')
+
 <script src="{{ asset('js/front.js') }}"></script>
 
 </body>
