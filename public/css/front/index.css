@@ -1093,7 +1093,6 @@ header .header_content .param .param_items .languages span:not(.current):hover {
   }
 }
 .banner .banner_content .brands_layout .brands_content {
-  margin-top: 90px !important;
   display: flex;
   justify-content: center;
   gap: 10px;

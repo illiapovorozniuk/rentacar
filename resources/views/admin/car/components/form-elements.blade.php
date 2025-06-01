@@ -193,12 +193,23 @@
 </div>
 
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_transmission'), 'has-success': fields.attribute_transmission && fields.attribute_transmission.valid }">
-    <label for="attribute_transmission" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.attribute_transmission') }}</label>
-        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
-        <input type="text" v-model="form.attribute_transmission" v-validate="''" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('attribute_transmission'), 'form-control-success': fields.attribute_transmission && fields.attribute_transmission.valid}" id="attribute_transmission" name="attribute_transmission" placeholder="{{ trans('admin.car.columns.attribute_transmission') }}">
+    <label for="attribute_transmission" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car-model.columns.attribute_transmission') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <select
+            v-model="form.attribute_transmission"
+            v-validate="'required'"
+            @change="validate($event)"
+            class="form-control"
+            :class="{'form-control-danger': errors.has('attribute_transmission'),
+            'form-control-success': fields.attribute_transmission && fields.attribute_transmission.valid}"
+            id="attribute_transmission" name="attribute_transmission">
+            <option value="automatic">Automatic</option>
+            <option value="manual">Manual</option>
+        </select>
         <div v-if="errors.has('attribute_transmission')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_transmission') }}</div>
     </div>
 </div>
+
 
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_doors'), 'has-success': fields.attribute_doors && fields.attribute_doors.valid }">
     <label for="attribute_doors" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car.columns.attribute_doors') }}</label>

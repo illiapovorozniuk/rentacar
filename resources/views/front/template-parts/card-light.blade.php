@@ -1,8 +1,7 @@
 <?php
-$single_link = '';
-//$monthly = formatNumberString($car->price_3_full);
-//$trimmedMonthly = substr($monthly, strpos($monthly, ":") + 2);
-//$last = $trimmedMonthly;
+$second =  formatNumberString($car->price_1);
+$first = formatNumberString($car->price_7);
+$last = formatNumberString($car->price_30);
 ?>
 
 <div class="card_light">
@@ -14,11 +13,11 @@ $single_link = '';
     </a>
     <ul class="parameters">
         <li>
-{{--            @if(isset($car->min_day_reservation) && $car->min_day_reservation !== null && $car->min_day_reservation >= 30)--}}
-{{--                {{$last }} {{trans('front.site.per_month')}}--}}
-{{--            @else--}}
-{{--                {{strtoupper($currency->sign)}} {{ formatNumberString($car->price)}} {{trans('front.site.per_day')}}--}}
-{{--            @endif--}}
+            @if(isset($car->min_day_reservation) && $car->min_day_reservation !== null && $car->min_day_reservation >= 30)
+                {{$last }} {{trans('front.site.per_month')}}
+            @else
+                {{ $second}} {{trans('front.site.per_day')}}
+            @endif
         </li>
         @if($car->deposit == 0)
             <li class="no-dep">{{ucfirst(trans('trans_rentacar.car.no_deposit_label'))}}</li>

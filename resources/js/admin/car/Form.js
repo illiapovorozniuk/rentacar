@@ -29,7 +29,7 @@ Vue.component('car-form', {
                 attribute_1_to_100:  '' ,
                 attribute_max_speed:  '' ,
                 attribute_horsepower:  '' ,
-                attribute_transmission:  '' ,
+                attribute_transmission:  'automatic' ,
                 attribute_doors:  5 ,
                 attribute_engine:  '' ,
                 attribute_baggage:  '' ,

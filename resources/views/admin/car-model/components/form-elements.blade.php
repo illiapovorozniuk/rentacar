@@ -89,7 +89,7 @@
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('types'), 'has-success': this.fields.types && this.fields.types.valid }">
     <label
-           class="col-md-2">{{ trans('admin.articles-with-relationship.columns.types') }}</label>
+           class="col-md-2">{{ trans('adminforms.body_type_name') }}</label>
     <div class="col-md-9 col-xl-8">
 
         <multiselect
@@ -110,7 +110,7 @@
 {{-- TYPE--}}
 
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_seats'), 'has-success': fields.slug && fields.slug.valid }">
-    <label for="attribute_seats" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car-model.columns.attribute_seats') }}</label>
+    <label for="attribute_seats" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('trans_rentacar.car.seats') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input
             type="number" min="1"
@@ -120,13 +120,13 @@
             class="form-control"
             :class="{'form-control-danger': errors.has('attribute_seats'),
             'form-control-success': fields.attribute_seats && fields.attribute_seats.valid}"
-            id="attribute_seats" name="attribute_seats" placeholder="{{ trans('admin.car-model.columns.attribute_seats') }}">
+            id="attribute_seats" name="attribute_seats" placeholder="{{ trans('trans_rentacar.car.seats') }}">
         <div v-if="errors.has('attribute_seats')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_seats') }}</div>
     </div>
 </div>
 <!-- attribute_1_to_100 -->
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_1_to_100'), 'has-success': fields.attribute_1_to_100 && fields.attribute_1_to_100.valid }">
-    <label for="attribute_1_to_100" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car-model.columns.attribute_1_to_100') }}</label>
+    <label for="attribute_1_to_100" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('trans_rentacar.car.0_100_kmh') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input
             type="number" step="0.01" min="0"
@@ -136,14 +136,14 @@
             class="form-control"
             :class="{'form-control-danger': errors.has('attribute_1_to_100'),
             'form-control-success': fields.attribute_1_to_100 && fields.attribute_1_to_100.valid}"
-            id="attribute_1_to_100" name="attribute_1_to_100" placeholder="{{ trans('admin.car-model.columns.attribute_1_to_100') }}">
+            id="attribute_1_to_100" name="attribute_1_to_100" placeholder="{{ trans('trans_rentacar.car.0_100_kmh') }}">
         <div v-if="errors.has('attribute_1_to_100')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_1_to_100') }}</div>
     </div>
 </div>
 
 <!-- attribute_max_speed -->
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_max_speed'), 'has-success': fields.attribute_max_speed && fields.attribute_max_speed.valid }">
-    <label for="attribute_max_speed" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car-model.columns.attribute_max_speed') }}</label>
+    <label for="attribute_max_speed" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('trans_rentacar.car.max_speed') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input
             type="number" min="0"
@@ -153,14 +153,14 @@
             class="form-control"
             :class="{'form-control-danger': errors.has('attribute_max_speed'),
             'form-control-success': fields.attribute_max_speed && fields.attribute_max_speed.valid}"
-            id="attribute_max_speed" name="attribute_max_speed" placeholder="{{ trans('admin.car-model.columns.attribute_max_speed') }}">
+            id="attribute_max_speed" name="attribute_max_speed" placeholder="{{ trans('trans_rentacar.car.max_speed') }}">
         <div v-if="errors.has('attribute_max_speed')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_max_speed') }}</div>
     </div>
 </div>
 
 <!-- attribute_horsepower -->
 <div class="form-group row align-items-center" :class="{'has-danger': errors.has('attribute_horsepower'), 'has-success': fields.attribute_horsepower && fields.attribute_horsepower.valid }">
-    <label for="attribute_horsepower" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car-model.columns.attribute_horsepower') }}</label>
+    <label for="attribute_horsepower" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('trans_rentacar.car.horse_power') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input
             type="number" min="0"
@@ -170,7 +170,7 @@
             class="form-control"
             :class="{'form-control-danger': errors.has('attribute_horsepower'),
             'form-control-success': fields.attribute_horsepower && fields.attribute_horsepower.valid}"
-            id="attribute_horsepower" name="attribute_horsepower" placeholder="{{ trans('admin.car-model.columns.attribute_horsepower') }}">
+            id="attribute_horsepower" name="attribute_horsepower" placeholder="{{ trans('trans_rentacar.car.horse_power') }}">
         <div v-if="errors.has('attribute_horsepower')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('attribute_horsepower') }}</div>
     </div>
 </div>
@@ -195,19 +195,28 @@
 </div>
 
 <!-- status -->
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('status'), 'has-success': fields.status && fields.status.valid }">
-    <label for="status" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car-model.columns.status') }}</label>
-    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+<div class="form-check row" :class="{'has-danger': errors.has('status'), 'has-success': fields.status && fields.status.valid}">
+    <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
         <input
-            type="number" min="0"
+            class="form-check-input"
+            id="status"
+            type="checkbox"
             v-model="form.status"
             v-validate="''"
-            @input="validate($event)"
-            class="form-control"
-            :class="{'form-control-danger': errors.has('status'),
-            'form-control-success': fields.status && fields.status.valid}"
-            id="status" name="status" placeholder="{{ trans('admin.car-model.columns.status') }}">
-        <div v-if="errors.has('status')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('status') }}</div>
+            data-vv-name="status"
+            name="status_fake_element"
+        >
+        <label class="form-check-label" for="status">
+            {{ trans('admin.car.columns.status') }}
+        </label>
+        <input type="hidden" name="status" :value="form.status">
+        <div
+            v-if="errors.has('status')"
+            class="form-control-feedback form-text"
+            v-cloak
+        >
+            @{{ errors.first('status') }}
+        </div>
     </div>
 </div>
 

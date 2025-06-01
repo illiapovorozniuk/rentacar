@@ -41,6 +41,8 @@ $(document).ready(function () {
   $('.faq_block .question').click(function () {
     $(this).closest('.faq').toggleClass('active');
   });
+
+  //HEADER
   $("header  .brand_item").each(function (idx, item) {
     //desktop
 
@@ -83,6 +85,13 @@ $(document).ready(function () {
         }
       }
     });
+  });
+
+  //header mobile
+  $('.burger .open, .burger .close').click(function () {
+    $('.burger .open').toggleClass('active');
+    $('.burger .close').toggleClass('active');
+    $('.header_content .pages').toggleClass('active');
   });
 });
 /******/ })()

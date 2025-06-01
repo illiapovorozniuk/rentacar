@@ -14,30 +14,39 @@
                 <div class="col">
                     <div class="collapse multi-collapse" id="SideBarSettings" style="padding-left: 2px;">
                         <li class="nav-item"><a class="nav-link" href="{{ url('admin/brands') }}">
-                                <img src="{{ asset('images/admin/sidebar/brands.svg') }}" alt="brands"/>{{ trans('admin.brand.title') }}
+{{--                                <img src="{{ asset('images/admin/sidebar/brands.svg') }}" alt="brands"/>--}}
+                                <i class="nav-icon icon-badge"></i>
+                                {{ trans('admin.brand.title') }}
                             </a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('admin/body-types') }}">
-                                <img src="{{ asset('images/admin/sidebar/body-types.svg') }}" alt="body-types"/>{{ trans('admin.body-type.title') }}
+{{--                                <img src="{{ asset('images/admin/sidebar/body-types.svg') }}" alt="body-types"/>--}}
+                                <i class="nav-icon icon-puzzle"></i>
+                                {{ trans('admin.body-type.title') }}
                             </a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ url('admin/types') }}">
-                                <img src="{{ asset('images/admin/sidebar/types.svg') }}" alt="types"/>{{ trans('admin.type.title') }}
+{{--                                <img src="{{ asset('images/admin/sidebar/types.svg') }}" alt="types"/>--}}
+                                <i class="nav-icon icon-organization"></i>
+                                {{ trans('admin.type.title') }}
                             </a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/fuels') }}"><img height="25" width="50" src="{{ asset('images/admin/sidebar/fuels.svg') }}" alt="types"/> {{ trans('admin.fuel.title') }}
+                            <a class="nav-link" href="{{ url('admin/car-models') }}"><i class="nav-icon icon-layers"></i> {{ trans('admin.car-model.title') }}
                             </a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/car-models') }}"><i class="nav-icon icon-flag"></i> {{ trans('admin.car-model.title') }}
+                            <a class="nav-link" href="{{ url('admin/fuels') }}">
+{{--                                <img height="25" width="50" src="{{ asset('images/admin/sidebar/fuels.svg') }}" alt="types"/> --}}
+                                <i class="nav-icon icon-energy"></i>
+                                {{ trans('admin.fuel.title') }}
                             </a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/cars-colors') }}"><i class="nav-icon icon-ghost"></i> {{ trans('admin.cars-color.title') }}
+                            <a class="nav-link" href="{{ url('admin/cars-colors') }}"><i class="nav-icon icon-pencil"></i> {{ trans('admin.cars-color.title') }}
                             </a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/cars') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.car.title') }}
+                            <a class="nav-link" href="{{ url('admin/cars') }}"><i class="nav-icon icon-trophy"></i> {{ trans('admin.car.title') }}
                             </a></li>
                     </div>
                 </div>
             </div>
-            <li class="nav-item"><a class="nav-link" href="{{ url('admin/pages') }}"><i class="nav-icon icon-globe"></i> {{ trans('admin.page.title') }}</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/pages') }}"><i class="nav-icon icon-docs"></i> {{ trans('admin.page.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>
@@ -48,7 +57,7 @@
                 <a class="nav-link" href="{{ url('admin/translations') }}"><i class="nav-icon icon-location-pin"></i> {{ __('Translations') }}
                 </a></li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('admin/currencies') }}"><i class="nav-icon icon-plane"></i> {{ trans('admin.currency.title') }}
+                <a class="nav-link" href="{{ url('admin/currencies') }}"><i class="nav-icon icon-wallet"></i> {{ trans('admin.currency.title') }}
                 </a></li>
             {{-- Do not delete me :) I'm also used for auto-generation menu items --}}
             {{--<li class="nav-item"><a class="nav-link" href="{{ url('admin/configuration') }}"><i class="nav-icon icon-settings"></i> {{ __('Configuration') }}</a></li>--}}
