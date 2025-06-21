@@ -54,6 +54,14 @@ button {
     cursor: pointer;
 }
 
+input{
+    all: unset;
+
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
 span.accent {
     color: $neutral400;
 }

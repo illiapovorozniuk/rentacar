@@ -72,6 +72,13 @@ button {
   cursor: pointer;
 }
 
+input {
+  all: unset;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
 span.accent {
   color: #919191;
 }
@@ -363,27 +370,31 @@ header .header_content .pages .brand_item .brand_items .brand_items_tag a span {
   letter-spacing: 0em;
   font-weight: 600;
 }
-header .header_content .param {
+header .header_content .end_section {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  inset-inline-end: 0;
+}
+header .header_content .end_section .param {
   align-items: center;
   padding-right: 5px;
   padding-left: 15px;
   min-height: 50px;
   display: flex;
-  position: absolute;
-  inset-inline-end: 0;
 }
-header .header_content .param .title {
+header .header_content .end_section .param .title {
   display: none;
 }
-header .header_content .param .params_header svg:not(.globe) path {
+header .header_content .end_section .param .params_header svg:not(.globe) path {
   fill: var(--main-color);
 }
-header .header_content .param:hover .param_items {
+header .header_content .end_section .param:hover .param_items {
   display: flex;
   position: absolute;
   top: 100%;
 }
-header .header_content .param .param_items {
+header .header_content .end_section .param .param_items {
   display: none;
   background-color: #F7F7F7;
   box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.0588235294), 0px 2px 3px 0px rgba(0, 0, 0, 0.0588235294);
@@ -392,11 +403,11 @@ header .header_content .param .param_items {
   padding: 10px;
   flex-direction: column;
 }
-header .header_content .param .param_items .currencies {
+header .header_content .end_section .param .param_items .currencies {
   display: flex;
   flex: 1;
 }
-header .header_content .param .param_items .currencies span {
+header .header_content .end_section .param .param_items .currencies span {
   font-size: 16px;
   line-height: 25px;
   text-transform: none;
@@ -407,29 +418,29 @@ header .header_content .param .param_items .currencies span {
   flex: 1;
   text-align: center;
 }
-header .header_content .param .param_items .currencies span.current {
+header .header_content .end_section .param .param_items .currencies span.current {
   color: #E6E6E6;
 }
-header .header_content .param .param_items .currencies span:not(.current) {
+header .header_content .end_section .param .param_items .currencies span:not(.current) {
   cursor: pointer;
 }
-header .header_content .param .param_items .currencies span:not(.current):hover {
+header .header_content .end_section .param .param_items .currencies span:not(.current):hover {
   background: rgba(0, 0, 0, 0.0509803922);
   border-radius: 10px;
 }
-header .header_content .param .param_items hr {
+header .header_content .end_section .param .param_items hr {
   width: 100%;
   border-top: 1px solid #E6E6E6;
   margin: 10px 0;
 }
-header .header_content .param .param_items .languages {
+header .header_content .end_section .param .param_items .languages {
   display: flex;
   flex-direction: column;
 }
-header .header_content .param .param_items .languages a {
+header .header_content .end_section .param .param_items .languages a {
   flex: 1;
 }
-header .header_content .param .param_items .languages span {
+header .header_content .end_section .param .param_items .languages span {
   display: flex;
   font-size: 16px;
   line-height: 25px;
@@ -440,15 +451,23 @@ header .header_content .param .param_items .languages span {
   padding: 10px;
   width: 170px;
 }
-header .header_content .param .param_items .languages span.current {
+header .header_content .end_section .param .param_items .languages span.current {
   color: #E6E6E6;
 }
-header .header_content .param .param_items .languages span:not(.current) {
+header .header_content .end_section .param .param_items .languages span:not(.current) {
   cursor: pointer;
 }
-header .header_content .param .param_items .languages span:not(.current):hover {
+header .header_content .end_section .param .param_items .languages span:not(.current):hover {
   background: rgba(0, 0, 0, 0.0509803922);
   border-radius: 10px;
+}
+header .header_content .end_section .login-btn {
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-radius: 15px;
+}
+header .header_content .end_section .login-btn:hover {
+  background-color: rgba(0, 0, 0, 0.0509803922) !important;
 }
 @media (max-width: 768px) {
   header {

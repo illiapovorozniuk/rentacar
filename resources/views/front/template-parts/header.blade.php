@@ -38,12 +38,7 @@ $brands = Config::get('site.brands');
             </div>
         </div>
         <div class="header_content-logo">
-            @if(isset($logo[0]))
-                <a href="{{baseUrl()}}"><img style="width: 100%; max-width: 250px" src="{{ $logo[0]->getUrl() }}"
-                                             alt="{{$site->domain}}"></a>
-            @else
-                <a href="{{baseUrl()}}"><img src="/images/site/logo.png" alt="logo"></a>
-            @endif
+            <a href="{{baseUrl()}}"><img src="/images/site/logo.png" alt="logo"></a>
         </div>
 
         <nav class="pages">
@@ -128,7 +123,7 @@ $brands = Config::get('site.brands');
                         <ul class="brand_items_tag">
                             @foreach($brands as $brand)
                                 @if($brand != null)
-                                        <?php $brands_output .= '<li><a href="' . baseUrl() . '/' . ROUTE::BRANDS->value . '/' . $brand['slug'] . '">  <img src="' . getBrandImgPath($brand['slug']) . '" alt="' . $brand['name'] . '" loading="lazy" width="35px" height="35px"><span>' . $brand['name'] . '</span> <span class="cars_count">' . $brand['cars_count'] . '</span></a></li>'; ?>
+                                        <?php $brands_output .= '<li><a href="' . brandUrl($brand->slug) . '">  <img src="' . getBrandImgPath($brand['slug']) . '" alt="' . $brand['name'] . '" loading="lazy" width="35px" height="35px"><span>' . $brand['name'] . '</span> <span class="cars_count">' . $brand['cars_count'] . '</span></a></li>'; ?>
                                 @endif
                             @endforeach
                             {!! $brands_output !!}
@@ -254,75 +249,86 @@ $brands = Config::get('site.brands');
             {{--                        <a class="nav-link" href="{{ baseUrl() }}#FAQ">FAQ</a>--}}
             {{--                    @endif--}}
             {{--                @endif--}}
+            <div class="end_section">
+                <nav class="param">
+                    <div class="params_header">
+                        <svg class="globe" width="25" height="24" viewBox="0 0 25 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21.91 8.64C21.91 8.64 21.91 8.64 21.91 8.59C21.2053 6.66622 19.9269 5.00528 18.2474 3.83186C16.568 2.65844 14.5687 2.02917 12.52 2.02917C10.4712 2.02917 8.47189 2.65844 6.79246 3.83186C5.11304 5.00528 3.83455 6.66622 3.12995 8.59C3.12995 8.59 3.12995 8.59 3.12995 8.64C2.34308 10.8109 2.34308 13.1891 3.12995 15.36C3.12995 15.36 3.12995 15.36 3.12995 15.41C3.83455 17.3338 5.11304 18.9947 6.79246 20.1681C8.47189 21.3416 10.4712 21.9708 12.52 21.9708C14.5687 21.9708 16.568 21.3416 18.2474 20.1681C19.9269 18.9947 21.2053 17.3338 21.91 15.41C21.91 15.41 21.91 15.41 21.91 15.36C22.6968 13.1891 22.6968 10.8109 21.91 8.64ZM4.75995 14C4.41318 12.6892 4.41318 11.3108 4.75995 10H6.61995C6.45998 11.3285 6.45998 12.6715 6.61995 14H4.75995ZM5.57995 16H6.97995C7.21467 16.8918 7.55016 17.7541 7.97995 18.57C6.99925 17.9019 6.17945 17.0241 5.57995 16ZM6.97995 8H5.57995C6.17082 6.97908 6.98014 6.10147 7.94995 5.43C7.53051 6.24724 7.20509 7.10942 6.97995 8ZM11.5 19.7C10.2717 18.7987 9.4091 17.4852 9.06995 16H11.5V19.7ZM11.5 14H8.63995C8.45334 12.6732 8.45334 11.3268 8.63995 10H11.5V14ZM11.5 8H9.06995C9.4091 6.51477 10.2717 5.20132 11.5 4.3V8ZM19.42 8H18.02C17.7852 7.10816 17.4497 6.24594 17.02 5.43C18.0007 6.09807 18.8205 6.97594 19.42 8ZM13.5 4.3C14.7282 5.20132 15.5908 6.51477 15.93 8H13.5V4.3ZM13.5 19.7V16H15.93C15.5908 17.4852 14.7282 18.7987 13.5 19.7ZM16.36 14H13.5V10H16.36C16.5466 11.3268 16.5466 12.6732 16.36 14ZM17.05 18.57C17.4797 17.7541 17.8152 16.8918 18.05 16H19.45C18.8505 17.0241 18.0307 17.9019 17.05 18.57ZM20.24 14H18.38C18.4613 13.3365 18.5014 12.6685 18.5 12C18.5011 11.3315 18.461 10.6636 18.38 10H20.24C20.5867 11.3108 20.5867 12.6892 20.24 14Z"
+                                fill="black"/>
+                        </svg>
+                        <span class="title">{{trans('trans_rentacar.front.languages_currencies')}}</span>
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"
+                                fill="#E63948"/>
+                        </svg>
+                    </div>
 
-            <nav class="param">
-                <div class="params_header">
-                    <svg class="globe" width="25" height="24" viewBox="0 0 25 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21.91 8.64C21.91 8.64 21.91 8.64 21.91 8.59C21.2053 6.66622 19.9269 5.00528 18.2474 3.83186C16.568 2.65844 14.5687 2.02917 12.52 2.02917C10.4712 2.02917 8.47189 2.65844 6.79246 3.83186C5.11304 5.00528 3.83455 6.66622 3.12995 8.59C3.12995 8.59 3.12995 8.59 3.12995 8.64C2.34308 10.8109 2.34308 13.1891 3.12995 15.36C3.12995 15.36 3.12995 15.36 3.12995 15.41C3.83455 17.3338 5.11304 18.9947 6.79246 20.1681C8.47189 21.3416 10.4712 21.9708 12.52 21.9708C14.5687 21.9708 16.568 21.3416 18.2474 20.1681C19.9269 18.9947 21.2053 17.3338 21.91 15.41C21.91 15.41 21.91 15.41 21.91 15.36C22.6968 13.1891 22.6968 10.8109 21.91 8.64ZM4.75995 14C4.41318 12.6892 4.41318 11.3108 4.75995 10H6.61995C6.45998 11.3285 6.45998 12.6715 6.61995 14H4.75995ZM5.57995 16H6.97995C7.21467 16.8918 7.55016 17.7541 7.97995 18.57C6.99925 17.9019 6.17945 17.0241 5.57995 16ZM6.97995 8H5.57995C6.17082 6.97908 6.98014 6.10147 7.94995 5.43C7.53051 6.24724 7.20509 7.10942 6.97995 8ZM11.5 19.7C10.2717 18.7987 9.4091 17.4852 9.06995 16H11.5V19.7ZM11.5 14H8.63995C8.45334 12.6732 8.45334 11.3268 8.63995 10H11.5V14ZM11.5 8H9.06995C9.4091 6.51477 10.2717 5.20132 11.5 4.3V8ZM19.42 8H18.02C17.7852 7.10816 17.4497 6.24594 17.02 5.43C18.0007 6.09807 18.8205 6.97594 19.42 8ZM13.5 4.3C14.7282 5.20132 15.5908 6.51477 15.93 8H13.5V4.3ZM13.5 19.7V16H15.93C15.5908 17.4852 14.7282 18.7987 13.5 19.7ZM16.36 14H13.5V10H16.36C16.5466 11.3268 16.5466 12.6732 16.36 14ZM17.05 18.57C17.4797 17.7541 17.8152 16.8918 18.05 16H19.45C18.8505 17.0241 18.0307 17.9019 17.05 18.57ZM20.24 14H18.38C18.4613 13.3365 18.5014 12.6685 18.5 12C18.5011 11.3315 18.461 10.6636 18.38 10H20.24C20.5867 11.3108 20.5867 12.6892 20.24 14Z"
-                            fill="black"/>
-                    </svg>
-                    <span class="title">{{trans('trans_rentacar.front.languages_currencies')}}</span>
-                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"
-                            fill="#E63948"/>
-                    </svg>
-                </div>
+                    <div class="param_items">
+                        <ul class="currencies">
+                            {{--                        @foreach($available_currencies as $currency)--}}
+                            {{--                            @if($currency == strtoupper($current_currency))--}}
+                            {{--                                <span class="current">{{ $currency }}</span>--}}
+                            {{--                            @else--}}
+                            {{--                                <span onclick="redirectToCurrency('{{$currency}}')">{{ $currency }}</span></li>--}}
+                            {{--                            @endif--}}
+                            {{--                        @endforeach--}}
+                        </ul>
+                        <hr>
+                        {{--                    @if ($site->multilang == 1 && checkPageForApproveAlternates($siteThemeTemplate, $path) && checkPageForApproveAlternates($siteThemeTemplate, $path) && !Config::get('services.active_blog_pages'))--}}
+                        {{--                        <ul class="languages">--}}
+                        {{--                            @foreach($available_locales as $name => $locale)--}}
+                        {{--                                @php--}}
+                        {{--                                    $uri = $_SERVER['REQUEST_URI'];--}}
+                        {{--                        $uri = parse_url($uri)['path'];--}}
+                        {{--                        if (str_contains($uri, '/filter-catalog/') || str_ends_with($uri, '/filter-catalog')) {--}}
+                        {{--                        $uri = '';--}}
+                        {{--                        }--}}
+                        {{--                        if ($current_locale !== Config::get("app.fallback_locale") && $locale == Config::get("app.fallback_locale")) {--}}
+                        {{--                        if ($locale == Config::get("app.fallback_locale")) {--}}
+                        {{--                        if ($uri == "/$current_locale") {--}}
+                        {{--                            $uri = substr_replace($uri, "/", 0, 3);--}}
+                        {{--                        } else {--}}
+                        {{--                            $uri = substr_replace($uri, "", 0, 3);--}}
+                        {{--                        }--}}
+                        {{--                        } else {--}}
+                        {{--                        $uri = substr_replace($uri, "/$locale", 0, 3);--}}
+                        {{--                        }--}}
+                        {{--                        } else {--}}
+                        {{--                        if ($current_locale !== Config::get("app.fallback_locale")) {--}}
+                        {{--                        $uri = substr_replace($uri, "", 0, 3);--}}
+                        {{--                        }--}}
+                        {{--                        $uri = "/$locale" . $uri;--}}
 
-                <div class="param_items">
-                    <ul class="currencies">
-                        {{--                        @foreach($available_currencies as $currency)--}}
-                        {{--                            @if($currency == strtoupper($current_currency))--}}
-                        {{--                                <span class="current">{{ $currency }}</span>--}}
-                        {{--                            @else--}}
-                        {{--                                <span onclick="redirectToCurrency('{{$currency}}')">{{ $currency }}</span></li>--}}
-                        {{--                            @endif--}}
-                        {{--                        @endforeach--}}
-                    </ul>
-                    <hr>
-                    {{--                    @if ($site->multilang == 1 && checkPageForApproveAlternates($siteThemeTemplate, $path) && checkPageForApproveAlternates($siteThemeTemplate, $path) && !Config::get('services.active_blog_pages'))--}}
-                    {{--                        <ul class="languages">--}}
-                    {{--                            @foreach($available_locales as $name => $locale)--}}
-                    {{--                                @php--}}
-                    {{--                                    $uri = $_SERVER['REQUEST_URI'];--}}
-                    {{--                        $uri = parse_url($uri)['path'];--}}
-                    {{--                        if (str_contains($uri, '/filter-catalog/') || str_ends_with($uri, '/filter-catalog')) {--}}
-                    {{--                        $uri = '';--}}
-                    {{--                        }--}}
-                    {{--                        if ($current_locale !== Config::get("app.fallback_locale") && $locale == Config::get("app.fallback_locale")) {--}}
-                    {{--                        if ($locale == Config::get("app.fallback_locale")) {--}}
-                    {{--                        if ($uri == "/$current_locale") {--}}
-                    {{--                            $uri = substr_replace($uri, "/", 0, 3);--}}
-                    {{--                        } else {--}}
-                    {{--                            $uri = substr_replace($uri, "", 0, 3);--}}
-                    {{--                        }--}}
-                    {{--                        } else {--}}
-                    {{--                        $uri = substr_replace($uri, "/$locale", 0, 3);--}}
-                    {{--                        }--}}
-                    {{--                        } else {--}}
-                    {{--                        if ($current_locale !== Config::get("app.fallback_locale")) {--}}
-                    {{--                        $uri = substr_replace($uri, "", 0, 3);--}}
-                    {{--                        }--}}
-                    {{--                        $uri = "/$locale" . $uri;--}}
+                        {{--                        }--}}
+                        {{--                        $uri = preg_replace('/(?<=.)\/$/', '', $uri);--}}
+                        {{--                        $uri = $uri ? $uri : '/';--}}
+                        {{--                                @endphp--}}
+                        {{--                                @if($locale == $current_locale)--}}
+                        {{--                                    <span class="current">{{ $name }}</span>--}}
 
-                    {{--                        }--}}
-                    {{--                        $uri = preg_replace('/(?<=.)\/$/', '', $uri);--}}
-                    {{--                        $uri = $uri ? $uri : '/';--}}
-                    {{--                                @endphp--}}
-                    {{--                                @if($locale == $current_locale)--}}
-                    {{--                                    <span class="current">{{ $name }}</span>--}}
+                        {{--                                @else--}}
+                        {{--                                    <a href="{{$uri}}"><span>{{ $name }}</span></a>--}}
+                        {{--                                @endif--}}
+                        {{--                            @endforeach--}}
+                        {{--                        </ul>--}}
+                        {{--                    @endif--}}
 
-                    {{--                                @else--}}
-                    {{--                                    <a href="{{$uri}}"><span>{{ $name }}</span></a>--}}
-                    {{--                                @endif--}}
-                    {{--                            @endforeach--}}
-                    {{--                        </ul>--}}
-                    {{--                    @endif--}}
-
-                </div>
-            </nav>
+                    </div>
+                </nav>
+                @guest
+                    <a href="{{ route('front.login') }}" class="login-btn">Login</a>
+                    <a href="{{ route('front.register') }}" class="login-btn">Sign up</a>
+                @endguest
+                @auth
+                    <form method="POST" action="{{ route('front.logout') }}">
+                        @csrf
+                        <button type="submit">Logout</button>
+                    </form>
+                @endauth
+            </div>
 
         </nav>
 

@@ -24,7 +24,17 @@ Route::namespace('App\Http\Controllers\Front')->group(function () {
     Route::get('/'.RouteEnum::CAR->value.'/{id}', 'SiteController@car')->name('car');
 });
 
+Route::namespace('App\Http\Controllers\Front')->group(function () {
+    Route::get('/login', 'AuthController@showLoginForm')->name('front.login');
+    Route::post('/login', 'AuthController@login')->name('front.login.post');
+    Route::get('/register', 'AuthController@showRegistrationForm')->name('front.register');
+    Route::post('/register', 'AuthController@register')->name('front.register.post');
+    Route::post('/logout', 'AuthController@logout')->name('front.logout');
+});
 
+//Route::middleware('auth')->group(function () {
+//    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+//});
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Route;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
@@ -41,17 +42,17 @@ function checkMobile()
 function getColorForDateStatus(string $status): array
 {
 
-            $colors = [
-                'now' => ['background' => '#4CAF50', 'font' => '#FFF'],
-                'today' => ['background' => '#4CAF50', 'font' => '#FFF'],
-                'tomorrow' => ['background' => '#03A9F4', 'font' => '#FFF'],
-                'this_week' => ['background' => '#03A9F4', 'font' => '#FFF'],
-                'next_week' => ['background' => '#FFF', 'font' => '#000'],
-                'next_month' => ['background' => '#FFF', 'font' => '#000'],
-                'soon' => ['background' => '#8C8B98', 'font' => '#FFF'],
-            ];
+    $colors = [
+        'now' => ['background' => '#4CAF50', 'font' => '#FFF'],
+        'today' => ['background' => '#4CAF50', 'font' => '#FFF'],
+        'tomorrow' => ['background' => '#03A9F4', 'font' => '#FFF'],
+        'this_week' => ['background' => '#03A9F4', 'font' => '#FFF'],
+        'next_week' => ['background' => '#FFF', 'font' => '#000'],
+        'next_month' => ['background' => '#FFF', 'font' => '#000'],
+        'soon' => ['background' => '#8C8B98', 'font' => '#FFF'],
+    ];
 
-        return $colors[$status] ?? ['background' => '#4CAF50', 'font' => '#FFF'];
+    return $colors[$status] ?? ['background' => '#4CAF50', 'font' => '#FFF'];
 }
 
 function tr($data)
@@ -92,9 +93,15 @@ function formatNumberString($string)
 
 function getBodyTypeImgPath($bodyTypeSlug): string
 {
-    return "/images/site/body-types/".$bodyTypeSlug.".svg";
+    return "/images/site/body-types/" . $bodyTypeSlug . ".svg";
 }
+
 function getBrandImgPath($brandSlug): string
 {
-    return  url('uploads') .'/images/brands/'.$brandSlug.'.webp';
+    return url('uploads') . '/images/brands/' . $brandSlug . '.webp';
+}
+
+function brandUrl($brandSlug): string
+{
+    return url(baseUrl()  . Route::BRANDS->value . '/' . $brandSlug);
 }
