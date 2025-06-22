@@ -28,7 +28,7 @@ $bodies = Config::get('site.bodies');
                         @foreach($brands as $brand)
                             @if($brand != null)
 
-                                <a href="/{{ Config::get('services.brands_link') }}/{{ $brand['link'] }}">
+                                <a href="{{brandUrl($brand->slug)}}">
                                     <div class="brand_info">
                                                                         <span class="brand_name">
                                                                         {{ $brand['name']}}

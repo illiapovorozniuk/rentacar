@@ -277,44 +277,30 @@ $brands = Config::get('site.brands');
                             {{--                        @endforeach--}}
                         </ul>
                         <hr>
-                        {{--                    @if ($site->multilang == 1 && checkPageForApproveAlternates($siteThemeTemplate, $path) && checkPageForApproveAlternates($siteThemeTemplate, $path) && !Config::get('services.active_blog_pages'))--}}
-                        {{--                        <ul class="languages">--}}
-                        {{--                            @foreach($available_locales as $name => $locale)--}}
-                        {{--                                @php--}}
-                        {{--                                    $uri = $_SERVER['REQUEST_URI'];--}}
-                        {{--                        $uri = parse_url($uri)['path'];--}}
-                        {{--                        if (str_contains($uri, '/filter-catalog/') || str_ends_with($uri, '/filter-catalog')) {--}}
-                        {{--                        $uri = '';--}}
-                        {{--                        }--}}
-                        {{--                        if ($current_locale !== Config::get("app.fallback_locale") && $locale == Config::get("app.fallback_locale")) {--}}
-                        {{--                        if ($locale == Config::get("app.fallback_locale")) {--}}
-                        {{--                        if ($uri == "/$current_locale") {--}}
-                        {{--                            $uri = substr_replace($uri, "/", 0, 3);--}}
-                        {{--                        } else {--}}
-                        {{--                            $uri = substr_replace($uri, "", 0, 3);--}}
-                        {{--                        }--}}
-                        {{--                        } else {--}}
-                        {{--                        $uri = substr_replace($uri, "/$locale", 0, 3);--}}
-                        {{--                        }--}}
-                        {{--                        } else {--}}
-                        {{--                        if ($current_locale !== Config::get("app.fallback_locale")) {--}}
-                        {{--                        $uri = substr_replace($uri, "", 0, 3);--}}
-                        {{--                        }--}}
-                        {{--                        $uri = "/$locale" . $uri;--}}
+                        <ul class="languages">
+                            @foreach($available_locales as  $language)
+                                @php
+                                    $uri = $_SERVER['REQUEST_URI'];
+                                    $uri = parse_url($uri)['path'];
+                                    $locale = $language->code;
+                                    // Replace the current locale in the URL with the new locale
+                                    if ($current_locale !== Config::get("app.fallback_locale")) {
+                                        $uri = substr($uri, 3); // Remove the current locale prefix
+                                    }
+                                    $uri = ($locale === Config::get("app.fallback_locale")) ? $uri : "/$locale$uri";
+                                    $name = $language->title;
+                                    // Ensure no trailing slash
+                                    $uri = preg_replace('/(?<=.)\/$/', '', $uri);
+                                    $uri = $uri ?: '/';
+                                @endphp
 
-                        {{--                        }--}}
-                        {{--                        $uri = preg_replace('/(?<=.)\/$/', '', $uri);--}}
-                        {{--                        $uri = $uri ? $uri : '/';--}}
-                        {{--                                @endphp--}}
-                        {{--                                @if($locale == $current_locale)--}}
-                        {{--                                    <span class="current">{{ $name }}</span>--}}
-
-                        {{--                                @else--}}
-                        {{--                                    <a href="{{$uri}}"><span>{{ $name }}</span></a>--}}
-                        {{--                                @endif--}}
-                        {{--                            @endforeach--}}
-                        {{--                        </ul>--}}
-                        {{--                    @endif--}}
+                                @if($locale == $current_locale)
+                                    <span class="current">{{ $name }}</span>
+                                @else
+                                    <a href="{{ $uri }}"><span>{{ $name }}</span></a>
+                                @endif
+                            @endforeach
+                        </ul>
 
                     </div>
                 </nav>

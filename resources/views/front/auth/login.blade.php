@@ -16,6 +16,5 @@
             @endif
             <button class="button_submit" type="submit">Login</button>
         </form>
-
     </div>
 @endsection

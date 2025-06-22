@@ -452,7 +452,7 @@ header .header_content .end_section .param .param_items .languages span {
   width: 170px;
 }
 header .header_content .end_section .param .param_items .languages span.current {
-  color: #E6E6E6;
+  color: #919191;
 }
 header .header_content .end_section .param .param_items .languages span:not(.current) {
   cursor: pointer;

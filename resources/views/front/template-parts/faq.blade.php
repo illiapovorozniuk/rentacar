@@ -1,3 +1,4 @@
+<?php  $current_locale = App::getLocale();?>
 <div class="faq_block">
     <div class="faq_head">
         <h2 class="faq_title">{{trans('front.faq_title')}}</h2>
