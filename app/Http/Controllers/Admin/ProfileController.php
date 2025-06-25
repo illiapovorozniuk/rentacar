@@ -59,11 +59,23 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @throws ValidationException
-     * @return array|RedirectResponse|Redirector
+     * Method: updateProfile
+     * @OA\Put(
+     *     path="/admin/profile",
+     *     summary="Update logged in admin profile",
+     *     tags={"Profile"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="first_name", type="string", example="John"),
+     *             @OA\Property(property="last_name", type="string", example="Doe"),
+     *             @OA\Property(property="email", type="string", format="email", example="john.doe@example.com"),
+     *             @OA\Property(property="language", type="string", example="en")
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Profile updated successfully"),
+     *     @OA\Response(response=422, description="Validation error")
+     * )
      */
     public function updateProfile(Request $request)
     {
@@ -114,12 +126,22 @@ class ProfileController extends Controller
     }
 
 
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @throws ValidationException
-     * @return array|RedirectResponse|Redirector
+     * Method: updatePassword
+     * @OA\Put(
+     *     path="/admin/password",
+     *     summary="Update logged in admin password",
+     *     tags={"Profile"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="password", type="string", format="password", example="NewPass123")
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Password updated successfully"),
+     *     @OA\Response(response=422, description="Validation error")
+     * )
      */
     public function updatePassword(Request $request)
     {

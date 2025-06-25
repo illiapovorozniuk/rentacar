@@ -9,6 +9,57 @@ use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
 use Spatie\MediaLibrary\HasMedia;
 use Brackets\Media\HasMedia\HasMediaThumbsTrait;
 
+/**
+ * @OA\Schema(
+ *     schema="Brand",
+ *     type="object",
+ *     title="Brand",
+ *     required={"slug", "name"},
+ *     @OA\Property(
+ *         property="id",
+ *         type="integer",
+ *         format="int64",
+ *         description="Brand ID"
+ *     ),
+ *     @OA\Property(
+ *         property="slug",
+ *         type="string",
+ *         description="Unique slug of the brand"
+ *     ),
+ *     @OA\Property(
+ *         property="name",
+ *         type="string",
+ *         description="Name of the brand"
+ *     ),
+ *     @OA\Property(
+ *         property="icon",
+ *         type="string",
+ *         description="Icon of the brand"
+ *     ),
+ *     @OA\Property(
+ *         property="cars_count",
+ *         type="integer",
+ *         description="Number of cars for the brand"
+ *     ),
+ *     @OA\Property(
+ *         property="created_at",
+ *         type="string",
+ *         format="date-time",
+ *         description="Creation timestamp"
+ *     ),
+ *     @OA\Property(
+ *         property="updated_at",
+ *         type="string",
+ *         format="date-time",
+ *         description="Last update timestamp"
+ *     ),
+ *     @OA\Property(
+ *         property="resource_url",
+ *         type="string",
+ *         description="Resource URL"
+ *     )
+ * )
+ */
 
 class Brand extends Model implements HasMedia
 {

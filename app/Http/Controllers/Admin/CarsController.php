@@ -28,10 +28,52 @@ class CarsController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @param IndexCar $request
-     * @return array|Factory|View
+     * @OA\Get(
+     *     path="/admin/cars",
+     *     summary="List all cars",
+     *     tags={"Cars"},
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Search keyword",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of cars",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="data", type="array", @OA\Items(
+     *                 @OA\Property(property="id", type="integer", example=1),
+     *                 @OA\Property(property="car_model_id", type="integer", example=5),
+     *                 @OA\Property(property="car_slug", type="string", example="audi-a6-2024"),
+     *                 @OA\Property(property="availability_label", type="string", example="Available"),
+     *                 @OA\Property(property="price_1", type="number", example=60.5),
+     *                 @OA\Property(property="price_7", type="number", example=400),
+     *                 @OA\Property(property="price_30", type="number", example=1500),
+     *                 @OA\Property(property="price_31_more", type="number", example=1400),
+     *                 @OA\Property(property="deposit", type="number", example=300),
+     *                 @OA\Property(property="km_included_per_day", type="integer", example=100),
+     *                 @OA\Property(property="overlimit_charge_per_km", type="number", example=0.5),
+     *                 @OA\Property(property="min_day_reservation", type="integer", example=2),
+     *                 @OA\Property(property="free_delivery", type="boolean", example=true),
+     *                 @OA\Property(property="registration_number", type="string", example="AA1234BB"),
+     *                 @OA\Property(property="color_id", type="integer", example=3),
+     *                 @OA\Property(property="fuel_id", type="integer", example=1),
+     *                 @OA\Property(property="attribute_year", type="integer", example=2023),
+     *                 @OA\Property(property="attribute_seats", type="integer", example=5),
+     *                 @OA\Property(property="attribute_1_to_100", type="number", example=7.2),
+     *                 @OA\Property(property="attribute_max_speed", type="integer", example=240),
+     *                 @OA\Property(property="attribute_horsepower", type="integer", example=180),
+     *                 @OA\Property(property="attribute_transmission", type="string", example="Automatic"),
+     *                 @OA\Property(property="attribute_doors", type="integer", example=4),
+     *                 @OA\Property(property="attribute_engine", type="string", example="2.0L Turbo"),
+     *                 @OA\Property(property="attribute_baggage", type="integer", example=450),
+     *                 @OA\Property(property="status", type="string", example="active")
+     *             ))
+     *         )
+     *     )
+     * )
      */
     public function index(IndexCar $request)
     {
@@ -92,10 +134,36 @@ class CarsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreCar $request
-     * @return array|RedirectResponse|Redirector
+     * @OA\Post(
+     *     path="/admin/cars",
+     *     summary="Create a new car",
+     *     tags={"Cars"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"car_model", "color_id", "fuel_id"},
+     *             @OA\Property(property="car_model", type="object",
+     *                 @OA\Property(property="brand_id", type="integer", example=1),
+     *                 @OA\Property(property="body_type_id", type="integer", example=2),
+     *                 @OA\Property(property="slug", type="string", example="audi-a6-2024")
+     *             ),
+     *             @OA\Property(property="color_id", type="integer", example=3),
+     *             @OA\Property(property="fuel_id", type="integer", example=1),
+     *             @OA\Property(property="registration_number", type="string", example="AA1234BB"),
+     *             @OA\Property(property="attribute_year", type="integer", example=2023),
+     *             @OA\Property(property="price_1", type="number", example=60)
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car created successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="redirect", type="string", example="/admin/cars"),
+     *             @OA\Property(property="message", type="string", example="Operation succeeded")
+     *         )
+     *     ),
+     *     @OA\Response(response=422, description="Validation error")
+     * )
      */
     public function store(StoreCar $request)
     {
@@ -155,11 +223,37 @@ class CarsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdateCar $request
-     * @param Car $car
-     * @return array|RedirectResponse|Redirector
+     * @OA\Put(
+     *     path="/admin/cars/{id}",
+     *     summary="Update a car",
+     *     tags={"Cars"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Car ID",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="car_model", type="object",
+     *                 @OA\Property(property="brand_id", type="integer", example=1),
+     *                 @OA\Property(property="body_type_id", type="integer", example=2),
+     *                 @OA\Property(property="slug", type="string", example="audi-a6-2024")
+     *             ),
+     *             @OA\Property(property="fuel_id", type="integer", example=1)
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car updated successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="redirect", type="string", example="/admin/cars"),
+     *             @OA\Property(property="message", type="string", example="Operation succeeded")
+     *         )
+     *     )
+     * )
      */
     public function update(UpdateCar $request, Car $car)
     {
@@ -186,12 +280,25 @@ class CarsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param DestroyCar $request
-     * @param Car $car
-     * @throws Exception
-     * @return ResponseFactory|RedirectResponse|Response
+     * @OA\Delete(
+     *     path="/admin/cars/{id}",
+     *     summary="Delete a car",
+     *     tags={"Cars"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Car ID",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car deleted successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Operation succeeded")
+     *         )
+     *     )
+     * )
      */
     public function destroy(DestroyCar $request, Car $car)
     {
@@ -205,11 +312,24 @@ class CarsController extends Controller
     }
 
     /**
-     * Remove the specified resources from storage.
-     *
-     * @param BulkDestroyCar $request
-     * @throws Exception
-     * @return Response|bool
+     * @OA\Post(
+     *     path="/admin/cars/bulk-destroy",
+     *     summary="Bulk delete cars",
+     *     tags={"Cars"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="ids", type="array", @OA\Items(type="integer"), example={1,2,3})
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Cars deleted successfully",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="message", type="string", example="Operation succeeded")
+     *         )
+     *     )
+     * )
      */
     public function bulkDestroy(BulkDestroyCar $request) : Response
     {

@@ -28,6 +28,31 @@ class TypesController extends Controller
      *
      * @param IndexType $request
      * @return array|Factory|View
+     *
+     * @OA\Get(
+     *     path="/admin/types",
+     *     summary="Get list of types",
+     *     tags={"Types"},
+     *     @OA\Parameter(
+     *         name="bulk",
+     *         in="query",
+     *         description="Return list of IDs only",
+     *         required=false,
+     *         @OA\Schema(type="boolean")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of types",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(
+     *                 property="data",
+     *                 type="array",
+     *                 @OA\Items(ref="#/components/schemas/Type")
+     *             )
+     *         )
+     *     )
+     * )
      */
     public function index(IndexType $request)
     {
@@ -73,6 +98,25 @@ class TypesController extends Controller
      *
      * @param StoreType $request
      * @return array|RedirectResponse|Redirector
+     *
+     * @OA\Post(
+     *     path="/admin/types",
+     *     summary="Create a new type",
+     *     tags={"Types"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Type")
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Type created",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="redirect", type="string"),
+     *             @OA\Property(property="message", type="string")
+     *         )
+     *     )
+     * )
      */
     public function store(StoreType $request)
     {
@@ -126,6 +170,32 @@ class TypesController extends Controller
      * @param UpdateType $request
      * @param Type $type
      * @return array|RedirectResponse|Redirector
+     *
+     * @OA\Put(
+     *     path="/admin/types/{id}",
+     *     summary="Update a specific type",
+     *     tags={"Types"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Type ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Type")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Type updated",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="redirect", type="string"),
+     *             @OA\Property(property="message", type="string")
+     *         )
+     *     )
+     * )
      */
     public function update(UpdateType $request, Type $type)
     {
@@ -152,6 +222,27 @@ class TypesController extends Controller
      * @param Type $type
      * @throws Exception
      * @return ResponseFactory|RedirectResponse|Response
+     *
+     * @OA\Delete(
+     *     path="/admin/types/{id}",
+     *     summary="Delete a specific type",
+     *     tags={"Types"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Type ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Type deleted",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string")
+     *         )
+     *     )
+     * )
      */
     public function destroy(DestroyType $request, Type $type)
     {
@@ -170,6 +261,31 @@ class TypesController extends Controller
      * @param BulkDestroyType $request
      * @throws Exception
      * @return Response|bool
+     *
+     * @OA\Post(
+     *     path="/admin/types/bulk-destroy",
+     *     summary="Bulk delete types",
+     *     tags={"Types"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(
+     *                 property="ids",
+     *                 type="array",
+     *                 @OA\Items(type="integer")
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Types deleted",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="message", type="string")
+     *         )
+     *     )
+     * )
      */
     public function bulkDestroy(BulkDestroyType $request) : Response
     {

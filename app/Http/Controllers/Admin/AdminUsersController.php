@@ -46,10 +46,31 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @param IndexAdminUser $request
-     * @return Factory|View
+     * @OA\Get(
+     *     path="/admin/admin-users",
+     *     summary="Get a paginated list of admin users",
+     *     tags={"Admin Users"},
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Search string",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of admin users",
+     *         @OA\JsonContent(
+     *             type="object",
+     *             @OA\Property(property="data", type="array", @OA\Items(
+     *                 @OA\Property(property="id", type="integer", example=1),
+     *                 @OA\Property(property="first_name", type="string", example="John"),
+     *                 @OA\Property(property="last_name", type="string", example="Doe"),
+     *                 @OA\Property(property="email", type="string", example="admin@example.com")
+     *             ))
+     *         )
+     *     )
+     * )
      */
     public function index(IndexAdminUser $request)
     {
@@ -89,10 +110,30 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreAdminUser $request
-     * @return array|RedirectResponse|Redirector
+     * @OA\Post(
+     *     path="/admin/admin-users",
+     *     summary="Create a new admin user",
+     *     tags={"Admin Users"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"first_name", "last_name", "email", "password"},
+     *             @OA\Property(property="first_name", type="string", example="John"),
+     *             @OA\Property(property="last_name", type="string", example="Doe"),
+     *             @OA\Property(property="email", type="string", example="admin@example.com"),
+     *             @OA\Property(property="password", type="string", format="password", example="secret123"),
+     *             @OA\Property(property="roles", type="array", @OA\Items(type="integer", example=1))
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Admin user created"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error"
+     *     )
+     * )
      */
     public function store(StoreAdminUser $request)
     {
@@ -147,11 +188,34 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdateAdminUser $request
-     * @param AdminUser $adminUser
-     * @return array|RedirectResponse|Redirector
+     * @OA\Put(
+     *     path="/admin/admin-users/{id}",
+     *     summary="Update an existing admin user",
+     *     tags={"Admin Users"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Admin user ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="first_name", type="string", example="Updated"),
+     *             @OA\Property(property="last_name", type="string", example="User"),
+     *             @OA\Property(property="roles", type="array", @OA\Items(type="integer", example=1))
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Admin user updated"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error"
+     *     )
+     * )
      */
     public function update(UpdateAdminUser $request, AdminUser $adminUser)
     {
@@ -174,12 +238,26 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param DestroyAdminUser $request
-     * @param AdminUser $adminUser
-     * @throws Exception
-     * @return ResponseFactory|RedirectResponse|Response
+     * @OA\Delete(
+     *     path="/admin/admin-users/{id}",
+     *     summary="Delete an admin user",
+     *     tags={"Admin Users"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Admin user ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Admin user deleted"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Admin user not found"
+     *     )
+     * )
      */
     public function destroy(DestroyAdminUser $request, AdminUser $adminUser)
     {
@@ -193,12 +271,26 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * Resend activation e-mail
-     *
-     * @param Request $request
-     * @param ActivationService $activationService
-     * @param AdminUser $adminUser
-     * @return array|RedirectResponse
+     * @OA\Post(
+     *     path="/admin/admin-users/{id}/resend-activation",
+     *     summary="Resend activation email to the admin user",
+     *     tags={"Admin Users"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Admin user ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Activation email sent"
+     *     ),
+     *     @OA\Response(
+     *         response=409,
+     *         description="Failed to send activation email"
+     *     )
+     * )
      */
     public function resendActivationEmail(Request $request, ActivationService $activationService, AdminUser $adminUser)
     {
@@ -227,10 +319,22 @@ class AdminUsersController extends Controller
     }
 
     /**
-     * @param ImpersonalLoginAdminUser $request
-     * @param AdminUser $adminUser
-     * @return RedirectResponse
-     * @throws AuthorizationException
+     * @OA\Post(
+     *     path="/admin/admin-users/{id}/impersonal-login",
+     *     summary="Log in as another admin user (impersonal login)",
+     *     tags={"Admin Users"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Admin user ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=302,
+     *         description="Redirect to previous page as impersonated user"
+     *     )
+     * )
      */
     public function impersonalLogin(ImpersonalLoginAdminUser $request, AdminUser $adminUser) {
         Auth::login($adminUser);

@@ -25,10 +25,29 @@ class BrandsController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @param IndexBrand $request
-     * @return array|Factory|View
+     * @OA\Get(
+     *     path="/admin/brands",
+     *     summary="List all brands",
+     *     tags={"Brands"},
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Optional search filter",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of brands",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="data", type="array", @OA\Items(
+     *                 @OA\Property(property="id", type="integer", example=1),
+     *                 @OA\Property(property="name", type="string", example="BMW"),
+     *                 @OA\Property(property="icon", type="string", example="bmw.svg")
+     *             ))
+     *         )
+     *     )
+     * )
      */
     public function index(IndexBrand $request)
     {
@@ -70,10 +89,31 @@ class BrandsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreBrand $request
-     * @return array|RedirectResponse|Redirector
+     * @OA\Post(
+     *     path="/admin/brands",
+     *     summary="Create a new brand",
+     *     tags={"Brands"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 required={"name", "slug", "icon"},
+     *                 @OA\Property(property="name", type="string", example="Toyota"),
+     *                 @OA\Property(property="slug", type="string", example="toyota"),
+     *                 @OA\Property(property="icon", type="string", format="binary")
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Brand successfully created"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation failed"
+     *     )
+     * )
      */
     public function store(StoreBrand $request)
     {
@@ -126,11 +166,37 @@ class BrandsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdateBrand $request
-     * @param Brand $brand
-     * @return array|RedirectResponse|Redirector
+     * @OA\Put(
+     *     path="/admin/brands/{id}",
+     *     summary="Update an existing brand",
+     *     tags={"Brands"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Brand ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 @OA\Property(property="name", type="string", example="Audi"),
+     *                 @OA\Property(property="slug", type="string", example="audi"),
+     *                 @OA\Property(property="icon", type="string", format="binary")
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Brand successfully updated"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Brand not found"
+     *     )
+     * )
      */
     public function update(UpdateBrand $request, Brand $brand)
     {
@@ -155,13 +221,28 @@ class BrandsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param DestroyBrand $request
-     * @param Brand $brand
-     * @return ResponseFactory|RedirectResponse|Response
-     * @throws Exception
+     * @OA\Delete(
+     *     path="/admin/brands/{id}",
+     *     summary="Delete a brand",
+     *     tags={"Brands"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Brand ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Brand deleted"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Brand not found"
+     *     )
+     * )
      */
+
     public function destroy(DestroyBrand $request, Brand $brand)
     {
         deleteImage($brand->icon);
@@ -175,11 +256,25 @@ class BrandsController extends Controller
     }
 
     /**
-     * Remove the specified resources from storage.
-     *
-     * @param BulkDestroyBrand $request
-     * @return Response|bool
-     * @throws Exception
+     * @OA\Post(
+     *     path="/admin/brands/bulk-destroy",
+     *     summary="Bulk delete brands",
+     *     tags={"Brands"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="ids", type="array", @OA\Items(type="integer", example=1))
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Brands deleted"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Invalid input"
+     *     )
+     * )
      */
     public function bulkDestroy(BulkDestroyBrand $request): Response
     {

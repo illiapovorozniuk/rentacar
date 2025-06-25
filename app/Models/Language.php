@@ -5,6 +5,46 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Config;
 
+/**
+ * @OA\Schema(
+ *     schema="Language",
+ *     type="object",
+ *     title="Language",
+ *     required={"title", "code", "locale", "default"},
+ *     @OA\Property(
+ *         property="id",
+ *         type="integer",
+ *         format="int64",
+ *         description="Language ID"
+ *     ),
+ *     @OA\Property(
+ *         property="title",
+ *         type="string",
+ *         description="Language title/name"
+ *     ),
+ *     @OA\Property(
+ *         property="code",
+ *         type="string",
+ *         description="Language code (e.g. en, uk, etc.)"
+ *     ),
+ *     @OA\Property(
+ *         property="locale",
+ *         type="string",
+ *         description="Locale identifier"
+ *     ),
+ *     @OA\Property(
+ *         property="default",
+ *         type="boolean",
+ *         description="Is default language flag"
+ *     ),
+ *     @OA\Property(
+ *         property="resource_url",
+ *         type="string",
+ *         description="URL to the language resource"
+ *     )
+ * )
+ */
+
 class Language extends Model
 {
     protected $fillable = [

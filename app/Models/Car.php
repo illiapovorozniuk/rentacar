@@ -13,6 +13,193 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+/**
+ * @OA\Schema(
+ *     schema="Car",
+ *     type="object",
+ *     title="Car",
+ *     required={"car_model_id", "car_brand_id", "car_slug"},
+ *     @OA\Property(
+ *         property="id",
+ *         type="integer",
+ *         format="int64",
+ *         description="Car ID"
+ *     ),
+ *     @OA\Property(
+ *         property="car_model_id",
+ *         type="integer",
+ *         description="Foreign key to Car Model"
+ *     ),
+ *     @OA\Property(
+ *         property="car_brand_id",
+ *         type="integer",
+ *         description="Foreign key to Brand"
+ *     ),
+ *     @OA\Property(
+ *         property="car_body_type_id",
+ *         type="integer",
+ *         description="Foreign key to Body Type"
+ *     ),
+ *     @OA\Property(
+ *         property="car_slug",
+ *         type="string",
+ *         description="Slug for the car"
+ *     ),
+ *     @OA\Property(
+ *         property="availability_label",
+ *         type="string",
+ *         nullable=true,
+ *         description="Availability label of the car"
+ *     ),
+ *     @OA\Property(
+ *         property="price_1",
+ *         type="integer",
+ *         description="Price for 1 day"
+ *     ),
+ *     @OA\Property(
+ *         property="price_7",
+ *         type="integer",
+ *         description="Price for 7 days"
+ *     ),
+ *     @OA\Property(
+ *         property="price_30",
+ *         type="integer",
+ *         description="Price for 30 days"
+ *     ),
+ *     @OA\Property(
+ *         property="price_31_more",
+ *         type="integer",
+ *         description="Price for 31 or more days"
+ *     ),
+ *     @OA\Property(
+ *         property="deposit",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Deposit amount"
+ *     ),
+ *     @OA\Property(
+ *         property="km_included_per_day",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Kilometers included per day"
+ *     ),
+ *     @OA\Property(
+ *         property="overlimit_charge_per_km",
+ *         type="number",
+ *         format="float",
+ *         nullable=true,
+ *         description="Charge per km over the limit"
+ *     ),
+ *     @OA\Property(
+ *         property="min_day_reservation",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Minimum days for reservation"
+ *     ),
+ *     @OA\Property(
+ *         property="free_delivery",
+ *         type="boolean",
+ *         nullable=true,
+ *         description="Is free delivery available"
+ *     ),
+ *     @OA\Property(
+ *         property="registration_number",
+ *         type="string",
+ *         nullable=true,
+ *         description="Car registration number"
+ *     ),
+ *     @OA\Property(
+ *         property="color_id",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Foreign key to color"
+ *     ),
+ *     @OA\Property(
+ *         property="fuel_id",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Foreign key to fuel"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_year",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Year attribute"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_seats",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Number of seats"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_1_to_100",
+ *         type="number",
+ *         format="float",
+ *         nullable=true,
+ *         description="Acceleration 0-100 km/h"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_max_speed",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Maximum speed"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_horsepower",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Horsepower"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_transmission",
+ *         type="string",
+ *         nullable=true,
+ *         description="Transmission type"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_doors",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Number of doors"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_engine",
+ *         type="string",
+ *         nullable=true,
+ *         description="Engine description"
+ *     ),
+ *     @OA\Property(
+ *         property="attribute_baggage",
+ *         type="integer",
+ *         nullable=true,
+ *         description="Baggage capacity"
+ *     ),
+ *     @OA\Property(
+ *         property="status",
+ *         type="string",
+ *         nullable=true,
+ *         description="Status of the car"
+ *     ),
+ *     @OA\Property(
+ *         property="created_at",
+ *         type="string",
+ *         format="date-time",
+ *         description="Created timestamp"
+ *     ),
+ *     @OA\Property(
+ *         property="updated_at",
+ *         type="string",
+ *         format="date-time",
+ *         description="Updated timestamp"
+ *     ),
+ *     @OA\Property(
+ *         property="resource_url",
+ *         type="string",
+ *         description="Resource URL for the car"
+ *     )
+ * )
+ */
 
 class Car extends Model implements HasMedia
 {

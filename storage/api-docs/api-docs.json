@@ -1,0 +1,3381 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Your API Title",
+        "description": "API documentation description",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/admin/admin-users": {
+            "get": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "summary": "Get a paginated list of admin users",
+                "operationId": "20e8a3c4187a5e3798452c66882547f1",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search string",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of admin users",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "first_name": {
+                                                        "type": "string",
+                                                        "example": "John"
+                                                    },
+                                                    "last_name": {
+                                                        "type": "string",
+                                                        "example": "Doe"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "admin@example.com"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "summary": "Create a new admin user",
+                "operationId": "0ff865b63ed9b402d240c8f0dfba59eb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "first_name",
+                                    "last_name",
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "John"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "admin@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "secret123"
+                                    },
+                                    "roles": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Admin user created"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/admin/admin-users/{id}": {
+            "put": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "summary": "Update an existing admin user",
+                "operationId": "ac3c8b8af04ef68c971cba3efa5daf6f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Admin user ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "Updated"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "User"
+                                    },
+                                    "roles": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Admin user updated"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "summary": "Delete an admin user",
+                "operationId": "de895aaad27b3bcb2ed30e339bf92e0d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Admin user ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Admin user deleted"
+                    },
+                    "404": {
+                        "description": "Admin user not found"
+                    }
+                }
+            }
+        },
+        "/admin/admin-users/{id}/resend-activation": {
+            "post": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "summary": "Resend activation email to the admin user",
+                "operationId": "00e7e0fc6c856e54447bf04592f83049",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Admin user ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Activation email sent"
+                    },
+                    "409": {
+                        "description": "Failed to send activation email"
+                    }
+                }
+            }
+        },
+        "/admin/admin-users/{id}/impersonal-login": {
+            "post": {
+                "tags": [
+                    "Admin Users"
+                ],
+                "summary": "Log in as another admin user (impersonal login)",
+                "operationId": "030458d5d128e5ec6965c906f5c5b128",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Admin user ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Redirect to previous page as impersonated user"
+                    }
+                }
+            }
+        },
+        "/admin/body-types": {
+            "get": {
+                "tags": [
+                    "Body Types"
+                ],
+                "summary": "Get a list of body types",
+                "operationId": "dbd98e06b4df642cfc8ccf217b5e3600",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search string",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of body types",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "SUV"
+                                                    },
+                                                    "icon": {
+                                                        "type": "string",
+                                                        "example": "suv.svg"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Body Types"
+                ],
+                "summary": "Create a new body type",
+                "operationId": "12d2320c2b87bcfb017aa258860207b5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "icon"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Sedan"
+                                    },
+                                    "icon": {
+                                        "type": "string",
+                                        "example": "sedan.svg"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Body type created"
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/admin/body-types/{id}": {
+            "put": {
+                "tags": [
+                    "Body Types"
+                ],
+                "summary": "Update a body type",
+                "operationId": "daea9d709612b138c7ea2d7b1f373e64",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Body type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Coupe"
+                                    },
+                                    "icon": {
+                                        "type": "string",
+                                        "example": "coupe.svg"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Body type updated"
+                    },
+                    "404": {
+                        "description": "Body type not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Body Types"
+                ],
+                "summary": "Delete a body type",
+                "operationId": "b2016acf607cf2bfd281ee164f88ca18",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Body type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Body type deleted"
+                    },
+                    "404": {
+                        "description": "Body type not found"
+                    }
+                }
+            }
+        },
+        "/admin/body-types/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Body Types"
+                ],
+                "summary": "Bulk delete body types",
+                "operationId": "d34b4025e3dbfb80b5648f0314314757",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Body types deleted"
+                    },
+                    "422": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/admin/brands": {
+            "get": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "List all brands",
+                "operationId": "aa730f8caaafff5c25f709d67449710f",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Optional search filter",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of brands",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "BMW"
+                                                    },
+                                                    "icon": {
+                                                        "type": "string",
+                                                        "example": "bmw.svg"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Create a new brand",
+                "operationId": "3abd4125797a49cff2c3d166bde280f0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "slug",
+                                    "icon"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Toyota"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "toyota"
+                                    },
+                                    "icon": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Brand successfully created"
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/admin/brands/{id}": {
+            "put": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Update an existing brand",
+                "operationId": "4a7b7fb39535429440671c7f55b45c18",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Brand ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Audi"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "audi"
+                                    },
+                                    "icon": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Brand successfully updated"
+                    },
+                    "404": {
+                        "description": "Brand not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Delete a brand",
+                "operationId": "4f8759397edbbf08914405dffb0d6300",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Brand ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Brand deleted"
+                    },
+                    "404": {
+                        "description": "Brand not found"
+                    }
+                }
+            }
+        },
+        "/admin/brands/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Brands"
+                ],
+                "summary": "Bulk delete brands",
+                "operationId": "881ed73cf12fb3fd1c4dd69b266d4518",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Brands deleted"
+                    },
+                    "422": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/admin/car-models": {
+            "get": {
+                "tags": [
+                    "Car Models"
+                ],
+                "summary": "List all car models",
+                "operationId": "b22575652b8262245d706124eb51390f",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search keyword",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of car models",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Camry"
+                                                    },
+                                                    "brand_id": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "body_type_id": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Car Models"
+                ],
+                "summary": "Create a new car model",
+                "operationId": "10e10bdaff14e8cf585a44a673ab848a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "brand_id",
+                                    "body_type_id",
+                                    "types"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Civic"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "civic"
+                                    },
+                                    "brand_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "body_type_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "types": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car model created"
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/admin/car-models/{id}": {
+            "put": {
+                "tags": [
+                    "Car Models"
+                ],
+                "summary": "Update a car model",
+                "operationId": "4b3a61b46e352d6a72bc558b069fe734",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car model ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Accord"
+                                    },
+                                    "slug": {
+                                        "type": "string",
+                                        "example": "accord"
+                                    },
+                                    "brand_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "body_type_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "types": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 3
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car model updated"
+                    },
+                    "404": {
+                        "description": "Car model not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Car Models"
+                ],
+                "summary": "Delete a car model",
+                "operationId": "63934d09479b7d23b98594ea5143b391",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car model ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Car model deleted"
+                    },
+                    "404": {
+                        "description": "Car model not found"
+                    }
+                }
+            }
+        },
+        "/admin/car-models/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Car Models"
+                ],
+                "summary": "Bulk delete car models",
+                "operationId": "9a2eee5ff19e41fa8aee9b3d48b946bd",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car models deleted"
+                    },
+                    "422": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/admin/cars-colors": {
+            "get": {
+                "tags": [
+                    "Car Colors"
+                ],
+                "summary": "List all car colors",
+                "operationId": "f9da514c870999273e63f94eaafa2de7",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search keyword",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of car colors",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Red"
+                                                    },
+                                                    "color_code": {
+                                                        "type": "string",
+                                                        "example": "#FF0000"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Car Colors"
+                ],
+                "summary": "Create a new car color",
+                "operationId": "bc95aa7eea9fa50e073a30054b580eaf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "color_code"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Metallic Gray"
+                                    },
+                                    "color_code": {
+                                        "type": "string",
+                                        "example": "#A9A9A9"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car color created successfully"
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/admin/cars-colors/{id}": {
+            "put": {
+                "tags": [
+                    "Car Colors"
+                ],
+                "summary": "Update a car color",
+                "operationId": "c909cc08e1d5b5db99fe6c90e0bf4183",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of car color to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Black"
+                                    },
+                                    "color_code": {
+                                        "type": "string",
+                                        "example": "#000000"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car color updated"
+                    },
+                    "404": {
+                        "description": "Car color not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Car Colors"
+                ],
+                "summary": "Delete a car color",
+                "operationId": "3df1b17361df5c32c00370f58f510600",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of car color to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Car color deleted successfully"
+                    },
+                    "404": {
+                        "description": "Car color not found"
+                    }
+                }
+            }
+        },
+        "/admin/cars-colors/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Car Colors"
+                ],
+                "summary": "Bulk delete car colors",
+                "operationId": "d0e4150be92af575d06c002cbc9f1e53",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car colors deleted"
+                    },
+                    "422": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/admin/cars": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "List all cars",
+                "operationId": "054315abb27dbc73059548c45da02476",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search keyword",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of cars",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "car_model_id": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "car_slug": {
+                                                        "type": "string",
+                                                        "example": "audi-a6-2024"
+                                                    },
+                                                    "availability_label": {
+                                                        "type": "string",
+                                                        "example": "Available"
+                                                    },
+                                                    "price_1": {
+                                                        "type": "number",
+                                                        "example": 60.5
+                                                    },
+                                                    "price_7": {
+                                                        "type": "number",
+                                                        "example": 400
+                                                    },
+                                                    "price_30": {
+                                                        "type": "number",
+                                                        "example": 1500
+                                                    },
+                                                    "price_31_more": {
+                                                        "type": "number",
+                                                        "example": 1400
+                                                    },
+                                                    "deposit": {
+                                                        "type": "number",
+                                                        "example": 300
+                                                    },
+                                                    "km_included_per_day": {
+                                                        "type": "integer",
+                                                        "example": 100
+                                                    },
+                                                    "overlimit_charge_per_km": {
+                                                        "type": "number",
+                                                        "example": 0.5
+                                                    },
+                                                    "min_day_reservation": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "free_delivery": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    },
+                                                    "registration_number": {
+                                                        "type": "string",
+                                                        "example": "AA1234BB"
+                                                    },
+                                                    "color_id": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    },
+                                                    "fuel_id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "attribute_year": {
+                                                        "type": "integer",
+                                                        "example": 2023
+                                                    },
+                                                    "attribute_seats": {
+                                                        "type": "integer",
+                                                        "example": 5
+                                                    },
+                                                    "attribute_1_to_100": {
+                                                        "type": "number",
+                                                        "example": 7.2
+                                                    },
+                                                    "attribute_max_speed": {
+                                                        "type": "integer",
+                                                        "example": 240
+                                                    },
+                                                    "attribute_horsepower": {
+                                                        "type": "integer",
+                                                        "example": 180
+                                                    },
+                                                    "attribute_transmission": {
+                                                        "type": "string",
+                                                        "example": "Automatic"
+                                                    },
+                                                    "attribute_doors": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    },
+                                                    "attribute_engine": {
+                                                        "type": "string",
+                                                        "example": "2.0L Turbo"
+                                                    },
+                                                    "attribute_baggage": {
+                                                        "type": "integer",
+                                                        "example": 450
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "active"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Create a new car",
+                "operationId": "80cf7b9fe6a2faa5f93ae5d3b16e0bf1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "car_model",
+                                    "color_id",
+                                    "fuel_id"
+                                ],
+                                "properties": {
+                                    "car_model": {
+                                        "properties": {
+                                            "brand_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "body_type_id": {
+                                                "type": "integer",
+                                                "example": 2
+                                            },
+                                            "slug": {
+                                                "type": "string",
+                                                "example": "audi-a6-2024"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "color_id": {
+                                        "type": "integer",
+                                        "example": 3
+                                    },
+                                    "fuel_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "registration_number": {
+                                        "type": "string",
+                                        "example": "AA1234BB"
+                                    },
+                                    "attribute_year": {
+                                        "type": "integer",
+                                        "example": 2023
+                                    },
+                                    "price_1": {
+                                        "type": "number",
+                                        "example": 60
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "redirect": {
+                                            "type": "string",
+                                            "example": "/admin/cars"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Operation succeeded"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/admin/cars/{id}": {
+            "put": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Update a car",
+                "operationId": "e4fecd5cbf041ab282f7a6eea1bc34f0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "car_model": {
+                                        "properties": {
+                                            "brand_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "body_type_id": {
+                                                "type": "integer",
+                                                "example": 2
+                                            },
+                                            "slug": {
+                                                "type": "string",
+                                                "example": "audi-a6-2024"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "fuel_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "redirect": {
+                                            "type": "string",
+                                            "example": "/admin/cars"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Operation succeeded"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Delete a car",
+                "operationId": "4e209a24d9f59955f45677368e0f6205",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Car deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Operation succeeded"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/cars/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Bulk delete cars",
+                "operationId": "eb31efe6fd52ae74cd1d30446f79a6f0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        },
+                                        "example": [
+                                            1,
+                                            2,
+                                            3
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cars deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Operation succeeded"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/currencies": {
+            "get": {
+                "tags": [
+                    "Currencies"
+                ],
+                "summary": "Get list of currencies",
+                "description": "Method: index",
+                "operationId": "f03d4cccf6edb1f735aa4ef3c130b51d",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search term",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of currencies",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "sign": {
+                                                        "type": "string",
+                                                        "example": "$"
+                                                    },
+                                                    "exchange_rate": {
+                                                        "type": "number",
+                                                        "example": 27.5
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Currencies"
+                ],
+                "summary": "Create a new currency",
+                "description": "Method: store",
+                "operationId": "d471704b736bb97bc7cc66235455ad22",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "sign",
+                                    "exchange_rate"
+                                ],
+                                "properties": {
+                                    "sign": {
+                                        "type": "string",
+                                        "example": "$"
+                                    },
+                                    "exchange_rate": {
+                                        "type": "number",
+                                        "example": 27.5
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Currency created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/admin/currencies/{id}": {
+            "put": {
+                "tags": [
+                    "Currencies"
+                ],
+                "summary": "Update a currency",
+                "description": "Method: update",
+                "operationId": "53ab57e6bbf29704f58941f42d833c26",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Currency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "sign": {
+                                        "type": "string",
+                                        "example": "€"
+                                    },
+                                    "exchange_rate": {
+                                        "type": "number",
+                                        "example": 30.1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Currency updated successfully"
+                    },
+                    "404": {
+                        "description": "Currency not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Currencies"
+                ],
+                "summary": "Delete a currency",
+                "description": "Method: destroy",
+                "operationId": "0bbdda3ca8ebebc67b3ade8d62a42698",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Currency ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Currency deleted successfully"
+                    },
+                    "404": {
+                        "description": "Currency not found"
+                    }
+                }
+            }
+        },
+        "/admin/currencies/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Currencies"
+                ],
+                "summary": "Bulk delete currencies",
+                "description": "Method: bulkDestroy",
+                "operationId": "a3d9ddd5156038b525e5a08bac181b64",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Currencies deleted successfully"
+                    },
+                    "422": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/admin/fuels": {
+            "get": {
+                "tags": [
+                    "Fuels"
+                ],
+                "summary": "Get list of fuels",
+                "description": "Method: index",
+                "operationId": "5bdb5a71c20b678582e74904121a9394",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search keyword",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of fuels",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Diesel"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Fuels"
+                ],
+                "summary": "Create a new fuel",
+                "description": "Method: store",
+                "operationId": "13f92682f62dcebfdea2bb8bcda81c7b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Diesel"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Fuel created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/admin/fuels/{id}": {
+            "put": {
+                "tags": [
+                    "Fuels"
+                ],
+                "summary": "Update a fuel",
+                "description": "Method: update",
+                "operationId": "2ae10358d9c21c08f428a0b6b007b349",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Fuel ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Petrol"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Fuel updated successfully"
+                    },
+                    "404": {
+                        "description": "Fuel not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Fuels"
+                ],
+                "summary": "Delete a fuel",
+                "description": "Method: destroy",
+                "operationId": "7b7184af2a1028dd4bb5304cdc4df063",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Fuel ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Fuel deleted successfully"
+                    },
+                    "404": {
+                        "description": "Fuel not found"
+                    }
+                }
+            }
+        },
+        "/admin/fuels/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Fuels"
+                ],
+                "summary": "Bulk delete fuels",
+                "description": "Method: bulkDestroy",
+                "operationId": "f0b9daf43447217b5e4fdb8a78acc4c7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Fuels deleted successfully"
+                    },
+                    "422": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/admin/pages": {
+            "get": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Get list of pages",
+                "description": "Method: index",
+                "operationId": "90b0adae46a25dc6d52a73abe9c2f07d",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search keyword",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of pages",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "title": {
+                                                        "type": "string",
+                                                        "example": "About Us"
+                                                    },
+                                                    "link": {
+                                                        "type": "string",
+                                                        "example": "/about-us"
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "example": "static"
+                                                    },
+                                                    "h1": {
+                                                        "type": "string",
+                                                        "example": "Welcome"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "Page description"
+                                                    },
+                                                    "content": {
+                                                        "type": "string",
+                                                        "example": "Page content"
+                                                    },
+                                                    "enabled": {
+                                                        "type": "boolean",
+                                                        "example": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Create a new page",
+                "description": "Method: store",
+                "operationId": "aec6943f328befeba197211a5fdf110d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "link",
+                                    "type",
+                                    "h1"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "About Us"
+                                    },
+                                    "link": {
+                                        "type": "string",
+                                        "example": "/about-us"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "example": "static"
+                                    },
+                                    "h1": {
+                                        "type": "string",
+                                        "example": "Welcome"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Page description"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "example": "Page content"
+                                    },
+                                    "faq": {
+                                        "type": "string",
+                                        "example": "[{'q':'Question 1','a':'Answer 1'}]"
+                                    },
+                                    "enabled": {
+                                        "type": "boolean",
+                                        "example": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Page created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/admin/pages/{id}": {
+            "put": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Update a page",
+                "description": "Method: update",
+                "operationId": "e1d42dbf4eec3e2f0b942e1f1d46b244",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Page ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "About Us Updated"
+                                    },
+                                    "link": {
+                                        "type": "string",
+                                        "example": "/about-us-updated"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "example": "static"
+                                    },
+                                    "h1": {
+                                        "type": "string",
+                                        "example": "Welcome Updated"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Updated description"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "example": "Updated content"
+                                    },
+                                    "faq": {
+                                        "type": "string",
+                                        "example": "[{'q':'New Question','a':'New Answer'}]"
+                                    },
+                                    "enabled": {
+                                        "type": "boolean",
+                                        "example": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Page updated successfully"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Delete a page",
+                "description": "Method: destroy",
+                "operationId": "02975cbe7edb4d89a452d0c000f8add1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Page ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Page deleted successfully"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                }
+            }
+        },
+        "/admin/pages/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Pages"
+                ],
+                "summary": "Bulk delete pages",
+                "description": "Method: bulkDestroy",
+                "operationId": "b78660571b55f169002fa80a5aa0b4cf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Pages deleted successfully"
+                    },
+                    "422": {
+                        "description": "Invalid request"
+                    }
+                }
+            }
+        },
+        "/admin/profile": {
+            "put": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Update logged in admin profile",
+                "description": "Method: updateProfile",
+                "operationId": "783e9859611fc15673df96ad59313662",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "first_name": {
+                                        "type": "string",
+                                        "example": "John"
+                                    },
+                                    "last_name": {
+                                        "type": "string",
+                                        "example": "Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "john.doe@example.com"
+                                    },
+                                    "language": {
+                                        "type": "string",
+                                        "example": "en"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Profile updated successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/admin/password": {
+            "put": {
+                "tags": [
+                    "Profile"
+                ],
+                "summary": "Update logged in admin password",
+                "description": "Method: updatePassword",
+                "operationId": "cdcdef616a08566fc3c221982650c7bd",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "NewPass123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Password updated successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/admin/types": {
+            "get": {
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Get list of types",
+                "description": "Display a listing of the resource.",
+                "operationId": "6985064bf1d252f4d9cbb259ea74cf4e",
+                "parameters": [
+                    {
+                        "name": "bulk",
+                        "in": "query",
+                        "description": "Return list of IDs only",
+                        "required": false,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of types",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Type"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Create a new type",
+                "description": "Store a newly created resource in storage.",
+                "operationId": "34ad3424b448f6fe6f3be6e93a2ba181",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Type"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Type created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "redirect": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/types/{id}": {
+            "put": {
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Update a specific type",
+                "description": "Update the specified resource in storage.",
+                "operationId": "3e9804cbe923843f18c092b4618ee933",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Type"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Type updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "redirect": {
+                                            "type": "string"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Delete a specific type",
+                "description": "Remove the specified resource from storage.",
+                "operationId": "2cc4b5c64fd332e17e7a706917b328b1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Type deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/types/bulk-destroy": {
+            "post": {
+                "tags": [
+                    "Types"
+                ],
+                "summary": "Bulk delete types",
+                "description": "Remove the specified resources from storage.",
+                "operationId": "d8512b13039dbdbe55cd08ebc1023735",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Types deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Log in a user",
+                "operationId": "b173e51ba1ffd183727862d81368f64c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "302": {
+                        "description": "Successful login (redirect to /home)"
+                    },
+                    "422": {
+                        "description": "Validation error or invalid credentials"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register a new user",
+                "operationId": "9e67be365fabf00e2dc9eaa919f57cb7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "John Doe"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "302": {
+                        "description": "Successful registration (redirect to /home)"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Log out the authenticated user",
+                "operationId": "eb6d063b7e81641a82b0b1f02b18a5cc",
+                "responses": {
+                    "302": {
+                        "description": "Successful logout (redirect to login page)"
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "tags": [
+                    "Site"
+                ],
+                "summary": "Show the application dashboard",
+                "operationId": "7c1d0c360c540bed775875f48852366b",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/brands": {
+            "get": {
+                "tags": [
+                    "Site"
+                ],
+                "summary": "Show all brands",
+                "operationId": "0064ebc39b1d2d58ff1b70a9a0417703",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                }
+            }
+        },
+        "/body-types": {
+            "get": {
+                "tags": [
+                    "Site"
+                ],
+                "summary": "Show all body types",
+                "operationId": "eab16ee7dada8b3b82a76756248cb08f",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Page not found"
+                    }
+                }
+            }
+        },
+        "/car/{id}": {
+            "get": {
+                "tags": [
+                    "Site"
+                ],
+                "summary": "Show car details",
+                "operationId": "7f2d29c8d3d320f9e85e42331e37b363",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Car not found"
+                    }
+                }
+            }
+        },
+        "/brand/{slug}": {
+            "get": {
+                "tags": [
+                    "Site"
+                ],
+                "summary": "Show cars by brand",
+                "operationId": "1114388351ac0bc61b0fee5733d49653",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "description": "Brand slug",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "404": {
+                        "description": "Brand not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BodyType": {
+                "title": "BodyType",
+                "required": [
+                    "slug",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "slug": {
+                        "description": "Slug",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Localized name",
+                        "type": "string"
+                    },
+                    "icon": {
+                        "description": "Icon class or URL",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "Creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "Resource URL",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Brand": {
+                "title": "Brand",
+                "required": [
+                    "slug",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Brand ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "slug": {
+                        "description": "Unique slug of the brand",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the brand",
+                        "type": "string"
+                    },
+                    "icon": {
+                        "description": "Icon of the brand",
+                        "type": "string"
+                    },
+                    "cars_count": {
+                        "description": "Number of cars for the brand",
+                        "type": "integer"
+                    },
+                    "created_at": {
+                        "description": "Creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Last update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "Resource URL",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Car": {
+                "title": "Car",
+                "required": [
+                    "car_model_id",
+                    "car_brand_id",
+                    "car_slug"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Car ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "car_model_id": {
+                        "description": "Foreign key to Car Model",
+                        "type": "integer"
+                    },
+                    "car_brand_id": {
+                        "description": "Foreign key to Brand",
+                        "type": "integer"
+                    },
+                    "car_body_type_id": {
+                        "description": "Foreign key to Body Type",
+                        "type": "integer"
+                    },
+                    "car_slug": {
+                        "description": "Slug for the car",
+                        "type": "string"
+                    },
+                    "availability_label": {
+                        "description": "Availability label of the car",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "price_1": {
+                        "description": "Price for 1 day",
+                        "type": "integer"
+                    },
+                    "price_7": {
+                        "description": "Price for 7 days",
+                        "type": "integer"
+                    },
+                    "price_30": {
+                        "description": "Price for 30 days",
+                        "type": "integer"
+                    },
+                    "price_31_more": {
+                        "description": "Price for 31 or more days",
+                        "type": "integer"
+                    },
+                    "deposit": {
+                        "description": "Deposit amount",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "km_included_per_day": {
+                        "description": "Kilometers included per day",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "overlimit_charge_per_km": {
+                        "description": "Charge per km over the limit",
+                        "type": "number",
+                        "format": "float",
+                        "nullable": true
+                    },
+                    "min_day_reservation": {
+                        "description": "Minimum days for reservation",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "free_delivery": {
+                        "description": "Is free delivery available",
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "registration_number": {
+                        "description": "Car registration number",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "color_id": {
+                        "description": "Foreign key to color",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "fuel_id": {
+                        "description": "Foreign key to fuel",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_year": {
+                        "description": "Year attribute",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_seats": {
+                        "description": "Number of seats",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_1_to_100": {
+                        "description": "Acceleration 0-100 km/h",
+                        "type": "number",
+                        "format": "float",
+                        "nullable": true
+                    },
+                    "attribute_max_speed": {
+                        "description": "Maximum speed",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_horsepower": {
+                        "description": "Horsepower",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_transmission": {
+                        "description": "Transmission type",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "attribute_doors": {
+                        "description": "Number of doors",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_engine": {
+                        "description": "Engine description",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "attribute_baggage": {
+                        "description": "Baggage capacity",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "status": {
+                        "description": "Status of the car",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "description": "Created timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Updated timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "Resource URL for the car",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CarModel": {
+                "title": "CarModel",
+                "required": [
+                    "slug",
+                    "brand_id",
+                    "body_type_id"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "CarModel ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "slug": {
+                        "description": "Slug identifier",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Name of the car model",
+                        "type": "string",
+                        "example": "Model S"
+                    },
+                    "brand_id": {
+                        "description": "Foreign key to Brand",
+                        "type": "integer"
+                    },
+                    "body_type_id": {
+                        "description": "Foreign key to BodyType",
+                        "type": "integer"
+                    },
+                    "attribute_seats": {
+                        "description": "Number of seats",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_1_to_100": {
+                        "description": "Acceleration 0-100 km/h",
+                        "type": "number",
+                        "format": "float",
+                        "nullable": true
+                    },
+                    "attribute_horsepower": {
+                        "description": "Horsepower",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_max_speed": {
+                        "description": "Maximum speed",
+                        "type": "integer",
+                        "nullable": true
+                    },
+                    "attribute_transmission": {
+                        "description": "Transmission type",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "description": "Creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "URL to the resource",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CarsColor": {
+                "title": "CarsColor",
+                "required": [
+                    "slug"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "CarsColor ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "slug": {
+                        "description": "Slug identifier",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Color name",
+                        "type": "string",
+                        "example": "Red"
+                    },
+                    "color_code": {
+                        "description": "Color hex code",
+                        "type": "string",
+                        "example": "#FF0000"
+                    },
+                    "created_at": {
+                        "description": "Creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "URL to the resource",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Currency": {
+                "title": "Currency",
+                "required": [
+                    "slug",
+                    "sign",
+                    "exchange_rate"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Currency ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "slug": {
+                        "description": "Unique slug identifier for the currency",
+                        "type": "string"
+                    },
+                    "sign": {
+                        "description": "Currency sign/symbol, e.g. $",
+                        "type": "string"
+                    },
+                    "exchange_rate": {
+                        "description": "Exchange rate relative to a base currency",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "created_at": {
+                        "description": "Record creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Record update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "URL to the currency resource",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Fuel": {
+                "title": "Fuel",
+                "required": [
+                    "slug",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Fuel ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "slug": {
+                        "description": "Unique slug identifier for the fuel type",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Fuel name (translatable)",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "Record creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Record update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "URL to the fuel resource",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Language": {
+                "title": "Language",
+                "required": [
+                    "title",
+                    "code",
+                    "locale",
+                    "default"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Language ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "title": {
+                        "description": "Language title/name",
+                        "type": "string"
+                    },
+                    "code": {
+                        "description": "Language code (e.g. en, uk, etc.)",
+                        "type": "string"
+                    },
+                    "locale": {
+                        "description": "Locale identifier",
+                        "type": "string"
+                    },
+                    "default": {
+                        "description": "Is default language flag",
+                        "type": "boolean"
+                    },
+                    "resource_url": {
+                        "description": "URL to the language resource",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Page": {
+                "title": "Page",
+                "required": [
+                    "title",
+                    "link",
+                    "type",
+                    "h1",
+                    "description",
+                    "content",
+                    "enabled"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Page ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "title": {
+                        "description": "Page title",
+                        "type": "string"
+                    },
+                    "link": {
+                        "description": "Page URL slug",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "Page type (e.g. static, dynamic)",
+                        "type": "string"
+                    },
+                    "h1": {
+                        "description": "Main heading of the page",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Meta description of the page",
+                        "type": "string"
+                    },
+                    "content": {
+                        "description": "HTML content of the page",
+                        "type": "string"
+                    },
+                    "enabled": {
+                        "description": "Page visibility status",
+                        "type": "boolean"
+                    },
+                    "faq": {
+                        "description": "Optional JSON-encoded FAQ content",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "Creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Last update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "URL to the admin resource page",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Type": {
+                "title": "Type",
+                "required": [
+                    "slug",
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Type ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "slug": {
+                        "description": "Unique slug identifier",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "Display name of the type (translatable)",
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "description": "Creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "Last update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "resource_url": {
+                        "description": "URL to the admin interface for this type",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "User": {
+                "title": "User",
+                "required": [
+                    "name",
+                    "email",
+                    "password"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "User ID",
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "description": "Full name of the user",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "Email address of the user",
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "password": {
+                        "description": "Hashed password of the user",
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "remember_token": {
+                        "description": "Token used to remember the user",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "created_at": {
+                        "description": "User creation timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updated_at": {
+                        "description": "User update timestamp",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Admin Users",
+            "description": "Admin Users"
+        },
+        {
+            "name": "Body Types",
+            "description": "Body Types"
+        },
+        {
+            "name": "Brands",
+            "description": "Brands"
+        },
+        {
+            "name": "Car Models",
+            "description": "Car Models"
+        },
+        {
+            "name": "Car Colors",
+            "description": "Car Colors"
+        },
+        {
+            "name": "Cars",
+            "description": "Cars"
+        },
+        {
+            "name": "Currencies",
+            "description": "Currencies"
+        },
+        {
+            "name": "Fuels",
+            "description": "Fuels"
+        },
+        {
+            "name": "Pages",
+            "description": "Pages"
+        },
+        {
+            "name": "Profile",
+            "description": "Profile"
+        },
+        {
+            "name": "Types",
+            "description": "Types"
+        },
+        {
+            "name": "Auth",
+            "description": "Auth"
+        },
+        {
+            "name": "Site",
+            "description": "Site"
+        }
+    ]
+}

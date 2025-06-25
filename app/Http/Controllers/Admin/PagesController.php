@@ -24,10 +24,37 @@ class PagesController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @param IndexPage $request
-     * @return array|Factory|View
+     * Method: index
+     * @OA\Get(
+     *     path="/admin/pages",
+     *     summary="Get list of pages",
+     *     tags={"Pages"},
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Search keyword",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of pages",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="data", type="array",
+     *                 @OA\Items(
+     *                     @OA\Property(property="id", type="integer", example=1),
+     *                     @OA\Property(property="title", type="string", example="About Us"),
+     *                     @OA\Property(property="link", type="string", example="/about-us"),
+     *                     @OA\Property(property="type", type="string", example="static"),
+     *                     @OA\Property(property="h1", type="string", example="Welcome"),
+     *                     @OA\Property(property="description", type="string", example="Page description"),
+     *                     @OA\Property(property="content", type="string", example="Page content"),
+     *                     @OA\Property(property="enabled", type="boolean", example=true)
+     *                 )
+     *             )
+     *         )
+     *     )
+     * )
      */
     public function index(IndexPage $request)
     {
@@ -71,10 +98,28 @@ class PagesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param StorePage $request
-     * @return array|RedirectResponse|Redirector
+     * Method: store
+     * @OA\Post(
+     *     path="/admin/pages",
+     *     summary="Create a new page",
+     *     tags={"Pages"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"title", "link", "type", "h1"},
+     *             @OA\Property(property="title", type="string", example="About Us"),
+     *             @OA\Property(property="link", type="string", example="/about-us"),
+     *             @OA\Property(property="type", type="string", example="static"),
+     *             @OA\Property(property="h1", type="string", example="Welcome"),
+     *             @OA\Property(property="description", type="string", example="Page description"),
+     *             @OA\Property(property="content", type="string", example="Page content"),
+     *             @OA\Property(property="faq", type="string", example="[{'q':'Question 1','a':'Answer 1'}]"),
+     *             @OA\Property(property="enabled", type="boolean", example=true)
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Page created successfully"),
+     *     @OA\Response(response=422, description="Validation error")
+     * )
      */
     public function store(StorePage $request)
     {
@@ -124,12 +169,36 @@ class PagesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdatePage $request
-     * @param Page $page
-     * @return array|RedirectResponse|Redirector
+     * Method: update
+     * @OA\Put(
+     *     path="/admin/pages/{id}",
+     *     summary="Update a page",
+     *     tags={"Pages"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Page ID",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="title", type="string", example="About Us Updated"),
+     *             @OA\Property(property="link", type="string", example="/about-us-updated"),
+     *             @OA\Property(property="type", type="string", example="static"),
+     *             @OA\Property(property="h1", type="string", example="Welcome Updated"),
+     *             @OA\Property(property="description", type="string", example="Updated description"),
+     *             @OA\Property(property="content", type="string", example="Updated content"),
+     *             @OA\Property(property="faq", type="string", example="[{'q':'New Question','a':'New Answer'}]"),
+     *             @OA\Property(property="enabled", type="boolean", example=true)
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Page updated successfully"),
+     *     @OA\Response(response=404, description="Page not found")
+     * )
      */
+
     public function update(UpdatePage $request, Page $page)
     {
         // Sanitize input
@@ -150,12 +219,21 @@ class PagesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param DestroyPage $request
-     * @param Page $page
-     * @throws Exception
-     * @return ResponseFactory|RedirectResponse|Response
+     * Method: destroy
+     * @OA\Delete(
+     *     path="/admin/pages/{id}",
+     *     summary="Delete a page",
+     *     tags={"Pages"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Page ID",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(response=200, description="Page deleted successfully"),
+     *     @OA\Response(response=404, description="Page not found")
+     * )
      */
     public function destroy(DestroyPage $request, Page $page)
     {
@@ -169,11 +247,24 @@ class PagesController extends Controller
     }
 
     /**
-     * Remove the specified resources from storage.
-     *
-     * @param BulkDestroyPage $request
-     * @throws Exception
-     * @return Response|bool
+     * Method: bulkDestroy
+     * @OA\Post(
+     *     path="/admin/pages/bulk-destroy",
+     *     summary="Bulk delete pages",
+     *     tags={"Pages"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(
+     *                 property="ids",
+     *                 type="array",
+     *                 @OA\Items(type="integer", example=1)
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Pages deleted successfully"),
+     *     @OA\Response(response=422, description="Invalid request")
+     * )
      */
     public function bulkDestroy(BulkDestroyPage $request) : Response
     {

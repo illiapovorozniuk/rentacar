@@ -24,10 +24,31 @@ class FuelsController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @param IndexFuel $request
-     * @return array|Factory|View
+     * Method: index
+     * @OA\Get(
+     *     path="/admin/fuels",
+     *     summary="Get list of fuels",
+     *     tags={"Fuels"},
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Search keyword",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of fuels",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="data", type="array",
+     *                 @OA\Items(
+     *                     @OA\Property(property="id", type="integer", example=1),
+     *                     @OA\Property(property="name", type="string", example="Diesel")
+     *                 )
+     *             )
+     *         )
+     *     )
+     * )
      */
     public function index(IndexFuel $request)
     {
@@ -69,10 +90,21 @@ class FuelsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreFuel $request
-     * @return array|RedirectResponse|Redirector
+     * Method: store
+     * @OA\Post(
+     *     path="/admin/fuels",
+     *     summary="Create a new fuel",
+     *     tags={"Fuels"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name"},
+     *             @OA\Property(property="name", type="string", example="Diesel")
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Fuel created successfully"),
+     *     @OA\Response(response=422, description="Validation error")
+     * )
      */
     public function store(StoreFuel $request)
     {
@@ -121,11 +153,27 @@ class FuelsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdateFuel $request
-     * @param Fuel $fuel
-     * @return array|RedirectResponse|Redirector
+     * Method: update
+     * @OA\Put(
+     *     path="/admin/fuels/{id}",
+     *     summary="Update a fuel",
+     *     tags={"Fuels"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Fuel ID",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="name", type="string", example="Petrol")
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Fuel updated successfully"),
+     *     @OA\Response(response=404, description="Fuel not found")
+     * )
      */
     public function update(UpdateFuel $request, Fuel $fuel)
     {
@@ -146,12 +194,21 @@ class FuelsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param DestroyFuel $request
-     * @param Fuel $fuel
-     * @throws Exception
-     * @return ResponseFactory|RedirectResponse|Response
+     * Method: destroy
+     * @OA\Delete(
+     *     path="/admin/fuels/{id}",
+     *     summary="Delete a fuel",
+     *     tags={"Fuels"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Fuel ID",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(response=200, description="Fuel deleted successfully"),
+     *     @OA\Response(response=404, description="Fuel not found")
+     * )
      */
     public function destroy(DestroyFuel $request, Fuel $fuel)
     {
@@ -165,11 +222,24 @@ class FuelsController extends Controller
     }
 
     /**
-     * Remove the specified resources from storage.
-     *
-     * @param BulkDestroyFuel $request
-     * @throws Exception
-     * @return Response|bool
+     * Method: bulkDestroy
+     * @OA\Post(
+     *     path="/admin/fuels/bulk-destroy",
+     *     summary="Bulk delete fuels",
+     *     tags={"Fuels"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(
+     *                 property="ids",
+     *                 type="array",
+     *                 @OA\Items(type="integer", example=1)
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Fuels deleted successfully"),
+     *     @OA\Response(response=422, description="Invalid request")
+     * )
      */
     public function bulkDestroy(BulkDestroyFuel $request) : Response
     {

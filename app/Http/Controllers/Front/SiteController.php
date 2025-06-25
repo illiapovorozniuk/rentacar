@@ -23,9 +23,15 @@ class SiteController extends Controller
 //    }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @OA\Get(
+     *     path="/",
+     *     summary="Show the application dashboard",
+     *     tags={"Site"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation"
+     *     )
+     * )
      */
     public function index()
     {
@@ -48,6 +54,21 @@ class SiteController extends Controller
         return view('front.index', compact('home_page', 'h1', 'title', 'content', 'description', 'cover', 'brands', 'cars', 'faqs'));
     }
 
+    /**
+     * @OA\Get(
+     *     path="/brands",
+     *     summary="Show all brands",
+     *     tags={"Site"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Page not found"
+     *     )
+     * )
+     */
     public function brands()
     {
         $page = Page::where('type', PageType::BRANDS->value)->first();
@@ -69,6 +90,21 @@ class SiteController extends Controller
         return view('front.brands', compact('page', 'h1', 'title', 'content', 'description', 'cover', 'brands'));
     }
 
+    /**
+     * @OA\Get(
+     *     path="/body-types",
+     *     summary="Show all body types",
+     *     tags={"Site"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Page not found"
+     *     )
+     * )
+     */
     public function bodyTypes()
     {
         $page = Page::where('type', PageType::BODIES->value)->first();
@@ -90,6 +126,28 @@ class SiteController extends Controller
         return view('front.bodies', compact('page', 'h1', 'title', 'content', 'description', 'cover', 'bodies'));
     }
 
+    /**
+     * @OA\Get(
+     *     path="/car/{id}",
+     *     summary="Show car details",
+     *     tags={"Site"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Car ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Car not found"
+     *     )
+     * )
+     */
     public function car($id)
     {
         if (!is_numeric($id)) {
@@ -109,6 +167,28 @@ class SiteController extends Controller
         return view('front.car', compact('data', 'h1', 'car_title', 'photos', 'touched_cars'));
     }
 
+    /**
+     * @OA\Get(
+     *     path="/brand/{slug}",
+     *     summary="Show cars by brand",
+     *     tags={"Site"},
+     *     @OA\Parameter(
+     *         name="slug",
+     *         in="path",
+     *         required=true,
+     *         description="Brand slug",
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Brand not found"
+     *     )
+     * )
+     */
     public function brand($slug)
     {
         $brand = Brand::getBrandBySlug($slug);

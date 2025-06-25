@@ -11,6 +11,77 @@ use Brackets\Translatable\Traits\HasTranslations;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+/**
+ * @OA\Schema(
+ *     schema="Page",
+ *     type="object",
+ *     title="Page",
+ *     required={"title", "link", "type", "h1", "description", "content", "enabled"},
+ *     @OA\Property(
+ *         property="id",
+ *         type="integer",
+ *         format="int64",
+ *         description="Page ID"
+ *     ),
+ *     @OA\Property(
+ *         property="title",
+ *         type="string",
+ *         description="Page title"
+ *     ),
+ *     @OA\Property(
+ *         property="link",
+ *         type="string",
+ *         description="Page URL slug"
+ *     ),
+ *     @OA\Property(
+ *         property="type",
+ *         type="string",
+ *         description="Page type (e.g. static, dynamic)"
+ *     ),
+ *     @OA\Property(
+ *         property="h1",
+ *         type="string",
+ *         description="Main heading of the page"
+ *     ),
+ *     @OA\Property(
+ *         property="description",
+ *         type="string",
+ *         description="Meta description of the page"
+ *     ),
+ *     @OA\Property(
+ *         property="content",
+ *         type="string",
+ *         description="HTML content of the page"
+ *     ),
+ *     @OA\Property(
+ *         property="enabled",
+ *         type="boolean",
+ *         description="Page visibility status"
+ *     ),
+ *     @OA\Property(
+ *         property="faq",
+ *         type="string",
+ *         description="Optional JSON-encoded FAQ content"
+ *     ),
+ *     @OA\Property(
+ *         property="created_at",
+ *         type="string",
+ *         format="date-time",
+ *         description="Creation timestamp"
+ *     ),
+ *     @OA\Property(
+ *         property="updated_at",
+ *         type="string",
+ *         format="date-time",
+ *         description="Last update timestamp"
+ *     ),
+ *     @OA\Property(
+ *         property="resource_url",
+ *         type="string",
+ *         description="URL to the admin resource page"
+ *     )
+ * )
+ */
 
 class Page extends Model implements HasMedia
 {

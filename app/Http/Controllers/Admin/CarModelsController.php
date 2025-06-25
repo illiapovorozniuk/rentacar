@@ -27,10 +27,30 @@ class CarModelsController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @param IndexCarModel $request
-     * @return array|Factory|View
+     * @OA\Get(
+     *     path="/admin/car-models",
+     *     summary="List all car models",
+     *     tags={"Car Models"},
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Search keyword",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of car models",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="data", type="array", @OA\Items(
+     *                 @OA\Property(property="id", type="integer", example=1),
+     *                 @OA\Property(property="name", type="string", example="Camry"),
+     *                 @OA\Property(property="brand_id", type="integer", example=2),
+     *                 @OA\Property(property="body_type_id", type="integer", example=3)
+     *             ))
+     *         )
+     *     )
+     * )
      */
     public function index(IndexCarModel $request)
     {
@@ -96,11 +116,32 @@ class CarModelsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreCarModel $request
-     * @return array|RedirectResponse|Redirector
+     * @OA\Post(
+     *     path="/admin/car-models",
+     *     summary="Create a new car model",
+     *     tags={"Car Models"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name", "brand_id", "body_type_id", "types"},
+     *             @OA\Property(property="name", type="string", example="Civic"),
+     *             @OA\Property(property="slug", type="string", example="civic"),
+     *             @OA\Property(property="brand_id", type="integer", example=1),
+     *             @OA\Property(property="body_type_id", type="integer", example=2),
+     *             @OA\Property(property="types", type="array", @OA\Items(type="integer", example=1))
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car model created"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation failed"
+     *     )
+     * )
      */
+
     public function store(StoreCarModel $request)
     {
         // Sanitize input
@@ -160,11 +201,36 @@ class CarModelsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdateCarModel $request
-     * @param CarModel $carModel
-     * @return array|RedirectResponse|Redirector
+     * @OA\Put(
+     *     path="/admin/car-models/{id}",
+     *     summary="Update a car model",
+     *     tags={"Car Models"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Car model ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="name", type="string", example="Accord"),
+     *             @OA\Property(property="slug", type="string", example="accord"),
+     *             @OA\Property(property="brand_id", type="integer", example=2),
+     *             @OA\Property(property="body_type_id", type="integer", example=1),
+     *             @OA\Property(property="types", type="array", @OA\Items(type="integer", example=3))
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car model updated"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Car model not found"
+     *     )
+     * )
      */
     public function update(UpdateCarModel $request, CarModel $carModel)
     {
@@ -191,12 +257,26 @@ class CarModelsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param DestroyCarModel $request
-     * @param CarModel $carModel
-     * @throws Exception
-     * @return ResponseFactory|RedirectResponse|Response
+     * @OA\Delete(
+     *     path="/admin/car-models/{id}",
+     *     summary="Delete a car model",
+     *     tags={"Car Models"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="Car model ID",
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car model deleted"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Car model not found"
+     *     )
+     * )
      */
     public function destroy(DestroyCarModel $request, CarModel $carModel)
     {
@@ -210,11 +290,25 @@ class CarModelsController extends Controller
     }
 
     /**
-     * Remove the specified resources from storage.
-     *
-     * @param BulkDestroyCarModel $request
-     * @throws Exception
-     * @return Response|bool
+     * @OA\Post(
+     *     path="/admin/car-models/bulk-destroy",
+     *     summary="Bulk delete car models",
+     *     tags={"Car Models"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="ids", type="array", @OA\Items(type="integer", example=1))
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car models deleted"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Invalid request"
+     *     )
+     * )
      */
     public function bulkDestroy(BulkDestroyCarModel $request) : Response
     {

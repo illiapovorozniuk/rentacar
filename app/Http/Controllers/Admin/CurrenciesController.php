@@ -24,10 +24,32 @@ class CurrenciesController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @param IndexCurrency $request
-     * @return array|Factory|View
+     * Method: index
+     * @OA\Get(
+     *     path="/admin/currencies",
+     *     summary="Get list of currencies",
+     *     tags={"Currencies"},
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Search term",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of currencies",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="data", type="array",
+     *                 @OA\Items(
+     *                     @OA\Property(property="id", type="integer", example=1),
+     *                     @OA\Property(property="sign", type="string", example="$"),
+     *                     @OA\Property(property="exchange_rate", type="number", example=27.5)
+     *                 )
+     *             )
+     *         )
+     *     )
+     * )
      */
     public function index(IndexCurrency $request)
     {
@@ -69,10 +91,22 @@ class CurrenciesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreCurrency $request
-     * @return array|RedirectResponse|Redirector
+     * Method: store
+     * @OA\Post(
+     *     path="/admin/currencies",
+     *     summary="Create a new currency",
+     *     tags={"Currencies"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"sign", "exchange_rate"},
+     *             @OA\Property(property="sign", type="string", example="$"),
+     *             @OA\Property(property="exchange_rate", type="number", example=27.5)
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Currency created successfully"),
+     *     @OA\Response(response=422, description="Validation error")
+     * )
      */
     public function store(StoreCurrency $request)
     {
@@ -121,12 +155,30 @@ class CurrenciesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdateCurrency $request
-     * @param Currency $currency
-     * @return array|RedirectResponse|Redirector
+     * Method: update
+     * @OA\Put(
+     *     path="/admin/currencies/{id}",
+     *     summary="Update a currency",
+     *     tags={"Currencies"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Currency ID",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="sign", type="string", example="€"),
+     *             @OA\Property(property="exchange_rate", type="number", example=30.1)
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Currency updated successfully"),
+     *     @OA\Response(response=404, description="Currency not found")
+     * )
      */
+
     public function update(UpdateCurrency $request, Currency $currency)
     {
         // Sanitize input
@@ -146,12 +198,21 @@ class CurrenciesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param DestroyCurrency $request
-     * @param Currency $currency
-     * @throws Exception
-     * @return ResponseFactory|RedirectResponse|Response
+     * Method: destroy
+     * @OA\Delete(
+     *     path="/admin/currencies/{id}",
+     *     summary="Delete a currency",
+     *     tags={"Currencies"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Currency ID",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(response=200, description="Currency deleted successfully"),
+     *     @OA\Response(response=404, description="Currency not found")
+     * )
      */
     public function destroy(DestroyCurrency $request, Currency $currency)
     {
@@ -165,11 +226,24 @@ class CurrenciesController extends Controller
     }
 
     /**
-     * Remove the specified resources from storage.
-     *
-     * @param BulkDestroyCurrency $request
-     * @throws Exception
-     * @return Response|bool
+     * Method: bulkDestroy
+     * @OA\Post(
+     *     path="/admin/currencies/bulk-destroy",
+     *     summary="Bulk delete currencies",
+     *     tags={"Currencies"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(
+     *                 property="ids",
+     *                 type="array",
+     *                 @OA\Items(type="integer", example=1)
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(response=200, description="Currencies deleted successfully"),
+     *     @OA\Response(response=422, description="Invalid request")
+     * )
      */
     public function bulkDestroy(BulkDestroyCurrency $request) : Response
     {

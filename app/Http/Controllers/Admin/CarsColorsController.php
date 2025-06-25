@@ -24,10 +24,29 @@ class CarsColorsController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @param IndexCarsColor $request
-     * @return array|Factory|View
+     * @OA\Get(
+     *     path="/admin/cars-colors",
+     *     summary="List all car colors",
+     *     tags={"Car Colors"},
+     *     @OA\Parameter(
+     *         name="search",
+     *         in="query",
+     *         description="Search keyword",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="List of car colors",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="data", type="array", @OA\Items(
+     *                 @OA\Property(property="id", type="integer", example=1),
+     *                 @OA\Property(property="name", type="string", example="Red"),
+     *                 @OA\Property(property="color_code", type="string", example="#FF0000")
+     *             ))
+     *         )
+     *     )
+     * )
      */
     public function index(IndexCarsColor $request)
     {
@@ -69,10 +88,27 @@ class CarsColorsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param StoreCarsColor $request
-     * @return array|RedirectResponse|Redirector
+     * @OA\Post(
+     *     path="/admin/cars-colors",
+     *     summary="Create a new car color",
+     *     tags={"Car Colors"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name", "color_code"},
+     *             @OA\Property(property="name", type="string", example="Metallic Gray"),
+     *             @OA\Property(property="color_code", type="string", example="#A9A9A9")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car color created successfully"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation failed"
+     *     )
+     * )
      */
     public function store(StoreCarsColor $request)
     {
@@ -121,11 +157,33 @@ class CarsColorsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdateCarsColor $request
-     * @param CarsColor $carsColor
-     * @return array|RedirectResponse|Redirector
+     * @OA\Put(
+     *     path="/admin/cars-colors/{id}",
+     *     summary="Update a car color",
+     *     tags={"Car Colors"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of car color to update",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="name", type="string", example="Black"),
+     *             @OA\Property(property="color_code", type="string", example="#000000")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car color updated"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Car color not found"
+     *     )
+     * )
      */
     public function update(UpdateCarsColor $request, CarsColor $carsColor)
     {
@@ -146,12 +204,26 @@ class CarsColorsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param DestroyCarsColor $request
-     * @param CarsColor $carsColor
-     * @throws Exception
-     * @return ResponseFactory|RedirectResponse|Response
+     * @OA\Delete(
+     *     path="/admin/cars-colors/{id}",
+     *     summary="Delete a car color",
+     *     tags={"Car Colors"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of car color to delete",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car color deleted successfully"
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Car color not found"
+     *     )
+     * )
      */
     public function destroy(DestroyCarsColor $request, CarsColor $carsColor)
     {
@@ -165,11 +237,25 @@ class CarsColorsController extends Controller
     }
 
     /**
-     * Remove the specified resources from storage.
-     *
-     * @param BulkDestroyCarsColor $request
-     * @throws Exception
-     * @return Response|bool
+     * @OA\Post(
+     *     path="/admin/cars-colors/bulk-destroy",
+     *     summary="Bulk delete car colors",
+     *     tags={"Car Colors"},
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             @OA\Property(property="ids", type="array", @OA\Items(type="integer", example=1))
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Car colors deleted"
+     *     ),
+     *     @OA\Response(
+     *         response=422,
+     *         description="Invalid request"
+     *     )
+     * )
      */
     public function bulkDestroy(BulkDestroyCarsColor $request) : Response
     {
