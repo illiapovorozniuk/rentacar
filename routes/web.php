@@ -3,6 +3,7 @@
 use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Support\Facades\Route;
 use App\Enums\Route as RouteEnum;
+use Illuminate\Support\Facades\Schema;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,27 +16,28 @@ use App\Enums\Route as RouteEnum;
 |
 */
 
+if (Schema::hasTable('languages')) {
+    Route::middleware(['locale'])->group(function () {
+        Route::prefix(LocaleMiddleware::getLocale())
+            ->group(function () {
+                Route::namespace('App\Http\Controllers\Front')->group(function () {
+                    Route::get('/', 'SiteController@index')->name('home');
+                    Route::get('/' . RouteEnum::BRANDS->value, 'SiteController@brands')->name('brands');
+                    Route::get('/' . RouteEnum::BODIES->value, 'SiteController@bodyTypes')->name('body-types');
+                    Route::get('/' . RouteEnum::BRANDS->value . '/{slug}', 'SiteController@brand')->name('brand');
+                    Route::get('/' . RouteEnum::CAR->value . '/{id}', 'SiteController@car')->name('car');
+                });
 
-Route::middleware(['locale'])->group(function () {
-    Route::prefix(LocaleMiddleware::getLocale())
-        ->group(function () {
-            Route::namespace('App\Http\Controllers\Front')->group(function () {
-                Route::get('/', 'SiteController@index')->name('home');
-                Route::get('/' . RouteEnum::BRANDS->value, 'SiteController@brands')->name('brands');
-                Route::get('/' . RouteEnum::BODIES->value, 'SiteController@bodyTypes')->name('body-types');
-                Route::get('/' . RouteEnum::BRANDS->value . '/{slug}', 'SiteController@brand')->name('brand');
-                Route::get('/' . RouteEnum::CAR->value . '/{id}', 'SiteController@car')->name('car');
+                Route::namespace('App\Http\Controllers\Front')->group(function () {
+                    Route::get('/login', 'AuthController@showLoginForm')->name('front.login');
+                    Route::post('/login', 'AuthController@login')->name('front.login.post');
+                    Route::get('/register', 'AuthController@showRegistrationForm')->name('front.register');
+                    Route::post('/register', 'AuthController@register')->name('front.register.post');
+                    Route::post('/logout', 'AuthController@logout')->name('front.logout');
+                });
             });
-
-            Route::namespace('App\Http\Controllers\Front')->group(function () {
-                Route::get('/login', 'AuthController@showLoginForm')->name('front.login');
-                Route::post('/login', 'AuthController@login')->name('front.login.post');
-                Route::get('/register', 'AuthController@showRegistrationForm')->name('front.register');
-                Route::post('/register', 'AuthController@register')->name('front.register.post');
-                Route::post('/logout', 'AuthController@logout')->name('front.logout');
-            });
-        });
-});
+    });
+}
 
 //Route::middleware('auth')->group(function () {
 //    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
@@ -198,5 +200,32 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/{page}', 'PagesController@update')->name('update');
             Route::delete('/{page}', 'PagesController@destroy')->name('destroy');
         });
+    });
+});
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('admin-users')->name('admin-users/')->group(static function() {
+            Route::get('/',                                             'AdminUsersController@index')->name('index');
+            Route::get('/create',                                       'AdminUsersController@create')->name('create');
+            Route::post('/',                                            'AdminUsersController@store')->name('store');
+            Route::get('/{adminUser}/impersonal-login',                 'AdminUsersController@impersonalLogin')->name('impersonal-login');
+            Route::get('/{adminUser}/edit',                             'AdminUsersController@edit')->name('edit');
+            Route::post('/{adminUser}',                                 'AdminUsersController@update')->name('update');
+            Route::delete('/{adminUser}',                               'AdminUsersController@destroy')->name('destroy');
+            Route::get('/{adminUser}/resend-activation',                'AdminUsersController@resendActivationEmail')->name('resendActivationEmail');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::get('/profile',                                      'ProfileController@editProfile')->name('edit-profile');
+        Route::post('/profile',                                     'ProfileController@updateProfile')->name('update-profile');
+        Route::get('/password',                                     'ProfileController@editPassword')->name('edit-password');
+        Route::post('/password',                                    'ProfileController@updatePassword')->name('update-password');
     });
 });
