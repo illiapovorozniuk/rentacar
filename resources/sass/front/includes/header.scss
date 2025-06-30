@@ -44,6 +44,8 @@ header {
             padding-inline-end: 66px;
             margin: 0 auto;
 
+
+
             .brand_list {
                 display: flex;
                 align-items: center;
@@ -198,6 +200,10 @@ header {
             position: absolute;
             align-items: center;
             inset-inline-end: 0;
+
+            @media (max-width: $mobile-max-width) {
+                position: relative;
+            }
 
             .param {
                 align-items: center;
@@ -374,6 +380,9 @@ header {
 
                 &.active {
                     display: flex;
+                    @media (max-width: $mobile-max-width) {
+                        flex-direction: column;
+                    }
                 }
 
                 .brand_item > p {

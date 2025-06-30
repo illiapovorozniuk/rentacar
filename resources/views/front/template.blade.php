@@ -23,6 +23,7 @@
 @yield('fancybox')
 
 <script src="{{ asset('js/front.js') }}"></script>
+@yield('script')
 
 </body>
 </html>

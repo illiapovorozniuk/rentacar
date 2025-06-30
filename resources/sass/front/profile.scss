@@ -1,0 +1,64 @@
+@use "includes/variables-mixins" as *;
+@import "includes/defaults";
+@import "includes/header";
+
+.login_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    h1{
+        text-align: center;
+        @include headline-m;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 400px;
+        padding: 20px;
+        border-radius: 25px;
+        background: $neutral100;
+
+        .form_logo{
+            width: 100px;
+        }
+
+        input{
+            padding: 10px;
+            border-radius: 15px;
+            background: $neutral200;
+            width: -webkit-fill-available;
+            @include body-1();
+        }
+
+        .button_submit{
+            background: $neutral200;
+            padding: 10px;
+            border-radius: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            @include title-m();
+        }
+
+        .profile_link {
+            background: $neutral200;
+            padding: 10px;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            @include body-1();
+        }
+    }
+
+    .error_message{
+        color: $danger_dark;
+    }
+
+    .success_message{
+        color: $success_dark;
+    }
+}

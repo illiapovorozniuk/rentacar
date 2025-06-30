@@ -36,8 +36,12 @@ class LocaleMiddleware
         $languages = Language::all()->pluck('code')->toArray();
         $mainLang = Language::query()->where('default', '=', 1)->value('code');
         if (!empty($segmentsURI[0]) && in_array($segmentsURI[0], $languages)) {
-            if ($segmentsURI[0] != $mainLang) return $segmentsURI[0];
+            if ($segmentsURI[0] != $mainLang) {
+                App::setLocale($segmentsURI[0]);
+                return $segmentsURI[0];
+            }
         }
+        App::setLocale($mainLang);
     }
 
     public function handle($request, Closure $next)

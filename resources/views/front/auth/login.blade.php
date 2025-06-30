@@ -6,7 +6,7 @@
 
 @section('body')
     <div class="login_container">
-        <form method="POST" action="{{ route('front.login.post') }}">
+        <form method="POST" action="{{ route('login.post') }}">
             <h1>Login</h1>
             @csrf
             <input type="email" name="email" placeholder="Email" required>

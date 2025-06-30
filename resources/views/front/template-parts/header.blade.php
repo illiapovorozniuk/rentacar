@@ -305,14 +305,13 @@ $brands = Config::get('site.brands');
                     </div>
                 </nav>
                 @guest
-                    <a href="{{ route('front.login') }}" class="login-btn">Login</a>
-                    <a href="{{ route('front.register') }}" class="login-btn">Sign up</a>
+                    <a href="{{ route('login') }}" class="login-btn">{{trans('front.login')}}</a>
+                    <a href="{{ route('register') }}" class="login-btn">{{trans('front.sign_up')}}</a>
                 @endguest
                 @auth
-                    <form method="POST" action="{{ route('front.logout') }}">
-                        @csrf
-                        <button type="submit">Logout</button>
-                    </form>
+                        <a href="{{route('front.profile')}}" title="{{trans('front.profile')}}" style="width: 30px">
+                            <svg style="width: 100%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zM6.023 15.416C7.491 17.606 9.695 19 12.16 19c2.464 0 4.669-1.393 6.136-3.584A8.968 8.968 0 0 0 12.16 13a8.968 8.968 0 0 0-6.137 2.416zM12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path> </g> </g></svg>
+                            </a>
                 @endauth
             </div>
 
