@@ -728,6 +728,24 @@ header .header_content .end_section .login-btn:hover {
   letter-spacing: 0em;
   font-weight: 400;
 }
+.login_container form .avatar-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.login_container form .avatar-upload .avatar-img {
+  border: 1px solid black;
+}
+.login_container form .avatar-upload #remove-avatar-btn {
+  background: #F2413B;
+  color: #F7F7F7;
+  padding: 10px;
+  border-radius: 10px;
+}
+.login_container form .avatar-upload #remove-avatar-btn.disabled {
+  display: none;
+}
 .login_container .error_message {
   color: #B61A20;
 }

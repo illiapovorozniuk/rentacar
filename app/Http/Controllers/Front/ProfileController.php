@@ -29,6 +29,13 @@ class ProfileController extends Controller
     public function updateProfile(Request $request)
     {
         $user = Auth::user();
+        if($request->remove_avatar == 1){
+            $user->clearMediaCollection('avatar');
+        }
+        if ($request->hasFile('avatar')) {
+            $user->clearMediaCollection('avatar');
+            $user->addMediaFromRequest('avatar')->toMediaCollection('avatar');
+        }
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $user->id,

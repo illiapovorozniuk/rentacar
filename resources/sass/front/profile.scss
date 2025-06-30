@@ -52,6 +52,25 @@
             color: inherit;
             @include body-1();
         }
+
+        .avatar-upload{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            .avatar-img{
+                border: 1px solid black;
+            }
+            #remove-avatar-btn{
+                background: $danger_red;
+                color: $neutral100;
+                padding: 10px;
+                border-radius: 10px;
+                &.disabled{
+                    display: none;
+                }
+            }
+        }
     }
 
     .error_message{
