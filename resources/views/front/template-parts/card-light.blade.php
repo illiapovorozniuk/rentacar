@@ -1,22 +1,24 @@
 <?php
-$second =  formatNumberString($car->price_1);
-$first = formatNumberString($car->price_7);
-$last = formatNumberString($car->price_30);
+$second = formatNumberString(getCurrentPrice($car->price_1));
+$first = formatNumberString(getCurrentPrice($car->price_7));
+$last = formatNumberString(getCurrentPrice($car->price_30));
+$current_currency = Config::get('site.current_currency');
 ?>
 
 <div class="card_light">
     <a href="{{$car_link}}">
         <div class="img_container">
-            <img src="{{$car->main_photo}}" alt="{{$car->slug}}" class="main_img" @if($car_index??1!=0)loading="lazy"@endif/>
+            <img src="{{$car->main_photo}}" alt="{{$car->slug}}" class="main_img"
+                 @if($car_index??1!=0)loading="lazy"@endif/>
         </div>
         <p class="name">{{$car->car_title.' ('.$car->color_name.'), '.$car->attribute_year }}</p>
     </a>
     <ul class="parameters">
         <li>
             @if(isset($car->min_day_reservation) && $car->min_day_reservation !== null && $car->min_day_reservation >= 30)
-                {{$last }} {{trans('front.site.per_month')}}
+                {{$last .' '. $current_currency->sign .' '.trans('front.site.per_month')}}
             @else
-                {{ $second}} {{trans('front.site.per_day')}}
+                {{ $second .' '. $current_currency->sign .' '.trans('front.site.per_day')}}
             @endif
         </li>
         @if($car->deposit == 0)

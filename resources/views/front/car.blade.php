@@ -2,10 +2,8 @@
 <?php
 
 
-//$currency = Config::get('services.currency_info');
-$currency = 1;
-//$main_currency = (new \App\Models\RcCurrency)->getCurrencyData($data->currency);
-$main_currency = 'uah';
+$current_currency = Config::get('site.current_currency');
+
 $check_sign = '<svg width="10" height="8" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M9.47322 0.306696C9.41124 0.24421 9.33751 0.194614 9.25627 0.160768C9.17503 0.126922 9.08789 0.109497 8.99989 0.109497C8.91188 0.109497 8.82474 0.126922 8.7435 0.160768C8.66226 0.194614 8.58853 0.24421 8.52655 0.306696L3.55989 5.28003L1.47322 3.1867C1.40887 3.12454 1.33291 3.07566 1.24967 3.04286C1.16644 3.01006 1.07755 2.99397 0.9881 2.99552C0.898646 2.99706 0.810373 3.01622 0.728321 3.05188C0.646269 3.08754 0.572044 3.13902 0.509885 3.20336C0.447726 3.26771 0.39885 3.34367 0.366047 3.42691C0.333245 3.51014 0.317158 3.59903 0.318705 3.68848C0.320253 3.77793 0.339405 3.86621 0.375067 3.94826C0.41073 4.03031 0.462204 4.10454 0.526552 4.1667L3.08655 6.7267C3.14853 6.78918 3.22226 6.83878 3.3035 6.87262C3.38474 6.90647 3.47188 6.92389 3.55989 6.92389C3.64789 6.92389 3.73503 6.90647 3.81627 6.87262C3.89751 6.83878 3.97124 6.78918 4.03322 6.7267L9.47322 1.2867C9.54089 1.22427 9.59489 1.1485 9.63183 1.06417C9.66877 0.979834 9.68784 0.888764 9.68784 0.796696C9.68784 0.704628 9.66877 0.613558 9.63183 0.529225C9.59489 0.444892 9.54089 0.369124 9.47322 0.306696Z" fill="white"/>
 </svg>
@@ -80,9 +78,9 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
 //
 //
 //                            dd($data->  );
-                            $second =  formatNumberString($data->price_1);
-                            $first = $data->price_7 * 7;
-                            $last = $data->price_30 * 30;
+                            $second =  formatNumberString(getCurrentPrice($data->price_1));
+                            $first = getCurrentPrice($data->price_7 * 7);
+                            $last = getCurrentPrice($data->price_30 * 30);
 //                            $currentName = trans('trans_rentacar.car.per_day');
 //                            $currentPrice = $daylyFunc;
 //
@@ -156,14 +154,14 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                             <div class="rent_block">
                                 <div class="car_price_block">
                                     @if($data->min_day_reservation < 7)
-                                        <p id="price">{{$second}}</p>
+                                        <p id="price">{{$second.' '. $current_currency->sign}}</p>
                                         <p class="date_range">{{trans('trans_rentacar.car.per_day')}}</p>
                                     @elseif($data->min_day_reservation < 30)
-                                        <p id="price">{{$first}}</p>
+                                        <p id="price">{{$first .' '. $current_currency->sign}}</p>
                                         <p class="date_range">{{trans('front.site.per_week')}}</p>
                                     @else
 
-                                        <p id="price">{{$last}}</p>
+                                        <p id="price">{{$last .' '. $current_currency->sign}}</p>
                                         <p class="date_range">{{trans('front.site.per_month')}}</p>
                                     @endif
                                 </div>
@@ -304,18 +302,18 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                 <div class="item">
                                                     <p class="name">{{trans('trans_rentacar.car.daily')}}</p>
                                                     <div></div>
-                                                    <p class="value">{{$second}}</p>
+                                                    <p class="value">{{$second .' '. $current_currency->sign}}</p>
                                                 </div>
                                                 <div class="item">
                                                     <p class="name">{{trans('trans_rentacar.car.weekly')}}</p>
                                                     <div></div>
-                                                    <p class="value">{{$first}}</p>
+                                                    <p class="value">{{$first .' '. $current_currency->sign}}</p>
                                                 </div>
                                             @endif
                                             <div class="item">
                                                 <p class="name">{{trans('trans_rentacar.car.monthly')}}</p>
                                                 <div></div>
-                                                <p class="value">{{$last}}</p>
+                                                <p class="value">{{$last .' '. $current_currency->sign}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -353,13 +351,13 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                     <div class="rent_block">
                                         <div class="car_price_block">
                                             @if($data->min_day_reservation < 7)
-                                                <p id="price">{{$second}}</p>
+                                                <p id="price">{{$second.' '. $current_currency->sign}}</p>
                                                 <p class="date_range">{{trans('trans_rentacar.car.per_day')}}</p>
                                             @elseif($data->min_day_reservation < 30)
-                                                <p id="price">{{$first}}</p>
+                                                <p id="price">{{$first.' '. $current_currency->sign}}</p>
                                                 <p class="date_range">{{trans('front.site.per_week')}}</p>
                                             @else
-                                                <p id="price">{{$last}}</p>
+                                                <p id="price">{{$last.' '. $current_currency->sign}}</p>
                                                 <p class="date_range">{{trans('front.site.per_month')}}</p>
                                             @endif
                                         </div>
@@ -399,7 +397,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                             </svg>
 
                                                             <p> {{ trans('trans_rentacar.car.deposit') }}
-                                                                : {{$data->deposit}}
+                                                                : {{getCurrentPrice($data->deposit)}}
                                                             </p>
                                                         </div>
 {{--                                                    @endif--}}

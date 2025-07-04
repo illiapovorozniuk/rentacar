@@ -93,4 +93,21 @@ $(document).ready(function () {
         $('.burger .close').toggleClass('active');
         $('.header_content .pages').toggleClass('active');
     });
+
+
+    $(function() {
+        $('.currency-switch').on('click', function() {
+            var sign = $(this).data('sign');
+            $.post({
+                url: '/set-currency',
+                data: {
+                    sign: sign,
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function() {
+                    location.reload();
+                }
+            });
+        });
+    });
 });

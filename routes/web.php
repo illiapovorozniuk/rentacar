@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CurrencyController;
 use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,8 @@ if (Schema::hasTable('languages')) {
                         Route::get('/profile/password', 'ProfileController@editPassword')->name('front.profile.password');
                         Route::post('/profile/password', 'ProfileController@updatePassword')->name('front.profile.password.update');
                     });
+
+                    Route::post('/set-currency', [CurrencyController::class, 'set'])->name('set.currency');
                 });
             });
     });

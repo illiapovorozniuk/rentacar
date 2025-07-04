@@ -103,5 +103,21 @@ function getBrandImgPath($brandSlug): string
 
 function brandUrl($brandSlug): string
 {
-    return url(baseUrl()  . Route::BRANDS->value . '/' . $brandSlug);
+    return url(baseUrl() . Route::BRANDS->value . '/' . $brandSlug);
+}
+
+function bodyUrl($bodyTypeSlug): string
+{
+    return url(baseUrl() . Route::BODIES->value . '/' . $bodyTypeSlug);
+}
+
+function typeUrl($typeSlug): string
+{
+    return url(baseUrl() . Route::TYPES->value . '/' . $typeSlug);
+}
+
+function getCurrentPrice(float $price)
+{
+    $currentCurrency = Config::get('site.current_currency');
+    return round($price / $currentCurrency->exchange_rate,1);
 }

@@ -11,12 +11,14 @@ $models_output = '';
 
 $available_locales = Config::get("app.available_locales");
 $current_locale = App::getLocale();
-$available_currencies = Config::get('services.available_currencies');
-$current_currency = Config::get('services.currency');
+$available_currencies = Config::get("site.currencies");
+$current_currency = Config::get('site.current_currency');
 $path = parse_url(url()->current(), PHP_URL_PATH);
 $locale = app()->getLocale();
 $current_locale = app()->getLocale();
 $brands = Config::get('site.brands');
+$bodies = Config::get('site.bodies');
+$types = Config::get('site.types');
 ?>
 
 <header @if(isset($home_page))class="home"@endif>
@@ -132,39 +134,54 @@ $brands = Config::get('site.brands');
                     </div>
                 </div>
             @endif
-            {{--                @if($menu->link == Config::get('services.bodies_link'))--}}
-            {{--                    @if(count($bodies) > 1)--}}
-            {{--                        @if($menu->menu_type == 0)--}}
-            {{--                            <a class="nav-link"--}}
-            {{--                               href="{{ baseUrl() }}/{{ Config::get('services.bodies_link') }}">{{ $menu->name }}</a>--}}
-            {{--                        @elseif($menu->menu_type == 1)--}}
-            {{--                            <div class="brand_item">--}}
-            {{--                                <a href="{{ baseUrl() }}/{{ Config::get('services.bodies_link') }}"--}}
-            {{--                                   class="brand_list">{{ $menu->name }}--}}
-            {{--                                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none"--}}
-            {{--                                         xmlns="http://www.w3.org/2000/svg">--}}
-            {{--                                        <path--}}
-            {{--                                            d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"--}}
-            {{--                                            fill="#E63948"/>--}}
-            {{--                                    </svg>--}}
-            {{--                                </a>--}}
-            {{--                                <div class="brand_items">--}}
-            {{--                                    <ul class="brand_items_tag">--}}
-            {{--                                        @foreach($bodies as $body)--}}
-            {{--                                            @if($body != null)--}}
-            {{--                                                @if($body['link'] != null)--}}
-            {{--                                                        <?php $bodies_output .= '<li><a href="' . baseUrl() . '/' . $site->cars_bodies_slug . '/' . $body['link'] . '"><span>' . $body['name'] . '</span></a></li>'; ?>--}}
-            {{--                                                @endif--}}
-            {{--                                            @endif--}}
-            {{--                                        @endforeach--}}
-            {{--                                        {!! $bodies_output !!}--}}
+            @if(count($bodies) > 1)
 
-            {{--                                    </ul>--}}
-            {{--                                </div>--}}
-            {{--                            </div>--}}
-            {{--                        @endif--}}
-            {{--                    @endif--}}
-            {{--                @endif--}}
+                <div class="brand_item">
+                    <a href="{{ baseUrl() }}/{{ Config::get('services.bodies_link') }}"
+                       class="brand_list">{{ trans('front.header.bodies') }}
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"
+                                fill="#E63948"/>
+                        </svg>
+                    </a>
+                    <div class="brand_items">
+                        <ul class="brand_items_tag">
+                            @foreach($bodies as $body)
+                                @if($body != null)
+                                            <?php $bodies_output .= '<li><a href="' . bodyUrl($body->slug). '"><span>' . $body['name'] . '</span></a></li>'; ?>
+                                @endif
+                            @endforeach
+                            {!! $bodies_output !!}
+
+                        </ul>
+                    </div>
+                </div>
+            @endif
+            @if(count($types) > 1)
+
+                <div class="brand_item">
+                    <a href="{{ baseUrl() }}/{{ Config::get('services.bodies_link') }}"
+                       class="brand_list">{{ trans('front.header.types') }}
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"
+                                fill="#E63948"/>
+                        </svg>
+                    </a>
+                    <div class="brand_items">
+                        <ul class="brand_items_tag">
+                            @foreach($types as $type)
+                                            <?php $types_output .= '<li><a href="' . typeUrl($type->slug). '"><span>' . $type['name'] . '</span></a></li>'; ?>
+                            @endforeach
+                            {!! $types_output !!}
+
+                        </ul>
+                    </div>
+                </div>
+            @endif
             {{--                @if($menu->link == Config::get('services.types_link') && $menu->menu_page == 'types')--}}
             {{--                    @if(count($types) > 1)--}}
             {{--                        @if($menu->menu_type == 0)--}}
@@ -250,6 +267,25 @@ $brands = Config::get('site.brands');
             {{--                    @endif--}}
             {{--                @endif--}}
             <div class="end_section">
+                @guest
+                    <a href="{{ route('login') }}" class="login-btn">{{trans('front.login')}}</a>
+                    <a href="{{ route('register') }}" class="login-btn">{{trans('front.sign_up')}}</a>
+                @endguest
+                @auth
+                    <a href="{{route('front.profile')}}" title="{{trans('front.profile')}}" style="width: 30px">
+                        <svg style="width: 100%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path
+                                        d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zM6.023 15.416C7.491 17.606 9.695 19 12.16 19c2.464 0 4.669-1.393 6.136-3.584A8.968 8.968 0 0 0 12.16 13a8.968 8.968 0 0 0-6.137 2.416zM12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                @endauth
                 <nav class="param">
                     <div class="params_header">
                         <svg class="globe" width="25" height="24" viewBox="0 0 25 24" fill="none"
@@ -268,13 +304,14 @@ $brands = Config::get('site.brands');
 
                     <div class="param_items">
                         <ul class="currencies">
-                            {{--                        @foreach($available_currencies as $currency)--}}
-                            {{--                            @if($currency == strtoupper($current_currency))--}}
-                            {{--                                <span class="current">{{ $currency }}</span>--}}
-                            {{--                            @else--}}
-                            {{--                                <span onclick="redirectToCurrency('{{$currency}}')">{{ $currency }}</span></li>--}}
-                            {{--                            @endif--}}
-                            {{--                        @endforeach--}}
+                            @foreach($available_currencies as $currency)
+                                @if($currency == $current_currency)
+                                    <span class="current">{{ $currency->sign }}</span>
+                                @else
+                                    <span class="currency-switch"
+                                          data-sign="{{ $currency->sign }}">{{ $currency->sign }}</span>
+                                @endif
+                            @endforeach
                         </ul>
                         <hr>
                         <ul class="languages">
@@ -304,15 +341,7 @@ $brands = Config::get('site.brands');
 
                     </div>
                 </nav>
-                @guest
-                    <a href="{{ route('login') }}" class="login-btn">{{trans('front.login')}}</a>
-                    <a href="{{ route('register') }}" class="login-btn">{{trans('front.sign_up')}}</a>
-                @endguest
-                @auth
-                        <a href="{{route('front.profile')}}" title="{{trans('front.profile')}}" style="width: 30px">
-                            <svg style="width: 100%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="none" d="M0 0h24v24H0z"></path> <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zM6.023 15.416C7.491 17.606 9.695 19 12.16 19c2.464 0 4.669-1.393 6.136-3.584A8.968 8.968 0 0 0 12.16 13a8.968 8.968 0 0 0-6.137 2.416zM12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path> </g> </g></svg>
-                            </a>
-                @endauth
+
             </div>
 
         </nav>
