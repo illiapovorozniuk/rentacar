@@ -216,7 +216,10 @@ class Car extends Model implements HasMedia
         'car_body_type_id',
         'car_body_type_id',
         'car_slug',
+        'city_id',
         'availability_label',
+        'longitude',
+        'latitude',
         'price_1',
         'price_7',
         'price_30',
@@ -255,8 +258,12 @@ class Car extends Model implements HasMedia
     {
         return $this->belongsTo(CarModel::class);
     }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 
-    public function carsColor()
+    public function color()
     {
         return $this->belongsTo(CarsColor::class);
     }

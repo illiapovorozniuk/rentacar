@@ -28,6 +28,9 @@ class UpdateCar extends FormRequest
         return [
             'car_model' => ['sometimes'],
             'availability_label' => ['sometimes', 'string'],
+            'longitude' => ['nullable', 'string'],
+            'latitude' => ['nullable', 'string'],
+            'city' => ['sometimes'],
             'price_1' => ['sometimes', 'numeric'],
             'price_7' => ['sometimes', 'numeric'],
             'price_30' => ['sometimes', 'numeric'],
@@ -60,10 +63,16 @@ class UpdateCar extends FormRequest
         }
         return null;
     }
+    public function getCityID(){
+        if ($this->has('city')){
+            return $this->get('city')['id'];
+        }
+        return null;
+    }
 
     public function getCarsColorId(){
-        if ($this->has('cars_color')){
-            return $this->get('cars_color')['id'];
+        if ($this->has('color')){
+            return $this->get('color')['id'];
         }
         return null;
     }

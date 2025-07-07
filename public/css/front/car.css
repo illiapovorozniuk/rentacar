@@ -372,7 +372,7 @@ header .header_content .pages .brand_item .brand_items .brand_items_tag a span {
 }
 header .header_content .end_section {
   display: flex;
-  position: absolute;
+  position: relative;
   align-items: center;
   inset-inline-end: 0;
 }
@@ -1091,6 +1091,54 @@ header .header_content .end_section .login-btn:hover {
     width: -webkit-fill-available;
     justify-content: center;
     margin-top: 20px;
+  }
+}
+
+.location {
+  width: 100%;
+}
+@media only screen and (min-width: 1191px) {
+  .location {
+    max-width: 1110px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1190px) {
+  .location {
+    max-width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .location {
+    max-width: calc(100% - 40px);
+    margin: 0 20px;
+  }
+}
+.location .location_main_title {
+  font-size: 30px;
+  line-height: 35px;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+.location iframe {
+  border-radius: 15px;
+  height: 480px;
+}
+@media only screen and (max-width: 768px) {
+  .location .location_main_title {
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: none;
+    letter-spacing: -0.005em;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .location iframe {
+    border-radius: 15px;
+    height: 240px;
   }
 }
 

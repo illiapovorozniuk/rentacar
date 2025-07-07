@@ -125276,7 +125276,7 @@ __webpack_require__.r(__webpack_exports__);
 
 Vue.component('car-form', {
   mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: ['car_models', 'cars_colors', 'fuels'],
+  props: ['car_models', 'cities', 'cars_colors', 'fuels'],
   data: function data() {
     return {
       form: {
@@ -125292,8 +125292,11 @@ Vue.component('car-form', {
         min_day_reservation: 1,
         free_delivery: 0,
         registration_number: '',
-        cars_color: '',
+        color: '',
         fuel: '',
+        longtitude: '',
+        latitude: '',
+        city: '',
         attribute_year: 2000,
         attribute_seats: 5,
         attribute_1_to_100: '',
@@ -125403,6 +125406,61 @@ Vue.component('cars-color-listing', {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/cars-color/Listing.js");
 /* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/cars-color/Form.js");
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/city/Form.js":
+/*!*****************************************!*\
+  !*** ./resources/js/admin/city/Form.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('city-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {
+        slug: '',
+        name: this.getLocalizedFormDefaults()
+      }
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/city/Listing.js":
+/*!********************************************!*\
+  !*** ./resources/js/admin/city/Listing.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('city-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/city/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/city/index.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/city/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/city/Form.js");
 
 
 
@@ -125539,6 +125597,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _car__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./car */ "./resources/js/admin/car/index.js");
 /* harmony import */ var _currency__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./currency */ "./resources/js/admin/currency/index.js");
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./page */ "./resources/js/admin/page/index.js");
+/* harmony import */ var _city__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./city */ "./resources/js/admin/city/index.js");
+
 
 
 

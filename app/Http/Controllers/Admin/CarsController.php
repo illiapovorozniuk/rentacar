@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\Car\UpdateCar;
 use App\Models\Car;
 use App\Models\CarModel;
 use App\Models\CarsColor;
+use App\Models\City;
 use App\Models\Fuel;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
@@ -127,6 +128,7 @@ class CarsController extends Controller
         $this->authorize('admin.car.create');
         return view('admin.car.create',[
             'car_models' => CarModel::all(),
+            'cities' => City::all(),
             'cars_colors' => CarsColor::all(),
             'fuels' => Fuel::all(),
             'mode' => 'create'
@@ -211,11 +213,13 @@ class CarsController extends Controller
         $this->authorize('admin.car.edit', $car);
 
         $car->load('carModel');
-        $car->load('carsColor');
+        $car->load('color');
         $car->load('fuel');
+        $car->load('city');
         return view('admin.car.edit', [
             'car' => $car,
             'car_models' => CarModel::all(),
+            'cities' => City::all(),
             'cars_colors' => CarsColor::all(),
             'fuels' => Fuel::all(),
             'mode' => 'edit'
@@ -259,24 +263,25 @@ class CarsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+
         $sanitized['car_model_id'] = $request->getCarModelId();
         $sanitized['car_brand_id'] = $request['car_model']['brand_id'];
         $sanitized['car_body_type_id'] = $request['car_model']['body_type_id'];
         $sanitized['car_slug'] = $request['car_model']['slug'];
-//        $sanitized['color_id'] = $request->getCarsColorId();
+        $sanitized['color_id'] = $request->getCarsColorId();
         $sanitized['fuel_id'] = $request->getFuelId();
-
+        $sanitized['city_id'] = $request->getCityID();
         // Update changed values Car
         $car->update($sanitized);
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/cars'),
+                'redirect' => url()->previous(),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
 
-        return redirect('admin/cars');
+        return redirect()->back();
     }
 
     /**

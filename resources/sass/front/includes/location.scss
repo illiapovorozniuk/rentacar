@@ -1,0 +1,26 @@
+@use "variables-mixins" as *;
+
+.location {
+    @include max-width;
+
+    .location_main_title {
+        @include headline-m;
+        margin-bottom: 30px;
+    }
+
+    iframe {
+        border-radius: 15px;
+        height: 480px;
+    }
+
+    @media only screen and (max-width: $mobile-max-width) {
+        .location_main_title {
+            @include headline-s;
+            margin-bottom: 20px;
+        }
+        iframe {
+            border-radius: 15px;
+            height: 240px;
+        }
+    }
+}

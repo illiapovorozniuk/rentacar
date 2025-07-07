@@ -238,3 +238,19 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         Route::post('/password', 'ProfileController@updatePassword')->name('update-password');
     });
 });
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('cities')->name('cities/')->group(static function() {
+            Route::get('/',                                             'CitiesController@index')->name('index');
+            Route::get('/create',                                       'CitiesController@create')->name('create');
+            Route::post('/',                                            'CitiesController@store')->name('store');
+            Route::get('/{city}/edit',                                  'CitiesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'CitiesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{city}',                                      'CitiesController@update')->name('update');
+            Route::delete('/{city}',                                    'CitiesController@destroy')->name('destroy');
+        });
+    });
+});

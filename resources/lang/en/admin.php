@@ -245,5 +245,22 @@ return [
         ],
     ],
 
+    'city' => [
+        'title' => 'Cities',
+
+        'actions' => [
+            'index' => 'Cities',
+            'create' => 'New City',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'slug' => 'Slug',
+            'name' => 'Name',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

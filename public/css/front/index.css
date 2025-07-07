@@ -372,7 +372,7 @@ header .header_content .pages .brand_item .brand_items .brand_items_tag a span {
 }
 header .header_content .end_section {
   display: flex;
-  position: absolute;
+  position: relative;
   align-items: center;
   inset-inline-end: 0;
 }

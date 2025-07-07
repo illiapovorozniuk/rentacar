@@ -28,6 +28,9 @@ class StoreCar extends FormRequest
         return [
             'car_model' => ['required'],
             'availability_label' => ['required', 'string'],
+            'longitude' => ['nullable', 'string'],
+            'latitude' => ['nullable', 'string'],
+            'city' => ['required'],
             'price_1' => ['required', 'numeric'],
             'price_7' => ['required', 'numeric'],
             'price_30' => ['required', 'numeric'],

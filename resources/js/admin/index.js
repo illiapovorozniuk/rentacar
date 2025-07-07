@@ -10,3 +10,4 @@ import './cars-color';
 import './car';
 import './currency';
 import './page';
+import './city';
