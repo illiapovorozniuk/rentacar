@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\Front\LiqPayController;
+use App\Http\Controllers\Front\OrderController;
 use App\Http\Middleware\LocaleMiddleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +41,9 @@ if (Schema::hasTable('languages')) {
                         Route::post('/profile', 'ProfileController@updateProfile')->name('front.profile.update');
                         Route::get('/profile/password', 'ProfileController@editPassword')->name('front.profile.password');
                         Route::post('/profile/password', 'ProfileController@updatePassword')->name('front.profile.password.update');
+                        Route::get('/orders/{order}/pay', [OrderController::class, 'showPaymentForm'])->name('orders.pay');
+                        Route::post('/orders/{order}/liqpay', [LiqPayController::class, 'generateForm'])->name('liqpay.form');
+                        Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
                     });
 
                     Route::post('/set-currency', [CurrencyController::class, 'set'])->name('set.currency');
@@ -46,6 +51,9 @@ if (Schema::hasTable('languages')) {
             });
     });
 }
+
+Route::post('/liqpay/callback', [\App\Http\Controllers\LiqPayController::class, 'callback'])->name('liqpay.callback');
+
 
 
 //Route::middleware('auth')->group(function () {
@@ -251,6 +259,21 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'CitiesController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{city}',                                      'CitiesController@update')->name('update');
             Route::delete('/{city}',                                    'CitiesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('orders')->name('orders/')->group(static function() {
+            Route::get('/',                                             'OrdersController@index')->name('index');
+            Route::get('/create',                                       'OrdersController@create')->name('create');
+            Route::post('/',                                            'OrdersController@store')->name('store');
+            Route::get('/{order}/edit',                                 'OrdersController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'OrdersController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{order}',                                     'OrdersController@update')->name('update');
+            Route::delete('/{order}',                                   'OrdersController@destroy')->name('destroy');
         });
     });
 });

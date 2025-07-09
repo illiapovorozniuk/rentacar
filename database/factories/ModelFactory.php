@@ -160,3 +160,10 @@ $factory->define(App\Models\City::class, static function (Faker\Generator $faker
         
     ];
 });
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Order::class, static function (Faker\Generator $faker) {
+    return [
+        
+        
+    ];
+});

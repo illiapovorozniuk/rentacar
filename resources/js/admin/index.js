@@ -11,3 +11,4 @@ import './car';
 import './currency';
 import './page';
 import './city';
+import './order';

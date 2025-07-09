@@ -9,7 +9,7 @@ $bodies = Config::get('site.bodies');
     {{ $title }}
 @endsection
 @section('style')
-    <link rel="stylesheet" href="{{ asset('css/front/index.css') }}">
+    <link rel="stylesheet" href="/css/front/index.css">
 @endsection
 
 @section('body')

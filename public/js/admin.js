@@ -125598,6 +125598,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _currency__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./currency */ "./resources/js/admin/currency/index.js");
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./page */ "./resources/js/admin/page/index.js");
 /* harmony import */ var _city__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./city */ "./resources/js/admin/city/index.js");
+/* harmony import */ var _order__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./order */ "./resources/js/admin/order/index.js");
 
 
 
@@ -125609,6 +125610,59 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/order/Form.js":
+/*!******************************************!*\
+  !*** ./resources/js/admin/order/Form.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Form/AppForm */ "./resources/js/admin/app-components/Form/AppForm.js");
+
+Vue.component('order-form', {
+  mixins: [_app_components_Form_AppForm__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      form: {}
+    };
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/order/Listing.js":
+/*!*********************************************!*\
+  !*** ./resources/js/admin/order/Listing.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-components/Listing/AppListing */ "./resources/js/admin/app-components/Listing/AppListing.js");
+
+Vue.component('order-listing', {
+  mixins: [_app_components_Listing_AppListing__WEBPACK_IMPORTED_MODULE_0__["default"]]
+});
+
+/***/ }),
+
+/***/ "./resources/js/admin/order/index.js":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/order/index.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Listing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Listing */ "./resources/js/admin/order/Listing.js");
+/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form */ "./resources/js/admin/order/Form.js");
 
 
 

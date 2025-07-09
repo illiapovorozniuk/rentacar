@@ -262,5 +262,20 @@ return [
         ],
     ],
 
+    'order' => [
+        'title' => 'Orders',
+
+        'actions' => [
+            'index' => 'Orders',
+            'create' => 'New Order',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
