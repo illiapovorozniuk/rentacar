@@ -7,7 +7,7 @@ $current_locale = app()->getLocale();
     {{ $title }}
 @endsection
 @section('style')
-    <link rel="stylesheet" href="{{ asset('css/front/plp_without_cars.css') }}">
+    <link rel="stylesheet" href="/css/front/plp_without_cars.css">
 @endsection
 
 @section('body')

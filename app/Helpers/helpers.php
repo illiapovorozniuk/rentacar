@@ -116,6 +116,13 @@ function typeUrl($typeSlug): string
     return url(baseUrl() . Route::TYPES->value . '/' . $typeSlug);
 }
 
+function createCarOrderUrl($car_id): string
+{
+    return url(baseUrl() . '/create-order/' . $car_id);
+}
+
+
+
 function getCurrentPrice(float $price)
 {
     $currentCurrency = Config::get('site.current_currency');

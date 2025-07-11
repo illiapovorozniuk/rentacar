@@ -20,8 +20,8 @@ $getFilter = $_GET['sortBy'] ?? null;
 
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('css/front/plp.css') }}" media="all">
-    <link rel="stylesheet" href="{{ asset('css/front/bootstrap.css') }}" media="all">
+    <link rel="stylesheet" href="/css/front/plp.css" media="all">
+    <link rel="stylesheet" href="/css/front/bootstrap.css" media="all">
 @endsection
 @section('title')
     {{ $title }}

@@ -41,9 +41,14 @@ if (Schema::hasTable('languages')) {
                         Route::post('/profile', 'ProfileController@updateProfile')->name('front.profile.update');
                         Route::get('/profile/password', 'ProfileController@editPassword')->name('front.profile.password');
                         Route::post('/profile/password', 'ProfileController@updatePassword')->name('front.profile.password.update');
-                        Route::get('/orders/{order}/pay', [OrderController::class, 'showPaymentForm'])->name('orders.pay');
-                        Route::post('/orders/{order}/liqpay', [LiqPayController::class, 'generateForm'])->name('liqpay.form');
-                        Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
+                        Route::get('/create-order/{car}', [OrderController::class, 'createOrder'])->name('orders.create');
+
+                        Route::prefix('orders')->group(function () {
+                            Route::get('{order}/pay', [OrderController::class, 'showPaymentForm'])->name('orders.pay');
+                            Route::post('{order}/liqpay', [LiqPayController::class, 'generateForm'])->name('liqpay.form');
+                            Route::get('{order}', [OrderController::class, 'show'])->name('orders.show');
+                        });
                     });
 
                     Route::post('/set-currency', [CurrencyController::class, 'set'])->name('set.currency');
@@ -52,7 +57,7 @@ if (Schema::hasTable('languages')) {
     });
 }
 
-Route::post('/liqpay/callback', [\App\Http\Controllers\LiqPayController::class, 'callback'])->name('liqpay.callback');
+Route::post('/liqpay/callback', [LiqPayController::class, 'callback'])->name('liqpay.callback');
 
 
 

@@ -14,10 +14,18 @@ class OrderController extends Controller
         return view('front.template-parts.pay', compact('order'));
     }
 
+    public function createOrder(string $car)
+    {
+        $car = \App\Models\Car::findOrFail($car);
+
+        return view('front.order-create', compact('car'));
+    }
+
     public function show(Order $order)
     {
         // Можна додати перевірку статусу оплати, якщо потрібно
         return view('front.orders.show', compact('order'));
     }
+
 
 }
