@@ -17,7 +17,8 @@ class ProfileController extends Controller
     public function editProfile()
     {
         $user = Auth::user();
-        return view('front.profile.edit', compact('user'));
+        $orders = $user->orders()->with('car')->latest()->paginate(5);
+        return view('front.profile.edit', compact('user', 'orders'));
     }
 
     /**

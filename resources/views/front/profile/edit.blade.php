@@ -1,13 +1,26 @@
+<?php
+$locale = app()->getLocale();
+?>
 @extends('front.template')
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('css/front/profile.css') }}">
+    <link rel="stylesheet" href="/css/front/profile.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css">
 @endsection
 
 @section('body')
     <div class="login_container">
-        <form method="POST" action="{{ route('front.profile.update') }}" id="profile-form" enctype="multipart/form-data">
+        <div class="orders_info">
+            <h2>{{trans('front.profile.your_orders')}}</h2>
+            <div class="orders_list">
+
+                @foreach($orders as $order)
+                    @include('front.template-parts.profile-order', ['order' => $order])
+                @endforeach
+            </div>
+        </div>
+        <form method="POST" action="{{ route('front.profile.update') }}" id="profile-form"
+              enctype="multipart/form-data">
             <h1>Edit Profile</h1>
             @csrf
             <div class="avatar-upload">
@@ -19,7 +32,9 @@
                     ></div>
                     <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display: none;">
                 </label>
-                <button type="button" id="remove-avatar-btn" style="margin-top: 10px;" class="{{$user->getFirstMediaUrl('avatar')?'':'disabled'}}">Remove Avatar</button>
+                <button type="button" id="remove-avatar-btn" style="margin-top: 10px;"
+                        class="{{$user->getFirstMediaUrl('avatar')?'':'disabled'}}">Remove Avatar
+                </button>
                 <input type="hidden" name="remove_avatar" id="remove_avatar" value="0">
             </div>
             <input type="text" name="name" value="{{ $user->name }}" placeholder="Name" required>
@@ -39,10 +54,10 @@
             <a href="{{ route('front.profile.password') }}" class="profile_link">Change Password</a>
         </form>
     </div>
-        <form method="POST" action="{{ route('front.logout') }}">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
+    <form class="logout" method="POST" action="{{ route('front.logout') }}">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
 @endsection
 
 @section('script')
@@ -54,11 +69,11 @@
             loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js"),
         });
 
-        document.getElementById('profile-form').addEventListener('submit', function(e) {
+        document.getElementById('profile-form').addEventListener('submit', function (e) {
             fullPhoneInput.value = iti.getNumber();
         });
 
-        document.getElementById('avatar-input').addEventListener('change', function(e) {
+        document.getElementById('avatar-input').addEventListener('change', function (e) {
             const [file] = e.target.files;
             if (file) {
                 document.getElementById('avatar-preview').style.backgroundImage = `url('${URL.createObjectURL(file)}')`;
@@ -66,7 +81,7 @@
                 $('#remove-avatar-btn').toggleClass('disabled');
             }
         });
-        document.getElementById('remove-avatar-btn').addEventListener('click', function() {
+        document.getElementById('remove-avatar-btn').addEventListener('click', function () {
             document.getElementById('avatar-preview').style.backgroundImage = `url('{{ asset('images/site/profile/acc_preview.svg') }}')`;
             document.getElementById('avatar-input').value = '';
             document.getElementById('remove_avatar').value = '1';

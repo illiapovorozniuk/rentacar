@@ -58,7 +58,6 @@ class OrderController extends Controller
             $total_price = $price_1;
         }
 
-
         $user = auth()->user();
             $order_data = [
                 'user_id' => $user->id,

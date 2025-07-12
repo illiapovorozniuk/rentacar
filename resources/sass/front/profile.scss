@@ -2,18 +2,107 @@
 @import "includes/defaults";
 @import "includes/header";
 
-.login_container{
+.login_container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     flex: 1;
+    gap: 30px;
 
-    h1{
+        @include max-width();
+
+    @media (max-width: $mobile-max-width) {
+        margin-top: 60px !important;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    h1 {
         text-align: center;
         @include headline-m;
     }
 
-    form{
+    .orders_info {
+        @media (max-width: $mobile-max-width) {
+            order: 2;
+        }
+        .orders_list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .order_item {
+                display: flex;
+                gap: 10px;
+                @media (max-width: $mobile-max-width) {
+                    flex-direction: column;
+                }
+
+                .oder_img {
+                    position: relative;
+                    height: 150px;
+                    width: auto;
+                    aspect-ratio: 3/2;
+                    background-size: cover !important;
+                    background-position: center !important;
+                    border-radius: 10px;
+                    border: 5px solid $neutral200;
+
+                    @media (max-width: $mobile-max-width) {
+                        height: auto;
+                        width: stretch;
+                    }
+
+                    .order-status-label {
+                        margin-top: 5px;
+                        margin-inline-start: 5px;
+                        margin-inline-end: 5px;
+                        border-radius: 4px;
+                        color: #fff;
+                        font-weight: bold;
+                        background: #888;
+                        z-index: 2;
+                        display: block;
+                        width: stretch;
+                        text-align: center;
+                        @include subtitle-1();
+                        @media (max-width: $mobile-max-width) {
+                            margin-top: 10px;
+                            margin-inline-start: 10px;
+                            margin-inline-end: 10px;
+                            line-height: 40px !important;
+                            @include subtitle-2();
+                        }
+                    }
+
+                    .label-waiting {
+                        background: #f0ad4e;
+                    }
+
+                    .label-process {
+                        background: #5bc0de;
+                    }
+
+                    .label-done {
+                        background: #5cb85c;
+                    }
+                }
+
+                .order_item_info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+
+                    .order_name {
+                        color: $neutral800;
+                        @include title-l();
+
+                    }
+                }
+            }
+        }
+    }
+
+    form {
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -21,12 +110,16 @@
         padding: 20px;
         border-radius: 25px;
         background: $neutral100;
+        height: fit-content;
+        @media (max-width: $mobile-max-width) {
+            width: stretch;
+        }
 
-        .form_logo{
+        .form_logo {
             width: 100px;
         }
 
-        input{
+        input {
             padding: 10px;
             border-radius: 15px;
             background: $neutral200;
@@ -34,7 +127,7 @@
             @include body-1();
         }
 
-        .button_submit{
+        .button_submit {
             background: $neutral200;
             padding: 10px;
             border-radius: 15px;
@@ -53,31 +146,50 @@
             @include body-1();
         }
 
-        .avatar-upload{
+        .avatar-upload {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            .avatar-img{
+
+            .avatar-img {
                 border: 1px solid black;
             }
-            #remove-avatar-btn{
+
+            #remove-avatar-btn {
                 background: $danger_red;
                 color: $neutral100;
                 padding: 10px;
                 border-radius: 10px;
-                &.disabled{
+
+                &.disabled {
                     display: none;
                 }
             }
         }
     }
 
-    .error_message{
+    .error_message {
         color: $danger_dark;
     }
 
-    .success_message{
+    .success_message {
         color: $success_dark;
+    }
+}
+
+.logout {
+    @include max-width();
+
+    button {
+        width: stretch;
+        background: $neutral100;
+        color: $danger_red;
+        border: 1px solid $danger_red;
+        padding: 10px;
+        border-radius: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        @include title-m();
     }
 }

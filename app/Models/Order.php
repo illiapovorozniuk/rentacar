@@ -15,6 +15,7 @@ class Order extends Model
         'address_to',
         'status',
         'total_price',
+        'currency_id',
         'liqpay_payment_id',
         'payment_status'
     ];
@@ -26,6 +27,16 @@ class Order extends Model
     public $timestamps = true;
 
     protected $appends = ['resource_url'];
+
+    /* ************************ RELATIONS ************************* */
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class);
+    }
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
 
     /* ************************ ACCESSOR ************************* */
 

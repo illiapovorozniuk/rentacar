@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
 use Brackets\Media\HasMedia\HasMediaThumbsTrait;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Image\Exceptions\InvalidManipulation;
@@ -73,6 +74,12 @@ class User extends Authenticatable implements HasMedia
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function orders() : HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 
     /* ************************ MEDIA ************************ */
 

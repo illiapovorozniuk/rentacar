@@ -54,7 +54,7 @@ button {
     cursor: pointer;
 }
 
-input{
+input {
     all: unset;
 
     box-shadow: none !important;
@@ -69,6 +69,7 @@ span.accent {
 main {
     flex: 1;
     overflow-x: hidden;
+
 }
 
 .desktop-disable {
@@ -112,10 +113,10 @@ main {
 
 }
 
-.text_content{
+.text_content {
     @include max-width();
 }
 
-.list_content{
+.list_content {
 
 }

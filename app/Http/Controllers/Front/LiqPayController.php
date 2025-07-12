@@ -12,10 +12,11 @@ class LiqPayController extends Controller
     public function generateForm(Order $order)
     {
         $liqpay = new LiqPay(env('LIQPAY_PUBLIC_KEY'), env('LIQPAY_PRIVATE_KEY'));
+        $order->load('currency');
         $form = $liqpay->cnb_form([
             'action'       => 'pay',
             'amount'       => $order->total_price,
-            'currency'     => 'UAH',
+            'currency'     =>  strtoupper($order->currency->slug),
             'description'  => 'Оплата замовлення №' . $order->id,
             'order_id'     => $order->id,
             'version'      => '3',
