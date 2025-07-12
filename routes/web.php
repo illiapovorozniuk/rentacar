@@ -43,6 +43,7 @@ if (Schema::hasTable('languages')) {
                         Route::post('/profile/password', 'ProfileController@updatePassword')->name('front.profile.password.update');
 
                         Route::get('/create-order/{car}', [OrderController::class, 'createOrder'])->name('orders.create');
+                        Route::post('/create-order/{car}', [OrderController::class, 'store'])->name('orders.create.post');
 
                         Route::prefix('orders')->group(function () {
                             Route::get('{order}/pay', [OrderController::class, 'showPaymentForm'])->name('orders.pay');

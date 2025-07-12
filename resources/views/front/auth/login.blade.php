@@ -1,7 +1,7 @@
 @extends('front.template')
 
 @section('style')
-    <link rel="stylesheet" href="{{ asset('css/front/login.css') }}">
+    <link rel="stylesheet" href="/css/front/login.css">
 @endsection
 
 @section('body')

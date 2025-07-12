@@ -306,9 +306,9 @@ class Car extends Model implements HasMedia
         $car['main_photo'] = $main_photo;
         $car['photos'] = $photos;
         $car['price_1'] = (int)$car['price_1'];
-        $car['price_7'] = (int)($car['price_7'] ? $car['price_7'] : $car['price_1'] * CarConfig::PRICE7_MULTIPLIER->toFloat());
-        $car['price_30'] = (int)($car['price_30'] ? $car['price_30'] : $car['price_1'] * CarConfig::PRICE30_MULTIPLIER->toFloat());
-        $car['price_31_more'] = (int)($car['price_31_more'] ? $car['price_31_more'] : $car['price_1'] * CarConfig::PRICE31MORE_MULTIPLIER->toFloat());
+        $car['price_7'] = (int)($car['price_7'] > 0 ? $car['price_7'] : $car['price_1'] * CarConfig::PRICE7_MULTIPLIER->toFloat());
+        $car['price_30'] = (int)($car['price_30'] > 0 ? $car['price_30'] : $car['price_1'] * CarConfig::PRICE30_MULTIPLIER->toFloat());
+        $car['price_31_more'] = (int)($car['price_31_more']>0 ? $car['price_31_more'] : $car['price_1'] * CarConfig::PRICE31MORE_MULTIPLIER->toFloat());
         $car['fuel_name'] = json_decode($car['fuel_name'])->en;
         return $car;
     }

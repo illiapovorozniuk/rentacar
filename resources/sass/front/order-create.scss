@@ -1,0 +1,174 @@
+@use "includes/variables-mixins" as *;
+@import "includes/defaults";
+@import "includes/header";
+
+
+.container_with_separators {
+    @include max-width();
+
+    .order_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 90px;
+
+        .car_info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .car_image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+                background-size: cover !important;
+                background-position: center !important;
+                border-radius: 15px;
+            }
+
+            .rent_parameters {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                > div {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        min-width: 20px;
+
+                    }
+
+                    &.warning {
+                        svg {
+                            path {
+                                fill: $warning_yellow;
+                            }
+                        }
+                    }
+
+                    p {
+                        font-family: 'Inter';
+                        @include body-1;
+                        color: $neutral800;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+
+            .location {
+                flex: 1;
+
+                iframe {
+                    border-radius: 15px;
+                   height: 300px;
+                }
+
+                @media only screen and (max-width: $mobile-max-width) {
+                    .location_main_title {
+                        @include headline-s;
+                        margin-bottom: 20px;
+                    }
+                    iframe {
+                        border-radius: 15px;
+                    }
+                }
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 25px;
+            background: $neutral100;
+            height: fit-content;
+
+            .form_logo {
+                width: 100px;
+            }
+
+            input:not(#date_range) {
+                padding: 10px;
+                border-radius: 15px;
+                background: $neutral200;
+                @include body-1();
+            }
+
+            #date_range {
+                width: -webkit-fill-available;
+            }
+
+            .litepicker {
+                border-radius: 10px;
+                overflow: hidden;
+                width: 100%;
+
+                .container__main {
+                    width: 100%;
+
+                    .container__months {
+                        width: 100%;
+
+                        > div {
+                            width: 100%;
+
+                            .month-item-weekdays-row {
+                                width: 100%;
+                                @include body-1();
+
+                                @media (max-width: $mobile-max-width) {
+                                    @include body-2();
+                                }
+                            }
+
+                            .container__days {
+                                width: 100%;
+                                display: grid;
+                                grid-template-columns: repeat(7, 1fr);
+
+                                > div {
+                                    width: -webkit-fill-available;
+                                    @include body-1();
+
+                                    @media (max-width: $mobile-max-width) {
+                                        @include body-2();
+                                    }
+
+                                    &.is-locked {
+                                        background: $danger_light;
+                                    }
+
+                                    &.is-today {
+                                        border: 2px solid $danger_dark;
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            button[type="submit"] {
+                background: $success_green;
+                border: 1px solid $success_dark;
+                color: white;
+                padding: 10px;
+                border-radius: 15px;
+                text-align: center;
+                text-transform: uppercase;
+                @include title-m();
+            }
+        }
+    }
+}

@@ -122,9 +122,8 @@ function createCarOrderUrl($car_id): string
 }
 
 
-
 function getCurrentPrice(float $price)
 {
     $currentCurrency = Config::get('site.current_currency');
-    return round($price / $currentCurrency->exchange_rate,1);
+    return round($price / $currentCurrency->exchange_rate, 1);
 }
