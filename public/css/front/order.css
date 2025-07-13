@@ -671,289 +671,154 @@ header .header_content .end_section .login-btn:hover {
   }
 }
 
-.login_container {
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
-  gap: 30px;
+.container_with_separators {
   width: 100%;
 }
 @media only screen and (min-width: 1191px) {
-  .login_container {
+  .container_with_separators {
     max-width: 1110px;
     margin: 0 auto;
   }
 }
 @media only screen and (max-width: 1190px) {
-  .login_container {
+  .container_with_separators {
     max-width: calc(100% - 80px);
     margin: 0 40px;
   }
 }
 @media only screen and (max-width: 768px) {
-  .login_container {
+  .container_with_separators {
     max-width: calc(100% - 40px);
     margin: 0 20px;
   }
 }
+.container_with_separators .order_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 90px;
+}
 @media (max-width: 768px) {
-  .login_container {
-    margin-top: 60px !important;
-    gap: 15px;
+  .container_with_separators .order_container {
+    display: flex;
     flex-direction: column;
+    gap: 30px;
   }
 }
-.login_container h1 {
+.container_with_separators .order_container .car_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container_with_separators .order_container .car_info .car_image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 15px;
+}
+.container_with_separators .order_container .car_info .rent_parameters {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.container_with_separators .order_container .car_info .rent_parameters > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.container_with_separators .order_container .car_info .rent_parameters > div svg {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+}
+.container_with_separators .order_container .car_info .rent_parameters > div.warning svg path {
+  fill: #FABE42;
+}
+.container_with_separators .order_container .car_info .rent_parameters > div p {
+  font-family: "Inter";
+  font-size: 16px;
+  line-height: 25px;
+  text-transform: none;
+  letter-spacing: 0em;
+  font-weight: 400;
+  color: #181818;
+}
+.container_with_separators .order_container .car_info .rent_parameters > div p::first-letter {
+  text-transform: uppercase;
+}
+.container_with_separators .order_container .end_section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container_with_separators .order_container .end_section .location {
+  flex: 1;
+}
+.container_with_separators .order_container .end_section .location iframe {
+  border-radius: 15px;
+  height: 300px;
+}
+@media (max-width: 768px) {
+  .container_with_separators .order_container .end_section .location iframe {
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+}
+@media (max-width: 768px) {
+  .container_with_separators .order_container .end_section .location .location_main_title {
+    font-size: 22px;
+    line-height: 30px;
+    text-transform: none;
+    letter-spacing: -0.005em;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .container_with_separators .order_container .end_section .location iframe {
+    border-radius: 15px;
+  }
+}
+.container_with_separators .order_container .end_section .not_payed_container {
+  border-radius: 15px;
+  background-color: #F7F7F7;
+  border: 2px solid #B61A20;
+  padding: 0 20px 20px 20px;
+  overflow: hidden;
   text-align: center;
+}
+.container_with_separators .order_container .end_section .not_payed_container .title {
+  color: white;
+  background-color: #B61A20;
+  margin-right: -20px;
+  margin-left: -20px;
+  padding-top: 5px;
+  text-align: center;
+  font-size: 22px;
+  line-height: 30px;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-weight: 700;
+}
+.container_with_separators .order_container .end_section .not_payed_container .total_price {
+  color: #181818;
+  margin-top: 10px;
+  background-color: #FABE42;
+  padding: 5px;
+  border-radius: 10px;
   font-size: 30px;
   line-height: 35px;
   text-transform: none;
   letter-spacing: -0.02em;
   font-weight: 800;
 }
-.login_container .orders_info {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-@media (max-width: 768px) {
-  .login_container .orders_info {
-    order: 2;
-  }
-}
-.login_container .orders_info .orders_list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow: auto;
-  max-height: 580px;
-}
-.login_container .orders_info .orders_list .order_item {
-  display: flex;
-  gap: 10px;
-}
-@media (max-width: 768px) {
-  .login_container .orders_info .orders_list .order_item {
-    flex-direction: column;
-  }
-}
-.login_container .orders_info .orders_list .order_item .oder_img {
-  position: relative;
-  height: 150px;
-  width: auto;
-  aspect-ratio: 3/2;
-  background-size: cover !important;
-  background-position: center !important;
-  border-radius: 10px;
-  border: 5px solid #E6E6E6;
-}
-@media (max-width: 768px) {
-  .login_container .orders_info .orders_list .order_item .oder_img {
-    height: auto;
-    width: -webkit-fill-available;
-    width: -moz-available;
-    width: stretch;
-  }
-}
-.login_container .orders_info .orders_list .order_item .oder_img .order-status-label {
-  margin-top: 5px;
-  margin-inline-start: 5px;
-  margin-inline-end: 5px;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: bold;
-  background: #888;
-  z-index: 2;
-  display: block;
-  width: -webkit-fill-available;
-  width: -moz-available;
-  width: stretch;
-  text-align: center;
-  font-size: 20px;
-  line-height: 30px;
-  text-transform: none;
-  letter-spacing: 0em;
-  font-weight: 400;
-}
-@media (max-width: 768px) {
-  .login_container .orders_info .orders_list .order_item .oder_img .order-status-label {
-    margin-top: 10px;
-    margin-inline-start: 10px;
-    margin-inline-end: 10px;
-    line-height: 40px !important;
-    font-size: 18px;
-    line-height: 30px;
-    text-transform: none;
-    letter-spacing: 0em;
-    font-weight: 400;
-  }
-}
-.login_container .orders_info .orders_list .order_item .oder_img .label-waiting {
-  background: #f0ad4e;
-}
-.login_container .orders_info .orders_list .order_item .oder_img .label-process {
-  background: #5bc0de;
-}
-.login_container .orders_info .orders_list .order_item .oder_img .label-done {
-  background: #5cb85c;
-}
-.login_container .orders_info .orders_list .order_item .order_item_info {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.login_container .orders_info .orders_list .order_item .order_item_info .order_name {
-  color: #181818;
-  font-size: 18px;
-  line-height: 25px;
-  text-transform: none;
-  letter-spacing: 0em;
-  font-weight: 700;
-}
-.login_container .orders_info button {
-  width: -webkit-fill-available;
-  width: -moz-available;
-  width: stretch;
-  background: #F7F7F7;
-  color: #181818;
-  border: 1px solid #181818;
-  padding: 10px;
-  border-radius: 15px;
-  text-align: center;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  line-height: 25px;
-  text-transform: none;
-  letter-spacing: 0em;
-  font-weight: 600;
-}
-.login_container .orders_info button svg {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  margin-right: 10px;
-}
-.login_container form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 400px;
-  padding: 20px;
-  border-radius: 25px;
-  background: #F7F7F7;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-@media (max-width: 768px) {
-  .login_container form {
-    width: -webkit-fill-available;
-    width: -moz-available;
-    width: stretch;
-  }
-}
-.login_container form .form_logo {
-  width: 100px;
-}
-.login_container form input {
-  padding: 10px;
-  border-radius: 15px;
-  background: #E6E6E6;
-  width: -webkit-fill-available;
-  font-size: 16px;
-  line-height: 25px;
-  text-transform: none;
-  letter-spacing: 0em;
-  font-weight: 400;
-}
-.login_container form .button_submit {
-  background: #E6E6E6;
-  padding: 10px;
-  border-radius: 15px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  line-height: 25px;
-  text-transform: none;
-  letter-spacing: 0em;
-  font-weight: 600;
-}
-.login_container form .profile_link {
-  background: #E6E6E6;
-  padding: 10px;
-  border-radius: 15px;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  font-size: 16px;
-  line-height: 25px;
-  text-transform: none;
-  letter-spacing: 0em;
-  font-weight: 400;
-}
-.login_container form .avatar-upload {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-}
-.login_container form .avatar-upload .avatar-img {
-  border: 1px solid black;
-}
-.login_container form .avatar-upload #remove-avatar-btn {
-  background: #F2413B;
-  color: #F7F7F7;
+.container_with_separators .order_container .end_section .not_payed_container button {
+  background: #E8F5EA;
+  border: 1px solid #1E5D25;
   padding: 10px;
   border-radius: 10px;
-}
-.login_container form .avatar-upload #remove-avatar-btn.disabled {
-  display: none;
-}
-.login_container .error_message {
-  color: #B61A20;
-}
-.login_container .success_message {
-  color: #1E5D25;
-}
-
-.logout {
-  width: 100%;
-}
-@media only screen and (min-width: 1191px) {
-  .logout {
-    max-width: 1110px;
-    margin: 0 auto;
-  }
-}
-@media only screen and (max-width: 1190px) {
-  .logout {
-    max-width: calc(100% - 80px);
-    margin: 0 40px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .logout {
-    max-width: calc(100% - 40px);
-    margin: 0 20px;
-  }
-}
-.logout button {
+  text-align: center;
   width: -webkit-fill-available;
   width: -moz-available;
   width: stretch;
-  background: #F7F7F7;
-  color: #F2413B;
-  border: 1px solid #F2413B;
-  padding: 10px;
-  border-radius: 15px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 16px;
-  line-height: 25px;
-  text-transform: none;
-  letter-spacing: 0em;
-  font-weight: 600;
+  margin-top: 10px;
 }

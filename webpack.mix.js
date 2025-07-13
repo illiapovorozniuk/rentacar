@@ -31,4 +31,5 @@ mix
     .sass(`${sassFrontPath}car.scss`, `${cssOutputPath}car.css`)
     .sass(`${sassFrontPath}plp.scss`, `${cssOutputPath}plp.css`)
     .sass(`${sassFrontPath}plp_without_cars.scss`, `${cssOutputPath}plp_without_cars.css`)
-    .sass(`${sassFrontPath}order-create.scss`, `${cssOutputPath}order-create.css`);
+    .sass(`${sassFrontPath}order-create.scss`, `${cssOutputPath}order-create.css`)
+    .sass(`${sassFrontPath}order.scss`, `${cssOutputPath}order.css`);

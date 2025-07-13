@@ -235,10 +235,10 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                 <div class="button_card">
 
 
-                                    <button
+                                    <a href="{{ createCarOrderUrl($data->id) }}"
                                         class="info_right_button fixed_form reserve @if($data->status != 1) inactive @endif"
                                         data-id="{!! $data->id !!}" data-title="{{'Rent '.$car_title }}">
-                                        {{trans('trans_rentacar.car.rent_now')}}</button>
+                                        {{trans('trans_rentacar.car.rent_now')}}</a>
 
                                 </div>
 

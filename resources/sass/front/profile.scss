@@ -22,13 +22,20 @@
     }
 
     .orders_info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
         @media (max-width: $mobile-max-width) {
             order: 2;
         }
+
         .orders_list {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 10px;
+            overflow: auto;
+            max-height: 580px;
 
             .order_item {
                 display: flex;
@@ -98,6 +105,29 @@
 
                     }
                 }
+            }
+        }
+
+        button{
+            width: stretch;
+            background: $neutral100;
+            color: $neutral800;
+            border: 1px solid $neutral800;
+            padding: 10px;
+            border-radius: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            @include title-m();
+
+            svg{
+                width: 20px;
+                height: 20px;
+                min-width: 20px;
+                margin-right: 10px;
             }
         }
     }

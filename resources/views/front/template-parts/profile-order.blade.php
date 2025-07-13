@@ -2,10 +2,9 @@
 $order_car = $order->car;
 $order_car = $order_car->carInfo();
 $order_currency = $order->currency;
-
 ?>
 <div class="order_item">
-    <div class="oder_img" style="background: url('{{$order_car->main_photo}}')">
+    <a href="{{route('orders.show',['order'=>$order])}}" class="oder_img" style="background: url('{{$order_car->main_photo}}')">
         @php
             $now = \Carbon\Carbon::now()->toDateString();
             $from = \Carbon\Carbon::parse($order->date_from)->toDateString();
@@ -23,11 +22,11 @@ $order_currency = $order->currency;
             }
         @endphp
         <span class="order-status-label {{$class}}">{{$label}}</span>
-    </div>
+    </a>
     <div class="order_item_info">
-        <p class="order_name">
+        <a href="{{route('orders.show',['order'=>$order])}}" class="order_name">
             {{ucwords($order_car->brand_slug) . ' ' . (json_decode($order_car->car_model_name)->$locale ?? '') . ' ' . $order_car->attribute_year . ' ' . (json_decode($order_car->color_name)->$locale ?? '')}}
-        </p>
+        </a>
         <p class="price"> {{trans('front.car.price').': ' . $order->total_price. ' ' . $order_currency->sign}}</p>
         <p class="order_date">
             {{ \Carbon\Carbon::parse($order->date_from)->locale(App::getLocale())->isoFormat('D MMMM Y') }}

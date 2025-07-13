@@ -49,7 +49,7 @@ class OrderController extends Controller
         $price_7 = getCurrentPrice($car->price_7);
         $price_30 = getCurrentPrice($car->price_30);
 
-        $total_price =0;
+        $total_price = 0;
         if ($days_count >= 30) {
             $total_price = $price_30;
         } elseif ($days_count >= 7) {
@@ -59,26 +59,54 @@ class OrderController extends Controller
         }
 
         $user = auth()->user();
-            $order_data = [
-                'user_id' => $user->id,
-                'car_id' => $car->id,
-                'date_from' => $data['date_from'],
-                'date_to' => $data['date_to'],
-                'address_from' => $user->address ?? null,
-                'address_to' => $user->address ?? null,
-                'status' => OrderType::PAYMENT_PENDING->value,
-                'total_price' => $total_price * $days_count,
-                'currency_id' => $currency->id,
-            ];
+        $order_data = [
+            'user_id' => $user->id,
+            'car_id' => $car->id,
+            'date_from' => $data['date_from'],
+            'date_to' => $data['date_to'],
+            'address_from' => $user->address ?? null,
+            'address_to' => $user->address ?? null,
+            'status' => OrderType::PAYMENT_PENDING->value,
+            'total_price' => $total_price * $days_count,
+            'currency_id' => $currency->id,
+        ];
         $order = Order::create($order_data);
 
-        return response()->json(['redirect_url' => route('orders.pay', $order)]);
+        return response()->json(['redirect_url' => route('orders.show', $order)]);
     }
 
     public function show(Order $order)
     {
+        $auth_user = auth()->user();
+        $user = $order->user;
+        if($user->id !== $auth_user->id) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $locale = app()->getLocale();
+        $car = $order->car;
+        $car = $car->carInfo();
+
+
+        $h1 = ucwords($car->brand_slug) . ' ' . (json_decode($car->car_model_name)->$locale ?? '') . ' ' . $car->attribute_year . ' ' . (json_decode($car->color_name)->$locale ?? '');
         // Можна додати перевірку статусу оплати, якщо потрібно
-        return view('front.orders.show', compact('order'));
+        $form = '';
+        if($order->payment_status !== OrderType::PAYMENT_PAID->value) {
+            $liqpay = new LiqPay(env('LIQPAY_PUBLIC_KEY'), env('LIQPAY_PRIVATE_KEY'));
+            $order->load('currency');
+            $form = $liqpay->cnb_form([
+                'action'       => 'pay',
+                'amount'       => $order->total_price,
+                'currency'     =>  strtoupper($order->currency->slug),
+                'description'  => 'Оплата замовлення №' . $order->id,
+                'order_id'     => $order->id,
+                'version'      => '3',
+                'server_url'   => str_replace('http://','https://',route('liqpay.callback')),
+                'result_url'   => str_replace('http://','https://',route('orders.show', $order)), // Після оплати
+            ]);
+        }
+
+        return view('front.order', compact('order', 'car', 'h1','form'));
     }
 
 

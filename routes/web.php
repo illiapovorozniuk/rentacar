@@ -46,9 +46,10 @@ if (Schema::hasTable('languages')) {
                         Route::post('/create-order/{car}', [OrderController::class, 'store'])->name('orders.create.post');
 
                         Route::prefix('orders')->group(function () {
+
+                            Route::get('{order}', [OrderController::class, 'show'])->name('orders.show');
                             Route::get('{order}/pay', [OrderController::class, 'showPaymentForm'])->name('orders.pay');
                             Route::post('{order}/liqpay', [LiqPayController::class, 'generateForm'])->name('liqpay.form');
-                            Route::get('{order}', [OrderController::class, 'show'])->name('orders.show');
                         });
                     });
 

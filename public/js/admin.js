@@ -16189,7 +16189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_flatpickr_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./flatpickr.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/flatpickr/dist/flatpickr.css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_flatpickr_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./flatpickr.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/flatpickr/dist/flatpickr.css");
 
             
 
@@ -16198,11 +16198,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_flatpickr_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_flatpickr_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_flatpickr_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_flatpickr_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -29151,9 +29151,9 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/flatpickr/dist/flatpickr.css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/flatpickr/dist/flatpickr.css":
 /*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/flatpickr/dist/flatpickr.css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/flatpickr/dist/flatpickr.css ***!
   \**************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29175,9 +29175,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".flatpickr-calendar {\n  background: t
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.bubble.css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.bubble.css":
 /*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.bubble.css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.bubble.css ***!
   \*************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29199,9 +29199,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*!\n * Quill Editor v1.3.7\n * https:
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.core.css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.core.css":
 /*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.core.css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.core.css ***!
   \***********************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29223,9 +29223,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*!\n * Quill Editor v1.3.7\n * https:
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.snow.css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.snow.css":
 /*!***********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.snow.css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.snow.css ***!
   \***********************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29247,9 +29247,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/*!\n * Quill Editor v1.3.7\n * https:
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.css":
 /*!***************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.css ***!
   \***************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29271,9 +29271,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/**\n * Trumbowyg v2.31.0 - A lightwei
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/plugins/table/ui/trumbowyg.table.css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/plugins/table/ui/trumbowyg.table.css":
 /*!*************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/plugins/table/ui/trumbowyg.table.css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/plugins/table/ui/trumbowyg.table.css ***!
   \*************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29295,9 +29295,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/**\n * Trumbowyg v2.31.0 - A lightwei
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/ui/trumbowyg.css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/ui/trumbowyg.css":
 /*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/ui/trumbowyg.css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/ui/trumbowyg.css ***!
   \*****************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29319,9 +29319,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "/**\n * Trumbowyg v2.31.0 - A lightwei
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-multiselect/dist/vue-multiselect.min.css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-multiselect/dist/vue-multiselect.min.css":
 /*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-multiselect/dist/vue-multiselect.min.css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-multiselect/dist/vue-multiselect.min.css ***!
   \******************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29343,9 +29343,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "fieldset[disabled] .multiselect{pointe
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29367,9 +29367,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n.quill-editor img {\n  max-width: 10
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29391,9 +29391,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".one-colorpanel {\n  width: 256px;\n  
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -29415,9 +29415,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".color-slider[data-v-456ff5fc] {\n  po
 
 /***/ }),
 
-/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss":
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss ***!
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -74259,7 +74259,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_vue_loader_lib_index_js_vue_loader_options_slider_vue_vue_type_style_index_0_id_456ff5fc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../style-loader/dist/cjs.js!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!../../../../vue-loader/lib/index.js??vue-loader-options!./slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true");
+/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_vue_loader_lib_index_js_vue_loader_options_slider_vue_vue_type_style_index_0_id_456ff5fc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../style-loader/dist/cjs.js!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!../../../../vue-loader/lib/index.js??vue-loader-options!./slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true");
 
 
 /***/ }),
@@ -74355,7 +74355,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_style_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../style-loader/dist/cjs.js!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./style.scss?vue&type=style&index=0&lang=scss&external */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external");
+/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_style_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../style-loader/dist/cjs.js!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./style.scss?vue&type=style&index=0&lang=scss&external */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external");
 
 
 /***/ }),
@@ -74535,7 +74535,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_vue_loader_lib_index_js_vue_loader_options_colorpicker_vue_vue_type_style_index_0_id_a55b5f40_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../style-loader/dist/cjs.js!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!../../../../vue-loader/lib/index.js??vue-loader-options!./colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss");
+/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_vue_loader_lib_index_js_vue_loader_options_colorpicker_vue_vue_type_style_index_0_id_a55b5f40_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../style-loader/dist/cjs.js!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!../../../../vue-loader/lib/index.js??vue-loader-options!./colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss");
 
 
 /***/ }),
@@ -78735,7 +78735,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_bubble_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./quill.bubble.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.bubble.css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_bubble_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./quill.bubble.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.bubble.css");
 
             
 
@@ -78744,11 +78744,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_bubble_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_bubble_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_bubble_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_bubble_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -78765,7 +78765,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_core_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./quill.core.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.core.css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_core_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./quill.core.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.core.css");
 
             
 
@@ -78774,11 +78774,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_core_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_core_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_core_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_core_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -90362,7 +90362,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_snow_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./quill.snow.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/quill/dist/quill.snow.css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_snow_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./quill.snow.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/quill/dist/quill.snow.css");
 
             
 
@@ -90371,17 +90371,17 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_snow_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_snow_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_quill_snow_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_quill_snow_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css":
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css ***!
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css ***!
   \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -90392,7 +90392,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_vue_loader_lib_index_js_vue_loader_options_editor_vue_vue_type_style_index_0_id_56b68e14_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../vue-loader/lib/loaders/stylePostLoader.js!../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!../../vue-loader/lib/index.js??vue-loader-options!./editor.vue?vue&type=style&index=0&id=56b68e14&lang=css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_vue_loader_lib_index_js_vue_loader_options_editor_vue_vue_type_style_index_0_id_56b68e14_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../vue-loader/lib/loaders/stylePostLoader.js!../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!../../vue-loader/lib/index.js??vue-loader-options!./editor.vue?vue&type=style&index=0&id=56b68e14&lang=css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css");
 
             
 
@@ -90401,17 +90401,17 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_vue_loader_lib_index_js_vue_loader_options_editor_vue_vue_type_style_index_0_id_56b68e14_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_vue_loader_lib_index_js_vue_loader_options_editor_vue_vue_type_style_index_0_id_56b68e14_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_vue_loader_lib_index_js_vue_loader_options_editor_vue_vue_type_style_index_0_id_56b68e14_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_vue_loader_lib_index_js_vue_loader_options_editor_vue_vue_type_style_index_0_id_56b68e14_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external":
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external ***!
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -90422,7 +90422,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_style_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./style.scss?vue&type=style&index=0&lang=scss&external */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_style_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./style.scss?vue&type=style&index=0&lang=scss&external */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/one-colorpicker/src/color/colorPanel/style.scss?vue&type=style&index=0&lang=scss&external");
 
             
 
@@ -90431,17 +90431,17 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_style_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_style_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_style_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_style_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true":
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true ***!
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -90452,7 +90452,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_vue_loader_lib_index_js_vue_loader_options_slider_vue_vue_type_style_index_0_id_456ff5fc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!../../../../vue-loader/lib/index.js??vue-loader-options!./slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_vue_loader_lib_index_js_vue_loader_options_slider_vue_vue_type_style_index_0_id_456ff5fc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!../../../../vue-loader/lib/index.js??vue-loader-options!./slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPanel/slider.vue?vue&type=style&index=0&id=456ff5fc&lang=scss&scoped=true");
 
             
 
@@ -90461,17 +90461,17 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_vue_loader_lib_index_js_vue_loader_options_slider_vue_vue_type_style_index_0_id_456ff5fc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_vue_loader_lib_index_js_vue_loader_options_slider_vue_vue_type_style_index_0_id_456ff5fc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_vue_loader_lib_index_js_vue_loader_options_slider_vue_vue_type_style_index_0_id_456ff5fc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_vue_loader_lib_index_js_vue_loader_options_slider_vue_vue_type_style_index_0_id_456ff5fc_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss":
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss ***!
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -90482,7 +90482,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_vue_loader_lib_index_js_vue_loader_options_colorpicker_vue_vue_type_style_index_0_id_a55b5f40_lang_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!../../../../vue-loader/lib/index.js??vue-loader-options!./colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-20.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-20.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-20.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_vue_loader_lib_index_js_vue_loader_options_colorpicker_vue_vue_type_style_index_0_id_a55b5f40_lang_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!../../../../vue-loader/lib/loaders/stylePostLoader.js!../../../../postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!../../../../sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!../../../../vue-loader/lib/index.js??vue-loader-options!./colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-21.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-21.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-21.use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/one-colorpicker/src/color/colorPicker/colorpicker.vue?vue&type=style&index=0&id=a55b5f40&lang=scss");
 
             
 
@@ -90491,11 +90491,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_vue_loader_lib_index_js_vue_loader_options_colorpicker_vue_vue_type_style_index_0_id_a55b5f40_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_vue_loader_lib_index_js_vue_loader_options_colorpicker_vue_vue_type_style_index_0_id_a55b5f40_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_20_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_20_use_2_sass_loader_dist_cjs_js_clonedRuleSet_20_use_3_vue_loader_lib_index_js_vue_loader_options_colorpicker_vue_vue_type_style_index_0_id_a55b5f40_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_21_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_21_use_2_sass_loader_dist_cjs_js_clonedRuleSet_21_use_3_vue_loader_lib_index_js_vue_loader_options_colorpicker_vue_vue_type_style_index_0_id_a55b5f40_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -92474,7 +92474,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_colors_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../../../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./trumbowyg.colors.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_colors_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../../../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./trumbowyg.colors.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.css");
 
             
 
@@ -92483,11 +92483,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_colors_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_colors_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_colors_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_colors_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -94505,7 +94505,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_table_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../../../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./trumbowyg.table.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/plugins/table/ui/trumbowyg.table.css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_table_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../../../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./trumbowyg.table.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/plugins/table/ui/trumbowyg.table.css");
 
             
 
@@ -94514,11 +94514,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_table_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_table_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_table_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_table_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -96965,7 +96965,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./trumbowyg.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/trumbowyg/dist/ui/trumbowyg.css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./trumbowyg.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/trumbowyg/dist/ui/trumbowyg.css");
 
             
 
@@ -96974,11 +96974,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_trumbowyg_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_trumbowyg_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -111167,7 +111167,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./vue-multiselect.min.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-multiselect/dist/vue-multiselect.min.css");
+/* harmony import */ var _laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./vue-multiselect.min.css */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-multiselect/dist/vue-multiselect.min.css");
 
             
 
@@ -111176,11 +111176,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_vue_multiselect_min_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -112454,7 +112454,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_17_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_17_use_2_vue_loader_lib_index_js_vue_loader_options_editor_vue_vue_type_style_index_0_id_56b68e14_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../style-loader/dist/cjs.js!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!../../vue-loader/lib/loaders/stylePostLoader.js!../../postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!../../vue-loader/lib/index.js??vue-loader-options!./editor.vue?vue&type=style&index=0&id=56b68e14&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-17.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-17.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css");
+/* harmony import */ var _style_loader_dist_cjs_js_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_18_use_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_dist_cjs_js_clonedRuleSet_18_use_2_vue_loader_lib_index_js_vue_loader_options_editor_vue_vue_type_style_index_0_id_56b68e14_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../style-loader/dist/cjs.js!../../laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!../../vue-loader/lib/loaders/stylePostLoader.js!../../postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!../../vue-loader/lib/index.js??vue-loader-options!./editor.vue?vue&type=style&index=0&id=56b68e14&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-18.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-18.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-quill-editor/src/editor.vue?vue&type=style&index=0&id=56b68e14&lang=css");
 
 
 /***/ }),
@@ -125973,6 +125973,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/front/order.scss":
+/*!*****************************************!*\
+  !*** ./resources/sass/front/order.scss ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/front/plp.scss":
 /*!***************************************!*\
   !*** ./resources/sass/front/plp.scss ***!
@@ -126164,6 +126177,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			"css/front/register": 0,
 /******/ 			"css/front/login": 0,
 /******/ 			"css/front/index": 0,
+/******/ 			"css/front/order": 0,
 /******/ 			"css/front/order-create": 0,
 /******/ 			"css/front/plp_without_cars": 0,
 /******/ 			"css/front/plp": 0,
@@ -126223,16 +126237,17 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/js/admin/admin.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/admin/admin.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/index.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/login.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/register.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/profile.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/car.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/plp.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/plp_without_cars.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/order-create.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/js/admin/admin.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/admin/admin.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/index.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/login.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/register.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/profile.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/car.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/plp.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/plp_without_cars.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/order-create.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/admin","css/front/register","css/front/login","css/front/index","css/front/order","css/front/order-create","css/front/plp_without_cars","css/front/plp","css/front/car","css/front/profile"], () => (__webpack_require__("./resources/sass/front/order.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

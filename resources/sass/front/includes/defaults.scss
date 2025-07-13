@@ -70,6 +70,9 @@ main {
     flex: 1;
     overflow-x: hidden;
 
+    @media (max-width: $mobile-max-width) {
+        margin-top: 60px;
+    }
 }
 
 .desktop-disable {

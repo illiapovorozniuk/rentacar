@@ -13,11 +13,24 @@ $locale = app()->getLocale();
         <div class="orders_info">
             <h2>{{trans('front.profile.your_orders')}}</h2>
             <div class="orders_list">
-
                 @foreach($orders as $order)
                     @include('front.template-parts.profile-order', ['order' => $order])
                 @endforeach
             </div>
+            <button id="load-more-orders"
+                    data-current-page="1"
+                    data-max-pages="{{$orders->lastPage()}}">
+                {{trans('front.order.load_more')}}
+                <svg fill="#000000" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M7 12v-2l-4 3 4 3v-2h2.997A6.006 6.006 0 0 0 16 8h-2a4 4 0 0 1-3.996 4H7zM9 2H6.003A6.006 6.006 0 0 0 0 8h2a4 4 0 0 1 3.996-4H9v2l4-3-4-3v2z"
+                            fill-rule="evenodd"></path>
+                    </g>
+                </svg>
+            </button>
         </div>
         <form method="POST" action="{{ route('front.profile.update') }}" id="profile-form"
               enctype="multipart/form-data">
@@ -63,6 +76,11 @@ $locale = app()->getLocale();
 @section('script')
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
         const input = document.querySelector("#phone");
         const fullPhoneInput = document.querySelector("#full_phone");
         const iti = window.intlTelInput(input, {
@@ -86,6 +104,24 @@ $locale = app()->getLocale();
             document.getElementById('avatar-input').value = '';
             document.getElementById('remove_avatar').value = '1';
             $('#remove-avatar-btn').toggleClass('disabled');
+        });
+
+        // AJAX pagination for orders
+        document.getElementById('load-more-orders').addEventListener('click', function () {
+            const btn = this;
+            let currentPage = parseInt(btn.getAttribute('data-current-page'));
+            const maxPages = parseInt(btn.getAttribute('data-max-pages'));
+            if (currentPage >= maxPages) return;
+            btn.disabled = true;
+            $.get(`/profile?page=${currentPage + 1}`, function(html) {
+                document.querySelector('.orders_list').insertAdjacentHTML('beforeend', html);
+                currentPage++;
+                btn.setAttribute('data-current-page', currentPage);
+                if (currentPage >= maxPages) {
+                    btn.style.display = 'none';
+                }
+                btn.disabled = false;
+            });
         });
     </script>
 @endsection

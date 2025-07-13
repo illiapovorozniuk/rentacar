@@ -17,7 +17,21 @@ class ProfileController extends Controller
     public function editProfile()
     {
         $user = Auth::user();
-        $orders = $user->orders()->with('car')->latest()->paginate(5);
+        // Get page from request (default 1)
+        $page = request()->get('page', 1);
+        $orders = $user->orders()->with('car')->latest()->paginate(3, ['*'], 'page', $page);
+
+        // If AJAX request, return only the orders partials as HTML
+        $request = request();
+        if ($request->ajax()) {
+            $html = '';
+            $locale = app()->getLocale();
+            foreach ($orders as $order) {
+                $html .= view('front.template-parts.profile-order', ['order' => $order, 'locale'=>$locale])->render();
+            }
+            return response($html);
+        }
+
         return view('front.profile.edit', compact('user', 'orders'));
     }
 

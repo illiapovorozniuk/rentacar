@@ -1,0 +1,144 @@
+@use "includes/variables-mixins" as *;
+@import "includes/defaults";
+@import "includes/header";
+
+
+.container_with_separators {
+    @include max-width();
+
+    .order_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 90px;
+
+        @media (max-width: $mobile-max-width) {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .car_info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .car_image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+                background-size: cover !important;
+                background-position: center !important;
+                border-radius: 15px;
+            }
+
+            .rent_parameters {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                > div {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        min-width: 20px;
+
+                    }
+
+                    &.warning {
+                        svg {
+                            path {
+                                fill: $warning_yellow;
+                            }
+                        }
+                    }
+
+                    p {
+                        font-family: 'Inter';
+                        @include body-1;
+                        color: $neutral800;
+
+                        &::first-letter {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+
+        .end_section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .location {
+                flex: 1;
+
+                iframe {
+                    border-radius: 15px;
+                    height: 300px;
+
+                    @media (max-width: $mobile-max-width) {
+                        height: auto;
+                        aspect-ratio: 16/9;
+                    }
+                }
+
+                @media (max-width: $mobile-max-width) {
+                    .location_main_title {
+                        @include headline-s;
+                        margin-bottom: 20px;
+                    }
+                    iframe {
+                        border-radius: 15px;
+                    }
+                }
+            }
+
+            .not_payed_container {
+                border-radius: 15px;
+                background-color: $neutral100;
+                border: 2px solid $danger_dark;
+                padding: 0 20px 20px 20px;
+                overflow: hidden;
+                text-align: center;
+
+                .title {
+                    color: white;
+                    background-color: $danger_dark;
+                    margin-right: -20px;
+                    margin-left: -20px;
+                    padding-top: 5px;
+                    text-align: center;
+                    @include headline-s;
+                }
+
+                .total_price {
+                    color: $neutral800;
+                    margin-top: 10px;
+                    background-color: $warning_yellow;
+                    padding: 5px;
+                    border-radius: 10px;
+                    @include headline-m;
+
+
+                }
+
+                button {
+                    background: $success_light;
+                    border: 1px solid $success_dark;
+                    padding: 10px;
+                    border-radius: 10px;
+                    text-align: center;
+                    width: stretch;
+                    margin-top: 10px;
+                }
+
+            }
+        }
+
+    }
+}
