@@ -137,7 +137,7 @@ $types = Config::get('site.types');
             @if(count($bodies) > 1)
 
                 <div class="brand_item">
-                    <a href="{{ baseUrl() }}/{{ Config::get('services.bodies_link') }}"
+                    <a href="{{ baseUrl() }}{{ ROUTE::BODIES->value }}"
                        class="brand_list">{{ trans('front.header.bodies') }}
                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -162,7 +162,7 @@ $types = Config::get('site.types');
             @if(count($types) > 1)
 
                 <div class="brand_item">
-                    <a href="{{ baseUrl() }}/{{ Config::get('services.bodies_link') }}"
+                    <a href="{{ baseUrl() }}{{ ROUTE::TYPES->value }}"
                        class="brand_list">{{ trans('front.header.types') }}
                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                              xmlns="http://www.w3.org/2000/svg">

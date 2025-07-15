@@ -334,7 +334,7 @@
                 gap: 10px;
 
 
-                button, span {
+                button, a {
                     @include button-Large;
                     @include title-l;
                     @include button-effects();

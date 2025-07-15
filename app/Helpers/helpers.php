@@ -116,6 +116,12 @@ function typeUrl($typeSlug): string
     return url(baseUrl() . Route::TYPES->value . '/' . $typeSlug);
 }
 
+function carUrl($car_id): string
+{
+    return url(baseUrl() . Route::CAR->value . '/' . $car_id);
+}
+
+
 function createCarOrderUrl($car_id): string
 {
     return url(baseUrl() . '/create-order/' . $car_id);

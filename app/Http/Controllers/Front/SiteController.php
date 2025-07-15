@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Car;
 use App\Models\Page;
 use App\Enums\PageType;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -124,6 +125,57 @@ class SiteController extends Controller
         }
 
         return view('front.bodies', compact('page', 'h1', 'title', 'content', 'description', 'cover', 'bodies'));
+    }
+
+    public function bodyType($slug)
+    {
+        $body = BodyType::getBodyTypeBySlug($slug);
+        if ($body == null) {
+            abort(404);
+        }
+        $data = Car::getCarsByBodyId($body->id);
+
+        $data = Car::carsInfo($data->toArray());
+        $body_page = Page::where('type', PageType::BODY->value)->first();
+        if ($body_page == null) {
+            abort(404);
+        }
+        $touched_cars = Car::all()->where('status', 1)->where('car_body_type_id', '!=', $body_page->id)->take(4)->toArray();
+        $touched_cars = Car::carsInfo($touched_cars);
+        $h1 = str_replace('{slug}',$body->name,$body_page->h1);
+        $title = str_replace('{slug}',$body->nafme,$body_page->title);
+        $content = str_replace('{slug}',$body->name,$body_page->content);
+        $description = $body_page->description;
+        $curret_locale = app()->getLocale();
+        $faq_slug_replacement = $body->name;
+        if ($body_page->faq != null) {
+            $faqs = json_decode($body_page->faq);
+        } else {
+            $faqs = [];
+        }
+        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'body', 'faqs', 'touched_cars', 'faq_slug_replacement'));
+
+    }
+
+    public function types()
+    {
+        $page = Page::where('type', PageType::TYPES->value)->first();
+        if ($page == null) {
+            abort(404);
+        }
+        $title = $page->title;
+        $h1 = $page->h1;
+        $content = $page->content;
+        $description = $page->description;
+        $cover = $page->getMedia('cover');
+        $types = Type::all();
+        if ($page->faq != null) {
+            $faqs = json_decode($page->faq);
+        } else {
+            $faqs = [];
+        }
+
+        return view('front.types', compact('page', 'h1', 'title', 'content', 'description', 'cover', 'types'));
     }
 
     /**

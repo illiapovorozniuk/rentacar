@@ -1603,7 +1603,7 @@ header .header_content .end_section .login-btn:hover {
   display: flex;
   gap: 10px;
 }
-.cards_item .cards_item_info .item_bottom .reserve_buttons button, .cards_item .cards_item_info .item_bottom .reserve_buttons span {
+.cards_item .cards_item_info .item_bottom .reserve_buttons button, .cards_item .cards_item_info .item_bottom .reserve_buttons a {
   display: flex;
   align-items: center;
   width: -moz-fit-content;
@@ -1625,21 +1625,21 @@ header .header_content .end_section .login-btn:hover {
   border-radius: 60px;
   padding: 12.5px 20px;
 }
-.cards_item .cards_item_info .item_bottom .reserve_buttons button svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons span svg path {
+.cards_item .cards_item_info .item_bottom .reserve_buttons button svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons a svg path {
   fill: var(--main-color);
 }
-.cards_item .cards_item_info .item_bottom .reserve_buttons button:hover, .cards_item .cards_item_info .item_bottom .reserve_buttons button:active, .cards_item .cards_item_info .item_bottom .reserve_buttons button.active, .cards_item .cards_item_info .item_bottom .reserve_buttons span:hover, .cards_item .cards_item_info .item_bottom .reserve_buttons span:active, .cards_item .cards_item_info .item_bottom .reserve_buttons span.active {
+.cards_item .cards_item_info .item_bottom .reserve_buttons button:hover, .cards_item .cards_item_info .item_bottom .reserve_buttons button:active, .cards_item .cards_item_info .item_bottom .reserve_buttons button.active, .cards_item .cards_item_info .item_bottom .reserve_buttons a:hover, .cards_item .cards_item_info .item_bottom .reserve_buttons a:active, .cards_item .cards_item_info .item_bottom .reserve_buttons a.active {
   transition: all 0.2s ease;
   outline: none;
   color: white;
 }
-.cards_item .cards_item_info .item_bottom .reserve_buttons button:hover svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons button:active svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons button.active svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons span:hover svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons span:active svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons span.active svg path {
+.cards_item .cards_item_info .item_bottom .reserve_buttons button:hover svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons button:active svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons button.active svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons a:hover svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons a:active svg path, .cards_item .cards_item_info .item_bottom .reserve_buttons a.active svg path {
   fill: white;
 }
-.cards_item .cards_item_info .item_bottom .reserve_buttons button:active, .cards_item .cards_item_info .item_bottom .reserve_buttons button.active, .cards_item .cards_item_info .item_bottom .reserve_buttons span:active, .cards_item .cards_item_info .item_bottom .reserve_buttons span.active {
+.cards_item .cards_item_info .item_bottom .reserve_buttons button:active, .cards_item .cards_item_info .item_bottom .reserve_buttons button.active, .cards_item .cards_item_info .item_bottom .reserve_buttons a:active, .cards_item .cards_item_info .item_bottom .reserve_buttons a.active {
   background: var(--main-color) !important;
 }
-.cards_item .cards_item_info .item_bottom .reserve_buttons button:hover, .cards_item .cards_item_info .item_bottom .reserve_buttons span:hover {
+.cards_item .cards_item_info .item_bottom .reserve_buttons button:hover, .cards_item .cards_item_info .item_bottom .reserve_buttons a:hover {
   background: var(--additional-color);
 }
 .cards_item .cards_item_info .item_bottom .reserve_buttons .fixed_form {

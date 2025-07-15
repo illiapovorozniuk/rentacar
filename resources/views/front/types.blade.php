@@ -30,17 +30,16 @@ $current_locale = app()->getLocale();
                     <div class="brands_content_card">
 
                         <div class="brands_content">
-                            @foreach($bodies as $body)
+                            @foreach($types as $type)
 
-                                <a href="{{ baseUrl() }}/{{ Config::get('services.brands_link') }}/{{ $body['link'] }}">
+                                <a href="{{ baseUrl() }}/{{ Config::get('services.brands_link') }}/{{ $type['link'] }}">
                                     <div class="brand_info">
                                                                         <span class="brand_name">
-                                                                        {{ $body['name']}}
+                                                                        {{ $type['name']}}
                                                                         </span>
-                                        <span class="brand_count">{{$body['cars_count'].' '.trans('front.site.cars')}}</span>
+                                        <span class="brand_count">{{$type['cars_count'].' '.trans('front.site.cars')}}</span>
                                     </div>
                                     <div class="brand_image">
-                                        <img src="/images/site/body-types/{{$body['slug']}}.svg" alt="{{$body['name']}}" loading="lazy">
                                     </div>
                                 </a>
                             @endforeach

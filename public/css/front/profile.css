@@ -727,6 +727,7 @@ header .header_content .end_section .login-btn:hover {
   gap: 10px;
   overflow: auto;
   max-height: 580px;
+  border-radius: 10px;
 }
 .login_container .orders_info .orders_list .order_item {
   display: flex;

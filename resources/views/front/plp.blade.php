@@ -3,19 +3,16 @@
 <?php
 
 $current_locale = App::getLocale();
-
 $current_locale = Config::get("app.current_locale");
 if ($current_locale == NULL) {
     $current_locale = Config::get("app.fallback_locale");
 }
-$imageMeta = baseUrl() . $data[0]->photo;
-
 
 //$currency = (new \App\Models\RcCurrency)->getCurrencyData(Config::get('services.currency'));
 
 $getFilter = $_GET['sortBy'] ?? null;
-?>
 
+?>
 
 
 
@@ -48,10 +45,14 @@ $car_link = Config::get('services.car_link');
 {{--        @if($interlinking !== [] && $interlinking !== null )--}}
 {{--            @include('templates.smart-car-lover.template-parts.interlinks',['interlinking' => $interlinking, 'with_title' => false])--}}
 {{--        @endif--}}
+
+
         <div class="container_with_separators">
             @if(sizeof($data) == 0)
+
                     <?php abort(404) ?>
             @else
+
                 <div class="cards">
                     <div class="single_vertical_card_list">
                         @foreach($data as $car_index =>$car)

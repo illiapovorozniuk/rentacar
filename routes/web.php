@@ -26,8 +26,10 @@ if (Schema::hasTable('languages')) {
             ->group(function () {
                 Route::namespace('App\Http\Controllers\Front')->group(function () {
                     Route::get('/', 'SiteController@index')->name('home');
-                    Route::get('/' . RouteEnum::BRANDS->value, 'SiteController@brands')->name('brands');
                     Route::get('/' . RouteEnum::BODIES->value, 'SiteController@bodyTypes')->name('body-types');
+                    Route::get('/' . RouteEnum::BODIES->value . '/{slug}', 'SiteController@bodyType')->name('body-type');
+                    Route::get('/' . RouteEnum::TYPES->value, 'SiteController@types')->name('types');
+                    Route::get('/' . RouteEnum::BRANDS->value, 'SiteController@brands')->name('brands');
                     Route::get('/' . RouteEnum::BRANDS->value . '/{slug}', 'SiteController@brand')->name('brand');
                     Route::get('/' . RouteEnum::CAR->value . '/{id}', 'SiteController@car')->name('car');
                     Route::get('/login', 'AuthController@showLoginForm')->name('login');

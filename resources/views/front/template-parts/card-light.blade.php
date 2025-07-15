@@ -6,7 +6,7 @@ $current_currency = Config::get('site.current_currency');
 ?>
 
 <div class="card_light">
-    <a href="{{$car_link}}">
+    <a href="{{carUrl($car->id)}}">
         <div class="img_container">
             <img src="{{$car->main_photo}}" alt="{{$car->slug}}" class="main_img"
                  @if($car_index??1!=0)loading="lazy"@endif/>

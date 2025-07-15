@@ -32,7 +32,7 @@ $current_locale = app()->getLocale();
                         <div class="brands_content">
                             @foreach($brands as $brand)
 
-                                <a href="{{ baseUrl() }}/{{ Config::get('services.brands_link') }}/{{ $brand['link'] }}">
+                                <a href="{{ brandUrl($brand->slug) }}">
                                     <div class="brand_info">
                                                                         <span class="brand_name">
                                                                         {{ $brand['name']}}

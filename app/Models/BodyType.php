@@ -80,6 +80,11 @@ use HasTranslations;
     {
         return $this->hasMany(Car::class, 'car_body_type_id');
     }
+
+    public static function getBodyTypeBySlug($slug)
+    {
+        return self::where('slug', $slug)->first();
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()

@@ -20,7 +20,7 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
     <div class="cards_item_img slider">
 
 
-        <a href="$single_link">
+        <a href="{{carUrl($car->id)}}">
 
 
             <div class="slider-content">
@@ -58,7 +58,7 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
                  height="40px" width="40px">
             <div class="info_description">
 
-                <a href="$single_link">
+                <a href="{{carUrl($car->id)}}">
                     <p class="car_title">{{$car->color_name.' '.ucfirst($car->brand_slug).' '.ucfirst($car->car_model_slug).', '.$car->attribute_year }}</p></a>
                 {{--                <p class="item_header_parameters">--}}
                 {{--                    {{ $bodies->where('car_body_id', $car->car_body_id)->first()['name'] }},--}}
@@ -211,8 +211,8 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
             </div>
             <div class="reserve_buttons">
                 @if($car->status == 1)
-                    <span class="fixed_form" data-id="{{$car->id}}"
-                          data-title="{{$car->color.' '.$car->car_title.', '.$car->attribute_year }}"> {{trans('trans_rentacar.car.rent_now')}}</span>
+                    <a href="{{createCarOrderUrl($car->id) }}" class="fixed_form" data-id="{{$car->id}}"
+                          data-title="{{$car->color.' '.$car->car_title.', '.$car->attribute_year }}"> {{trans('trans_rentacar.car.rent_now')}}</a>
                 @endif
             </div>
         </div>
