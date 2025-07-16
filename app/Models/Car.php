@@ -365,6 +365,12 @@ class Car extends Model implements HasMedia
     public static function getCarsByBodyId(int $bodyId){
        return self::query()->where('car_body_type_id', $bodyId)->get();
     }
+    public static function getCarsByTypeId(int $typeId)
+    {
+        return self::whereHas('model.types', function ($q) use ($typeId) {
+            $q->where('id', $typeId);
+        })->get();
+    }
 
     /* ************************ ACCESSOR ************************* */
 

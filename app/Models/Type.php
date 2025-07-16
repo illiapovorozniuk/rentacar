@@ -69,6 +69,9 @@ use HasTranslations;
 
     protected $appends = ['resource_url'];
 
+    public static function getTypeBySlug($slug){
+        return self::query()->where('slug', $slug)->first();
+    }
     /* ************************ ACCESSOR ************************* */
 
     public function getResourceUrlAttribute()

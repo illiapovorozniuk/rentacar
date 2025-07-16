@@ -178,6 +178,38 @@ class SiteController extends Controller
         return view('front.types', compact('page', 'h1', 'title', 'content', 'description', 'cover', 'types'));
     }
 
+    public function type($slug)
+    {
+        $type = Type::getTypeBySlug($slug);
+        if ($type == null) {
+            abort(404);
+        }
+        $data = Car::getCarsByBodyId($type->id);
+        if(count($data) == 0){
+            abort(404);
+        }
+
+        $data = Car::carsInfo($data->toArray());
+        $type_page = Page::where('type', PageType::TYPE->value)->first();
+        if ($type_page == null) {
+            abort(404);
+        }
+        $touched_cars = Car::all()->where('status', 1)->take(4)->toArray();
+        $touched_cars = Car::carsInfo($touched_cars);
+        $h1 = str_replace('{slug}',$type->name,$type->h1);
+        $title = str_replace('{slug}',$type->nafme,$type_page->title);
+        $content = str_replace('{slug}',$type->name,$type_page->content);
+        $description = $type_page->description;
+        $curret_locale = app()->getLocale();
+        $faq_slug_replacement = $type->name;
+        if ($type_page->faq != null) {
+            $faqs = json_decode($type_page->faq);
+        } else {
+            $faqs = [];
+        }
+        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'type', 'faqs', 'touched_cars', 'faq_slug_replacement'));
+
+    }
     /**
      * @OA\Get(
      *     path="/car/{id}",

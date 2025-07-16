@@ -10,42 +10,37 @@
                     <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                 </svg>
             </a>
-            <div class="row">
-                <div class="col">
-                    <div class="collapse multi-collapse" id="SideBarSettings" style="padding-left: 2px;">
-                        <li class="nav-item"><a class="nav-link" href="{{ url('admin/brands') }}">
-{{--                                <img src="{{ asset('images/admin/sidebar/brands.svg') }}" alt="brands"/>--}}
-                                <i class="nav-icon icon-badge"></i>
-                                {{ trans('admin.brand.title') }}
-                            </a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('admin/body-types') }}">
-{{--                                <img src="{{ asset('images/admin/sidebar/body-types.svg') }}" alt="body-types"/>--}}
-                                <i class="nav-icon icon-puzzle"></i>
-                                {{ trans('admin.body-type.title') }}
-                            </a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('admin/types') }}">
-{{--                                <img src="{{ asset('images/admin/sidebar/types.svg') }}" alt="types"/>--}}
-                                <i class="nav-icon icon-organization"></i>
-                                {{ trans('admin.type.title') }}
-                            </a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/car-models') }}"><i class="nav-icon icon-layers"></i> {{ trans('admin.car-model.title') }}
-                            </a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/fuels') }}">
-{{--                                <img height="25" width="50" src="{{ asset('images/admin/sidebar/fuels.svg') }}" alt="types"/> --}}
-                                <i class="nav-icon icon-energy"></i>
-                                {{ trans('admin.fuel.title') }}
-                            </a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/cars-colors') }}"><i class="nav-icon icon-pencil"></i> {{ trans('admin.cars-color.title') }}
-                            </a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin/cars') }}"><i class="nav-icon icon-trophy"></i> {{ trans('admin.car.title') }}
-                            </a></li>
-                    </div>
-                </div>
-            </div>
+
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/brands') }}">
+                    {{--                                <img src="{{ asset('images/admin/sidebar/brands.svg') }}" alt="brands"/>--}}
+                    <i class="nav-icon icon-badge"></i>
+                    {{ trans('admin.brand.title') }}
+                </a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/body-types') }}">
+                    {{--                                <img src="{{ asset('images/admin/sidebar/body-types.svg') }}" alt="body-types"/>--}}
+                    <i class="nav-icon icon-puzzle"></i>
+                    {{ trans('admin.body-type.title') }}
+                </a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url('admin/types') }}">
+                    {{--                                <img src="{{ asset('images/admin/sidebar/types.svg') }}" alt="types"/>--}}
+                    <i class="nav-icon icon-organization"></i>
+                    {{ trans('admin.type.title') }}
+                </a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('admin/car-models') }}"><i class="nav-icon icon-layers"></i> {{ trans('admin.car-model.title') }}
+                </a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('admin/fuels') }}">
+                    {{--                                <img height="25" width="50" src="{{ asset('images/admin/sidebar/fuels.svg') }}" alt="types"/> --}}
+                    <i class="nav-icon icon-energy"></i>
+                    {{ trans('admin.fuel.title') }}
+                </a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('admin/cars-colors') }}"><i class="nav-icon icon-pencil"></i> {{ trans('admin.cars-color.title') }}
+                </a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('admin/cars') }}"><i class="nav-icon icon-trophy"></i> {{ trans('admin.car.title') }}
+                </a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('admin/pages') }}"><i class="nav-icon icon-docs"></i> {{ trans('admin.page.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/cities') }}"><i class="nav-icon icon-star"></i> {{ trans('admin.city.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ url('admin/orders') }}"><i class="nav-icon icon-plane"></i> {{ trans('admin.order.title') }}</a></li>
