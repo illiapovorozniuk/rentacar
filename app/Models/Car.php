@@ -281,10 +281,10 @@ class Car extends Model implements HasMedia
         $photos = [];
         if (isset($media_photos[0])) {
             $path_parts = pathinfo($media_photos[0]->getUrl('minifiedWebp'));
-            $main_photo = $path_parts['dirname'] . '/' . $path_parts['basename'];
+            $main_photo = str_replace(['-minifiedWebp','conversions/'],'',$path_parts['dirname'] . '/' . $path_parts['basename']);
             foreach ($media_photos as $photo) {
                 $path_parts = pathinfo($photo->getUrl('minifiedWebp'));
-                $photos[] = $path_parts['dirname'] . '/' . $path_parts['basename'];
+                $photos[] = str_replace(['-minifiedWebp','conversions/'],'',$path_parts['dirname'] . '/' . $path_parts['basename']);
             }
         }
         $car = self::query()
@@ -346,10 +346,13 @@ class Car extends Model implements HasMedia
             $photos = [];
             if (isset($media_photos[0])) {
                 $path_parts = pathinfo($media_photos[0]->getUrl('minifiedWebp'));
-                $main_photo = $path_parts['dirname'] . '/' . $path_parts['basename'];
+//                dd($path_parts);
+//                $main_photo =  $path_parts['dirname'] . '/' . $path_parts['basename'];
+                $main_photo =  str_replace(['-minifiedWebp','conversions/'],'',$path_parts['dirname'] . '/' . $path_parts['basename']);
+//                dd($path_parts);
                 foreach ($media_photos as $photo) {
                     $path_parts = pathinfo($photo->getUrl('minifiedWebp'));
-                    $photos[] = $path_parts['dirname'] . '/' . $path_parts['basename'];
+                    $photos[] =  str_replace(['-minifiedWebp','conversions/'],'',$path_parts['dirname'] . '/' . $path_parts['basename']);
                 }
             }
             $car['main_photo'] = $main_photo;

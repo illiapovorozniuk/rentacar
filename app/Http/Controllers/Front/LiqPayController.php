@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Enums\OrderType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\LiqPay;
@@ -61,6 +62,7 @@ class LiqPayController extends Controller
         // Оновлення статусу замовлення та збереження liqpay_payment_id і payment_status
         if ($decodedData['status'] === 'success' || $decodedData['status'] === 'sandbox') {
             $order->payment_status = 'paid'; // або ваш статус
+            $order->status = OrderType::STATUS_CONFIRMED->value; // або ваш статус
             $order->liqpay_payment_id = $decodedData['payment_id'] ?? null;
             $order->save();
         } elseif ($decodedData['status'] === 'failure') {

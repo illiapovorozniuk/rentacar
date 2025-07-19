@@ -17,7 +17,7 @@ $order_currency = $order->currency;
                 $label = __('front.order.in_process');
                 $class = 'label-process';
             } else {
-                $label = __('front.order.done');
+                $label = __('front.order.completed');
                 $class = 'label-done';
             }
         @endphp
@@ -31,6 +31,7 @@ $order_currency = $order->currency;
         <p class="order_date">
             {{ \Carbon\Carbon::parse($order->date_from)->locale(App::getLocale())->isoFormat('D MMMM Y') }}
             @if($order->date_from !== $order->date_to)
+                –
              {{ \Carbon\Carbon::parse($order->date_to)->locale(App::getLocale())->isoFormat('D MMMM Y') }}
             @endif
         </p>

@@ -81,7 +81,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                             $second = formatNumberString(getCurrentPrice($data->price_1));
                             $first = getCurrentPrice($data->price_7 * 7);
                             $last = getCurrentPrice($data->price_30 * 30);
-//                            $currentName = trans('trans_rentacar.car.per_day');
+//                            $currentName = trans('front.site.per_day');
 //                            $currentPrice = $daylyFunc;
 //
 //                            $phpData = $site->cars_config;
@@ -155,7 +155,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                 <div class="car_price_block">
                                     @if($data->min_day_reservation < 7)
                                         <p id="price">{{$second.' '. $current_currency->sign}}</p>
-                                        <p class="date_range">{{trans('trans_rentacar.car.per_day')}}</p>
+                                        <p class="date_range">{{trans('front.site.per_day')}}</p>
                                     @elseif($data->min_day_reservation < 30)
                                         <p id="price">{{$first .' '. $current_currency->sign}}</p>
                                         <p class="date_range">{{trans('front.site.per_week')}}</p>
@@ -352,7 +352,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                         <div class="car_price_block">
                             @if($data->min_day_reservation < 7)
                                 <p id="price">{{$second.' '. $current_currency->sign}}</p>
-                                <p class="date_range">{{trans('trans_rentacar.car.per_day')}}</p>
+                                <p class="date_range">{{trans('front.site.per_day')}}</p>
                             @elseif($data->min_day_reservation < 30)
                                 <p id="price">{{$first.' '. $current_currency->sign}}</p>
                                 <p class="date_range">{{trans('front.site.per_week')}}</p>

@@ -16,7 +16,7 @@
                         <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/cars/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.car.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
-                        <div class="card-block">
+                        <div class="card-block overflow-auto">
                             <form @submit.prevent="">
                                 <div class="row justify-content-md-between">
                                     <div class="col col-lg-7 col-xl-5 form-group">
@@ -83,7 +83,7 @@
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.car_model_slug }}</td>
                                         <td class="text-center"><img :src="'{{ url('uploads') }}/images/brands/' + item.brand_slug+'.webp'" alt="Icon" style="max-height: 50px;"><p>@{{ item.brand_slug }}</p></td>
-                                        <td class="d-flex" style="place-content: flex-start;place-items: center"><img :src="item.main_photo" alt="" style="max-height: 100px; max-width: 160px; border-radius: 5px;" loading="lazy">@{{ item.path }}</td>
+                                        <td class="d-flex" style="place-content: flex-start;place-items: center"><img :src="item.main_photo" alt="" style="min-height: 100px; min-width: 160px; max-height: 100px; max-width: 160px; border-radius: 5px; object-fit: cover; width: 100%; height: 100px" loading="lazy">@{{ item.path }}</td>
 
                                         <td>@{{ item.availability_label }}</td>
                                         <td>@{{ item.price_1 }}</td>

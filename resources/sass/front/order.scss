@@ -97,7 +97,19 @@
                     }
                 }
             }
+            .address{
+                @include subtitle-1;
+            }
+            .cancelled_container{
+                border-radius: 15px;
+                background-color: $danger_light;
+                border: 2px solid $danger_dark;
+                padding: 20px;
+                overflow: hidden;
+                text-align: center;
+                @include subtitle-1();
 
+            }
             .not_payed_container {
                 border-radius: 15px;
                 background-color: $neutral100;
@@ -138,7 +150,36 @@
                 }
 
             }
-        }
 
+            .payed_container {
+                border-radius: 15px;
+                background-color: $neutral100;
+                border: 2px solid $success_dark;
+                padding: 0 20px 20px 20px;
+                overflow: hidden;
+                text-align: center;
+
+                .title {
+                    color: white;
+                    background-color: $success_dark;
+                    margin-right: -20px;
+                    margin-left: -20px;
+                    padding-top: 5px;
+                    text-align: center;
+                    @include headline-s;
+                }
+
+                .total_price {
+                    color: $neutral800;
+                    margin-top: 10px;
+                    background-color: $warning_yellow;
+                    padding: 5px;
+                    border-radius: 10px;
+                    @include headline-m;
+
+
+                }
+            }
+        }
     }
 }

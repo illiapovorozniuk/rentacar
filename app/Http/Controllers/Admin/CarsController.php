@@ -78,6 +78,13 @@ class CarsController extends Controller
      */
     public function index(IndexCar $request)
     {
+        // Якщо не задано сортування, встановлюємо за замовчуванням -id
+        if (!$request->has('orderBy') && !$request->has('orderDirection')) {
+            $request->merge([
+                'orderBy' => 'id',
+                'orderDirection' => 'desc',
+            ]);
+        }
         // create and AdminListing instance for a specific model and
         $data = AdminListing::create(Car::class)->processRequestAndGet(
             // pass the request with params
@@ -177,6 +184,8 @@ class CarsController extends Controller
         $sanitized['car_slug'] = $request['car_model']['slug'];
         $sanitized['color_id'] = $request->getCarsColorId();
         $sanitized['fuel_id'] = $request->getFuelId();
+        $sanitized['city_id'] = $request->getCityID();
+
         // Store the Car
         $car = Car::create($sanitized);
 
@@ -271,6 +280,7 @@ class CarsController extends Controller
         $sanitized['color_id'] = $request->getCarsColorId();
         $sanitized['fuel_id'] = $request->getFuelId();
         $sanitized['city_id'] = $request->getCityID();
+
         // Update changed values Car
         $car->update($sanitized);
 

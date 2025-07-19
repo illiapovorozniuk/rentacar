@@ -144,7 +144,7 @@ $locale = config('app.locale');
         const delivery = {{$car->free_delivery}};
 
 
-        const disabledDates = @json($disabledDates ?? ['2025-07-15', '2025-07-16', '2025-07-25']);
+        const disabledDates = @json($disabledDates ?? []);
 
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate());

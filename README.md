@@ -34,7 +34,7 @@ php artisan l5-swagger:generate
 
 -   Privacy Policy: [privacy-policy.md](privacy-policy.md)
 
-## Installation
+## Installation Setup + Start
 
 ```bash
 composer install
@@ -43,6 +43,7 @@ php artisan key:generate
 php artisan migrate
 php artisan storage:link
 php artisan serve
+php artisan queue:work 
 ```
 
 ## Admin Setup

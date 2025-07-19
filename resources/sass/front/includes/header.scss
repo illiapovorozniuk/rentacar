@@ -8,6 +8,9 @@ header {
     z-index: 3;
     width: 100%;
     background: $neutral100;
+    @media (min-width: $desktop-min-width) {
+        margin-bottom: 30px !important;
+    }
 
     &.home {
         position: absolute;
@@ -32,6 +35,7 @@ header {
         @include max-width();
         position: relative;
 
+
         .burger {
             display: none;
         }
@@ -44,7 +48,13 @@ header {
             padding-inline-end: 66px;
             margin: 0 auto;
 
-
+            &:first-child {
+                @media (min-width: $desktop-min-width) {
+                    width: 100%;
+                    justify-content: center;
+                    margin-inline-start: auto;
+                }
+            }
 
             .brand_list {
                 display: flex;
@@ -200,11 +210,22 @@ header {
             position: relative;
             align-items: center;
             inset-inline-end: 0;
+            gap: 15px;
 
+            @media (min-width: $desktop-min-width) {
+                margin-inline-start: auto;
+                position: absolute;
+            }
             @media (max-width: $mobile-max-width) {
                 position: relative;
+                flex-wrap: wrap;
             }
+            .profile{
+                position: fixed;
+                inset-inline-end: 15px;
+                top: 15px;
 
+            }
             .param {
                 align-items: center;
                 padding-right: 5px;
@@ -247,7 +268,9 @@ header {
                     .currencies {
                         display: flex;
                         flex: 1;
-
+                        @media (max-width: $mobile-max-width) {
+                            flex-direction: row;
+                        }
                         span {
                             @include title-m;
                             border-radius: 10px;
@@ -308,12 +331,19 @@ header {
                 }
             }
 
-            .login-btn{
+            .login-btn {
                 justify-content: space-between;
                 padding: 15px 20px;
                 border-radius: 15px;
-
-
+                @media (max-width: $mobile-max-width) {
+                    width: unset;
+                    flex: 1;
+                    text-align: center;
+                    background: $neutral200;
+                    &:hover {
+                        background: $neutral300 !important;
+                    }
+                }
                 &:hover {
                     background-color: #0000000D !important;
                 }
@@ -482,6 +512,7 @@ header {
                     flex-direction: column;
                     padding-inline-start: 0;
                     padding-inline-end: 0;
+                    width: stretch;
 
                     .params_header {
                         display: flex;
@@ -512,10 +543,9 @@ header {
 
                         .currencies {
                             display: flex;
-                            flex-direction: column;
 
                             span {
-                                text-align: unset;
+                                text-align: center;
                                 padding-inline-start: 25px;
                             }
                         }
@@ -525,6 +555,9 @@ header {
                         }
 
                         .languages {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 15px;
                             .current {
                                 width: unset;
                             }
@@ -534,6 +567,7 @@ header {
                                 padding: 10px;
                                 padding-inline-start: 25px;
                                 width: -webkit-fill-available;
+                                justify-content: center;
 
                             }
                         }

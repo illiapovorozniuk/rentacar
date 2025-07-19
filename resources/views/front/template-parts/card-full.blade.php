@@ -161,7 +161,7 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
         $second = formatNumberString(getCurrentPrice($car->price_1));
         $first = formatNumberString(getCurrentPrice($car->price_7 * 7));
         $last = formatNumberString(getCurrentPrice($car->price_30 * 30));
-//        $currentName = trans('trans_rentacar.car.per_day');
+//        $currentName = trans('front.site.per_day');
 //
 //        if ($car->p_type == 'week') {
 //            $second = $trimmedWeekly;
@@ -182,10 +182,10 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
             <div class="car_price_block">
                 @if($car->min_day_reservation < 7)
                     <p id="price">{{$second .' '. $current_currency->sign}} </p>
-                    <p class="date_range">{{trans('trans_rentacar.car.per_day')}}</p>
+                    <p class="date_range">{{trans('front.site.per_day')}}</p>
                     <div class="price_parameters">
                         <span price_parameter="per_day" price_value="{{$second .' '. $current_currency->sign}}"
-                              price_name="{{trans('trans_rentacar.car.per_day')}}"></span>
+                              price_name="{{trans('front.site.per_day')}}"></span>
                         <span price_parameter="per_week" price_value="{{$first .' '. $current_currency->sign}}"
                               price_name="{{ trans('front.site.per_week') }}"></span>
                         <span price_parameter="per_month" price_value="{{$last .' '. $current_currency->sign}}"

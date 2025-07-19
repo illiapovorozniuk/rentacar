@@ -165,6 +165,11 @@ header {
   width: 100%;
   background: #F7F7F7;
 }
+@media (min-width: 769px) {
+  header {
+    margin-bottom: 30px !important;
+  }
+}
 header.home {
   position: absolute;
   z-index: 7;
@@ -215,6 +220,13 @@ header .header_content .pages {
   justify-content: start;
   padding-inline-end: 66px;
   margin: 0 auto;
+}
+@media (min-width: 769px) {
+  header .header_content .pages:first-child {
+    width: 100%;
+    justify-content: center;
+    margin-inline-start: auto;
+  }
 }
 header .header_content .pages .brand_list {
   display: flex;
@@ -379,11 +391,24 @@ header .header_content .end_section {
   position: relative;
   align-items: center;
   inset-inline-end: 0;
+  gap: 15px;
+}
+@media (min-width: 769px) {
+  header .header_content .end_section {
+    margin-inline-start: auto;
+    position: absolute;
+  }
 }
 @media (max-width: 768px) {
   header .header_content .end_section {
     position: relative;
+    flex-wrap: wrap;
   }
+}
+header .header_content .end_section .profile {
+  position: fixed;
+  inset-inline-end: 15px;
+  top: 15px;
 }
 header .header_content .end_section .param {
   align-items: center;
@@ -415,6 +440,11 @@ header .header_content .end_section .param .param_items {
 header .header_content .end_section .param .param_items .currencies {
   display: flex;
   flex: 1;
+}
+@media (max-width: 768px) {
+  header .header_content .end_section .param .param_items .currencies {
+    flex-direction: row;
+  }
 }
 header .header_content .end_section .param .param_items .currencies span {
   font-size: 16px;
@@ -474,6 +504,17 @@ header .header_content .end_section .login-btn {
   justify-content: space-between;
   padding: 15px 20px;
   border-radius: 15px;
+}
+@media (max-width: 768px) {
+  header .header_content .end_section .login-btn {
+    width: unset;
+    flex: 1;
+    text-align: center;
+    background: #E6E6E6;
+  }
+  header .header_content .end_section .login-btn:hover {
+    background: #C9C9C9 !important;
+  }
 }
 header .header_content .end_section .login-btn:hover {
   background-color: rgba(0, 0, 0, 0.0509803922) !important;
@@ -624,6 +665,9 @@ header .header_content .end_section .login-btn:hover {
     flex-direction: column;
     padding-inline-start: 0;
     padding-inline-end: 0;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: stretch;
   }
   header .header_content .pages .param .params_header {
     display: flex;
@@ -652,14 +696,18 @@ header .header_content .end_section .login-btn:hover {
   }
   header .header_content .pages .param .param_items .currencies {
     display: flex;
-    flex-direction: column;
   }
   header .header_content .pages .param .param_items .currencies span {
-    text-align: unset;
+    text-align: center;
     padding-inline-start: 25px;
   }
   header .header_content .pages .param .param_items hr {
     margin: 12px 0;
+  }
+  header .header_content .pages .param .param_items .languages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
   header .header_content .pages .param .param_items .languages .current {
     width: unset;
@@ -668,6 +716,7 @@ header .header_content .end_section .login-btn:hover {
     padding: 10px;
     padding-inline-start: 25px;
     width: -webkit-fill-available;
+    justify-content: center;
   }
 }
 
@@ -729,6 +778,12 @@ header .header_content .end_section .login-btn:hover {
   max-height: 580px;
   border-radius: 10px;
 }
+@media (max-width: 768px) {
+  .login_container .orders_info .orders_list {
+    gap: 30px;
+    max-height: 780px;
+  }
+}
 .login_container .orders_info .orders_list .order_item {
   display: flex;
   gap: 10px;
@@ -736,6 +791,8 @@ header .header_content .end_section .login-btn:hover {
 @media (max-width: 768px) {
   .login_container .orders_info .orders_list .order_item {
     flex-direction: column;
+    border: 1px solid #595959;
+    border-radius: 10px;
   }
 }
 .login_container .orders_info .orders_list .order_item .oder_img {
@@ -802,6 +859,11 @@ header .header_content .end_section .login-btn:hover {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+@media (max-width: 768px) {
+  .login_container .orders_info .orders_list .order_item .order_item_info {
+    margin: 10px;
+  }
 }
 .login_container .orders_info .orders_list .order_item .order_item_info .order_name {
   color: #181818;
@@ -939,6 +1001,11 @@ header .header_content .end_section .login-btn:hover {
   .logout {
     max-width: calc(100% - 40px);
     margin: 0 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .logout {
+    margin-top: 15px;
   }
 }
 .logout button {

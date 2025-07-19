@@ -22,6 +22,7 @@
         gap: 60px;
 
         @include max-width();
+
         .brands_layout {
             overflow: hidden;
             width: 100%;
@@ -275,6 +276,23 @@
 
     }
 }
-.cards_content{
+
+.cards_content {
     @include max-width
+}
+
+.card_list_default .list_content_layout .list_content {
+    @include max-width();
+    @media (max-width: $mobile-max-width) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: $desktop-min-width) {
+    .header_content-logo, .globe {
+        filter: invert(1);
+
+    }
 }

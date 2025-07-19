@@ -165,6 +165,11 @@ header {
   width: 100%;
   background: #F7F7F7;
 }
+@media (min-width: 769px) {
+  header {
+    margin-bottom: 30px !important;
+  }
+}
 header.home {
   position: absolute;
   z-index: 7;
@@ -215,6 +220,13 @@ header .header_content .pages {
   justify-content: start;
   padding-inline-end: 66px;
   margin: 0 auto;
+}
+@media (min-width: 769px) {
+  header .header_content .pages:first-child {
+    width: 100%;
+    justify-content: center;
+    margin-inline-start: auto;
+  }
 }
 header .header_content .pages .brand_list {
   display: flex;
@@ -379,11 +391,24 @@ header .header_content .end_section {
   position: relative;
   align-items: center;
   inset-inline-end: 0;
+  gap: 15px;
+}
+@media (min-width: 769px) {
+  header .header_content .end_section {
+    margin-inline-start: auto;
+    position: absolute;
+  }
 }
 @media (max-width: 768px) {
   header .header_content .end_section {
     position: relative;
+    flex-wrap: wrap;
   }
+}
+header .header_content .end_section .profile {
+  position: fixed;
+  inset-inline-end: 15px;
+  top: 15px;
 }
 header .header_content .end_section .param {
   align-items: center;
@@ -415,6 +440,11 @@ header .header_content .end_section .param .param_items {
 header .header_content .end_section .param .param_items .currencies {
   display: flex;
   flex: 1;
+}
+@media (max-width: 768px) {
+  header .header_content .end_section .param .param_items .currencies {
+    flex-direction: row;
+  }
 }
 header .header_content .end_section .param .param_items .currencies span {
   font-size: 16px;
@@ -474,6 +504,17 @@ header .header_content .end_section .login-btn {
   justify-content: space-between;
   padding: 15px 20px;
   border-radius: 15px;
+}
+@media (max-width: 768px) {
+  header .header_content .end_section .login-btn {
+    width: unset;
+    flex: 1;
+    text-align: center;
+    background: #E6E6E6;
+  }
+  header .header_content .end_section .login-btn:hover {
+    background: #C9C9C9 !important;
+  }
 }
 header .header_content .end_section .login-btn:hover {
   background-color: rgba(0, 0, 0, 0.0509803922) !important;
@@ -624,6 +665,9 @@ header .header_content .end_section .login-btn:hover {
     flex-direction: column;
     padding-inline-start: 0;
     padding-inline-end: 0;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: stretch;
   }
   header .header_content .pages .param .params_header {
     display: flex;
@@ -652,14 +696,18 @@ header .header_content .end_section .login-btn:hover {
   }
   header .header_content .pages .param .param_items .currencies {
     display: flex;
-    flex-direction: column;
   }
   header .header_content .pages .param .param_items .currencies span {
-    text-align: unset;
+    text-align: center;
     padding-inline-start: 25px;
   }
   header .header_content .pages .param .param_items hr {
     margin: 12px 0;
+  }
+  header .header_content .pages .param .param_items .languages {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
   header .header_content .pages .param .param_items .languages .current {
     width: unset;
@@ -668,6 +716,7 @@ header .header_content .end_section .login-btn:hover {
     padding: 10px;
     padding-inline-start: 25px;
     width: -webkit-fill-available;
+    justify-content: center;
   }
 }
 
@@ -778,6 +827,26 @@ header .header_content .end_section .login-btn:hover {
     border-radius: 15px;
   }
 }
+.container_with_separators .order_container .end_section .address {
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: none;
+  letter-spacing: 0em;
+  font-weight: 400;
+}
+.container_with_separators .order_container .end_section .cancelled_container {
+  border-radius: 15px;
+  background-color: #FFEBEE;
+  border: 2px solid #B61A20;
+  padding: 20px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: none;
+  letter-spacing: 0em;
+  font-weight: 400;
+}
 .container_with_separators .order_container .end_section .not_payed_container {
   border-radius: 15px;
   background-color: #F7F7F7;
@@ -821,4 +890,37 @@ header .header_content .end_section .login-btn:hover {
   width: -moz-available;
   width: stretch;
   margin-top: 10px;
+}
+.container_with_separators .order_container .end_section .payed_container {
+  border-radius: 15px;
+  background-color: #F7F7F7;
+  border: 2px solid #1E5D25;
+  padding: 0 20px 20px 20px;
+  overflow: hidden;
+  text-align: center;
+}
+.container_with_separators .order_container .end_section .payed_container .title {
+  color: white;
+  background-color: #1E5D25;
+  margin-right: -20px;
+  margin-left: -20px;
+  padding-top: 5px;
+  text-align: center;
+  font-size: 22px;
+  line-height: 30px;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-weight: 700;
+}
+.container_with_separators .order_container .end_section .payed_container .total_price {
+  color: #181818;
+  margin-top: 10px;
+  background-color: #FABE42;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 30px;
+  line-height: 35px;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-weight: 800;
 }

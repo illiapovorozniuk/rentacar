@@ -41,7 +41,7 @@ class StoreCar extends FormRequest
             'min_day_reservation' => ['required', 'integer'],
             'free_delivery' => ['required', 'integer'],
             'registration_number' => ['required', 'string'],
-            'cars_color' => ['required'],
+//            'cars_color' => ['required'],
             'fuel' => ['required'],
             'attribute_year' => ['required', 'integer'],
             'attribute_seats' => ['nullable', 'integer'],
@@ -64,8 +64,8 @@ class StoreCar extends FormRequest
     }
 
     public function getCarsColorId(){
-        if ($this->has('cars_color')){
-            return $this->get('cars_color')['id'];
+        if ($this->has('color')){
+            return $this->get('color')['id'];
         }
         return null;
     }
@@ -73,6 +73,13 @@ class StoreCar extends FormRequest
     public function getFuelId(){
         if ($this->has('fuel')){
             return $this->get('fuel')['id'];
+        }
+        return null;
+    }
+
+    public function getCityID(){
+        if ($this->has('city')){
+            return $this->get('city')['id'];
         }
         return null;
     }

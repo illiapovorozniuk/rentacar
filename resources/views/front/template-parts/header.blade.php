@@ -138,7 +138,7 @@ $types = Config::get('site.types');
 
                 <div class="brand_item">
                     <a href="{{ baseUrl() }}{{ ROUTE::BODIES->value }}"
-                       class="brand_list">{{ trans('front.header.bodies') }}
+                       class="brand_list">{{ trans('	front.header.bodies') }}
                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -272,7 +272,7 @@ $types = Config::get('site.types');
                     <a href="{{ route('register') }}" class="login-btn">{{trans('front.sign_up')}}</a>
                 @endguest
                 @auth
-                    <a href="{{route('front.profile')}}" title="{{trans('front.profile')}}" style="width: 30px">
+                    <a href="{{route('front.profile')}}" title="{{trans('front.profile')}}" style="width: 30px" class="profile">
                         <svg style="width: 100%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

@@ -46,7 +46,7 @@ $locale = app()->getLocale();
                     <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display: none;">
                 </label>
                 <button type="button" id="remove-avatar-btn" style="margin-top: 10px;"
-                        class="{{$user->getFirstMediaUrl('avatar')?'':'disabled'}}">Remove Avatar
+                        class="{{$user->getFirstMediaUrl('avatar')?'':'disabled'}}">{{trans('front.profile.remove_avatar')}}
                 </button>
                 <input type="hidden" name="remove_avatar" id="remove_avatar" value="0">
             </div>
@@ -63,13 +63,12 @@ $locale = app()->getLocale();
                 <div class="success_message">Profile updated successfully!</div>
             @endif
 
-            <button class="button_submit" type="submit">Update Profile</button>
-            <a href="{{ route('front.profile.password') }}" class="profile_link">Change Password</a>
+            <button class="button_submit" type="submit">{{trans('front.profile.update_profile')}}</button>
         </form>
     </div>
     <form class="logout" method="POST" action="{{ route('front.logout') }}">
         @csrf
-        <button type="submit">Logout</button>
+        <button type="submit">{{trans('front.profile.logout')}}</button>
     </form>
 @endsection
 

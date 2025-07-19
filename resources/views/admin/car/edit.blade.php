@@ -2,10 +2,10 @@
 
 @section('title', trans('admin.car.actions.edit', ['name' => $car->id]))
 
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('Maps_API_KEY') }}&libraries=places&callback=initMap" async defer></script>
 @section('body')
 
     {{-- Підключення Google Maps JavaScript API тут. --}}
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('Maps_API_KEY') }}&libraries=places&callback=initMap" async defer></script>
 
     <div class="container-xl">
         <div class="card">

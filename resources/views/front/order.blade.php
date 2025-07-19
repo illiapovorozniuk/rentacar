@@ -105,13 +105,38 @@ $locale = config('app.locale');
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     @endif
-                    @if($order->payment_status !== \App\Enums\OrderType::PAYMENT_PAID->value)
+
+                    <div class="address">🏁:
+                        @if($order->address_from)
+                            {{$order->address_from}}
+                        @else
+                            <a href="https://maps.google.com/maps?q={{$car->latitude}},{{$car->longitude}}" target="_blank">🗺️</a>
+                        @endif
+                    </div>
+                        <div class="address">📍:
+                        @if($order->address_to)
+                            {{$order->address_to}}
+                        @else
+                            <a href="https://maps.google.com/maps?q={{$car->latitude}},{{$car->longitude}}" target="_blank">🗺️</a>
+                        @endif
+                    </div>
+
+
+                    @if($order->status === \App\Enums\OrderType::PAYMENT_CANCELLED->value)
+                        <div class="cancelled_container">
+                            <p class="title">{{trans('trans_rentacar.order.cancelled')}}</p>
+                        </div>
+                    @elseif($order->payment_status !== \App\Enums\OrderType::PAYMENT_PAID->value)
                         <div class="not_payed_container">
                             <p class="title">{{trans('front.order.not_paid')}}</p>
                             <p class="total_price">{{$order->total_price}} <span>{{$order->currency->sign}}</span></p>
                             {!! $form !!}
                         </div>
                     @else
+                        <div class="payed_container">
+                            <p class="title">{{trans('front.order.paid_and_confirmed')}}</p>
+                            <p class="total_price">{{$order->total_price}} <span>{{$order->currency->sign}}</span></p>
+                        </div>
                     @endif
                 </div>
             </div>

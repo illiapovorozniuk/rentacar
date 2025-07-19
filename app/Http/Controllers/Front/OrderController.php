@@ -6,6 +6,7 @@ use App\Enums\OrderType;
 use App\Http\Controllers\Controller;
 use App\Models\Car;
 use App\Models\Currency;
+use App\Services\CarService;
 use Illuminate\Http\Request;
 use App\Services\LiqPay;
 use App\Models\Order;
@@ -24,10 +25,11 @@ class OrderController extends Controller
         $locale = app()->getLocale();
 
         $car = $car->carInfo();
+        $disabledDates = CarService::getBusyDates($car);
 
         $h1 = ucwords($car->brand_slug) . ' ' . (json_decode($car->car_model_name)->$locale ?? '') . ' ' . $car->attribute_year . ' ' . (json_decode($car->color_name)->$locale ?? '');
 
-        return view('front.order-create', compact('car', 'h1'));
+        return view('front.order-create', compact('car', 'h1', 'disabledDates'));
     }
 
     public function store(Request $request, Car $car)
@@ -48,6 +50,10 @@ class OrderController extends Controller
         $price_1 = getCurrentPrice($car->price_1);
         $price_7 = getCurrentPrice($car->price_7);
         $price_30 = getCurrentPrice($car->price_30);
+        $isCarFree = CarService::isAvailable($car, $data['date_from'], $data['date_to']);
+        if (!$isCarFree) {
+            return response()->json(['error' => 'This car is not available for the selected dates.'], 400);
+        }
 
         $total_price = 0;
         if ($days_count >= 30) {
@@ -71,6 +77,9 @@ class OrderController extends Controller
             'currency_id' => $currency->id,
         ];
         $order = Order::create($order_data);
+
+        // Dispatch job to cancel unpaid order after 1 minute
+        \App\Jobs\CancelUnpaidOrderJob::dispatch($order->id)->delay(now()->addMinute(10));
 
         return response()->json(['redirect_url' => route('orders.show', $order)]);
     }
