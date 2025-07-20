@@ -133,8 +133,8 @@ class SiteController extends Controller
         if ($body == null) {
             abort(404);
         }
-        $data = Car::getCarsByBodyId($body->id);
-
+        $data = Car::query()->where('car_body_type_id', $body->id)->paginate(5);
+        $pagin_links = $data->links();
         $data = Car::carsInfo($data->toArray());
         $body_page = Page::where('type', PageType::BODY->value)->first();
         if ($body_page == null) {
@@ -153,7 +153,7 @@ class SiteController extends Controller
         } else {
             $faqs = [];
         }
-        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'body', 'faqs', 'touched_cars', 'faq_slug_replacement'));
+        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'body', 'faqs', 'touched_cars', 'faq_slug_replacement','pagin_links'));
 
     }
 
@@ -279,7 +279,10 @@ class SiteController extends Controller
         if ($brand == null) {
             abort(404);
         }
-        $data = Car::getCarsByBrandId($brand->id);
+//        $data = Car::getCarsByBrandId($brand->id);
+//        $data = Car::carsInfo($data->toArray());
+        $data = Car::query()->where('car_brand_id', $brand->id)->paginate(5);
+        $pagin_links = $data->links();
         $data = Car::carsInfo($data->toArray());
         $brand_page = Page::where('type', PageType::BRAND->value)->first();
         if ($brand_page == null) {
@@ -299,7 +302,7 @@ class SiteController extends Controller
             $faqs = [];
         }
 
-        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'brand', 'faqs', 'touched_cars', 'faq_slug_replacement'));
+        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'brand', 'faqs', 'touched_cars', 'faq_slug_replacement', 'pagin_links'));
 
     }
 }

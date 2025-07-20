@@ -20,7 +20,7 @@
         @if(isset($brand))
             <img src="{{asset( 'uploads/'.$brand->icon)}}" alt="" width="50px" height="50px" class="mr-2">
         @endif
-        <input type="file" v-validate="'required'" class="form-control" :class="{'form-control-danger': errors.has('icon'), 'form-control-success': fields.icon && fields.icon.valid}" id="icon" name="icon" accept=".svg" @change="onFileChange">
+        <input type="file" v-validate="'required'" class="form-control" :class="{'form-control-danger': errors.has('icon'), 'form-control-success': fields.icon && fields.icon.valid}" id="icon" name="icon" accept=".webp" @change="onFileChange">
         <div v-if="errors.has('icon')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('icon') }}</div>
     </div>
 </div>
