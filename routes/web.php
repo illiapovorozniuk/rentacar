@@ -32,6 +32,7 @@ if (Schema::hasTable('languages')) {
                     Route::get('/' . RouteEnum::TYPES->value . '/{slug}', 'SiteController@type')->name('type');
                     Route::get('/' . RouteEnum::BRANDS->value, 'SiteController@brands')->name('brands');
                     Route::get('/' . RouteEnum::BRANDS->value . '/{slug}', 'SiteController@brand')->name('brand');
+                    Route::get('/' . RouteEnum::CITIES->value . '/{slug}', 'SiteController@city')->name('city');
                     Route::get('/' . RouteEnum::CAR->value . '/{id}', 'SiteController@car')->name('car');
                     Route::get('/login', 'AuthController@showLoginForm')->name('login');
                     Route::post('/login', 'AuthController@login')->name('login.post');

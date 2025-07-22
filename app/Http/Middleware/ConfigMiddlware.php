@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\BodyType;
 use App\Models\Brand;
+use App\Models\City;
 use App\Models\Currency;
 use App\Models\Type;
 use Closure;
@@ -25,6 +26,7 @@ class ConfigMiddlware
         $bodies = BodyType::all();
         $types = Type::all();
         $currencies = Currency::all();
+        $cities = City::all();
         $currentCurrency = session('currency');
         if ($currentCurrency == null) {
             $mainCurrency = Currency::where('exchange_rate', 1.00)->first();
@@ -36,6 +38,7 @@ class ConfigMiddlware
         Config::set('site.bodies', $bodies);
         Config::set('site.types', $types);
         Config::set('site.currencies', $currencies);
+        Config::set('site.cities', $cities);
         Config::set('site.current_currency', $currentCurrency);
 
         return $next($request);

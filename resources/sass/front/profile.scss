@@ -1,6 +1,7 @@
 @use "includes/variables-mixins" as *;
 @import "includes/defaults";
 @import "includes/header";
+@import "includes/footer";
 
 .login_container {
     display: flex;
@@ -101,6 +102,12 @@
 
                     .label-done {
                         background: #5cb85c;
+                    }
+                    //.order-status-label{
+                    //    background: #5cb85c;
+                    //}
+                    .label-cancelled{
+                        background: $danger_red;
                     }
                 }
 

@@ -1,29 +1,22 @@
 @use "includes/variables-mixins" as *;
 @import "includes/defaults";
 @import "includes/header";
-//@import "includes/footer";
+@import "includes/footer";
 @import "includes/lists";
 @import "includes/card_light";
 @import "includes/faq";
-
-//@import "includes/text_container";
-//@import "includes/faqs";
-//@import "includes/review";
-//@import "includes/interlinks";
-//@import "includes/location";
-//@import "includes/breadcrumbs";
 @import "includes/pagination";
 @import "includes/specifications_features";
 @import "includes/card_full";
-//@import "includes/modals";
-//@import "includes/callback";
-//@import "includes/pagination";
-//@import "includes/search";
-//@import "includes/filter";
-//@import "includes/popular_brands";
 
-
+h1{
+    margin-bottom: 30px !important;
+    @media (max-width: $mobile-max-width) {
+        margin-bottom: 15px !important;
+    }
+}
 header {
+    display: flex !important;
     z-index: 4;
 }
 

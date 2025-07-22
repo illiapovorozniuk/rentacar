@@ -45,8 +45,11 @@ header {
             white-space: nowrap;
             flex-wrap: wrap;
             justify-content: start;
-            padding-inline-end: 66px;
             margin: 0 auto;
+
+            @media (min-width: $desktop-min-width) {
+                padding-inline-end: 300px !important;
+            }
 
             &:first-child {
                 @media (min-width: $desktop-min-width) {
@@ -220,12 +223,16 @@ header {
                 position: relative;
                 flex-wrap: wrap;
             }
-            .profile{
-                position: fixed;
-                inset-inline-end: 15px;
-                top: 15px;
+
+            .profile {
+                @media (max-width: $mobile-max-width) {
+                    inset-inline-end: 15px;
+                    top: 15px;
+                    position: fixed;
+                }
 
             }
+
             .param {
                 align-items: center;
                 padding-right: 5px;
@@ -271,6 +278,7 @@ header {
                         @media (max-width: $mobile-max-width) {
                             flex-direction: row;
                         }
+
                         span {
                             @include title-m;
                             border-radius: 10px;
@@ -344,6 +352,7 @@ header {
                         background: $neutral300 !important;
                     }
                 }
+
                 &:hover {
                     background-color: #0000000D !important;
                 }
@@ -407,6 +416,7 @@ header {
                 height: calc(100% - 120px);
                 overflow-y: auto;
                 scrollbar-width: none;
+
 
                 &.active {
                     display: flex;
@@ -558,6 +568,7 @@ header {
                             display: grid;
                             grid-template-columns: repeat(2, 1fr);
                             gap: 15px;
+
                             .current {
                                 width: unset;
                             }

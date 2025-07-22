@@ -19,9 +19,6 @@ $bodies = Config::get('site.bodies');
                 <h1>
                     {{$h1}}
                 </h1>
-                <div class="home_description">
-                    {!! $description !!}
-                </div>
                 {{-- Brand slider --}}
                 <div class="brands_layout">
                     <div class="brands_content">

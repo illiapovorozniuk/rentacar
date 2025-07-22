@@ -46,6 +46,12 @@ class OrderController extends Controller
         Config::set('site.current_currency', $currency);
         $days_count = (strtotime($data['date_to']) - strtotime($data['date_from'])) / 86400 + 1;
         $car = $car->carInfo();
+        $minDays = $car->min_day_reservation ?? 1;
+        if ($days_count < $minDays) {
+            return response()->json([
+                'error' => str_replace('{days}', $minDays, trans('front.order.min_day_limit'))
+            ], 422);
+        }
 
         $price_1 = getCurrentPrice($car->price_1);
         $price_7 = getCurrentPrice($car->price_7);
@@ -88,7 +94,7 @@ class OrderController extends Controller
     {
         $auth_user = auth()->user();
         $user = $order->user;
-        if($user->id !== $auth_user->id) {
+        if ($user->id !== $auth_user->id) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -100,22 +106,22 @@ class OrderController extends Controller
         $h1 = ucwords($car->brand_slug) . ' ' . (json_decode($car->car_model_name)->$locale ?? '') . ' ' . $car->attribute_year . ' ' . (json_decode($car->color_name)->$locale ?? '');
         // Можна додати перевірку статусу оплати, якщо потрібно
         $form = '';
-        if($order->payment_status !== OrderType::PAYMENT_PAID->value) {
+        if ($order->payment_status !== OrderType::PAYMENT_PAID->value) {
             $liqpay = new LiqPay(env('LIQPAY_PUBLIC_KEY'), env('LIQPAY_PRIVATE_KEY'));
             $order->load('currency');
             $form = $liqpay->cnb_form([
-                'action'       => 'pay',
-                'amount'       => $order->total_price,
-                'currency'     =>  strtoupper($order->currency->slug),
-                'description'  => 'Оплата замовлення №' . $order->id,
-                'order_id'     => $order->id,
-                'version'      => '3',
-                'server_url'   => str_replace('http://','https://',route('liqpay.callback')),
-                'result_url'   => str_replace('http://','https://',route('orders.show', $order)), // Після оплати
+                'action' => 'pay',
+                'amount' => $order->total_price,
+                'currency' => strtoupper($order->currency->slug),
+                'description' => 'Оплата замовлення №' . $order->id,
+                'order_id' => $order->id,
+                'version' => '3',
+                'server_url' => str_replace('http://', 'https://', route('liqpay.callback')),
+                'result_url' => str_replace('http://', 'https://', route('orders.show', $order)), // Після оплати
             ]);
         }
 
-        return view('front.order', compact('order', 'car', 'h1','form'));
+        return view('front.order', compact('order', 'car', 'h1', 'form'));
     }
 
 

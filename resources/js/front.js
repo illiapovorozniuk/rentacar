@@ -110,4 +110,9 @@ $(document).ready(function () {
             });
         });
     });
+
+
+    $('.dropdown_title').click(function () {
+        $(this).closest('.footer_dropdown').toggleClass('close');
+    });
 });

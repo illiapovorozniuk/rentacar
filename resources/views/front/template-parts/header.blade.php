@@ -8,6 +8,7 @@ $brands_output = '';
 $bodies_output = '';
 $areas_output = '';
 $models_output = '';
+$cities_output = '';
 
 $available_locales = Config::get("app.available_locales");
 $current_locale = App::getLocale();
@@ -19,6 +20,7 @@ $current_locale = app()->getLocale();
 $brands = Config::get('site.brands');
 $bodies = Config::get('site.bodies');
 $types = Config::get('site.types');
+$cities = Config::get('site.cities');
 ?>
 
 <header @if(isset($home_page))class="home"@endif>
@@ -44,71 +46,6 @@ $types = Config::get('site.types');
         </div>
 
         <nav class="pages">
-
-
-            {{--                @if($menu->menu_page == 'models')--}}
-
-            {{--                    @if( count($brands) < 2  || $site->mono_brand_home === 1)--}}
-            {{--                        <div class="brand_item">--}}
-            {{--                            <p class="brand_list">{{ $menu->name }}--}}
-            {{--                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"--}}
-            {{--                                     xmlns="http://www.w3.org/2000/svg">--}}
-            {{--                                    <path--}}
-            {{--                                        d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"--}}
-            {{--                                        fill="#E63948"/>--}}
-            {{--                                </svg>--}}
-
-            {{--                            </p>--}}
-
-
-            {{--                            <div class="brand_items">--}}
-            {{--                                <ul class="brand_items_tag">--}}
-            {{--                                    @foreach($models as $model)--}}
-            {{--                                            <?php--}}
-            {{--                                            $models_output .= '<li><a href="' . baseUrl() . '/' . $brand_link . '/' . $model['link'] . '">   <span>' . $model['name'] . '</span></a></li>';--}}
-            {{--                                            ?>--}}
-            {{--                                    @endforeach--}}
-            {{--                                    {!! $models_output !!}--}}
-            {{--                                </ul>--}}
-            {{--                            </div>--}}
-            {{--                        </div>--}}
-            {{--                    @endif--}}
-            {{--                @endif--}}
-
-            {{--                @if($site->with_yachts === 1)--}}
-            {{--                    @if($menu->menu_page == 'categories_yachts' && $categories !== null)--}}
-            {{--                        <div class="brand_item">--}}
-            {{--                            <p class="brand_list">{{ ucfirst($menu->name) }}--}}
-            {{--                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none"--}}
-            {{--                                     xmlns="http://www.w3.org/2000/svg">--}}
-            {{--                                    <path--}}
-            {{--                                        d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"--}}
-            {{--                                        fill="#E63948"/>--}}
-            {{--                                </svg>--}}
-            {{--                            </p>--}}
-            {{--                            <div class="brand_items">--}}
-            {{--                                <ul class="brand_items_tag">--}}
-            {{--                                    @foreach($categories as $i=>$item)--}}
-            {{--                                        <li>--}}
-            {{--                                            <a href="{{baseUrl().'/'.Config::get('services.categories_link').'/'.$item['link']}}">{{ucfirst($item['name'])}}</a>--}}
-
-            {{--                                        </li>--}}
-            {{--                                    @endforeach--}}
-            {{--                                </ul>--}}
-            {{--                            </div>--}}
-            {{--                        </div>--}}
-            {{--                    @endif--}}
-
-
-
-            {{--                @if($menu->link == Config::get('services.catalog_link'))--}}
-            {{--                    <a href="{{ baseUrl() }}/{{ Config::get('services.catalog_link') }}"--}}
-            {{--                       class="nav-link">{{ $menu->name }}</a>--}}
-            {{--                @endif--}}
-            {{--                @if($menu->link == Config::get('services.blog_link') && $current_locale === 'en')--}}
-            {{--                    <a href="{{ baseUrl() }}/{{ Config::get('services.blog_link') }}"--}}
-            {{--                       class="brand_list"><span> {{ $menu->name }}</span></a>--}}
-            {{--                @endif--}}
             @if(count($brands) > 1)
                 <div class="brand_item real_brand">
                     <a href="{{ baseUrl() }}{{ ROUTE::BRANDS->value }}"
@@ -138,7 +75,7 @@ $types = Config::get('site.types');
 
                 <div class="brand_item">
                     <a href="{{ baseUrl() }}{{ ROUTE::BODIES->value }}"
-                       class="brand_list">{{ trans('	front.header.bodies') }}
+                       class="brand_list">{{ trans('front.header.bodiess') }}
                         <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -182,90 +119,29 @@ $types = Config::get('site.types');
                     </div>
                 </div>
             @endif
-            {{--                @if($menu->link == Config::get('services.types_link') && $menu->menu_page == 'types')--}}
-            {{--                    @if(count($types) > 1)--}}
-            {{--                        @if($menu->menu_type == 0)--}}
-            {{--                            <a class="nav-link"--}}
-            {{--                               href="{{ baseUrl() }}/{{ Config::get('services.types_link') }}">{{ $menu->name }}</a>--}}
-            {{--                        @elseif($menu->menu_type == 1)--}}
-            {{--                            <div class="brand_item">--}}
-            {{--                                <a class="brand_list"--}}
-            {{--                                   href="{{ baseUrl() }}/{{ Config::get('services.types_link') }}">{{ $menu->name }}--}}
-            {{--                                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none"--}}
-            {{--                                         xmlns="http://www.w3.org/2000/svg">--}}
-            {{--                                        <path--}}
-            {{--                                            d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"--}}
-            {{--                                            fill="#E63948"/>--}}
-            {{--                                    </svg>--}}
+            @if(count($cities) > 1)
 
-            {{--                                </a>--}}
-            {{--                                <div class="brand_items">--}}
-            {{--                                    <ul class="brand_items_tag">--}}
-            {{--                                        @foreach($types as $type)--}}
-            {{--                                            @if($type != null)--}}
-            {{--                                                    <?php $types_output .= '<li><a href="' . baseUrl() . '/' . $site->cars_types_slug . '/' . $type['link'] . '"><span>' . $type['name'] . '</span></a></li>'; ?>--}}
-            {{--                                            @endif--}}
-            {{--                                        @endforeach--}}
-            {{--                                        {!! $types_output !!}--}}
-            {{--                                    </ul>--}}
-            {{--                                </div>--}}
-            {{--                            </div>--}}
-            {{--                        @endif--}}
-            {{--                    @endif--}}
-            {{--                @endif--}}
-            {{--                @if($menu->link == Config::get('services.areas_link'))--}}
-            {{--                    @if(count($areas) > 1)--}}
-            {{--                        @if($menu->menu_type == 0)--}}
-            {{--                            <a class="nav-link"--}}
-            {{--                               href="{{ baseUrl() }}/{{ Config::get('services.areas_link') }}">{{ $menu->name }}</a>--}}
-            {{--                        @elseif($menu->menu_type == 1)--}}
-            {{--                            <div class="brand_item real_brand">--}}
-            {{--                                <a href="{{ baseUrl() }}/{{ Config::get('services.areas_link') }}"--}}
-            {{--                                   class="brand_list">{{ $menu->name }}--}}
+                <div class="brand_item">
+                    <p
+                       class="brand_list">{{ trans('front.header.cities') }}
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"
+                                fill="#E63948"/>
+                        </svg>
+                    </p>
+                    <div class="brand_items">
+                        <ul class="brand_items_tag">
+                            @foreach($cities as $city)
+                                            <?php $cities_output .= '<li><a href="' . cityUrl($city->slug). '"><span>' . $city['name'] . '</span></a></li>'; ?>
+                            @endforeach
+                            {!! $cities_output !!}
 
-            {{--                                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none"--}}
-            {{--                                         xmlns="http://www.w3.org/2000/svg">--}}
-            {{--                                        <path--}}
-            {{--                                            d="M14.6666 7.64166C14.5104 7.48646 14.2992 7.39934 14.0791 7.39934C13.8589 7.39934 13.6477 7.48646 13.4916 7.64166L10.4999 10.5917L7.54992 7.64166C7.39378 7.48646 7.18257 7.39934 6.96242 7.39934C6.74226 7.39934 6.53105 7.48646 6.37492 7.64166C6.29681 7.71913 6.23481 7.8113 6.19251 7.91285C6.1502 8.0144 6.12842 8.12332 6.12842 8.23333C6.12842 8.34334 6.1502 8.45226 6.19251 8.55381C6.23481 8.65536 6.29681 8.74753 6.37492 8.825L9.90825 12.3583C9.98572 12.4364 10.0779 12.4984 10.1794 12.5407C10.281 12.583 10.3899 12.6048 10.4999 12.6048C10.6099 12.6048 10.7188 12.583 10.8204 12.5407C10.9219 12.4984 11.0141 12.4364 11.0916 12.3583L14.6666 8.825C14.7447 8.74753 14.8067 8.65536 14.849 8.55381C14.8913 8.45226 14.9131 8.34334 14.9131 8.23333C14.9131 8.12332 14.8913 8.0144 14.849 7.91285C14.8067 7.8113 14.7447 7.71913 14.6666 7.64166Z"--}}
-            {{--                                            fill="#E63948"/>--}}
-            {{--                                    </svg>--}}
-
-            {{--                                </a>--}}
-            {{--                                <div class="brand_items real_brands">--}}
-            {{--                                    <ul class="brand_items_tag">--}}
-            {{--                                        @foreach($areas as $area)--}}
-            {{--                                            @if($area != null)--}}
-            {{--                                                    <?php $type_link = (new App\Models\Site)->generateAreaLink($site, $area->slug);--}}
-            {{--                                                    ?>--}}
-            {{--                                                    <?php $areas_output .= '<li><a href="' . baseUrl() . '/' . $site->cars_areas_slug . '/' . $type_link . '"><span>' . $area->name . '</span></a></li>';--}}
-            {{--                                                    ?>--}}
-            {{--                                            @endif--}}
-            {{--                                        @endforeach--}}
-            {{--                                        {!! $areas_output !!}--}}
-            {{--                                    </ul>--}}
-            {{--                                </div>--}}
-            {{--                            </div>--}}
-            {{--                        @endif--}}
-            {{--                    @endif--}}
-            {{--                @endif--}}
-            {{--                @if($menu->link == '#FAQ')--}}
-            {{--                        <?php--}}
-            {{--                        $current_locale = App::currentLocale();--}}
-            {{--                        ?>--}}
-            {{--                    @if(--}}
-            {{--                                isset($homeFaq[0]["home_question"]) &&--}}
-            {{--                                is_array($homeFaq[0]["home_question"]) &&--}}
-            {{--                                isset($homeFaq[0]["home_answer"]) &&--}}
-            {{--                                is_array($homeFaq[0]["home_answer"]) &&--}}
-            {{--                                array_key_exists($current_locale, $homeFaq[0]["home_question"]) &&--}}
-            {{--                                $homeFaq[0]["home_question"][$current_locale] !== null &&--}}
-            {{--                                array_key_exists($current_locale, $homeFaq[0]["home_answer"]) &&--}}
-            {{--                                $homeFaq[0]["home_answer"][$current_locale] !== null--}}
-            {{--                            )--}}
-
-            {{--                        <a class="nav-link" href="{{ baseUrl() }}#FAQ">FAQ</a>--}}
-            {{--                    @endif--}}
-            {{--                @endif--}}
+                        </ul>
+                    </div>
+                </div>
+            @endif
             <div class="end_section">
                 @guest
                     <a href="{{ route('login') }}" class="login-btn">{{trans('front.login')}}</a>

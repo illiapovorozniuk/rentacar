@@ -9,5 +9,6 @@ enum Route: string
     case BODIES = '/bodies';
     case TYPES = '/types';
     case CAR = '/car';
+    case CITIES = '/cities';
 
 }

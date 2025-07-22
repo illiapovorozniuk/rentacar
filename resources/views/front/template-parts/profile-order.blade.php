@@ -1,16 +1,22 @@
 <?php
+
+use App\Enums\OrderType;
+
 $order_car = $order->car;
 $order_car = $order_car->carInfo();
 $order_currency = $order->currency;
 ?>
 <div class="order_item">
-    <a href="{{route('orders.show',['order'=>$order])}}" class="oder_img" style="background: url('{{$order_car->main_photo}}')">
+    <a href="{{route('orders.show',['order'=>$order])}}" class="oder_img"
+       style="background: url('{{$order_car->main_photo}}')">
         @php
             $now = \Carbon\Carbon::now()->toDateString();
             $from = \Carbon\Carbon::parse($order->date_from)->toDateString();
             $to = \Carbon\Carbon::parse($order->date_to)->toDateString();
-
-            if ($now < $from) {
+        if($order->status == OrderType::PAYMENT_CANCELLED->value){
+                $label = __('front.order.cancelled');
+                $class = 'label-cancelled';}
+            elseif ($now < $from) {
                 $label = __('front.order.waiting');
                 $class = 'label-waiting';
             } elseif ($now >= $from && $now <= $to) {
@@ -32,7 +38,7 @@ $order_currency = $order->currency;
             {{ \Carbon\Carbon::parse($order->date_from)->locale(App::getLocale())->isoFormat('D MMMM Y') }}
             @if($order->date_from !== $order->date_to)
                 –
-             {{ \Carbon\Carbon::parse($order->date_to)->locale(App::getLocale())->isoFormat('D MMMM Y') }}
+                {{ \Carbon\Carbon::parse($order->date_to)->locale(App::getLocale())->isoFormat('D MMMM Y') }}
             @endif
         </p>
     </div>

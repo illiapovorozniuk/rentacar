@@ -1,7 +1,7 @@
 @use "includes/variables-mixins" as *;
 @import "includes/defaults";
 @import "includes/header";
-
+@import "includes/footer";
 
 .container_with_separators {
     @include max-width();
@@ -137,6 +137,12 @@
                     @include headline-m;
 
 
+                }
+                #payment-timer{
+                    padding: 10px;
+                    background-color: $danger_light;
+                    margin-top: 10px;
+                    border-radius: 10px;
                 }
 
                 button {

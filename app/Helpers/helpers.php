@@ -115,6 +115,10 @@ function typeUrl($typeSlug): string
 {
     return url(baseUrl() . Route::TYPES->value . '/' . $typeSlug);
 }
+function cityUrl($citySlug): string
+{
+    return url(baseUrl() . Route::CITIES->value . '/' . $citySlug);
+}
 
 function carUrl($car_id): string
 {

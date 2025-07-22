@@ -7,31 +7,37 @@ use Brackets\Translatable\Traits\HasTranslations;
 
 class City extends Model
 {
-use HasTranslations;
+    use HasTranslations;
+
     protected $fillable = [
         'slug',
         'name',
-    
+
     ];
-    
-    
+
+
     protected $dates = [
         'created_at',
         'updated_at',
-    
+
     ];
     // these attributes are translatable
     public $translatable = [
         'name',
-    
+
     ];
-    
+
     protected $appends = ['resource_url'];
 
+
     /* ************************ ACCESSOR ************************* */
+    public static function getCityBySlug($slug)
+    {
+        return self::where('slug', $slug)->first();
+    }
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/cities/'.$this->getKey());
+        return url('/admin/cities/' . $this->getKey());
     }
 }

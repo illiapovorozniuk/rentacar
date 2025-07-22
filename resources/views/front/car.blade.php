@@ -383,7 +383,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                     </svg>
 
                                     <p> {{ trans('trans_rentacar.car.deposit') }}
-                                        : {{getCurrentPrice($data->deposit)}}
+                                        : {{getCurrentPrice($data->deposit).' '.$current_currency->sign}}
                                     </p>
                                 </div>
                             @else

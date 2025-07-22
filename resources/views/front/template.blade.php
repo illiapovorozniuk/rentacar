@@ -19,6 +19,7 @@
 @include('front.template-parts.header')
 
 @yield('body')
+@include('front.template-parts.footer')
 @yield('footer')
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

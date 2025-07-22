@@ -1,6 +1,7 @@
 @use "includes/variables-mixins" as *;
 @import "includes/defaults";
 @import "includes/header";
+@import "includes/footer";
 @import "includes/card_light";
 @import "includes/lists";
 @import "includes/faq";
@@ -22,6 +23,10 @@
         gap: 60px;
 
         @include max-width();
+
+        h1{
+            color: $neutral600;
+        }
 
         .brands_layout {
             overflow: hidden;
@@ -280,7 +285,12 @@
 .cards_content {
     @include max-width
 }
-
+.card_list_default{
+    margin-top: 60px !important;
+    @media (max-width: $mobile-max-width) {
+        margin-top: 30px !important;
+    }
+}
 .card_list_default .list_content_layout .list_content {
     @include max-width();
     @media (max-width: $mobile-max-width) {

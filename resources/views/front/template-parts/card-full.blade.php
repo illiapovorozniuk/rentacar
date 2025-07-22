@@ -105,7 +105,7 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
                     </svg>
 
                     <p> {{ ucfirst(trans('trans_rentacar.car.deposit')) }}
-                        : {{$car->deposit }}
+                        : {{getCurrentPrice($car->deposit)  }} {{ $current_currency->sign }}
                     </p>
                 </div>
             @endif

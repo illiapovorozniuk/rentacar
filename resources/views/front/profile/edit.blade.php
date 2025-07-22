@@ -112,7 +112,7 @@ $locale = app()->getLocale();
             const maxPages = parseInt(btn.getAttribute('data-max-pages'));
             if (currentPage >= maxPages) return;
             btn.disabled = true;
-            $.get(`/profile?page=${currentPage + 1}`, function(html) {
+            $.get(`${location.pathname}?page=${currentPage + 1}`, function(html) {
                 document.querySelector('.orders_list').insertAdjacentHTML('beforeend', html);
                 currentPage++;
                 btn.setAttribute('data-current-page', currentPage);

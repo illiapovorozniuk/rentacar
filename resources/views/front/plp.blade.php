@@ -34,20 +34,9 @@ $car_link = Config::get('services.car_link');
 @section('body')
 
     <main class="carPage_two">
-
-        {{--        <div class="navigation">--}}
-        {{--            {{ Breadcrumbs::render('brand', $site, $site->cars_brands_slug, getBrandTitle($site), $data[0]->brand_slug,--}}
-        {{--            $data[0]->en_brand) }}--}}
-        {{--        </div>--}}
-        {{--        @if($h1 !== NULL)--}}
-        {{--            <h1 class="title">{{ $h1.((int)$page>1?', '.trans('trans_rentacar.car.page').' '.$page:'') }}</h1>--}}
-        {{--        @endif--}}
-        {{--        @include('templates.smart-car-lover.template-parts.filter', ['brand' => $brand])--}}
-
-        {{--        @if($interlinking !== [] && $interlinking !== null )--}}
-        {{--            @include('templates.smart-car-lover.template-parts.interlinks',['interlinking' => $interlinking, 'with_title' => false])--}}
-        {{--        @endif--}}
-
+                @if($h1 !== NULL)
+                    <h1 class="title">{{$h1}}</h1>
+                @endif
 
         <div class="container_with_separators">
             @if(sizeof($data) == 0)
@@ -62,7 +51,7 @@ $car_link = Config::get('services.car_link');
                             'currency'=>'$currency'])
                         @endforeach
                     </div>
-                    
+
                     <div class="pagination_container">
                         {!! $pagin_links??''!!}
                     </div>
@@ -76,7 +65,7 @@ $car_link = Config::get('services.car_link');
                     {{--                </div>--}}
                     {{--            @endif--}}
 
-                    @if($faqs > 0)
+                    @if(count($faqs) > 0)
                         @include('front.template-parts.faq', ['faqs' => $faqs, 'faq_slug_replacement'=>$faq_slug_replacement])
                     @endif
 

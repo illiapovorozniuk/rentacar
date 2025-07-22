@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Models\BodyType;
 use App\Models\Brand;
 use App\Models\Car;
+use App\Models\City;
 use App\Models\Page;
 use App\Enums\PageType;
 use App\Models\Type;
@@ -184,11 +185,13 @@ class SiteController extends Controller
         if ($type == null) {
             abort(404);
         }
-        $data = Car::getCarsByBodyId($type->id);
+        $models = $type->carModel()->get();
+        $modelIds = $models->pluck('id')->toArray();
+        $data = Car::whereIn('car_model_id', $modelIds)->paginate(5);
         if(count($data) == 0){
             abort(404);
         }
-
+        $pagin_links = $data->links();
         $data = Car::carsInfo($data->toArray());
         $type_page = Page::where('type', PageType::TYPE->value)->first();
         if ($type_page == null) {
@@ -207,7 +210,7 @@ class SiteController extends Controller
         } else {
             $faqs = [];
         }
-        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'type', 'faqs', 'touched_cars', 'faq_slug_replacement'));
+        return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'type', 'faqs', 'touched_cars', 'faq_slug_replacement','pagin_links'));
 
     }
     /**
@@ -303,6 +306,32 @@ class SiteController extends Controller
         }
 
         return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'brand', 'faqs', 'touched_cars', 'faq_slug_replacement', 'pagin_links'));
+
+    }
+
+    public function city($slug)
+    {
+        $city = City::getCityBySlug($slug);
+        if ($city == null) {
+            abort(404);
+        }
+//        $data = Car::getCarsByBrandId($brand->id);
+//        $data = Car::carsInfo($data->toArray());
+        $data = Car::query()->where('city_id', $city->id)->paginate(5);
+        $pagin_links = $data->links();
+        $data = Car::carsInfo($data->toArray());
+
+        $touched_cars = Car::all()->where('status', 1)->where('city_id', '!=', $city->id)->take(4)->toArray();
+        $touched_cars = Car::carsInfo($touched_cars);
+        $title= '';
+        $h1 ='';
+        $faqs = [];
+//        $h1 = str_replace('{slug}',$city->name,$brand_page->h1);
+//        $title = str_replace('{slug}',$brand->name,$brand_page->title);
+//        $content = str_replace('{slug}',$brand->name,$brand_page->content);
+//        $description = $brand_page->description;
+
+        return view('front.plp', compact('data','h1','title', 'city','faqs',  'touched_cars',  'pagin_links'));
 
     }
 }
