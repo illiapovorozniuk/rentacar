@@ -273,6 +273,10 @@ class Car extends Model implements HasMedia
         return $this->belongsTo(Fuel::class);
     }
 
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
     public function carInfo()
     {
 

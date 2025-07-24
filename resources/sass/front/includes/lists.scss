@@ -5,6 +5,8 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     @media only screen and (max-width: $mobile-max-width) {
         gap: 20px;
     }

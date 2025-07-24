@@ -25,7 +25,12 @@
         @include max-width();
 
         h1{
-            color: $neutral600;
+            color: #FFF;
+            text-shadow:
+                -1px -1px 0 black,
+                1px -1px 0 black,
+                -1px  1px 0 black,
+                1px  1px 0 black;
         }
 
         .brands_layout {

@@ -61,7 +61,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                 {{$data->attribute_seats.' '. strtolower(trans('trans_rentacar.car.seats'))}}
                                                 ,
                                             @endif
-                                            {{ $data->attribute_sm_bag."/".$data->attribute_lg_bag.' '. strtolower(trans('front.luggage')) }}
+                                            {{ $data->attribute_baggage.' '. strtolower(trans('front.luggage')) }}
 
                                         </div>
 

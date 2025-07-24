@@ -1236,6 +1236,8 @@ footer .grid-container {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 @media only screen and (max-width: 768px) {
   .long_horisontal_card_list {
@@ -1592,7 +1594,8 @@ footer .grid-container {
   }
 }
 .banner .banner_content h1 {
-  color: #3D3D3D;
+  color: #FFF;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 .banner .banner_content .brands_layout {
   overflow: hidden;
