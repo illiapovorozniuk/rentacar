@@ -134,9 +134,17 @@ class SiteController extends Controller
         if ($body == null) {
             abort(404);
         }
-        $data = Car::query()->where('car_body_type_id', $body->id)->paginate(5);
-        $pagin_links = $data->links();
-        $data = Car::carsInfo($data->toArray());
+        $sortBy = request('sortBy', 'default');
+        $carQuery = Car::query()->where('car_body_type_id', $body->id);
+        if ($sortBy === 'price_asc') {
+            $carQuery->orderBy('price_1', 'asc');
+        } elseif ($sortBy === 'price_desc') {
+            $carQuery->orderBy('price_1', 'desc');
+        }
+        $data = $carQuery->paginate(5);
+        $pagin_links = $data->appends(request()->query())->links();
+        $data = Car::carsInfo($data->toArray(), $sortBy);
+
         $body_page = Page::where('type', PageType::BODY->value)->first();
         if ($body_page == null) {
             abort(404);
@@ -185,14 +193,23 @@ class SiteController extends Controller
         if ($type == null) {
             abort(404);
         }
+        $sortBy = request('sortBy', 'default');
         $models = $type->carModel()->get();
         $modelIds = $models->pluck('id')->toArray();
-        $data = Car::whereIn('car_model_id', $modelIds)->paginate(5);
+        $carQuery = Car::whereIn('car_model_id', $modelIds);
+        if ($sortBy === 'price_asc') {
+            $carQuery->orderBy('price_1', 'asc');
+        } elseif ($sortBy === 'price_desc') {
+            $carQuery->orderBy('price_1', 'desc');
+        } elseif ($sortBy === 'min_day_reservation') {
+            $carQuery->orderBy('min_day_reservation', 'asc');
+        }
+        $data = $carQuery->paginate(5);
         if(count($data) == 0){
             abort(404);
         }
-        $pagin_links = $data->links();
-        $data = Car::carsInfo($data->toArray());
+        $pagin_links = $data->appends(request()->query())->links();
+        $data = Car::carsInfo($data->toArray(), $sortBy);
         $type_page = Page::where('type', PageType::TYPE->value)->first();
         if ($type_page == null) {
             abort(404);
@@ -282,11 +299,18 @@ class SiteController extends Controller
         if ($brand == null) {
             abort(404);
         }
-//        $data = Car::getCarsByBrandId($brand->id);
-//        $data = Car::carsInfo($data->toArray());
-        $data = Car::query()->where('car_brand_id', $brand->id)->paginate(5);
-        $pagin_links = $data->links();
-        $data = Car::carsInfo($data->toArray());
+        $sortBy = request('sortBy', 'default');
+        $carQuery = Car::query()->where('car_brand_id', $brand->id);
+        if ($sortBy === 'price_asc') {
+            $carQuery->orderBy('price_1', 'asc');
+        } elseif ($sortBy === 'price_desc') {
+            $carQuery->orderBy('price_1', 'desc');
+        } elseif ($sortBy === 'min_day_reservation') {
+            $carQuery->orderBy('min_day_reservation', 'asc');
+        }
+        $data = $carQuery->paginate(5);
+        $pagin_links = $data->appends(request()->query())->links();
+        $data = Car::carsInfo($data->toArray(), $sortBy);
         $brand_page = Page::where('type', PageType::BRAND->value)->first();
         if ($brand_page == null) {
             abort(404);

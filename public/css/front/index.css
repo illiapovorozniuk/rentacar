@@ -1461,6 +1461,9 @@ footer .grid-container {
 }
 .faq_block .faqs {
   width: 100%;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .faq_block .faq {
   display: flex;

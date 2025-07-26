@@ -317,7 +317,7 @@ class Car extends Model implements HasMedia
         return $car;
     }
 
-    public static function carsInfo(array $cars)
+    public static function carsInfo(array $cars, $sortBy = null)
     {
         if (isset($cars['data'])) {
             $carIds = array_column($cars['data'], 'id');
@@ -350,10 +350,7 @@ class Car extends Model implements HasMedia
             $photos = [];
             if (isset($media_photos[0])) {
                 $path_parts = pathinfo($media_photos[0]->getUrl('minifiedWebp'));
-//                dd($path_parts);
-//                $main_photo =  $path_parts['dirname'] . '/' . $path_parts['basename'];
                 $main_photo =  str_replace(['-minifiedWebp','conversions/'],'',$path_parts['dirname'] . '/' . $path_parts['basename']);
-//                dd($path_parts);
                 foreach ($media_photos as $photo) {
                     $path_parts = pathinfo($photo->getUrl('minifiedWebp'));
                     $photos[] =  str_replace(['-minifiedWebp','conversions/'],'',$path_parts['dirname'] . '/' . $path_parts['basename']);
@@ -363,6 +360,18 @@ class Car extends Model implements HasMedia
             $car['photos'] = $photos;
             $car['color_name'] = json_decode($car['color_name'])->$currentLocale;
         }
+
+        // Optional sorting
+        if ($sortBy === 'price_asc') {
+            $carsData = $carsData->sortBy('price_1')->values();
+        } elseif ($sortBy === 'price_desc') {
+            $carsData = $carsData->sortByDesc('price_1')->values();
+        } elseif ($sortBy === 'min_day_reservation') {
+            $carsData = $carsData->sortBy(function($car) {
+                return $car->min_day_reservation ?? PHP_INT_MAX;
+            })->values();
+        }
+
         return $carsData;
     }
 

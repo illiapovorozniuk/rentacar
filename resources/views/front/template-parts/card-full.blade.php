@@ -2,6 +2,8 @@
 
 //$main_currency = $car->car_exchange_rate;
 
+use App\Enums\CarConfig;
+
 $mobile = checkMobile();
 
 $bodies = Config::get('services.site_config.bodies');
@@ -59,7 +61,8 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
             <div class="info_description">
 
                 <a href="{{carUrl($car->id)}}">
-                    <p class="car_title">{{$car->color_name.' '.ucfirst($car->brand_slug).' '.ucfirst($car->car_model_slug).', '.$car->attribute_year }}</p></a>
+                    <p class="car_title">{{$car->color_name.' '.ucfirst($car->brand_slug).' '.ucfirst($car->car_model_slug).', '.$car->attribute_year }}</p>
+                </a>
                 {{--                <p class="item_header_parameters">--}}
                 {{--                    {{ $bodies->where('car_body_id', $car->car_body_id)->first()['name'] }},--}}
                 {{--                    {{$car->attribute_number_of_seats}} {{trans('trans_rentacar.car.seats')}},--}}
@@ -141,40 +144,31 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
                     <p>{{trans('front.site.insurance-included')}}</p>
                 </div>
             @endif
-            @if($car->free_delivery_dubai)
-                <div class="include" title="{{trans('front.d06.free-delivery-in-dubai')}}">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M15.5917 6.00834C15.5142 5.93023 15.4221 5.86824 15.3205 5.82593C15.219 5.78362 15.11 5.76184 15 5.76184C14.89 5.76184 14.7811 5.78362 14.6796 5.82593C14.578 5.86824 14.4858 5.93023 14.4084 6.00834L8.20004 12.225L5.59171 9.60834C5.51127 9.53064 5.41632 9.46955 5.31227 9.42854C5.20823 9.38754 5.09713 9.36743 4.98531 9.36936C4.87349 9.3713 4.76315 9.39524 4.66058 9.43982C4.55802 9.48439 4.46524 9.54874 4.38754 9.62917C4.30984 9.70961 4.24875 9.80456 4.20774 9.9086C4.16674 10.0127 4.14663 10.1238 4.14856 10.2356C4.1505 10.3474 4.17444 10.4577 4.21902 10.5603C4.2636 10.6629 4.32794 10.7556 4.40837 10.8333L7.60837 14.0333C7.68584 14.1114 7.77801 14.1734 7.87956 14.2157C7.98111 14.2581 8.09003 14.2798 8.20004 14.2798C8.31005 14.2798 8.41897 14.2581 8.52052 14.2157C8.62207 14.1734 8.71424 14.1114 8.79171 14.0333L15.5917 7.23334C15.6763 7.1553 15.7438 7.06059 15.79 6.95518C15.8361 6.84976 15.86 6.73592 15.86 6.62084C15.86 6.50575 15.8361 6.39192 15.79 6.2865C15.7438 6.18108 15.6763 6.08637 15.5917 6.00834Z"
-                            fill="#919191"/>
-                    </svg>
-                    <p>{{trans('front.d06.free-delivery-in-dubai')}}</p>
-                </div>
-            @endif
         </div>
         <?php
-//        $weekly = formatNumberString($car->price_2_full);
-//        $monthly = formatNumberString($car->price_3_full);
-//        $trimmedWeekly = substr($weekly, strpos($weekly, ":") + 2);
-//        $trimmedMonthly = substr($monthly, strpos($monthly, ":") + 2);
+        //        $weekly = formatNumberString($car->price_2_full);
+        //        $monthly = formatNumberString($car->price_3_full);
+        //        $trimmedWeekly = substr($weekly, strpos($weekly, ":") + 2);
+        //        $trimmedMonthly = substr($monthly, strpos($monthly, ":") + 2);
 
         $second = formatNumberString(getCurrentPrice($car->price_1));
-        $first = formatNumberString(getCurrentPrice($car->price_7 * 7));
-        $last = formatNumberString(getCurrentPrice($car->price_30 * 30));
-//        $currentName = trans('front.site.per_day');
-//
-//        if ($car->p_type == 'week') {
-//            $second = $trimmedWeekly;
-//            $first = strtoupper($currency->sign) . ' ' . formatNumberString($car->price);
-//            $currentName = trans('trans_rentacar.car.weekly');
-//        }
-//        if ($car->p_type == 'month') {
-//            $second = $trimmedWeekly;
-//            $first = $trimmedMonthly;
-//            $last = strtoupper($currency->sign) . ' ' . formatNumberString($car->price);
-//            $currentName = trans('front.site.per_month');
-//        }
-//        $all = [$second, $first, $last];
+        $first = formatNumberString(getCurrentPrice($car->price_7 * 7 != 0.0 ? $car->price_7 * 7 : $car->price_1 * CarConfig::PRICE7_MULTIPLIER->value  * 7));
+        $last = formatNumberString(getCurrentPrice($car->price_30 * 30 != 0.0 ? $car->price_30 * 30 : $car->price_1 * CarConfig::PRICE30_MULTIPLIER->value  * 30));
+//        dd($car->price_1 * CarConfig::PRICE7_MULTIPLIER->value  * 7);
+        //        $currentName = trans('front.site.per_day');
+        //
+        //        if ($car->p_type == 'week') {
+        //            $second = $trimmedWeekly;
+        //            $first = strtoupper($currency->sign) . ' ' . formatNumberString($car->price);
+        //            $currentName = trans('trans_rentacar.car.weekly');
+        //        }
+        //        if ($car->p_type == 'month') {
+        //            $second = $trimmedWeekly;
+        //            $first = $trimmedMonthly;
+        //            $last = strtoupper($currency->sign) . ' ' . formatNumberString($car->price);
+        //            $currentName = trans('front.site.per_month');
+        //        }
+        //        $all = [$second, $first, $last];
 
         ?>
         <div class="item_bottom">
@@ -212,7 +206,7 @@ $abort_sign = '<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="ht
             <div class="reserve_buttons">
                 @if($car->status == 1)
                     <a href="{{createCarOrderUrl($car->id) }}" class="fixed_form" data-id="{{$car->id}}"
-                          data-title="{{$car->color.' '.$car->car_title.', '.$car->attribute_year }}"> {{trans('trans_rentacar.car.rent_now')}}</a>
+                       data-title="{{$car->color.' '.$car->car_title.', '.$car->attribute_year }}"> {{trans('trans_rentacar.car.rent_now')}}</a>
                 @endif
             </div>
         </div>

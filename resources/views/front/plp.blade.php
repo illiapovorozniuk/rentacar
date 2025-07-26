@@ -34,9 +34,22 @@ $car_link = Config::get('services.car_link');
 @section('body')
 
     <main class="carPage_two">
-                @if($h1 !== NULL)
-                    <h1 class="title">{{$h1}}</h1>
-                @endif
+        @if($h1 !== NULL)
+            <h1 class="title">{{$h1}}</h1>
+        @endif
+
+        <!-- Sorting block -->
+        <form method="get" class="mb-4" id="sortForm">
+            <div class="sort-block">
+                <label for="sortBy">{{trans('front.sort')}}:</label>
+                <select name="sortBy" id="sortBy" onchange="document.getElementById('sortForm').submit()">
+                    <option value="default" {{ request('sortBy') == 'default' ? 'selected' : '' }}>{{trans('front.sort.default')}}</option>
+                    <option value="price_asc" {{ request('sortBy') == 'price_asc' ? 'selected' : '' }}>{{trans('front.sort.ask')}}{{trans('front.sort.asc')}}</option>
+                    <option value="price_desc" {{ request('sortBy') == 'price_desc' ? 'selected' : '' }}>{{trans('front.sort.desc')}}</option>
+                </select>
+            </div>
+        </form>
+        <!-- End Sorting block -->
 
         <div class="container_with_separators">
             @if(sizeof($data) == 0)

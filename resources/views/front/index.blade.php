@@ -49,7 +49,7 @@ $bodies = Config::get('site.bodies');
                             @foreach($bodies as $body)
                                 @if($value <= 6)
 
-                                            <a href="/{{$body['link']}}">
+                                            <a href="{{bodyUrl($body['slug'])}}">
                                                 <p>{{ $body['name']}}</p>
                                                 <img src="{{getBodyTypeImgPath($body['slug'])}}" alt="{{$body['name']}}">
                                             </a>
