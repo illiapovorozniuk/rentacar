@@ -50,7 +50,7 @@ class SiteController extends Controller
             $faqs = [];
         }
 
-        $cars = Car::all();
+        $cars = Car::all()->take(16);
         $cars = Car::carsInfo($cars->toArray());
 
         return view('front.index', compact('home_page', 'h1', 'title', 'content', 'description', 'cover', 'brands', 'cars', 'faqs'));
@@ -149,7 +149,7 @@ class SiteController extends Controller
         if ($body_page == null) {
             abort(404);
         }
-        $touched_cars = Car::all()->where('status', 1)->where('car_body_type_id', '!=', $body_page->id)->take(4)->toArray();
+        $touched_cars = Car::all()->where('status', 1)->where('car_body_type_id', '!=', $body_page->id)->whereNotIn('id',$data->pluck('id'))->shuffle()->take(4)->toArray();
         $touched_cars = Car::carsInfo($touched_cars);
         $h1 = str_replace('{slug}',$body->name,$body_page->h1);
         $title = str_replace('{slug}',$body->nafme,$body_page->title);
@@ -162,6 +162,7 @@ class SiteController extends Controller
         } else {
             $faqs = [];
         }
+//        dd($faqs);
         return view('front.plp', compact('data', 'h1', 'title', 'content', 'description', 'body', 'faqs', 'touched_cars', 'faq_slug_replacement','pagin_links'));
 
     }
@@ -214,7 +215,7 @@ class SiteController extends Controller
         if ($type_page == null) {
             abort(404);
         }
-        $touched_cars = Car::all()->where('status', 1)->take(4)->toArray();
+        $touched_cars = Car::all()->where('status', 1)->whereNotIn('id',$data->pluck('id'))->shuffle()->take(4)->toArray();
         $touched_cars = Car::carsInfo($touched_cars);
         $h1 = str_replace('{slug}',$type->name,$type->h1);
         $title = str_replace('{slug}',$type->nafme,$type_page->title);
@@ -264,7 +265,7 @@ class SiteController extends Controller
         $h1 = ucwords($car->brand_slug) . ' ' . (json_decode($car->car_model_name)->$locale ?? '') . ' ' . $car->attribute_year . ' ' . (json_decode($car->color_name)->$locale ?? '');
         $car_title = ucwords($car->brand_slug) . ' ' . (json_decode($car->car_model_name)->$locale ?? '') . ' ' . $car->attribute_year;
         $photos = $car->photos;
-        $touched_cars = Car::all()->where('status', 1)->where('id', '!=', $car->id)->take(4)->toArray();
+        $touched_cars = Car::all()->where('status', 1)->where('id', '!=', $car->id)->shuffle()->take(4)->toArray();
         $touched_cars = Car::carsInfo($touched_cars);
         $data = $car;
 
@@ -315,7 +316,7 @@ class SiteController extends Controller
         if ($brand_page == null) {
             abort(404);
         }
-        $touched_cars = Car::all()->where('status', 1)->where('car_brand_id', '!=', $brand->id)->take(4)->toArray();
+        $touched_cars = Car::all()->where('status', 1)->where('car_brand_id', '!=', $brand->id)->shuffle()->take(4)->toArray();
         $touched_cars = Car::carsInfo($touched_cars);
         $h1 = str_replace('{slug}',$brand->name,$brand_page->h1);
         $title = str_replace('{slug}',$brand->name,$brand_page->title);

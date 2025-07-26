@@ -54,6 +54,8 @@ if (Schema::hasTable('languages')) {
                             Route::get('{order}', [OrderController::class, 'show'])->name('orders.show');
                             Route::get('{order}/pay', [OrderController::class, 'showPaymentForm'])->name('orders.pay');
                             Route::post('{order}/liqpay', [LiqPayController::class, 'generateForm'])->name('liqpay.form');
+                            // Cancel order route
+                            Route::post('/orders/{order}/cancel', [OrderController::class, 'cancel'])->name('order.cancel');
                         });
                     });
 
@@ -235,7 +237,7 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function () {
-            Route::get('/', 'OrdersController@index')->name('index');
+            Route::get('/', 'OrdersController@board')->name('board');
     });
 });
 
@@ -292,6 +294,8 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'OrdersController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{order}',                                     'OrdersController@update')->name('update');
             Route::delete('/{order}',                                   'OrdersController@destroy')->name('destroy');
+            Route::get('/{order}/show', 'OrdersController@show')->name('show');
+            Route::post('/{order}/cancel', 'OrdersController@cancel')->name('cancel');
         });
     });
 });

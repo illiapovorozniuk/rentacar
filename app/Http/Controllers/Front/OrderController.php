@@ -124,5 +124,19 @@ class OrderController extends Controller
         return view('front.order', compact('order', 'car', 'h1', 'form'));
     }
 
+    public function cancel(Request $request, Order $order)
+    {
+        $auth_user = auth()->user();
+        if ($order->user_id !== $auth_user->id) {
+            abort(403, 'Unauthorized action.');
+        }
+        if (!$order->canBeCancelled()) {
+            return redirect()->back()->withErrors(['cancel' => trans('front.order.cannot_cancel')]);
+        }
+        $order->status = \App\Enums\OrderType::PAYMENT_CANCELLED->value;
+        $order->save();
+        return redirect()->route('orders.show', $order)->with('success', trans('front.order.cancelled_success'));
+    }
+
 
 }

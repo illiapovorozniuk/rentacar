@@ -140,6 +140,12 @@ $locale = config('app.locale');
                         <div class="payed_container">
                             <p class="title">{{trans('front.order.paid_and_confirmed')}}</p>
                             <p class="total_price">{{$order->total_price}} <span>{{$order->currency->sign}}</span></p>
+                            @if($order->canBeCancelled())
+                                <form method="POST" action="{{ route('order.cancel', $order->id) }}" class="cancel-order-form">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">{{ trans('trans_rentacar.order.cancelled') }}</button>
+                                </form>
+                            @endif
                         </div>
                     @endif
                 </div>

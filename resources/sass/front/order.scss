@@ -185,6 +185,15 @@
 
 
                 }
+                button {
+                    background: $danger_light;
+                    border: 1px solid $danger_red;
+                    padding: 10px;
+                    border-radius: 10px;
+                    text-align: center;
+                    width: stretch;
+                    margin-top: 10px;
+                }
             }
         }
     }

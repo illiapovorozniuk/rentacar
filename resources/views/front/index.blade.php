@@ -78,7 +78,7 @@ $bodies = Config::get('site.bodies');
                     </div>
                 </div>
             </div>
-            <div class="text_content">{!! $content !!}</div>
+            <div class="text_container">{!! $content !!}</div>
             @if($faqs > 0)
                 @include('front.template-parts.faq', ['faqs' => $faqs])
             @endif

@@ -49,4 +49,15 @@ class Order extends Model
     {
         return url('/admin/orders/'.$this->getKey());
     }
+
+    /**
+     * Determine if the order can be cancelled by the user.
+     * You can adjust the logic as needed.
+     */
+    public function canBeCancelled()
+    {
+        // Example logic: only paid and not already cancelled
+        return $this->payment_status === \App\Enums\OrderType::PAYMENT_PAID->value
+            && $this->status !== \App\Enums\OrderType::PAYMENT_CANCELLED->value;
+    }
 }

@@ -45,7 +45,7 @@ $current_locale = app()->getLocale();
                             @endforeach
                         </div>
                     </div>
-                    <div class="text_content">{!! $content !!}</div>
+                    <div class="text_container">{!! $content !!}</div>
                 </div>
             </div>
         </main>
