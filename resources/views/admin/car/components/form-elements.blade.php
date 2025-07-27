@@ -198,7 +198,7 @@
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('color_id'), 'has-success': this.fields.color_id && this.fields.color_id.valid }">
     <label for="color_id"
-           class="col-md-2">{{ trans('admin.forms.cars_color_name') }}</label>
+           class="col-md-2">Колір</label>
     <div class="col-md-9 col-xl-8">
 
         <multiselect
@@ -221,7 +221,7 @@
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('fuel_id'), 'has-success': this.fields.fuel_id && this.fields.fuel_id.valid }">
     <label for="fuel_id"
-           class="col-md-2">{{ trans('admin.forms.fuel_name') }}</label>
+           class="col-md-2">Паливо</label>
     <div class="col-md-9 col-xl-8">
 
         <multiselect
@@ -322,7 +322,7 @@
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('attribute_transmission'), 'has-success': fields.attribute_transmission && fields.attribute_transmission.valid }">
     <label for="attribute_transmission" class="col-form-label text-md-right"
-           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.car-model.columns.attribute_transmission') }}</label>
+           :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">Трансмісія</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <select
             v-model="form.attribute_transmission"
@@ -410,7 +410,7 @@
         <div class="card-header" id="headingOne">
             <h5 class="mb-0">
                 <div class="btn btn-link w-100 text-left" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    {{trans('admin.car.address')}}
+                   Адреса та геолокація
                 </div>
             </h5>
         </div>

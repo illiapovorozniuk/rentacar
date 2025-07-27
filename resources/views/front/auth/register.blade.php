@@ -7,7 +7,7 @@
 @section('body')
     <div class="login_container">
         <form method="POST" action="{{ route('front.register.post') }}">
-            <h1>Sign Up</h1>
+            <h1>{{trans('front.sign_up')}}</h1>
             @csrf
 
             <input type="text" name="name" placeholder="{{trans('front.register.name')}}" required>
@@ -20,7 +20,7 @@
                 <div class="error_message">{{ $errors->first('email') }}</div>
             @endif
 
-            <input type="password" name="password" placeholder="{{trans('admin-user.columns.password')}}" required>
+            <input type="password" name="password" placeholder="Пароль" required>
             @if ($errors->has('password'))
                 <div class="error_message">{{ $errors->first('password') }}</div>
             @endif

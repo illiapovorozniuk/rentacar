@@ -302,7 +302,7 @@ $arrow_sign = '<svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="ht
                                                 <p class="name">{{trans('trans_rentacar.car.monthly')}}</p>
                                                 <div></div>
                                                 <p class="value">3,500 {{trans('trans_rentacar.car.km')}}</p>
-                                            </div>
+                                            </div>p
                                         </div>
                                     </div>
                                 </div>

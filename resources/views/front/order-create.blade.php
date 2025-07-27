@@ -8,7 +8,7 @@ $locale = config('app.locale');
 
 @section('style')
     <link rel="stylesheet" href="/css/front/order-create.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/litepicker/dist/css/litepicker.css"/>
 @endsection
 {{--@section('title')--}}
 {{--    {{ $title }}--}}
@@ -90,8 +90,25 @@ $locale = config('app.locale');
                                 <p>{{ trans('trans_rentacar.car.delivery').' '.getCurrentPrice($car->free_delivery).' '.$current_currency->sign }}</p>
                             </div>
                         @endif
+                        <?php
+                        $second = formatNumberString(getCurrentPrice($car->price_1));
+                        $first = getCurrentPrice($car->price_7 * 7);
+                        $last = getCurrentPrice($car->price_30 * 30);
+                        $all = [$second, $first, $last];
 
-
+                        ?>
+                        <div>
+                            @if($car->min_day_reservation < 7)
+                                <p id="price">{{$second.' '. $current_currency->sign}}</p>
+                                <p class="date_range">{{trans('front.site.per_day')}}</p>
+                            @elseif($car->min_day_reservation < 30)
+                                <p id="price">{{$first.' '. $current_currency->sign}}</p>
+                                <p class="date_range">{{trans('front.site.per_week')}}</p>
+                            @else
+                                <p id="price">{{$last.' '. $current_currency->sign}}</p>
+                                <p class="date_range">{{trans('front.site.per_month')}}</p>
+                            @endif
+                        </div>
                     </div>
                     @if($car->latitude != NULL && $car->longitude != NULL)
                         <div class="location">
@@ -106,24 +123,24 @@ $locale = config('app.locale');
                 <form action="" method="POST">
                     @csrf
                     <div>
-                        <label for="date_range">{{trans('front.car.date_range')}}:</label>
+                        <label for="date_range">Проміжок часу:</label>
                         <input type="text" id="date_range" name="date_range" required readonly>
                         <input type="hidden" id="date_from" name="date_from" required>
                         <input type="hidden" id="date_to" name="date_to" required>
                     </div>
                     <div>
-                        <label for="pickup_address">Pickup address:</label>
+                        <label for="pickup_address">Адреса отримання:</label>
                         <input type="text" id="pickup_address" name="pickup_address">
                     </div>
                     <div>
-                        <label for="dropoff_address">Dropoff address:</label>
+                        <label for="dropoff_address">Адреса здачі:</label>
                         <input type="text" id="dropoff_address" name="dropoff_address">
                     </div>
                     <div class="price">
-                        Price:
+                        Ціна:
                         <span id="car_price"></span>
                     </div>
-                    <button type="submit">Create Order</button>
+                    <button type="submit">Створити замовлення</button>
                 </form>
             </div>
 
@@ -141,7 +158,7 @@ $locale = config('app.locale');
         const price_30 = {{getCurrentPrice($car->price_30)}};
 
         const currencySign = '{{ $current_currency->sign }}';
-        const delivery = {{$car->free_delivery}};
+        const delivery = {{getCurrentPrice($car->free_delivery)}};
 
 
         const disabledDates = @json($disabledDates ?? []);
@@ -178,8 +195,8 @@ $locale = config('app.locale');
             lockDays: disabledDates,
             setup: (picker) => {
                 picker.on('selected', (startDate, endDate) => {
-                    const start = new Date(startDate.dateInstance -1);
-                    const end = new Date(endDate.dateInstance -1);
+                    const start = new Date(startDate.dateInstance - 1);
+                    const end = new Date(endDate.dateInstance - 1);
 
                     const range = getDateRangeArray(
                         new Date(start.setDate(start.getDate() + 1)),
@@ -205,12 +222,15 @@ $locale = config('app.locale');
                         } else {
                             total = days * price_1;
                         }
-                        // Додаємо доставку, якщо хоча б одне поле адреси заповнене
                         const pickup = document.getElementById('pickup_address').value.trim();
                         const dropoff = document.getElementById('dropoff_address').value.trim();
                         if (pickup || dropoff) {
                             total += delivery;
                         }
+                        @if($car->deposit)
+
+                            total += {{getCurrentPrice($car->deposit)}};
+                        @endif
                         document.getElementById('car_price').innerText = Math.round(total) + ' ' + currencySign;
                     }
                 });
@@ -219,7 +239,7 @@ $locale = config('app.locale');
 
         // Додаємо слухачі на зміну адрес
         ['pickup_address', 'dropoff_address'].forEach(id => {
-            document.getElementById(id).addEventListener('input', function() {
+            document.getElementById(id).addEventListener('input', function () {
                 if (picker.getStartDate() && picker.getEndDate()) {
                     picker.emit('selected', picker.getStartDate(), picker.getEndDate());
                 }
@@ -227,7 +247,7 @@ $locale = config('app.locale');
         });
 
         // AJAX submit for order form
-        document.querySelector('form').addEventListener('submit', function(e) {
+        document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
             const form = this;
             const formData = new FormData(form);
@@ -240,15 +260,15 @@ $locale = config('app.locale');
                 },
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.redirect_url) {
-                    window.location.href = data.redirect_url;
-                }
-            })
-            .catch(error => {
-                console.log('Error: ' + error.message);
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.redirect_url) {
+                        window.location.href = data.redirect_url;
+                    }
+                })
+                .catch(error => {
+                    console.log('Error: ' + error.message);
+                });
         });
     </script>
 @endsection

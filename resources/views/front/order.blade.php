@@ -126,7 +126,7 @@ $locale = config('app.locale');
 
                     @if($order->status === \App\Enums\OrderType::PAYMENT_CANCELLED->value)
                         <div class="cancelled_container">
-                            <p class="title">{{trans('trans_rentacar.order.cancelled')}}</p>
+                            <p class="title">Cкасувати замовлення</p>
                         </div>
                     @elseif($order->payment_status !== \App\Enums\OrderType::PAYMENT_PAID->value)
                         <div class="not_payed_container">
@@ -143,7 +143,7 @@ $locale = config('app.locale');
                             @if($order->canBeCancelled())
                                 <form method="POST" action="{{ route('order.cancel', $order->id) }}" class="cancel-order-form">
                                     @csrf
-                                    <button type="submit" class="btn btn-danger">{{ trans('trans_rentacar.order.cancelled') }}</button>
+                                    <button type="submit" class="btn btn-danger">Скасувати замовлення</button>
                                 </form>
                             @endif
                         </div>

@@ -62,6 +62,15 @@ class OrderController extends Controller
         }
 
         $total_price = 0;
+        $delivery_price = 0;
+        $deposit_price = 0;
+        if ($car->free_delivery !== 0 && (!empty($data['pickup_address']) || !empty($data['dropoff_address']))) {
+            $delivery_price  = getCurrentPrice($car->free_delivery);
+        }
+        if($car->deposit > 0) {
+            $deposit_price = getCurrentPrice($car->deposit);
+        }
+
         if ($days_count >= 30) {
             $total_price = $price_30;
         } elseif ($days_count >= 7) {
@@ -79,7 +88,7 @@ class OrderController extends Controller
             'address_from' => $user->address ?? null,
             'address_to' => $user->address ?? null,
             'status' => OrderType::PAYMENT_PENDING->value,
-            'total_price' => $total_price * $days_count,
+            'total_price' => $total_price * $days_count + $delivery_price + $deposit_price,
             'currency_id' => $currency->id,
         ];
         $order = Order::create($order_data);
